@@ -12,7 +12,7 @@ const OurProducts = () => {
           <h2 className="text-4xl font-bold mt-2 mb-3">
             Our Products
           </h2>
-          <p className="text-gray-600 text-xl mb-6 w-xl">
+          <p className="text-gray-600 text-xl mb-6 md:w-xl">
            Increase throughput and grow sales with an optimized and integrated supply chain ecosystem. Trusted by 1000+ businesses.
           </p>
 
