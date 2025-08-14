@@ -8,6 +8,8 @@ import Timeline from "./Components/Timeline";
 import SupplyChain from "./Components/SupplyChain";
 import ClientReview from "./Components/ClientReview";
 import Blog from "./Components/Blog";
+import FAQSection from "./Components/FAQSection";
+import Footer from "./Components/Footer";
 
 export default function Home() {
   return (
@@ -21,6 +23,8 @@ export default function Home() {
       <SupplyChain></SupplyChain>
       <ClientReview></ClientReview>
       <Blog></Blog>
+      <FAQSection></FAQSection>
+      <Footer></Footer>
     </div>
   );
 }

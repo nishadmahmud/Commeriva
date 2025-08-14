@@ -15,8 +15,8 @@ export default function Category() {
   const [active, setActive] = useState("Travel");
 
   return (
-    <div className="bg-white text-gray-900 flex flex-col items-start justify-start my-20 w-11/12 mx-auto">
-      <h1 className="md:text-6xl font-semibold text-start mb-4 leading-16">
+    <div className="bg-white text-gray-900 flex flex-col items-start justify-start my-20 w-10/12 mx-auto">
+      <h1 className="md:text-5xl font-semibold text-start mb-4 leading-16">
         Identity is so much more than <br /> just the login box
       </h1>
       <p className="text-2xl text-start text-gray-700 mt-1 mb-8">

@@ -115,7 +115,7 @@ export default function SupplyChain() {
     <section className="relative isolate overflow-hidden bg-white">
       <div className="mx-auto w-10/12 py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
             Boost your supply chain efficiency
           </h2>
           <p className="mt-4 text-lg text-gray-600">

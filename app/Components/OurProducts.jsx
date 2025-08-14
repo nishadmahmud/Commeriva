@@ -3,7 +3,7 @@ import React from "react";
 
 const OurProducts = () => {
   return (
-    <div className="bg-white w-11/12 mx-auto mt-5">
+    <div className="bg-white w-10/12 mx-auto mt-5">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         {/* Large Left Card */}
