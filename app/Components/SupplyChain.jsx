@@ -113,7 +113,7 @@ const stories = [
 export default function SupplyChain() {
   return (
     <section className="relative isolate overflow-hidden bg-white">
-      <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto w-10/12 py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
             Boost your supply chain efficiency
@@ -132,7 +132,7 @@ export default function SupplyChain() {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
               viewport={{ once: true }}
-              className="group relative rounded-3xl border p-6 shadow-sm border-gray-300 bg-[linear-gradient(181deg,rgba(5,5,5,1)_0%,rgba(0,212,255,0)_100%)]"
+              className="group relative rounded-xl border w-96 p-6 h-96 shadow-sm border-gray-300 bg-[linear-gradient(181deg,rgba(43,43,43,0.65)_0%,rgba(255,255,255,0)_54%)]"
             >
               <div
                 className="pointer-events-none absolute inset-0 -z-10 rounded-3xl opacity-50"
@@ -152,9 +152,9 @@ export default function SupplyChain() {
                   </span>
                 </div>
               </div>
-              <div className="mt-6">
+              <div className="mt-auto bottom-5 absolute">
                 <h3 className="text-lg font-bold text-gray-900">{s.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-gray-600">{s.description}</p>
+                <p className="mt-2 pr-1 text-sm leading-6 text-gray-600">{s.description}</p>
               </div>
              
             </motion.article>

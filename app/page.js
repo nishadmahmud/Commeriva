@@ -7,6 +7,7 @@ import OurStacks from "./Components/OurStacks";
 import Timeline from "./Components/Timeline";
 import SupplyChain from "./Components/SupplyChain";
 import ClientReview from "./Components/ClientReview";
+import Blog from "./Components/Blog";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Timeline></Timeline>
       <SupplyChain></SupplyChain>
       <ClientReview></ClientReview>
+      <Blog></Blog>
     </div>
   );
 }

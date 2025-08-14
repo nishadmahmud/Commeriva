@@ -148,7 +148,7 @@ const styles = {
     maxWidth: "1400px",
     minHeight: "600px",
     padding: "40px 20px",
-    "@media (max-width: 768px)": {
+    "@media (maxWidth: 768px)": {
       padding: "20px 16px",
       minHeight: "auto",
     },
@@ -160,7 +160,7 @@ const styles = {
     justifyContent: "center",
     transition: "transform 0.2s ease, box-shadow 0.2s ease",
     cursor: "pointer",
-    "@media (max-width: 768px)": {
+    "@media (maxWidth: 768px)": {
       display: "none",
     },
   },
@@ -171,7 +171,7 @@ const styles = {
   },
   mobileLogoGrid: {
     display: "none",
-    "@media (max-width: 768px)": {
+    "@media (maxWidth: 768px)": {
       display: "grid",
       gridTemplateColumns: "repeat(4, 1fr)",
       gap: "16px",
@@ -203,7 +203,7 @@ const styles = {
     maxWidth: "600px",
     width: "100%",
     padding: "0 20px",
-    "@media (max-width: 768px)": {
+    "@media (maxWidth: 768px)": {
       position: "static",
       transform: "none",
       maxWidth: "100%",
@@ -216,7 +216,7 @@ const styles = {
     color: "#6b7280",
     letterSpacing: "1px",
     marginBottom: "20px",
-    "@media (max-width: 480px)": {
+    "@media (maxWidth: 480px)": {
       fontSize: "12px",
       marginBottom: "16px",
     },
@@ -228,10 +228,10 @@ const styles = {
     lineHeight: "1.2",
     marginBottom: "24px",
     margin: "0 0 24px 0",
-    "@media (max-width: 768px)": {
+    "@media (maxWidth: 768px)": {
       fontSize: "36px",
     },
-    "@media (max-width: 480px)": {
+    "@media (maxWidth: 480px)": {
       fontSize: "28px",
       marginBottom: "20px",
     },
@@ -241,10 +241,10 @@ const styles = {
     color: "#6b7280",
     lineHeight: "1.6",
     marginBottom: "32px",
-    "@media (max-width: 768px)": {
+    "@media (maxWidth: 768px)": {
       fontSize: "16px",
     },
-    "@media (max-width: 480px)": {
+    "@media (maxWidth: 480px)": {
       fontSize: "14px",
       marginBottom: "24px",
     },
@@ -254,7 +254,7 @@ const styles = {
     justifyContent: "center",
     gap: "32px",
     marginBottom: "48px",
-    "@media (max-width: 480px)": {
+    "@media (maxWidth: 480px)": {
       flexDirection: "column",
       gap: "16px",
       marginBottom: "32px",
@@ -267,7 +267,7 @@ const styles = {
     fontSize: "16px",
     position: "relative",
     transition: "color 0.2s ease",
-    "@media (max-width: 480px)": {
+    "@media (maxWidth: 480px)": {
       fontSize: "14px",
     },
   },
@@ -280,10 +280,10 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     gap: "80px",
-    "@media (max-width: 768px)": {
+    "@media (maxWidth: 768px)": {
       gap: "40px",
     },
-    "@media (max-width: 480px)": {
+    "@media (maxWidth: 480px)": {
       flexDirection: "column",
       gap: "24px",
     },
@@ -296,10 +296,10 @@ const styles = {
     fontWeight: "700",
     color: "#1f2937",
     marginBottom: "8px",
-    "@media (max-width: 768px)": {
+    "@media (maxWidth: 768px)": {
       fontSize: "28px",
     },
-    "@media (max-width: 480px)": {
+    "@media (maxWidth: 480px)": {
       fontSize: "24px",
       marginBottom: "4px",
     },
@@ -308,7 +308,7 @@ const styles = {
     fontSize: "16px",
     color: "#6b7280",
     fontWeight: "500",
-    "@media (max-width: 480px)": {
+    "@media (maxWidth: 480px)": {
       fontSize: "14px",
     },
   },
