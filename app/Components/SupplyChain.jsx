@@ -85,27 +85,28 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import DarkVeil from "./DarkVeil";
 
 const stories = [
   {
     logoText: "Socity",
     title: "Midnight Society",
     description:
-      "Midnight Society launched their game to 400,000+ users in just 6 weeks using Nhost. Their team saved months of development time with our end‑to‑end backend solution.",
+      "Midnight Society launched their game to 400,000+ users in just 6 weeks using Nhost. Their team saved months of development time with our end‑to‑end backend solution. Midnight Society launched their game to 400,000+ users in just",
     href: "/case-studies/midnight-society",
   },
   {
     logoText: "React Flow",
     title: "React Flow",
     description:
-      "React Flow implemented a complete subscription platform in just 2 months with Nhost. Their small team focused on product features instead of backend infrastructure.",
+      "React Flow implemented a complete subscription platform in just 2 months with Nhost. Their small team focused on product features instead of backend infrastructure. React Flow implemented a complete subscription",
     href: "/case-studies/react-flow",
   },
   {
     logoText: "Revetron",
     title: "Revtron",
     description:
-      "RevTron achieved triple‑digit growth using Nhost to power their analytics platform. They reduced onboarding time by 80% and rapidly adapted to customer needs.",
+      "RevTron achieved triple‑digit growth using Nhost to power their analytics platform. They reduced onboarding time by 80% and rapidly adapted to customer needs. RevTron achieved triple‑digit growth using Nhost to power their analytics platform.",
     href: "/case-studies/revtron",
   },
 ];
@@ -124,6 +125,7 @@ export default function SupplyChain() {
           
         </div>
 
+
         <div className="mt-12 grid gap-6 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
           {stories.map((s, i) => (
             <motion.article
@@ -132,8 +134,9 @@ export default function SupplyChain() {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
               viewport={{ once: true }}
-              className="group relative rounded-xl border w-96 p-6 h-96 shadow-sm border-gray-300 bg-[linear-gradient(181deg,rgba(43,43,43,0.65)_0%,rgba(255,255,255,0)_54%)]"
+              className="group relative rounded-xl border w-96 p-6 h-[27rem] shadow-sm border-gray-300 bg-[linear-gradient(90deg,rgba(0,72,110,0.57)_0%,rgba(9,9,121,0)_50%,rgba(0,72,110,0.59)_100%)]"
             >
+              
               <div
                 className="pointer-events-none absolute inset-0 -z-10 rounded-3xl opacity-50"
                 style={{
@@ -146,7 +149,7 @@ export default function SupplyChain() {
                 }}
               />
               <div className="rounded-2xl border border-gray-200 bg-gray-50/30 p-8 text-center">
-                <div className="mx-auto inline-flex h-20 w-full items-center justify-center">
+                <div className="mx-auto inline-flex h-28 w-full items-center justify-center">
                   <span className="whitespace-pre-line text-2xl font-extrabold tracking-wider text-gray-900">
                     {s.logoText}
                   </span>

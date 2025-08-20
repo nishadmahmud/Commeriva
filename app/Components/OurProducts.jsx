@@ -1,75 +1,133 @@
 import Image from "next/image";
 import React from "react";
+import CardSwap, { Card } from "./CardSwap";
+import { ArrowRight } from "lucide-react";
 
 const OurProducts = () => {
   return (
-    <div className="bg-white w-10/12 mx-auto mt-5">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        {/* Large Left Card */}
-        <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm col-span-1">
-         
-          <h2 className="text-4xl font-bold mt-2 mb-3">
-            Our Products
-          </h2>
-          <p className="text-gray-600 text-xl mb-6 md:w-xl">
-           Increase throughput and grow sales with an optimized and integrated supply chain ecosystem. Trusted by 1000+ businesses.
-          </p>
+    <div className="w-10/12 mx-auto mt-10">
+      {/* Title Centered */}
+      
 
-          {/* Mock Icons */}
-          <div className="flex items-center justify-center space-x-4">
-            <Image className="w-60 mt-4" width={500} height={400} alt="our-products" src='/ourP.png'></Image>
-          </div>
+      {/* CardSwap Centered */}
+      <div className="relative flex justify-between items-center h-screen">
+
+       <div className="mb-20 space-y-2">
+         <h3 className="font-semibold text-4xl leading-10 text-gray-900 text-start">Innovative Solutions For <br /> Your Business Needs</h3>
+
+        <p className="text-gray-600 italic font-medium">Smart. Scalable. Efficient.</p>
+       </div>
+
+
+        <CardSwap
+          cardDistance={60}
+          verticalDistance={70}
+          delay={5000}
+          pauseOnHover={false}
+        >
+          {/* card 01 */}
+          <Card>
+            <div className="flex items-center gap-2 px-3 py-2 pt-3 bg-gray-100 border-b border-gray-300 rounded-t-xl">
+          <span className="w-3 h-3 rounded-full bg-red-500"></span>
+          <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
+          <span className="w-3 h-3 rounded-full bg-green-500"></span>
         </div>
 
-       <div className="space-y-3">
-         {/* Top Right Card */}
-        <div className=" text-black border border-gray-200 rounded-3xl p-8 shadow-sm flex items-center justify-between overflow-hidden">
-  {/* Text Section */}
-  <div className="max-w-md">
-    <p className="text-xs font-semibold tracking-wider text-blue-400">Products 01</p>
-    <h3 className="text-2xl font-bold mt-2 mb-3">
-      E-Commerce Suite →
-    </h3>
-    <p className="text-gray-500">
-     A dynamic, scalable, and fully integrated suite of e-Commerce and D2C business applications.
-    </p>
-  </div>
+        <div className="p-6 flex flex-col sm:flex-row items-center gap-4">
+          {/* Info Section */}
+          <div className="flex-1">
+            <h3 className="text-2xl font-semibold text-gray-900">
+              E-Commerce Suite→
+            </h3>
+            <p className="mt-2 text-gray-600 text-sm leading-relaxed">
+              Empower your online business with an all-in-one solution designed to drive growth and success. From managing operations to optimizing performance, our platform gives you the tools to thrive in a competitive digital marketplace.
+            </p>
+            <button className="mt-4 inline-flex items-center text-blue-600 font-medium hover:underline">
+              Learn More
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </button>
+          </div>
 
-  {/* Image Section */}
-  <div className="flex-shrink-0">
-    <img
-      src="/e-commarce.png"
-      alt="Decorative"
-      className="h-40 w-auto object-contain"
-    />
-  </div>
-</div>
+          {/* Image Section */}
+          <div className="flex-shrink-0">
+            <img
+              src="/e-commarce.gif"
+              alt="E-Commerce Suite"
+              className="w-52"
+            />
+          </div>
+        </div>
+          </Card>
 
+          {/* card 02 */}
+          <Card>
+            <div className="flex items-center gap-2 px-3 py-2 pt-3 bg-gray-100 border-b border-gray-300 rounded-t-xl">
+          <span className="w-3 h-3 rounded-full bg-red-500"></span>
+          <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
+          <span className="w-3 h-3 rounded-full bg-green-500"></span>
+        </div>
 
-        {/* Bottom Right Card */}
-        <div className=" text-black border border-gray-200 rounded-3xl p-8 shadow-sm flex items-center justify-between overflow-hidden">
-  {/* Text Section */}
-  <div className="max-w-md">
-    <p className="text-xs font-semibold tracking-wider text-blue-400">Products 02</p>
-    <h3 className="text-2xl font-bold mt-2 mb-3">
-     Enterprise Cloud Supply Chain →
-    </h3>
-    <p className="text-gray-500">
-    A robust, vertically scalable, and customizable suite of supply chain automation tools for high-throughput industrial applications.
-    </p>
-  </div>
+        <div className="p-6 flex flex-col sm:flex-row items-center gap-4">
+          {/* Info Section */}
+          <div className="flex-1">
+            <h3 className="text-2xl font-semibold text-gray-900">
+              Enterprise Cloud Supply Chain→
+            </h3>
+            <p className="mt-2 text-gray-600 text-sm leading-relaxed">
+              A robust, vertically scalable, and customizable suite of supply chain automation tools for high-throughput industrial applications.A powerful, scalable, and customizable supply chain automation suite for industrial efficiency.
+            </p>
+            <button className="mt-4 inline-flex items-center text-blue-600 font-medium hover:underline">
+              Learn More
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </button>
+          </div>
 
-  {/* Image Section */}
-  <div className="flex-shrink-0">
-    <img
-      src="/cloud-supply.png"
-      alt="Decorative"
-      className="h-40 w-auto object-contain"
-    />
-  </div>
-</div>
-       </div>
+          {/* Image Section */}
+          <div className="flex-shrink-0">
+            <img
+              src="/cloud-data-processing.png"
+              alt="E-Commerce Suite"
+              className="w-52"
+            />
+          </div>
+        </div>
+          </Card>
+
+          {/* card 03 */}
+          <Card>
+            <div className="flex items-center gap-2 px-3 py-2 pt-3 bg-gray-100 border-b border-gray-300 rounded-t-xl">
+          <span className="w-3 h-3 rounded-full bg-red-500"></span>
+          <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
+          <span className="w-3 h-3 rounded-full bg-green-500"></span>
+        </div>
+
+        <div className="p-6 flex flex-col sm:flex-row items-center gap-4">
+          {/* Info Section */}
+          <div className="flex-1">
+            <h3 className="text-2xl font-semibold text-gray-900">
+              Intelligent Inventory Manager→
+            </h3>
+            <p className="mt-2 text-gray-600 text-sm leading-relaxed">
+              The Intelligent Inventory Manager helps businesses optimize their stock levels with real-time insights, ensuring products are always available when needed. By automating replenishment and monitoring inventory trends.
+            </p>
+            <button className="mt-4 inline-flex items-center text-blue-600 font-medium hover:underline">
+              Learn More
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </button>
+          </div>
+
+          {/* Image Section */}
+          <div className="flex-shrink-0">
+            <img
+              src="/pos.gif"
+              alt="E-Commerce Suite"
+              className="w-56"
+            />
+          </div>
+        </div>
+          </Card>
+          
+        </CardSwap>
       </div>
     </div>
   );

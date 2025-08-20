@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="">
       <HeroPage></HeroPage>
-      <TrustedBy></TrustedBy>
+      {/* <TrustedBy></TrustedBy> */}
       <OurProducts></OurProducts>
       <Category></Category>
       <OurStacks></OurStacks>

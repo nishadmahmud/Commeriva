@@ -1,20 +1,41 @@
 import React from "react";
 import { Play } from "lucide-react";
+import RotatingText from "./RotatingText";
+import Threads from "./Threads";
 
 const HeroPage = () => {
   return (
-    <div className="relative w-full min-h-[90vh] flex flex-col items-center justify-center text-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 border-b border-gray-400">
-      
-      {/* Animated Background Pattern */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute w-[200%] h-[200%] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 animate-slowmove" />
+    <div className="relative w-full min-h-[90vh] flex flex-col items-center justify-center text-center overflow-hidden">
+
+      {/* Background Layer */}
+      <div className="absolute inset-0 z-0">
+        <Threads
+          amplitude={1}
+          distance={0}
+          enableMouseInteraction={true}
+        />
       </div>
 
       {/* Hero Content */}
       <div className="relative z-10 px-4">
-        <h1 className="text-5xl md:text-6xl font-bold leading-tight text-black max-w-8xl montserrat">
-          More than authentication, <br /> Complete User Management
+        <h1 className="text-5xl md:text-6xl font-bold leading-tight text-black max-w-4xl montserrat">
+          More than authentication, <br />
+          Complete User{" "}
+          
+          <RotatingText
+            texts={["Control", "Access", "Security", "Experience"]}
+            mainClassName="text-black absolute top-4 overflow-hidden justify-center inline-block"
+            staggerFrom={"last"}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-120%"}}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden"
+            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            rotationInterval={3000}
+          />
         </h1>
+
         <p className="mt-6 text-lg max-w-3xl text-gray-600">
           Need more than sign-in? Clerk gives you full stack auth and user
           management — so you can launch faster, scale easier, and stay

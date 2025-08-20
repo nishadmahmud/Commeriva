@@ -2,6 +2,7 @@
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component"
 import "react-vertical-timeline-component/style.min.css"
 import { Rocket, Code, CheckCircle, TrendingUp, Zap } from "lucide-react"
+import { ScrollTimeline } from "./scroll-timeline"
 
 export default function ScrollableTimeline() {
   const events = [
@@ -80,41 +81,11 @@ export default function ScrollableTimeline() {
 
   return (
     <div className=" min-h-screen">
-      {/* Header */}
-      <div className="text-center py-12 lg:py-20 px-4">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          Project Timeline
-        </h1>
-        <p className="text-gray-600 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
-          Follow our journey from conception to success through every milestone
-        </p>
-      </div>
+     
 
-      {/* Timeline */}
-      <div className="pb-20">
-        <VerticalTimeline lineColor="#E5E7EB" animate={true}>
-          {events.map((event, index) => (
-            <VerticalTimelineElement
-              key={index}
-              className="vertical-timeline-element--work"
-              contentStyle={event.contentStyle}
-              contentArrowStyle={event.contentArrowStyle}
-              date={event.subtitle}
-              dateClassName="text-gray-600 font-semibold"
-              iconStyle={{
-                background: event.iconBg,
-                color: "#fff",
-                boxShadow: `0 0 0 4px ${event.iconBg}20, inset 0 2px 0 rgba(255,255,255,.08), 0 3px 0 4px rgba(0,0,0,.05), 0 8px 17px rgba(0,0,0,.2)`,
-                border: "none",
-              }}
-              icon={event.icon}
-            >
-              <h3 className="text-xl sm:text-2xl font-bold mb-2">{event.title}</h3>
-              <p className="text-sm sm:text-base leading-relaxed opacity-90">{event.description}</p>
-            </VerticalTimelineElement>
-          ))}
-        </VerticalTimeline>
-      </div>
+      <ScrollTimeline></ScrollTimeline>
+
+     
 
      
     </div>
