@@ -42,7 +42,7 @@ const blogs = [
 
 export default function Blog() {
   return (
-    <section className="bg-white py-10 px-6">
+    <section className="bg-white py-10 pt-28 px-6">
        <div className="mx-auto max-w-4xl pb-10 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
             Insights on Building Your Perfect Store

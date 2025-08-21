@@ -1,12 +1,15 @@
+import { Calendar, LogIn } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
+import { FaWhatsapp } from "react-icons/fa";
+
 
 const Navbar = () => {
   return (
-    <nav className="bg-white">
+    <nav className="bg-transparent">
       <div className="max-w-7xl mx-auto py-4 flex items-center justify-between">
         {/* Left logo */}
-        <div className="font-bold text-xl text-black cursor-pointer">
+        <div className="font-bold tracking-widest text-xl text-black logo-font cursor-pointer">
           Commeriva
         </div>
 
@@ -34,15 +37,9 @@ const Navbar = () => {
 
         {/* Right buttons */}
         <div className="flex items-center space-x-4">
-          <button
-            className="px-4 py-1.5 pb-2 border border-gray-300 rounded-md text-black font-semibold hover:bg-gray-100 transition"
-          >
-            Sign up
-          </button>
-          <button
-            className="px-4 py-1.5 pb-2 bg-black border text-white rounded-md font-semibold hover:bg-gray-800 transition"
-          >
-            Contact sales
+          <button className='bg-gray-50 border border-gray-200 px-5 p-2 rounded-full text-gray-700 text-sm flex justify-center items-center gap-1.5'>
+            <Calendar size={18}></Calendar>
+            Book a appointment
           </button>
         </div>
       </div>

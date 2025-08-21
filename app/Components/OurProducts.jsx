@@ -5,17 +5,17 @@ import { ArrowRight } from "lucide-react";
 
 const OurProducts = () => {
   return (
-    <div className="w-10/12 mx-auto mt-10">
+    <div className="ml-20 mt-10 h-screen overflow-hidden">
       {/* Title Centered */}
       
 
       {/* CardSwap Centered */}
       <div className="relative flex justify-between items-center h-screen">
 
-       <div className="mb-20 space-y-2">
-         <h3 className="font-semibold text-4xl leading-10 text-gray-900 text-start">Innovative Solutions For <br /> Your Business Needs</h3>
+       <div className="mb-20 space-y-5">
+         <h3 className="font-semibold text-5xl leading-14 text-gray-900 text-start">Innovative Solutions For <br /> Your Business Needs</h3>
 
-        <p className="text-gray-600 italic font-medium">Smart. Scalable. Efficient.</p>
+        <p className="text-gray-600 italic font-medium text-lg">Smart. Scalable. Efficient.</p>
        </div>
 
 

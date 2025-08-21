@@ -45,19 +45,19 @@ const FAQSection = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-gray-500 font-semibold text-lg tracking-wider uppercase mb-4"
           >
             DISCOVER YOUR SOLUTIONS
-          </motion.p>
+          </motion.p> */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-5xl flex items-center gap-2 justify-center font-bold text-gray-900 mb-4"
+            className="text-4xl md:text-5xl flex items-center gap-2 justify-center font-bold text-gray-900"
           >
             Frequently asked
             <motion.h1
@@ -80,12 +80,12 @@ const FAQSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white border-b border-gray-200 overflow-hidden"
+              className="bg-white border-b border-gray-200 overflow-hidden "
             >
               {/* Question Header */}
               <button
                 onClick={() => toggleItem(index)}
-                className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:bg-gray-50"
+                className="w-full px-8 cursor-pointer py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:bg-gray-50"
               >
                 <h3 className="text-lg font-semibold text-gray-900 pr-8">
                   {item.question}

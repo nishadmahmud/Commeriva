@@ -19,7 +19,7 @@ export default function Home() {
       <OurProducts></OurProducts>
       <Category></Category>
       <OurStacks></OurStacks>
-      <Timeline></Timeline>
+      {/* <Timeline></Timeline> */}
       <SupplyChain></SupplyChain>
       <ClientReview></ClientReview>
       <Blog></Blog>

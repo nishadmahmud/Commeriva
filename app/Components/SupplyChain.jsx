@@ -1,171 +1,168 @@
-// import React from 'react';
-// import { ArrowRight } from 'lucide-react';
+"use client"
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react"
+import Globe from "./Globe"
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import Image from "next/image";
 
-// const SupplyChain = () => {
-//   const caseStudies = [
-//     {
-//       id: 1,
-//       logo: "MIDNIGHT SOCIETY",
-//       title: "Midnight Society",
-//       description: "Midnight Society launched their game to 400,000+ users in just 6 weeks using Nhost. Their team saved months of development time with our end-to-end backend solution."
-//     },
-//     {
-//       id: 2,
-//       logo: "React Flow",
-//       title: "React Flow", 
-//       description: "React Flow implemented a complete subscription platform in just 2 months with Nhost. Their small team was able to focus on product features instead of backend infrastructure."
-//     },
-//     {
-//       id: 3,
-//       logo: "REVTRON",
-//       title: "Revtron",
-//       description: "RevTron achieved triple-digit growth using Nhost to power their analytics platform. They reduced onboarding time by 80% and could rapidly adapt to customer needs."
-//     }
-//   ];
-
-//   return (
-//     <div className="min-h-screen bg-white py-20 px-4">
-//       <div className="max-w-7xl mx-auto">
-//         {/* Header Section */}
-//         <div className="text-center mb-16">
-//           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-//             Loved by teams who move fast
-//           </h1>
-//           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
-//             Nhost powers everything from indie hacker side projects to the core
-//             infrastructure of scaling startups.
-//           </p>
-//           <button className="inline-flex items-center px-8 py-4 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-colors duration-200 text-lg font-medium group">
-//             Learn more
-//             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
-//           </button>
-//         </div>
-
-//         {/* Case Studies Grid */}
-//         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-//           {caseStudies.map((study) => (
-//             <div
-//               key={study.id}
-//               className="rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer"
-//             >
-//               {/* Blue Gradient Top Section with Logo */}
-//               <div className="bg-gradient-to-br from-blue-600 to-blue-800 p-8 h-48 flex items-center justify-center">
-//                 <div className="bg-black rounded-lg px-6 py-4 flex items-center justify-center min-h-[80px]">
-//                   <div className="text-white font-bold text-lg tracking-wider text-center">
-//                     {study.logo}
-//                   </div>
-//                 </div>
-//               </div>
-
-//               {/* Black Bottom Section with Content */}
-//               <div className="bg-black p-8">
-//                 <div className="space-y-6">
-//                   <h3 className="text-2xl font-bold text-white">
-//                     {study.title}
-//                   </h3>
-//                   <p className="text-gray-300 leading-relaxed">
-//                     {study.description}
-//                   </p>
-//                   <button className="inline-flex items-center text-white font-semibold group-hover:text-gray-300 transition-colors duration-200">
-//                     Read the story
-//                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-//                   </button>
-//                 </div>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SupplyChain;
-'use client'
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
-import DarkVeil from "./DarkVeil";
-
-const stories = [
+const features = [
   {
-    logoText: "Socity",
-    title: "Midnight Society",
+    img: "/code.png",
+    title: "Web Order Management",
     description:
-      "Midnight Society launched their game to 400,000+ users in just 6 weeks using Nhost. Their team saved months of development time with our end‑to‑end backend solution. Midnight Society launched their game to 400,000+ users in just",
-    href: "/case-studies/midnight-society",
+      "Simplify order management with Web Order Monitoring. Track sales orders and KPIs effortlessly.",
   },
   {
-    logoText: "React Flow",
-    title: "React Flow",
+    img: "/scanner.png",
+    title: "Scan & Trace Technology",
     description:
-      "React Flow implemented a complete subscription platform in just 2 months with Nhost. Their small team focused on product features instead of backend infrastructure. React Flow implemented a complete subscription",
-    href: "/case-studies/react-flow",
+      "Elevate your warehouse experience with Scan & Trace Technology. Enjoy superior inventory control.",
   },
   {
-    logoText: "Revetron",
-    title: "Revtron",
+    img: "/delivery-truck.png",
+    title: "Delivery Management",
     description:
-      "RevTron achieved triple‑digit growth using Nhost to power their analytics platform. They reduced onboarding time by 80% and rapidly adapted to customer needs. RevTron achieved triple‑digit growth using Nhost to power their analytics platform.",
-    href: "/case-studies/revtron",
+      "Elevate your delivery operations with Dispatch & Delivery Management and save your valuable time.",
   },
-];
+]
 
 export default function SupplyChain() {
+  const feature1Ref = useRef(null)
+  const feature2Ref = useRef(null)
+  const feature3Ref = useRef(null)
+
+  const feature1InView = useInView(feature1Ref, { once: true, margin: "-100px 0px -100px 0px" })
+  const feature2InView = useInView(feature2Ref, { once: true, margin: "-100px 0px -100px 0px" })
+  const feature3InView = useInView(feature3Ref, { once: true, margin: "-100px 0px -100px 0px" })
+
+  const featureRefs = [feature1Ref, feature2Ref, feature3Ref]
+  const featureInView = [feature1InView, feature2InView, feature3InView]
+
   return (
-    <section className="relative isolate overflow-hidden bg-white">
-      <div className="mx-auto w-10/12 py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto max-w-4xl text-center">
+    <div className="w-10/12 mx-auto min-h-[90vh] bg-white mt-20">
+       <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
             Boost your supply chain efficiency
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Comprehensive android app for distribution management: orders, SKU scanning, tracking, metrics, and vehicle monitoring in one solution.
+           Android app for orders, scanning, tracking, monitoring.
           </p>
           
         </div>
-
-
-        <div className="mt-12 grid gap-6 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
-          {stories.map((s, i) => (
-            <motion.article
-              key={s.title}
-              initial={{ y: 16, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              viewport={{ once: true }}
-              className="group relative rounded-xl border w-96 p-6 h-[27rem] shadow-sm border-gray-300 bg-[linear-gradient(90deg,rgba(0,72,110,0.57)_0%,rgba(9,9,121,0)_50%,rgba(0,72,110,0.59)_100%)]"
+      <div className="flex mt-10 justify-between flex-row-reverse items-center">
+        {/* Left Side - Scrollable Content */}
+        <div className=" overflow-y-auto">
+        
+             <div className="max-w-xl w-full">
+      <Swiper
+        modules={[Autoplay, Pagination]}
+        spaceBetween={30}
+        slidesPerView={1}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        // pagination={{ clickable: true }}
+        loop={true}
+        className="w-full"
+      >
+        {features.map((feature, index) => (
+          <SwiperSlide key={feature.number}>
+            <motion.div
+              ref={featureRefs[index]}
+              initial={{ opacity: 0, x: -50, scale: 0.9 }}
+              animate={
+                featureInView[index]
+                  ? { opacity: 1, x: 0, scale: 1 }
+                  : { opacity: 0, x: -50, scale: 0.9 }
+              }
+              transition={{
+                duration: 0.8,
+                delay: index * 0.2,
+                type: "spring",
+                stiffness: 100,
+                damping: 20,
+              }}
+              className="group p-6"
             >
-              
-              <div
-                className="pointer-events-none absolute inset-0 -z-10 rounded-3xl opacity-50"
-                style={{
-                  backgroundImage:
-                    "repeating-linear-gradient(0deg, transparent, transparent 22px, rgba(0,0,0,0.06) 22px, rgba(0,0,0,0.06) 23px), repeating-linear-gradient(90deg, transparent, transparent 22px, rgba(0,0,0,0.06) 22px, rgba(0,0,0,0.06) 23px)",
-                  maskImage:
-                    "radial-gradient(70% 70% at 50% 40%, black 60%, transparent 100%)",
-                  WebkitMaskImage:
-                    "radial-gradient(70% 70% at 50% 40%, black 60%, transparent 100%)",
-                }}
-              />
-              <div className="rounded-2xl border border-gray-200 bg-gray-50/30 p-8 text-center">
-                <div className="mx-auto inline-flex h-28 w-full items-center justify-center">
-                  <span className="whitespace-pre-line text-2xl font-extrabold tracking-wider text-gray-900">
-                    {s.logoText}
-                  </span>
+              <div className="flex items-center justify-center space-x-6">
+                <div className="flex-shrink-0">
+                  <motion.div
+                    initial={{ scale: 0, rotate: -180 }}
+                    animate={
+                      featureInView[index]
+                        ? { scale: 1, rotate: 0 }
+                        : { scale: 0, rotate: -180 }
+                    }
+                    transition={{
+                      duration: 0.6,
+                      delay: index * 0.2 + 0.3,
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 15,
+                    }}
+                    className="rounded-full flex items-center justify-center transition-shadow duration-300"
+                  >
+                    <Image width={100} height={100} src={feature?.img}></Image>
+                  </motion.div>
+                </div>
+                <div className="flex-1">
+                  <motion.h3
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      featureInView[index]
+                        ? { opacity: 1, y: 0 }
+                        : { opacity: 0, y: 20 }
+                    }
+                    transition={{
+                      duration: 0.6,
+                      delay: index * 0.2 + 0.4,
+                    }}
+                    className="text-2xl md:text-3xl font-semibold text-gray-900 my-2 text-start transition-colors duration-300 poppins"
+                  >
+                    {feature.title}
+                  </motion.h3>
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      featureInView[index]
+                        ? { opacity: 1, y: 0 }
+                        : { opacity: 0, y: 20 }
+                    }
+                    transition={{
+                      duration: 0.6,
+                      delay: index * 0.2 + 0.5,
+                    }}
+                    className="text-gray-600 leading-relaxed text-base mb-3 text-start max-w-lg"
+                  >
+                    {feature.description}
+                  </motion.p>
                 </div>
               </div>
-              <div className="mt-auto bottom-5 absolute">
-                <h3 className="text-lg font-bold text-gray-900">{s.title}</h3>
-                <p className="mt-2 pr-1 text-sm leading-6 text-gray-600">{s.description}</p>
-              </div>
-             
-            </motion.article>
-          ))}
+            </motion.div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+
+            
+         
+        </div>
+
+        {/* Right Side - Sticky Image */}
+        <div className="w-1/2 sticky top-0">
+          <div className="flex items-center justify-center overflow-hidden">
+            {/* Background Pattern */}
+           <div>
+            <Globe></Globe>
+           </div>
+
+          </div>
         </div>
       </div>
-      <div className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-gray-100 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 top-24 h-72 w-72 rounded-full bg-gray-100 blur-3xl" />
-    </section>
-  );
+    </div>
+  )
 }
