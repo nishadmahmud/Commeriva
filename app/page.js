@@ -10,13 +10,17 @@ import ClientReview from "./Components/ClientReview";
 import Blog from "./Components/Blog";
 import FAQSection from "./Components/FAQSection";
 import Footer from "./Components/Footer";
+import TestSection from "./Components/TestSection";
+import OurServices from "./Components/OurService";
 
 export default function Home() {
   return (
     <div className="">
       <HeroPage></HeroPage>
+      {/* <TestSection></TestSection> */}
       {/* <TrustedBy></TrustedBy> */}
-      <OurProducts></OurProducts>
+      <OurServices></OurServices>
+      {/* <OurProducts></OurProducts> */}
       <Category></Category>
       <OurStacks></OurStacks>
       {/* <Timeline></Timeline> */}

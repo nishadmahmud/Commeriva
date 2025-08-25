@@ -202,8 +202,8 @@ const Globe = ({
       <canvas
         ref={canvasRef}
         style={{
-          width: "20rem",
-          height: "20rem",
+          width: "23rem",
+          height: "23rem",
           maxWidth: "auto",
           maxHeight: "auto",
           aspectRatio: "1",

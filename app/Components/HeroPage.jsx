@@ -29,7 +29,7 @@ const HeroPage = () => {
       </div>
 
       {/* Navbar on top of Silk */}
-      <div className="relative z-10">
+      <div className="relative">
         <Navbar />
       </div>
 
@@ -70,8 +70,8 @@ const HeroPage = () => {
       </div> */}
         <HeroGeometric 
         badge="Commeriva"
-        title1="Transform Your"
-        title2="Digital Experience"
+        title1="Smart, Secure & Scalable"
+        // title2="Digital Experience"
         description="Build exceptional products that users love with our comprehensive component library and design system."
       />
     </div>

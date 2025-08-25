@@ -1,4 +1,5 @@
 "use client";
+import RotatingText from "@/app/Components/RotatingText";
 import { cn } from "@/app/lib/utils";
 import { motion } from "framer-motion";
 import { Circle } from "lucide-react";
@@ -126,15 +127,15 @@ export function HeroGeometric({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center">
+      <div className="relative z-10 mx-auto px-4 md:px-6">
+        <div className="max-w-6xl mx-auto text-center">
           {/* Badge */}
           <motion.div
             custom={0}
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-300 mb-8 md:mb-12"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-300 mb-8 md:mb-5"
           >
             <Circle className="h-2 w-2 text-gray-600" />
             <span className="text-sm text-gray-700 tracking-wide">{badge}</span>
@@ -142,20 +143,32 @@ export function HeroGeometric({
 
           {/* Title */}
           <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
-              <span className="text-gray-800">
+            <h1 className="text-3xl md:text-7xl font-bold mb-3 md:mb-5 tracking-tight">
+              <span className="text-gray-800 montserrat">
                 {title1}
               </span>
               <br />
-              <span className="text-gray-700">
-                {title2}
+              <span className="text-gray-700 montserrat">
+               Websites for your
+                <RotatingText
+  texts={['Business','Company','Portfolio']}
+  mainClassName="overflow-hidden justify-center mt-3"
+  staggerFrom={"last"}
+  initial={{ y: "100%" }}
+  animate={{ y: 0 }}
+  exit={{ y: "-120%" }}
+  staggerDuration={0.025}
+  splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+  transition={{ type: "spring", damping: 30, stiffness: 400 }}
+  rotationInterval={2500}
+/>
               </span>
             </h1>
           </motion.div>
 
           {/* Description */}
           <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 leading-relaxed font-medium tracking-wide max-w-2xl poppins mx-auto px-4">
               {description}
             </p>
           </motion.div>

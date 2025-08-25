@@ -4,89 +4,95 @@ import { useState } from "react"
 
 const categories = [
   {
-    name: "B2B SaaS",
+    name: "Clothing & Fashion",
     icon: "💼",
-    description: "Enterprise solutions with seamless SSO integration",
+    description: "Clothing and fashion is consistently the largest and fastest-growing e-commerce category worldwide. It covers men’s wear, women’s wear, and children’s clothing, along with footwear and accessories. Customers in this segment often look for variety, seasonal collections, and affordable pricing. For men, shirts, t-shirts, jeans, and ethnic wear remain popular, while women’s categories include dresses, sarees, kurtis, abayas, hijabs, and western wear. Children’s fashion ranges from baby clothing to school uniforms and seasonal outfits. Footwear and fashion accessories such as watches, sunglasses, bags, and jewelry further complement this category. Successful e-commerce platforms in fashion focus heavily on high-quality product images, clear size charts, virtual try-on features, and style recommendations to drive higher conversions.",
     pattern: "dots",
   },
   {
-    name: "Retail",
+    name: "Electronics & Gadgets",
     icon: "🛍️",
-    description: "Customer loyalty programs and social commerce",
+    description: "Electronics and gadgets represent a high-value category with strong demand across all age groups. This segment includes smartphones, tablets, laptops, desktops, and their accessories. Increasingly popular are wearables such as smartwatches and fitness trackers, along with portable audio devices like headphones, earbuds, and Bluetooth speakers. The gaming subcategory has also gained momentum, with consoles, VR devices, and gaming accessories seeing strong sales. Smart home technology, such as IoT devices, home security cameras, and smart lighting, adds to this category’s potential. Buyers expect detailed product specifications, side-by-side comparison tools, warranty information, and installment (EMI) options when shopping for electronics.",
     pattern: "lines",
   },
   {
-    name: "Financial Services",
+    name: "Home & Living",
     icon: "🏦",
-    description: "Bank-grade security with regulatory compliance",
+    description: "The home and living category is centered around lifestyle improvement and includes furniture, kitchen appliances, décor, and home essentials. Furniture ranges from beds, sofas, and dining tables to compact storage solutions designed for urban homes. Kitchen and dining products include cookware, appliances like blenders and microwaves, and small essentials such as storage jars and cutlery. Home décor has become a rising trend with customers seeking wall art, lamps, rugs, and lighting that can personalize their living spaces. Platforms offering this category often integrate “room-wise shopping” features and, in advanced cases, AR tools that allow buyers to visualize furniture placement in their homes.",
     pattern: "grid",
   },
   {
-    name: "Publishing",
+    name: "Health & Wellness",
     icon: "📚",
-    description: "Content access control and subscription management",
+    description: "The health and wellness segment is a fast-expanding category driven by lifestyle changes and growing health awareness. It covers dietary supplements, vitamins, protein powders, and functional foods, alongside medical devices like digital thermometers, blood pressure monitors, and glucometers. Home fitness equipment, including treadmills, yoga mats, and dumbbells, is also in high demand. Buyers prioritize safety, authenticity, and expert endorsements in this category. Features such as subscription delivery for supplements, integration with fitness apps, and professional health advice help e-commerce platforms build trust and long-term customer loyalty.",
     pattern: "waves",
   },
   {
-    name: "Travel",
+    name: "Baby & Kids",
     icon: "✈️",
-    description: "Global identity verification and booking systems",
+    description: "The baby and kids category is a high-engagement area for parents and families. It spans clothing, baby care products, toys, games, strollers, car seats, and educational supplies. Safety and quality are critical purchase drivers here, with parents seeking certified, non-toxic, and durable products. Age-based product filtering, gift registry options, and curated collections for birthdays or baby showers are effective e-commerce features in this segment. Since these products are often replaced or upgraded quickly as children grow, repeat sales potential is very high.",
     pattern: "circles",
   },
   {
-    name: "Healthcare",
+    name: "Groceries & Essentials",
     icon: "🏥",
-    description: "HIPAA-compliant patient identity management",
+    description: "Groceries and everyday essentials form the backbone of daily commerce, and their shift online has grown rapidly due to customer demand for convenience. This category includes fresh produce like fruits and vegetables, packaged goods such as snacks, rice, and cooking oil, beverages including tea, coffee, and juices, and household cleaning products. Customers expect speed, freshness, and reliability in delivery. Same-day or next-day delivery, quick reorder options, and subscription models for staple items are critical features. Loyalty programs and wallet systems further encourage repeat purchases in this category.",
     pattern: "triangles",
   },
+  {
+    name: "Sports & Outdoor",
+    icon: "🏥",
+    description: "The sports and outdoor category caters to athletes, fitness enthusiasts, and adventurers. It includes sportswear, athletic footwear, gym equipment such as treadmills and weights, and outdoor gear like tents, hiking kits, and camping accessories. Customers here often look for brand authenticity, performance specifications, and bundled starter kits. Platforms can boost engagement by offering guides (“what you need to start hiking”) and curated packages for specific sports. This category benefits from seasonal promotions and influencer tie-ups with fitness communities.",
+    pattern: "dots",
+  },
+  {
+    name: "Automotive & Accessories",
+    icon: "🏥",
+    description: "The automotive category focuses on products for car and motorcycle owners. It includes car accessories such as seat covers, floor mats, cameras, and GPS devices; motorcycle gear like helmets and riding jackets; and spare parts and repair tools. Vehicle-specific filtering is essential, allowing users to select their car or bike model and instantly see compatible products. Additional features like installation services, warranty tracking, and service center locators help create trust in this category.",
+    pattern: "waves",
+  },
+  
 ]
 
 export default function Category() {
-  const [active, setActive] = useState("Travel")
-
+  const [active, setActive] = useState("Clothing & Fashion")
+  const [desc, setDesc] = useState("Clothing and fashion is consistently the largest and fastest-growing e-commerce category worldwide. It covers men’s wear, women’s wear, and children’s clothing, along with footwear and accessories. Customers in this segment often look for variety, seasonal collections, and affordable pricing. For men, shirts, t-shirts, jeans, and ethnic wear remain popular, while women’s categories include dresses, sarees, kurtis, abayas, hijabs, and western wear. Children’s fashion ranges from baby clothing to school uniforms and seasonal outfits. Footwear and fashion accessories such as watches, sunglasses, bags, and jewelry further complement this category. Successful e-commerce platforms in fashion focus heavily on high-quality product images, clear size charts, virtual try-on features, and style recommendations to drive higher conversions.")
+console.log(desc);
   return (
-    <div className="relative bg-white text-gray-900 flex flex-col items-start justify-start mb-20 w-full max-w-11/12 mx-auto px-6 overflow-hidden">
+   <div>
+    <h2 className="text-2xl mb-10 mt-16 text-center font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl">
+           E-Commerce Business Suite
+          </h2>
+     <div className="relative bg-white text-gray-900 flex gap-10 items-start justify-start mb-20 w-full max-w-11/12 mx-auto px-6 overflow-hidden pt-4">
+      
+      
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute top-20 left-10 w-32 h-32 border border-gray-900 rounded-full animate-float"></div>
         <div className="absolute top-40 right-20 w-24 h-24 border border-gray-900 rotate-45 animate-float-delay"></div>
         <div className="absolute bottom-20 left-1/3 w-40 h-40 border border-gray-900 rounded-full animate-float-slow"></div>
       </div>
 
-      {/* Header Section */}
-      {/* <div className="relative z-10 mb-16">
-        <div className="inline-flex items-center gap-3 border border-gray-200 bg-gray-50 px-6 py-3 rounded-full text-sm font-medium mb-8 animate-fade-in hover:bg-gray-100 transition-colors duration-300">
-          <span className="w-2 h-2 bg-gray-900 rounded-full animate-pulse"></span>
-          Identity Solutions
-        </div>
-
-        <h1 className="text-5xl md:text-7xl font-light text-start mb-6 leading-[0.9] text-gray-900 animate-slide-up tracking-tight">
-          Identity is so much more than <br />
-          <span className="relative font-bold">
-            just the login box
-            <div className="absolute -bottom-3 left-0 w-full h-[2px] bg-gray-900 animate-expand-width"></div>
-          </span>
-        </h1>
-
-        <p className="text-xl md:text-2xl text-start text-gray-500 mt-8 mb-12 animate-fade-in-delay font-light max-w-2xl">
-          Let's take a look at everything you can do.
-        </p>
-      </div> */}
+  
 
       {/* Category Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 w-full">
         {categories.map((cat, index) => (
           <div
             key={cat.name}
-            onClick={() => setActive(cat.name)}
-            className={`group relative cursor-pointer transition-all duration-500 animate-slide-up ${
-              active === cat.name ? "transform scale-105" : "hover:scale-102"
+           onClick={() => {
+  setActive(cat.name);
+  setDesc(cat.description);
+}}
+
+            className={`group relative cursor-pointer border border-gray-300 rounded-2xl transition-all duration-500 animate-slide-up ${
+              active === cat.name && cat.description ? "transform scale-105" : "hover:scale-102"
             }`}
             style={{ animationDelay: `${index * 100}ms` }}
           >
             <div
-              className={`relative overflow-hidden rounded-3xl p-8 border-2 transition-all duration-500 ${
-                active === cat.name
-                  ? "bg-gray-900 text-white border-gray-900 shadow-2xl"
+              className={`relative overflow-hidden rounded-xl p-5 transition-all duration-500 ${
+                active === cat.name && cat.description
+                  ? "bg-[linear-gradient(302deg,rgba(165,202,217,1)_51%,rgba(230,236,240,0.71)_100%)] text-white border-gray-50 shadow-2xl"
                   : "bg-white border-gray-100 hover:border-gray-200 hover:shadow-xl text-gray-900"
               }`}
             >
@@ -152,20 +158,20 @@ export default function Category() {
               </div>
 
               {/* Content */}
-              <div className="relative z-10">
-                <div className="text-4xl mb-6 transform group-hover:scale-110 transition-transform duration-300 filter grayscale">
+              <div className="relative w-full mx-auto text-center z-10">
+                <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300 filter grayscale">
                   {cat.icon}
                 </div>
 
-                <h3 className="font-bold text-xl mb-4 tracking-tight">{cat.name}</h3>
+                <h3 className="font-semibold text-base mb-4 tracking-wide text-center">{cat.name}</h3>
 
-                <p
+                {/* <p
                   className={`text-sm leading-relaxed font-light ${
                     active === cat.name ? "text-gray-300" : "text-gray-600"
                   }`}
                 >
                   {cat.description}
-                </p>
+                </p> */}
 
                 {/* Active Indicator */}
                 {active === cat.name && (
@@ -181,8 +187,8 @@ export default function Category() {
       </div>
 
       {/* Active Category Details */}
-      <div className="relative z-10 w-full">
-        <div className="bg-gray-50 border border-gray-200 rounded-3xl p-10 animate-fade-in">
+      <div className="sticky top-0 z-10 w-full">
+        <div className="bg-gray-50 border border-gray-200 rounded-xl p-7 animate-fade-in">
           <div className="flex items-center gap-6 mb-6">
             <div className="text-4xl filter grayscale">{categories.find((cat) => cat.name === active)?.icon}</div>
             <h2 className="text-3xl font-light text-gray-900 tracking-tight">
@@ -191,14 +197,12 @@ export default function Category() {
           </div>
 
           <p className="text-gray-600 text-lg leading-relaxed max-w-4xl font-light mb-8">
-            Cater for convenience and privacy. Incorporate social logins, facilitate SSO and loyalty program extensions,
-            and federate with industry partner IAM systems. Our {active.toLowerCase()} solutions provide
-            enterprise-grade security with seamless user experiences.
+           {desc}
           </p>
 
           {/* Feature Pills */}
-          <div className="flex flex-wrap gap-4">
-            {["SSO Integration", "Social Logins", "Multi-factor Auth", "API Access"].map((feature, index) => (
+          <div className="flex flex-wrap justify-self-auto items-center gap-4">
+            {["User & Authentication", "Product & Catalog", "AI", "Mechine Lerning", "Smart/Advanced Features",    "Notifications & Communication", "Order & Delivery",  "Customer Engagement", "Security",  "CMS"].map((feature, index) => (
               <span
                 key={feature}
                 className="px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-full text-sm font-medium animate-fade-in hover:bg-gray-900 hover:text-white transition-all duration-300 cursor-pointer"
@@ -283,5 +287,6 @@ export default function Category() {
         }
       `}</style>
     </div>
+   </div>
   )
 }

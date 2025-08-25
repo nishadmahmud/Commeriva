@@ -10,6 +10,7 @@ import corporateCare from '../../public/corporate-care.png'
 import mobileClub from '../../public/mobileClub.png'
 import perfectG from '../../public/PerfectGadgetBD-logo.png'
 import Marquee from "react-fast-marquee";
+import RotatingText from "./RotatingText";
 
 
 
@@ -17,23 +18,86 @@ import Marquee from "react-fast-marquee";
 const TrustedBy = () => {
     return (
         <div className='lg:my-20 mb-5 mt-6 flex flex-col items-center md:justify-center md:justify-items-center w-10/12 mx-auto'>
-            <h1 className='font-bold text-sm mb-2 md:mb-4'>TRUSTED BY LEADING ORGANIZATIONS</h1>
-            <Marquee gradient speed={30}>
-        <Image className='w-12 lg:w-20 ml-16' alt='spronser_logo' src={company01}></Image>
-        <Image className='w-16 lg:w-24 ml-16' alt='spronser_logo' src={mobileClub}></Image>
-        <Image className='w-16 lg:w-24 ml-16' alt='spronser_logo' src={company04}></Image>
+            <h1 className='font-medium montserrat text-sm mb-2 md:mb-4'>TRUSTED BY LEADING ORGANIZATIONS</h1>
 
-        <Image className='w-16 lg:w-24 ml-16' alt='spronser_logo' src={company05}></Image>
-        <Image className='w-12 lg:w-20 ml-16' alt='spronser_logo' src={bhaiBhaiS}></Image>
-        <Image className='w-12 ml-16' alt='spronser_logo' src={dontaion}></Image>
-        <Image className='w-16 lg:w-28 ml-16' alt='spronser_logo' src={bonzer}></Image>
-        <Image className='w-16 ml-16' alt='spronser_logo' src={apPharma}></Image>
-        <Image className='w-12 lg:w-20 ml-16' alt='spronser_logo' src={corporateCare}></Image>
-        <Image className='w-14 lg:w-20 ml-16' alt='spronser_logo' src={company01}></Image>
-        <Image className='w-16 lg:w-24 ml-16' alt='spronser_logo' src={mobileClub}></Image>
-        <Image className='w-10 lg:w-16 ml-16' alt='spronser_logo' src={perfectG}></Image>
-
-            </Marquee>
+            <div className="grid grid-cols-3 md:grid-cols-6 justify-around gap-10 poppins text-gray-600">
+ <RotatingText
+              texts={['Gadget Bodaa', 'Gadget Bodaa']}
+              mainClassName="overflow-hidden justify-center mt-3 poppins text-gray-600"
+              staggerFrom={"last"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1 text-xl  font-semibold poppins text-gray-600"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={3000}
+            />
+             <RotatingText
+              texts={['Apple Newton', 'Apple Newton']}
+              mainClassName="overflow-hidden justify-center mt-3 "
+              staggerFrom={"last"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1 text-xl font-semibold poppins text-gray-600"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={3000}
+            />
+             <RotatingText
+              texts={['Mobile Club', 'Mobile Club']}
+              mainClassName="overflow-hidden justify-center mt-3 "
+              staggerFrom={"last"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1 text-xl font-semibold poppins text-gray-600"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={3000}
+            />
+             <RotatingText
+              texts={['CeL-TeL', 'CeL-TeL']}
+              mainClassName="overflow-hidden justify-center mt-3 "
+              staggerFrom={"last"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1 text-xl font-semibold poppins text-gray-600"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={3000}
+            />
+             
+             <RotatingText
+              texts={['Apple Mart', 'Apple Mart']}
+              mainClassName="overflow-hidden justify-center mt-3 "
+              staggerFrom={"last"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1 text-xl font-semibold poppins text-gray-600"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={3000}
+            />
+             
+             <RotatingText
+              texts={['Elite', 'Elite']}
+              mainClassName="overflow-hidden justify-center mt-3 "
+              staggerFrom={"last"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1 text-xl font-semibold poppins text-gray-600"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={3000}
+            />
+             
+            </div>
         </div>
     );
 };

@@ -10,8 +10,16 @@ const cardVariants = {
 
 export default function ClientReview() {
   return (
-    <div className="w-10/12 mx-auto pb-10">
-      <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 max-w-7xl mx-auto">
+    <div className="w-10/12 mx-auto py-10">
+      <div>
+        <h2 className="text-3xl font-bold tracking-tight text-center text-gray-900 sm:text-4xl md:text-5xl">
+            Customer Feedback
+          </h2>
+          <p className="mt-2 text-lg text-center text-gray-600">
+           Android app for orders, scanning, tracking, monitoring.
+          </p>
+      </div>
+      <div className="grid grid-cols-1 mt-5 md:grid-cols-4 md:grid-rows-2 gap-4 max-w-7xl mx-auto">
         
         {/* Vercel */}
         <motion.div
