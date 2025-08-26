@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Linkedin, Instagram, Mail, Phone, MailCheck } from 'lucide-react';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -69,7 +70,7 @@ const Footer = () => {
             <div>
               <h4 className="font-medium text-gray-900 mb-4">Follow us</h4>
               <div className="flex space-x-4">
-                <a href="#" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors duration-200"><Facebook size={16} className="text-gray-600" /></a>
+                <Link target='_blank' href="https://www.facebook.com/profile.php?id=61579322220482" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors duration-200"><Facebook size={16} className="text-gray-600" /></Link>
                 <a href="#" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors duration-200"><Linkedin size={16} className="text-gray-600" /></a>
                 <a href="#" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors duration-200"><Instagram size={16} className="text-gray-600" /></a>
               </div>
