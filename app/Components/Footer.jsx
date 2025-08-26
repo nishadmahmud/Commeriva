@@ -19,13 +19,13 @@ const Footer = () => {
              
               <div className="flex-1">
                 
-                <div className="flex gap-3">
+                <div className="flex md:gap-3 gap-2">
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="flex-1 px-3 py-3 text-sm border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400"
+                    className="flex-1 px-3 py-3 text-sm border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 md:w-full w-fit"
                   />
-                  <button className="bg-slate-800 text-gray-100 border border-gray-300 px-4 py-2 hover:bg-gray-900 cursor-pointer transition">
+                  <button className="bg-slate-800 text-gray-100 border border-gray-300 md:px-4 px-2 py-2 hover:bg-gray-900 cursor-pointer text-sm md:text-base transition">
                     Subscribe
                   </button>
                 </div>

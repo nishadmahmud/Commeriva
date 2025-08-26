@@ -42,19 +42,19 @@ export default function SupplyChain() {
   const featureInView = [feature1InView, feature2InView, feature3InView]
 
   return (
-    <div className="w-10/12 mx-auto min-h-screen bg-white mt-20">
+    <div className="md:w-10/12 w-11/12 mx-auto min-h-screen bg-white md:mt-20 mt-10">
        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
+          <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
             Boost your supply chain efficiency
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mt-4 md:text-lg text-gray-600">
            Android app for orders, scanning, tracking, monitoring.
           </p>
           
         </div>
-      <div className="flex mt-10 justify-between flex-row-reverse items-center">
+      <div className="flex mt-10 justify-between md:flex-row-reverse items-center flex-col-reverse">
         {/* Left Side - Scrollable Content */}
-        <div className=" overflow-y-auto">
+        <div className="overflow-y-auto">
         
              <div className="max-w-xl w-full">
   {features.map((feature, index) => (
@@ -74,9 +74,9 @@ export default function SupplyChain() {
         stiffness: 100,
         damping: 20,
       }}
-      className="group p-6 border-b last:border-b-0"
+      className="group md:p-6 p-4 border-b last:border-b-0"
     >
-      <div className="flex items-center justify-start space-x-6">
+      <div className="md:flex md:items-center justify-start space-x-6">
         {/* Image */}
         <div className="flex-shrink-0">
           <motion.div
@@ -93,9 +93,10 @@ export default function SupplyChain() {
               stiffness: 200,
               damping: 15,
             }}
-            className="rounded-full flex items-center justify-center transition-shadow duration-300"
+            className="rounded-full flex items-center md:justify-center transition-shadow duration-300"
           >
             <Image
+            className="w-12 md:w-20"
               width={80}
               height={80}
               src={feature?.img}
@@ -148,8 +149,8 @@ export default function SupplyChain() {
         </div>
 
         {/* Right Side - Sticky Image */}
-        <div className="w-1/2 sticky top-0">
-          <div className="flex items-center justify-center overflow-hidden">
+        <div className="md:w-1/2 md:sticky top-0">
+          <div className="md:flex items-center justify-center md:overflow-hidden">
             {/* Background Pattern */}
            <div>
             <Globe></Globe>

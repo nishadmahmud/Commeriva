@@ -78,7 +78,7 @@ export function HeroGeometric({
   return (
     <div
       className={cn(
-        "relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-transparent",
+        "relative md:min-h-screen h-[80vh] w-full flex items-center justify-center overflow-hidden bg-transparent",
         className
       )}
     >
@@ -135,7 +135,7 @@ export function HeroGeometric({
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-300 mb-8 md:mb-5"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-300 mb-4 md:mb-5"
           >
             <Circle className="h-2 w-2 text-gray-600" />
             <span className="text-sm text-gray-700 tracking-wide">{badge}</span>
@@ -143,7 +143,7 @@ export function HeroGeometric({
 
           {/* Title */}
           <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <h1 className="text-3xl md:text-7xl font-bold mb-3 md:mb-5 tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-bold mb-3 md:mb-5 tracking-tight">
               <span className="text-gray-800 montserrat">
                 {title1}
               </span>

@@ -57,7 +57,7 @@ const FAQSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-5xl flex items-center gap-2 justify-center font-bold text-gray-900"
+            className="text-4xl md:text-5xl md:flex items-center gap-2 justify-center font-bold text-gray-900"
           >
             Frequently asked
             <motion.h1
@@ -87,7 +87,7 @@ const FAQSection = () => {
                 onClick={() => toggleItem(index)}
                 className="w-full px-8 cursor-pointer py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:bg-gray-50"
               >
-                <h3 className="text-lg font-semibold text-gray-900 pr-8">
+                <h3 className="md:text-lg font-semibold text-gray-900 pr-8">
                   {item.question}
                 </h3>
                 <motion.div

@@ -10,7 +10,7 @@ import { HeroGeometric } from "@/components/ui/shadcn-io/shape-landing-hero";
 
 const HeroPage = () => {
   return (
-    <div className="relative w-full min-h-[100vh] flex flex-col text-center overflow-hidden">
+    <div className="relative w-full md:min-h-[100vh] flex flex-col text-center overflow-hidden">
 
       {/* Background Layer covers everything */}
       <div className="absolute inset-0 z-0 top-20">
