@@ -45,6 +45,7 @@ export function AuroraTextEffect({
     />
   );
 
+  
   return (
     <div
       className={cn(
