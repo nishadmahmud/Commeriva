@@ -18,13 +18,15 @@ const Footer = () => {
             <div className='w-sm'>
              <h3 className='font-semibold text-xl mb-2 text-gray-700'>Get our email for info on new items.</h3>
              
-              <div className="flex-1">
+              <div>
                 
                 <div className="flex md:gap-3 gap-2">
                   <input
                     type="email"
+                    
+                    id='email'
                     placeholder="Enter your email"
-                    className="flex-1 px-3 py-3 text-sm border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 md:w-full w-fit"
+                    className="md:flex-1 px-3 py-3 text-sm border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 md:w-full w-[60vw]"
                   />
                   <button className="bg-slate-800 text-gray-100 border border-gray-300 md:px-4 px-2 py-2 hover:bg-gray-900 cursor-pointer text-sm md:text-base transition">
                     Subscribe

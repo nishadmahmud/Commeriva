@@ -49,9 +49,9 @@ const Navbar = () => {
     <nav className="bg-transparent">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Left logo */}
-        <div className="font-bold tracking-widest md:text-xl text-black logo-font cursor-pointer">
+        <Link href='/' className="font-bold tracking-widest md:text-xl text-black logo-font cursor-pointer">
           Commeriva
-        </div>
+        </Link>
 
         {/* Middle Nav - Desktop */}
         <nav className="relative">
@@ -63,13 +63,17 @@ const Navbar = () => {
                 onMouseEnter={() => setActive(menu)}
                 onMouseLeave={() => setActive(null)}
               >
-                <Link href="/" className="hover:text-blue-600 flex items-center gap-1">
-                  {menu}
-                  {/* Show arrow only if not Pricing, Blog, Portfolio */}
-                  {!(menu === 'Pricing' || menu === 'Blog' || menu === 'Portfolio') && (
-                    <IoIosArrowDown className="mt-1" size={15} />
-                  )}
-                </Link>
+                <Link
+  href={menu === "Portfolio" ? "/portfolio" : "/"}
+  className="hover:text-gray-600 montserrat flex items-center gap-1"
+>
+  {menu}
+  {/* Show arrow only if not Pricing, Blog, Portfolio */}
+  {!(menu === "Pricing" || menu === "Blog" || menu === "Portfolio") && (
+    <IoIosArrowDown className="mt-1" size={15} />
+  )}
+</Link>
+
 
                 {/* Dropdown with animation */}
                 <AnimatePresence>
@@ -113,8 +117,8 @@ const Navbar = () => {
         {/* Right buttons - Desktop */}
         <div className="hidden md:flex items-center space-x-4">
           <button className="bg-gray-50 border border-gray-200 px-5 p-2 rounded-full text-gray-700 text-sm font-semibold flex justify-center items-center gap-1.5">
-            <Calendar size={18} />
-            Book a appointment
+            <Calendar color='gray' size={18} />
+            Let's Discuss
           </button>
         </div>
 
@@ -220,8 +224,8 @@ Let's Talk
                 {/* Mobile CTA Button */}
                 <div className="pt-4 hidden md:block border-t border-gray-200 mt-4">
                   <button className="w-full bg-gray-50 border border-gray-200 px-5 py-3 rounded-full text-gray-700 text-sm font-semibold flex justify-center items-center gap-1.5">
-                    <Calendar size={18} />
-                    Book a appointment
+                    <FaWhatsapp color='#25D366' size={18} />
+                    Let's Talk
                   </button>
                 </div>
               </div>

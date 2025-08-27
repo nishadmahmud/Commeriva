@@ -29,9 +29,7 @@ const HeroPage = () => {
       </div>
 
       {/* Navbar on top of Silk */}
-      <div className="relative">
-        <Navbar />
-      </div>
+      
 
       {/* Hero Content */}
       {/* <div className="relative z-10 flex flex-col items-center justify-center min-h-[90vh]">

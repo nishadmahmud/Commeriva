@@ -7,13 +7,13 @@ const categories = [
   {
     name: "Clothing & Fashion",
     icon: "💼",
-    description: "Clothing and fashion is consistently the largest and fastest-growing e-commerce category worldwide. It covers men's wear, women's wear, and children's clothing, along with footwear and accessories. Customers in this segment often look for variety, seasonal collections, and affordable pricing. For men, shirts, t-shirts, jeans, and ethnic wear remain popular, while women's categories include dresses, sarees, kurtis, abayas, hijabs, and western wear. Children's fashion ranges from baby clothing to school uniforms and seasonal outfits. Footwear and fashion accessories such as watches, sunglasses, bags, and jewelry further complement this category. Successful e-commerce platforms in fashion focus heavily on high-quality product images, clear size charts, virtual try-on features, and style recommendations to drive higher conversions.",
+    description: "Clothing and fashion is consistently the largest and fastest-growing e-commerce category worldwide. It covers men's wear, women's and children's clothing. Customers in this segment often look for variety, seasonal collections, and affordable pricing. For men, shirts, and ethnic wear remain popular, while women's categories include dresses, abayas, hijab. Children's fashion ranges from baby clothing to school uniforms and seasonal outfits. Footwear and fashion accessories. Successful e-commerce platforms in fashion focus heavily on high-quality product images, clear size charts, virtual try-on features, and style recommendations to drive higher conversions.",
     pattern: "dots",
   },
   {
     name: "Electronics & Gadgets",
     icon: "🛍️",
-    description: "Electronics and gadgets represent a high-value category with strong demand across all age groups. This segment includes smartphones, tablets, laptops, desktops, and their accessories. Increasingly popular are wearables such as smartwatches and fitness trackers, along with portable audio devices like headphones, earbuds, and Bluetooth speakers. The gaming subcategory has also gained momentum, with consoles, VR devices, and gaming accessories seeing strong sales. Smart home technology, such as IoT devices, home security cameras, and smart lighting, adds to this category's potential. Buyers expect detailed product specifications, side-by-side comparison tools, warranty information, and installment (EMI) options when shopping for electronics.",
+    description: "Electronics and gadgets represent a high-value category with strong demand across all age groups. This segment includes smartphones, tablets, laptops, desktops, and their accessories. Increasingly popular are wearables such as smartwatches and fitness trackers, along with portable audio devices like headphones, earbuds, and Bluetooth speakers. The gaming subcategory has also gained momentum, with consoles, VR devices, and gaming accessories seeing strong sales. Smart home technology, such as IoT devices, home security cameras, and smart lighting, adds to this category's potential.",
     pattern: "lines",
   },
   {
@@ -56,7 +56,7 @@ const categories = [
 
 export default function Category() {
   const [active, setActive] = useState("Clothing & Fashion")
-  const [desc, setDesc] = useState("Clothing and fashion is consistently the largest and fastest-growing e-commerce category worldwide. It covers men's wear, women's wear, and children's clothing, along with footwear and accessories. Customers in this segment often look for variety, seasonal collections, and affordable pricing. For men, shirts, t-shirts, jeans, and ethnic wear remain popular, while women's categories include dresses, sarees, kurtis, abayas, hijabs, and western wear. Children's fashion ranges from baby clothing to school uniforms and seasonal outfits. Footwear and fashion accessories such as watches, sunglasses, bags, and jewelry further complement this category. Successful e-commerce platforms in fashion focus heavily on high-quality product images, clear size charts, virtual try-on features, and style recommendations to drive higher conversions.")
+  const [desc, setDesc] = useState("Clothing and fashion is consistently the largest and fastest-growing e-commerce category worldwide. It covers men's wear, women's and children's clothing. Customers in this segment often look for variety, seasonal collections, and affordable pricing. For men, shirts, and ethnic wear remain popular, while women's categories include dresses, abayas, hijab. Children's fashion ranges from baby clothing to school uniforms and seasonal outfits. Footwear and fashion accessories. Successful e-commerce platforms in fashion focus heavily on high-quality product images, clear size charts, virtual try-on features, and style recommendations to drive higher conversions.")
   const [mobileAccordionOpen, setMobileAccordionOpen] = useState(false)
 
   const handleCategoryClick = (cat) => {
@@ -281,22 +281,24 @@ export default function Category() {
       {/* Desktop Active Category Details - Hidden on mobile */}
       <div className="hidden lg:block sticky top-0 z-10 w-full">
         <motion.div 
-          className="bg-gray-50 border border-gray-200 rounded-xl p-7"
+          className="bg-gray-50 border border-gray-200 flex flex-col justify-between rounded-xl p-7 h-[94vh]"
           key={active}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <div className="flex items-center gap-6 mb-6">
+          <div>
+            <div className="flex items-center gap-6 mb-4">
             <div className="text-4xl filter grayscale">{categories.find((cat) => cat.name === active)?.icon}</div>
             <h2 className="text-3xl font-light text-gray-900 tracking-tight">
               {active} <span className="font-bold">Solutions</span>
             </h2>
           </div>
 
-          <p className="text-gray-600 text-lg leading-relaxed max-w-4xl font-light mb-8">
+          <p className="text-gray-600 text-lg leading-relaxed max-w-4xl font-light mb-6">
            {desc}
           </p>
+          </div>
 
           {/* Feature Pills */}
           <div className="flex flex-wrap justify-self-auto items-center gap-4">

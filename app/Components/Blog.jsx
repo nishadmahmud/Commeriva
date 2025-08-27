@@ -1,5 +1,9 @@
+'use client'
+
 import Image from "next/image";
 import React from "react";
+import { fetcher, userId } from "../page";
+import useSWR from "swr";
 
 const blogs = [
   {
@@ -41,6 +45,11 @@ const blogs = [
 ];
 
 export default function Blog() {
+
+   const { data: blog } = useSWR(
+    `${process.env.NEXT_PUBLIC_API}/latest-ecommerce-blog-list/${userId}`,
+    fetcher
+  );
   return (
     <section className="bg-white py-10 pt-28 px-6">
        <div className="mx-auto max-w-4xl pb-10 text-center">

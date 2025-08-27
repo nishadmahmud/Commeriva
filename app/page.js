@@ -12,10 +12,13 @@ import FAQSection from "./Components/FAQSection";
 import Footer from "./Components/Footer";
 import TestSection from "./Components/TestSection";
 import OurServices from "./Components/OurService";
+export const userId = 217;
+export const fetcher = (url) => fetch(url).then(res => res.json());
 
 export default function Home() {
+
   return (
-    <div className="">
+    <div>
       <HeroPage></HeroPage>
       {/* <TestSection></TestSection> */}
       {/* <TrustedBy></TrustedBy> */}
