@@ -78,7 +78,7 @@ export default function Category() {
     <h2 className="text-4xl mb-10 mt-16 text-center font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl">
            E-Commerce Business Suite
           </h2>
-     <div className="relative bg-white text-gray-900 flex flex-col lg:flex-row gap-10 items-start justify-start md:mb-20 w-full max-w-11/12 mx-auto px-4 sm:px-6 overflow-hidden pt-4">
+     <div className="relative bg-white h-[100vh] text-gray-900 flex flex-col lg:flex-row gap-10 items-start justify-start md:mb-20 w-full max-w-11/12 mx-auto px-4 sm:px-6 overflow-hidden pt-4">
       
       
       <div className="absolute inset-0 opacity-[0.02]">
@@ -281,7 +281,7 @@ export default function Category() {
       {/* Desktop Active Category Details - Hidden on mobile */}
       <div className="hidden lg:block sticky top-0 z-10 w-full">
         <motion.div 
-          className="bg-gray-50 border border-gray-200 flex flex-col justify-between rounded-xl p-7 h-[94vh]"
+          className="bg-gray-50 border border-gray-200 flex flex-col justify-between rounded-xl p-7 h-fit"
           key={active}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

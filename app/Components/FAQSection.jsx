@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus } from 'lucide-react';
+import { Plus } from 'lucide-react';
 
 const FAQSection = () => {
   const [openItems, setOpenItems] = useState({});
@@ -15,28 +15,44 @@ const FAQSection = () => {
 
   const faqData = [
     {
-      question: "What makes your custom e-commerce solution different from platforms like Shopify or WooCommerce?",
-      answer: "Our custom e-commerce solution is built specifically for your business needs, offering unlimited customization, better performance, and complete control over your data. Unlike template-based platforms, we create a unique system that scales with your business and integrates seamlessly with your existing workflows and third-party tools."
+      question: "What is Commeriva?",
+      answer: "Commeriva is a smart digital platform that helps businesses build a strong online presence with company websites, e-commerce stores, landing pages, and funnel websites – all in one place."
     },
     {
-      question: "How long does it take to develop a custom e-commerce website?",
-      answer: "Development time varies based on complexity and features required. A basic custom e-commerce site typically takes 8-12 weeks, while more complex solutions with advanced features, integrations, and custom functionality can take 16-24 weeks. We provide detailed timelines during the planning phase."
+      question: "Who can use Commeriva?",
+      answer: "Our solutions are designed for startups, small businesses, and enterprises across industries like retail, fashion, electronics, corporate services, and personal branding."
     },
     {
-      question: "Can you integrate payment gateways and shipping providers?",
-      answer: "Yes, we can integrate multiple payment gateways including Stripe, PayPal, Square, and regional providers. We also integrate with major shipping carriers like FedEx, UPS, DHL, and local delivery services. Our solutions support multiple currencies and international shipping calculations."
+      question: "What type of websites does Commeriva build?",
+      answer: "We specialize in Corporate & Company Websites, scalable Next.js powered e-commerce stores, landing pages for campaigns, funnel websites for sales & lead generation, and portfolio & personal branding websites."
     },
     {
-      question: "Do you provide inventory management and order tracking systems?",
-      answer: "Absolutely. Our custom solutions include comprehensive inventory management with real-time stock tracking, low stock alerts, automated reordering, and multi-warehouse support. We also provide complete order management with tracking, automated notifications, and integration with fulfillment centers."
+      question: "Is Commeriva suitable for e-commerce businesses?",
+      answer: "Yes ✅. Commeriva provides scalable e-commerce solutions with product management, payment gateways, inventory control, order tracking, and SEO-friendly design."
     },
     {
-      question: "Can you migrate data from our existing e-commerce platform?",
-      answer: "Yes, we handle complete data migration including products, customer information, order history, and reviews. We ensure zero data loss and minimal downtime during the migration process. We also provide data mapping and cleanup services to optimize your new system."
+      question: "Can I accept online payments through Commeriva websites?",
+      answer: "Yes. We integrate secure payment gateways like Stripe, PayPal, SSLCOMMERZ, bKash, Nagad, and more depending on your location."
     },
     {
-      question: "What ongoing support and maintenance do you provide?",
-      answer: "We offer comprehensive support packages including regular security updates, performance optimization, bug fixes, and feature enhancements. Our team provides 24/7 monitoring, backup services, and technical support to ensure your e-commerce site runs smoothly at all times."
+      question: "Do I need technical skills to manage my website?",
+      answer: "No. Commeriva websites come with an easy-to-use content management system (CMS) so you can update content, products, and images without coding knowledge."
+    },
+    {
+      question: "Can Commeriva integrate with third-party tools?",
+      answer: "Yes. We support integrations with Google Analytics, Meta Pixel, CRMs, live chat, email marketing tools, and more to grow your business."
+    },
+    {
+      question: "Are Commeriva websites mobile-friendly?",
+      answer: "Absolutely ✅. All websites are fully responsive, ensuring a smooth user experience on mobile, tablet, and desktop."
+    },
+    {
+      question: "How long does it take to build a website with Commeriva?",
+      answer: "Project timelines vary depending on complexity. A basic website can be ready in 1–2 weeks, while a custom e-commerce solution may take longer."
+    },
+    {
+      question: "Does Commeriva provide ongoing support?",
+      answer: "Yes. We provide technical support, maintenance, and scaling services to keep your website secure, updated, and ready for growth."
     }
   ];
 
@@ -45,14 +61,6 @@ const FAQSection = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16">
-          {/* <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-gray-500 font-semibold text-lg tracking-wider uppercase mb-4"
-          >
-            DISCOVER YOUR SOLUTIONS
-          </motion.p> */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -61,15 +69,14 @@ const FAQSection = () => {
           >
             Frequently asked
             <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className=" text-gray-400"
-          >
-            questions
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className=" text-gray-400"
+            >
+              questions
+            </motion.h1>
           </motion.h1>
-          </motion.h1>
-          
         </div>
 
         {/* FAQ Items */}
@@ -80,7 +87,7 @@ const FAQSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white border-b border-gray-200 overflow-hidden "
+              className="bg-white border-b border-gray-200 overflow-hidden"
             >
               {/* Question Header */}
               <button
@@ -130,8 +137,6 @@ const FAQSection = () => {
             </motion.div>
           ))}
         </div>
-
-        
       </div>
     </div>
   );

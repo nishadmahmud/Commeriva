@@ -67,13 +67,13 @@ const Footer = () => {
             </div>
             <div className="mb-6 flex items-center gap-1 text-gray-600">
               <Mail size={16}></Mail>
-              <p className="text-gray-600">commeriva@gmail.com</p>
+              <p className="text-gray-600">info@commeriva.com</p>
             </div>
             <div>
               <h4 className="font-medium text-gray-900 mb-4">Follow us</h4>
               <div className="flex space-x-4">
                 <Link target='_blank' href="https://www.facebook.com/profile.php?id=61579322220482" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors duration-200"><Facebook size={16} className="text-gray-600" /></Link>
-                <a href="#" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors duration-200"><Linkedin size={16} className="text-gray-600" /></a>
+                <Link href="https://www.linkedin.com/company/commeriva"  target='_blank' className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors duration-200"><Linkedin size={16} className="text-gray-600" /></Link>
                 <a href="#" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors duration-200"><Instagram size={16} className="text-gray-600" /></a>
               </div>
             </div>

@@ -125,8 +125,8 @@ export default function PartnersIntegrations() {
       id: 15,
       name: "Next.js",
       image: "/nextjs.png",
-       position: { bottom: "100px", right: "300px" },
-      size: { width: "75px", height: "75px" },
+       position: { bottom: "100px", right: "280px" },
+      size: { width: "70px", height: "70px" },
     },
     {
       id: 16,
@@ -183,9 +183,9 @@ export default function PartnersIntegrations() {
   }
 
    const stats = [
-    { number: 930, suffix: "+", label: "Partners" },
-    { number: 4000, suffix: "+", label: "Integrations" },
-    { number: 500, suffix: "+", label: "Project" },
+    { number: 100, suffix: "+", label: "Partners" },
+    { number: 150, suffix: "+", label: "Integrations" },
+    { number: 120, suffix: "+", label: "Project" },
   ]
 
   return (

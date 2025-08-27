@@ -11,7 +11,7 @@ export default function Component() {
 
     <div className="fixed cursor-pointer lg:bottom-16 bottom-10 md:right-8 right-4 z-[10000]">
       <div className={`transition-all duration-300 ease-in-out ${isMinimized ? 'w-14' : 'max-w-sm'}`}>
-      {/* <FloatingActionMenu /> */}
+      <FloatingActionMenu />
       </div>
     </div>
   )

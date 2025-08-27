@@ -5,7 +5,7 @@ import Link from "next/link";
 import useSWR from "swr";
 import { fetcher, userId } from "../page";
 
-export default function BlogSection() {
+export default function BlogsPage() {
   const { data, error, isLoading } = useSWR(
     `${process.env.NEXT_PUBLIC_API}/latest-ecommerce-blog-list/${userId}`,
     fetcher
@@ -14,17 +14,13 @@ export default function BlogSection() {
   if (isLoading) return <p className="text-center py-10">Loading blogs...</p>;
   if (error) return <p className="text-center py-10 text-red-500">Failed to load blogs.</p>;
 
-  const blogs = data?.data?.slice(0, 6) || []; // ✅ Only show 6
+  const blogs = data?.data || [];
 
   return (
-    <section className="bg-white py-10 pt-28 px-6">
+    <section className="bg-white pb-20 pt-8 px-6">
       <div className="mx-auto max-w-4xl pb-10 text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
-          Insights on Building Your Perfect Store
-        </h2>
-        <p className="mt-4 text-lg text-gray-600">
-          Discover expert tips, success stories, and the latest trends in custom e-commerce solutions.
-        </p>
+        <h1 className="md:text-5xl text-3xl font-semibold tracking-tight text-gray-900">Commeriva Blogs</h1>
+        <p className="text-gray-600 text-lg mt-2 w-lg mx-auto text-center">Guides, announcements and articles about Prisma, databases and the data access layer.</p>
       </div>
 
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
@@ -51,15 +47,6 @@ export default function BlogSection() {
             </div>
           </div>
         ))}
-      </div>
-
-      {/* View All Button */}
-      <div className="text-center mt-2">
-        <Link href="/blogs">
-          <button className="hover:text-blue-600 font-medium poppins cursor-pointer hover:underline text-sm text-gray-700 transition">
-            View All
-          </button>
-        </Link>
       </div>
     </section>
   );
