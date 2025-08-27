@@ -63,8 +63,14 @@ const Navbar = () => {
                 onMouseEnter={() => setActive(menu)}
                 onMouseLeave={() => setActive(null)}
               >
-                <Link
-  href={menu === "Portfolio" ? "/portfolio" : "/"}
+              <Link
+  href={
+    menu === "Portfolio" 
+      ? "/portfolio" 
+      : menu === "Blog" 
+      ? "#blog" 
+      : "/"
+  }
   className="hover:text-gray-600 montserrat flex items-center gap-1"
 >
   {menu}
@@ -73,6 +79,7 @@ const Navbar = () => {
     <IoIosArrowDown className="mt-1" size={15} />
   )}
 </Link>
+
 
 
                 {/* Dropdown with animation */}
@@ -204,7 +211,7 @@ Let's Talk
                       )}
                     </AnimatePresence>
 
-                    {/* Direct links for Pricing, Blog, Portfolio */}
+                  
                     {(menu === 'Pricing' || menu === 'Blog' || menu === 'Portfolio') && (
                       <div className="ml-4 space-y-1 pb-2">
                         {menus[menu].map((item, i) => (

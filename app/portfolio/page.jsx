@@ -1,7 +1,8 @@
 "use client"
 
-import Image from "next/image"
 import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image"
 
 const projects = [
   {
@@ -18,7 +19,7 @@ const projects = [
     title: "Mobile Club",
     image: "/mobile-club.png",
     description:
-      "Mobile Club is a famous shop in Jamuna Future park in Bangladesh. They are sale used Iphone and Gadgets Accessories",
+      "Mobile Club is a famous shop in Jamuna Future park in Bangladesh. They are sale used iPhone and Gadgets Accessories.",
     liveLink: "https://www.mobileclub.co/",
     technologies: ["Next.js", "Firebase", "Gsap"],
   },
@@ -27,7 +28,7 @@ const projects = [
     title: "Satsuna Corporation",
     image: "/satsuna.jpeg",
     description:
-      "Satsuna is a japanees blog website. They publish the famous blog on Japan",
+      "Satsuna is a Japanese blog website. They publish famous blogs on Japan.",
     liveLink: "https://www.satsuna.co.jp",
     technologies: ["Next.js", "API Integration", "React"],
   },
@@ -45,7 +46,7 @@ const projects = [
     title: "Morshed Mart",
     image: "/morshedmart.png",
     description:
-      "Morshed mart is a fashion e-commarce. They sell T-shirt, Solid and Stripe Brand Shirt",
+      "Morshed Mart is a fashion e-commerce store. They sell T-shirts and branded shirts.",
     liveLink: "https://www.morshedmart.com/",
     technologies: ["Next.js", "MySql", "Framer motion"],
   },
@@ -54,7 +55,7 @@ const projects = [
     title: "Elite",
     image: "/eliteBd.png",
     description:
-      "Elite is a qualityfull laptop saller, They sell many 2nd hand and new laptop",
+      "Elite is a quality laptop seller. They sell many 2nd hand and new laptops.",
     liveLink: "https://www.eliteebd.com/",
     technologies: ["HTML", "CSS", "JavaScript"],
   },
@@ -69,138 +70,91 @@ const projects = [
   },
 ]
 
+const categories = ["All", "Next.js", "React", "Firebase", "Laravel", "Php", "Tailwind", "API Integration", "HTML", "CSS", "JavaScript", "MySql", "Framer motion", "Express"]
+
 export default function Portfolio() {
-  const [activeProject, setActiveProject] = useState(1)
+  const [activeCategory, setActiveCategory] = useState("All")
+
+  const filteredProjects =
+    activeCategory === "All"
+      ? projects
+      : projects.filter((p) => p.technologies.includes(activeCategory))
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans overflow-hidden">
-      <div className="flex flex-col md:flex-row h-screen">
-        {/* Left Side - Project List */}
-        <div className="w-full md:w-1/3 border-r border-gray-200 overflow-x-auto md:overflow-y-auto no-scrollbar">
-          <div className="p-6 md:p-8">
-            <h1 className="text-2xl md:text-4xl font-semibold mb-2 text-gray-900">Our Portfolio</h1>
-            <p className="text-gray-600 mb-6 md:mb-8">Select a project to explore</p>
+    <div className="min-h-screen bg-white py-12 px-4 md:px-12 lg:px-24">
+      {/* Header */}
+      <div className="text-center mb-10">
+        <h1 className="text-3xl md:text-5xl font-bold text-gray-900">Our Portfolio</h1>
+        <p className="text-gray-600 mt-2">Select a project to explore</p>
+      </div>
 
-            <div className="flex md:flex-col gap-4">
-              {projects.map((project, index) => (
-                <div
-                  key={project.id}
-                  className={`cursor-pointer min-w-[220px] md:min-w-0 p-4 rounded-lg transition-all duration-300 border-l-4 ${
-                    activeProject === project.id
-                      ? "bg-white border-gray-900 text-gray-900 shadow-lg"
-                      : "bg-white/70 border-gray-300 text-gray-700 hover:bg-white hover:border-gray-500 hover:shadow-md"
-                  }`}
-                  onClick={() => setActiveProject(project.id)}
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-mono text-gray-400">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <div className="flex gap-1">
-                      {project.technologies.slice(0, 2).map((tech, i) => (
-                        <span
-                          key={i}
-                          className="text-xs px-2 py-1 bg-gray-200 text-gray-700 rounded"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <h3 className="font-semibold text-sm mb-1">{project.title}</h3>
-                  <p className="text-xs text-gray-500 line-clamp-2">{project.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+      {/* Category Filter */}
+      <div className="flex flex-wrap justify-center gap-3 mb-12">
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => setActiveCategory(category)}
+            className={`px-4 py-2 text-sm rounded-full border transition-all ${
+              activeCategory === category
+                ? "bg-gray-900 text-white border-gray-900"
+                : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+            }`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
 
-        {/* Right Side - Project Details */}
-        <div className="flex-1 relative">
-          {projects.map((project) => (
-            <div
+      {/* Projects Grid */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <AnimatePresence>
+          {filteredProjects.map((project) => (
+            <motion.div
               key={project.id}
-              className={`absolute inset-0 transition-all duration-500 ${
-                activeProject === project.id
-                  ? "opacity-100 translate-x-0"
-                  : "opacity-0 translate-x-full"
-              }`}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -50 }}
+              transition={{ duration: 0.4 }}
+              className="bg-white border rounded-2xl shadow-sm hover:shadow-lg transition-all overflow-hidden"
             >
-              {/* Project Image Background */}
-              <div className="absolute inset-0">
+              {/* Project Image */}
+              <div className="relative h-40 w-full">
                 <Image
-                  fill
-                  src={project.image || "/placeholder.svg"}
+                  src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
               </div>
 
-              {/* Project Content Overlay */}
-              <div className="relative z-10 h-full flex flex-col justify-center p-6 md:p-12">
-                <div className="max-w-2xl">
-                  {/* Project Number */}
-                  <div className="text-4xl md:text-6xl font-bold text-gray-300 mb-4">
-                    {String(projects.findIndex((p) => p.id === project.id) + 1).padStart(2, "0")}
-                  </div>
-
-                  {/* Project Title */}
-                  <h2 className="text-2xl md:text-4xl font-semibold mb-4 md:mb-6 text-gray-100">
-                    {project.title}
-                  </h2>
-
-                  {/* Project Description */}
-                  <p className="text-base md:text-lg text-gray-200 mb-6 md:mb-8 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
-                    {project.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="px-3 md:px-4 py-1.5 md:py-2 bg-gray-900/10 backdrop-blur-sm text-gray-100 rounded-full border border-gray-300 text-xs md:text-sm font-medium"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Live Link Button */}
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-transparent backdrop-blur-lg text-gray-100 font-semibold rounded-full hover:bg-gray-200 border border-gray-100 transition-all duration-300 transform hover:scale-105 group shadow-lg hover:text-gray-800"
-                  >
-                    View Live Project
-                    <svg
-                      className="ml-2 md:ml-3 w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+              {/* Content */}
+              <div className="p-5">
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {project.technologies.slice(0, 2).map((tech, i) => (
+                    <span
+                      key={i}
+                      className="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  </a>
+                      {tech}
+                    </span>
+                  ))}
                 </div>
+                <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
+                <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                  {project.description}
+                </p>
+                <a
+                  href={project.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-sm font-medium text-gray-900 border border-gray-900 px-4 py-2 rounded-lg hover:bg-gray-900 hover:text-white transition"
+                >
+                  View Project
+                </a>
               </div>
-
-              {/* Decorative Elements */}
-              <div className="absolute top-6 right-6 md:top-8 md:right-8 w-16 h-16 md:w-24 md:h-24 border border-gray-300 rounded-full flex items-center justify-center">
-                <div className="w-8 h-8 md:w-12 md:h-12 border border-gray-400 rounded-full flex items-center justify-center">
-                  <div className="w-4 h-4 md:w-6 md:h-6 bg-gray-900 rounded-full" />
-                </div>
-              </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </AnimatePresence>
       </div>
     </div>
   )

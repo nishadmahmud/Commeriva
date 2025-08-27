@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
 import { fetcher, userId } from "../page";
+import { ArrowRight } from "lucide-react";
 
 export default function BlogSection() {
   const { data, error, isLoading } = useSWR(
@@ -17,7 +18,7 @@ export default function BlogSection() {
   const blogs = data?.data?.slice(0, 6) || []; // ✅ Only show 6
 
   return (
-    <section className="bg-white py-10 pt-28 px-6">
+    <section id="blog" className="bg-white py-10 pt-28 px-6">
       <div className="mx-auto max-w-4xl pb-10 text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
           Insights on Building Your Perfect Store
@@ -40,7 +41,7 @@ export default function BlogSection() {
             />
             <div className="py-5">
               <Link href={`/blogs/${blog.id}`}>
-                <h3 className="text-lg font-bold text-gray-900 hover:text-blue-600 transition">
+                <h3 className="text-lg font-semibold text-gray-900 hover:text-gray-600 transition">
                   {blog.title}
                 </h3>
               </Link>
@@ -55,9 +56,10 @@ export default function BlogSection() {
 
       {/* View All Button */}
       <div className="text-center mt-2">
-        <Link href="/blogs">
-          <button className="hover:text-blue-600 font-medium poppins cursor-pointer hover:underline text-sm text-gray-700 transition">
+        <Link href="/blogs" className="flex justify-center flex-col">
+          <button className="hover:text-blue-600 flex items-center gap-1 justify-center justify-items-center font-medium poppins cursor-pointer hover:underline text-sm text-gray-700 transition">
             View All
+            <ArrowRight size={15}></ArrowRight>
           </button>
         </Link>
       </div>

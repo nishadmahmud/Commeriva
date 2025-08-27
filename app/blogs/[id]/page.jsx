@@ -28,7 +28,7 @@ export default function BlogDetails() {
           height={1000}
           src={blog.image}
           alt={blog.title}
-          className="w-full h-80 object-cover mb-6"
+          className="w-full h-96 object-cover mb-6"
         />
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold text-gray-900 my-8">{blog.title}</h1>
