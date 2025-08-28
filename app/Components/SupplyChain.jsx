@@ -7,22 +7,26 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
+import { Code } from "lucide-react";
+import { MdOutlineDocumentScanner, MdScanner } from "react-icons/md";
+import { Truck } from "lucide-react";
+import { TbTruckDelivery } from "react-icons/tb";
 
 const features = [
   {
-    img: "/code.png",
+    icon: <Code size={60}></Code>,
     title: "Web Order Management",
     description:
       "Simplify order management with Web Order Monitoring. Track sales orders and KPIs effortlessly.",
   },
   {
-    img: "/scanner.png",
+    icon: <MdOutlineDocumentScanner size={60}></MdOutlineDocumentScanner>,
     title: "Scan & Trace Technology",
     description:
       "Elevate your warehouse experience with Scan & Trace Technology. Enjoy superior inventory control.",
   },
   {
-    img: "/delivery-truck.png",
+    icon: <TbTruckDelivery size={60}></TbTruckDelivery>,
     title: "Delivery Management",
     description:
       "Elevate your delivery operations with Dispatch & Delivery Management and save your valuable time.",
@@ -44,11 +48,11 @@ export default function SupplyChain() {
   return (
     <div className="md:w-10/12 w-11/12 mx-auto min-h-screen bg-white md:mt-20 mt-10">
        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
+          <h2 className="text-4xl title font-semibold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
             Boost your supply chain efficiency
           </h2>
-          <p className="mt-4 md:text-lg text-gray-600">
-           Android app for orders, scanning, tracking, monitoring.
+          <p className="mt-4 md:text-lg poppins text-gray-600">
+           Comprehensive android app for distribution management: orders, SKU scanning, tracking, metrics, and vehicle monitoring in one solution
           </p>
           
         </div>
@@ -93,15 +97,9 @@ export default function SupplyChain() {
               stiffness: 200,
               damping: 15,
             }}
-            className="rounded-full flex items-center md:justify-center transition-shadow duration-300"
+            className="rounded-full flex items-center md:justify-center transition-shadow duration-300 primary-text-color"
           >
-            <Image
-            className="w-12 md:w-20"
-              width={80}
-              height={80}
-              src={feature?.img}
-              alt={feature.title}
-            />
+            {feature.icon}
           </motion.div>
         </div>
 

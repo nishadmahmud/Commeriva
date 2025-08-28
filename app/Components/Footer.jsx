@@ -4,14 +4,14 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 border-t border-gray-200 pt-16 pb-10 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-gray-50 border-t border-gray-200 md:pt-16 pt-10 pb-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
           
           {/* Company Logo and Locations */}
           <div className="lg:col-span-2 space-y-8">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 tracking-wider mb-5 uppercase">Commeriva</h2>
+              <h2 className="text-3xl font-semibold tracking-wide text-gray-900 mb-5 logoFont">Commeriva</h2>
             </div>
 
             {/* Subscription Part */}

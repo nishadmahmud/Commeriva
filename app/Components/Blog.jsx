@@ -18,12 +18,12 @@ export default function BlogSection() {
   const blogs = data?.data?.slice(0, 6) || []; // ✅ Only show 6
 
   return (
-    <section id="blog" className="bg-white py-10 pt-28 px-6">
+    <section id="blog" className="bg-white py-10 md:pt-28 pt-10 px-6">
       <div className="mx-auto max-w-4xl pb-10 text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
+        <h2 className="text-3xl font-semibold title tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
           Insights on Building Your Perfect Store
         </h2>
-        <p className="mt-4 text-lg text-gray-600">
+        <p className="mt-4 text-lg text-gray-600 poppins">
           Discover expert tips, success stories, and the latest trends in custom e-commerce solutions.
         </p>
       </div>
@@ -41,7 +41,7 @@ export default function BlogSection() {
             />
             <div className="py-5">
               <Link href={`/blogs/${blog.id}`}>
-                <h3 className="text-lg font-semibold text-gray-900 hover:text-gray-600 transition">
+                <h3 className="text-lg font-semibold poppins text-gray-900 hover:text-gray-600 transition">
                   {blog.title}
                 </h3>
               </Link>

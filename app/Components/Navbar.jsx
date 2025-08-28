@@ -15,7 +15,7 @@ const Navbar = () => {
 
   const menus = {
     Product: [
-      { name: "Premium E-Commerce Solutions (Next.js)", href: "/", icon: '/online-shop.png' },
+      { name: "Premium E-Commerce Solutions (Next.js)", href: "/why-nextjs", icon: '/online-shop.png' },
       { name: "Corporate & Company Websites", href: "/", icon: "/team.png" },
       { name: "Portfolio & Personal Branding Sites", href: "/", icon: "/portfolio.png" },
       { name: "Landing Pages & Conversion Funnels", href: "/", icon: "/landing-page.png" },
@@ -49,13 +49,13 @@ const Navbar = () => {
     <nav className="bg-transparent">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Left logo */}
-        <Link href='/' className="font-bold tracking-widest md:text-xl text-black logo-font cursor-pointer">
+        <Link href='/' className="font-medium text-gray-800 md:text-3xl text-xl logoFont cursor-pointer">
           Commeriva
         </Link>
 
         {/* Middle Nav - Desktop */}
         <nav className="relative">
-          <div className="hidden md:flex space-x-8 font-semibold text-gray-700">
+          <div className="hidden md:flex space-x-8 font-medium text-gray-700">
             {Object.keys(menus).map((menu) => (
               <div
                 key={menu}
@@ -71,7 +71,7 @@ const Navbar = () => {
       ? "#blog" 
       : "/"
   }
-  className="hover:text-gray-600 montserrat flex items-center gap-1"
+  className="hover:text-gray-700 poppins flex items-center gap-1"
 >
   {menu}
   {/* Show arrow only if not Pricing, Blog, Portfolio */}
@@ -100,7 +100,7 @@ const Navbar = () => {
                               <li key={i}>
                                 <Link
                                   href={item.href}
-                                  className="flex items-center space-x-2 px-3 py-1.5 rounded hover:bg-gray-100 text-start hover:text-gray-700"
+                                  className="flex items-center space-x-2 px-3 py-1.5 rounded hover:bg-gray-100 text-start poppins hover:text-gray-700"
                                 >
                                   <div className='p-2 border border-gray-200 shadow-sm rounded-full'>
                                     <Image unoptimized width={200} height={200} className='w-8 p-1' src={item.icon}></Image>
@@ -123,7 +123,7 @@ const Navbar = () => {
 
         {/* Right buttons - Desktop */}
         <div className="hidden md:flex items-center space-x-4">
-          <button className="bg-gray-50 border border-gray-200 px-5 p-2 rounded-full text-gray-700 text-sm font-semibold flex justify-center items-center gap-1.5">
+          <button className="bg-button border border-teal-100 px-5 p-2 rounded-full text-slate-700 text-sm font-semibold flex poppins justify-center items-center gap-1.5">
             <Calendar color='gray' size={18} />
             Let's Discuss
           </button>
@@ -170,7 +170,7 @@ Let's Talk
                   <div key={menu}>
                     <button
                       onClick={() => toggleMobileSubmenu(menu)}
-                      className="w-full flex items-center justify-between px-3 py-3 text-left font-semibold text-gray-700 hover:text-blue-600"
+                      className="w-full flex items-center justify-between px-3 py-3 text-left text-gray-700 hover:text-teal-600 poppins"
                     >
                       <span>{menu}</span>
                       {!(menu === 'Pricing' || menu === 'Blog' || menu === 'Portfolio') && (
@@ -198,7 +198,7 @@ Let's Talk
                               <Link
                                 key={i}
                                 href={item.href}
-                                className="flex items-center space-x-2 px-3 py-1.5 rounded hover:bg-gray-100 text-start hover:text-gray-700"
+                                className="flex items-center space-x-2 poppins px-3 py-1.5 rounded hover:bg-gray-100 text-start hover:text-gray-700"
                               >
                                 <div className='p-2 border border-gray-200 shadow-sm rounded-full'>
                                   <Image unoptimized width={200} height={200} className='w-8 p-1' src={item.icon}></Image>
@@ -218,7 +218,7 @@ Let's Talk
                           <Link
                             key={i}
                             href={item.href}
-                            className="block px-3 py-1.5 text-sm text-gray-600 hover:text-blue-600"
+                            className="block px-3 py-1.5 text-sm text-gray-600 hover:text-teal-600 "
                           >
                             {item.name}
                           </Link>

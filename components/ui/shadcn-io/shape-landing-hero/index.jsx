@@ -89,7 +89,7 @@ export function HeroGeometric({
           width={600}
           height={140}
           rotate={12}
-          gradient="bg-gray-200"
+          gradient="bg-shape"
           className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
         />
         <ElegantShape
@@ -97,7 +97,7 @@ export function HeroGeometric({
           width={500}
           height={120}
           rotate={-15}
-          gradient="bg-gray-200"
+          gradient="bg-shape"
           className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
         />
         <ElegantShape
@@ -105,7 +105,7 @@ export function HeroGeometric({
           width={300}
           height={80}
           rotate={-8}
-          gradient="bg-gray-200"
+          gradient="bg-shape"
           className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
         />
         <ElegantShape
@@ -113,7 +113,7 @@ export function HeroGeometric({
           width={200}
           height={60}
           rotate={20}
-          gradient="bg-gray-200"
+          gradient="bg-shape"
           className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
         />
         <ElegantShape
@@ -121,7 +121,7 @@ export function HeroGeometric({
           width={150}
           height={40}
           rotate={-25}
-          gradient="bg-gray-200"
+          gradient="bg-shape"
           className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
         />
       </div>
@@ -135,20 +135,20 @@ export function HeroGeometric({
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-300 mb-4 md:mb-5"
+            className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100 border border-gray-300 mb-4 md:mb-5"
           >
             <Circle className="h-2 w-2 text-gray-600" />
-            <span className="text-sm text-gray-700 tracking-wide">{badge}</span>
+            <span className="text-sm text-gray-700 tracking-wide poppins">{badge}</span>
           </motion.div>
 
           {/* Title */}
           <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <h1 className="text-5xl md:text-7xl font-bold mb-3 md:mb-5 tracking-tight">
-              <span className="text-gray-800 montserrat">
+            <h1 className="text-5xl md:text-7xl font-semibold mb-3 md:mb-5">
+              <span className="text-gray-800 heroTitle">
                 {title1}
               </span>
               <br />
-              <span className="text-gray-700 montserrat">
+              <span className="text-gray-700 heroTitle">
                Websites for your
                 <RotatingText
   texts={['Business','Company','Portfolio']}
@@ -158,7 +158,7 @@ export function HeroGeometric({
   animate={{ y: 0 }}
   exit={{ y: "-120%" }}
   staggerDuration={0.025}
-  splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+  splitLevelClassName="overflow-hidden pb-0.5 text-teal-600 sm:pb-1 md:pb-1"
   transition={{ type: "spring", damping: 30, stiffness: 400 }}
   rotationInterval={2500}
 />

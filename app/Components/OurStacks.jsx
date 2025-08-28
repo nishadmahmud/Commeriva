@@ -189,7 +189,7 @@ export default function PartnersIntegrations() {
   ]
 
   return (
-    <div className="md:min-h-screen bg-white flex items-center justify-center font-sans">
+    <div className="md:min-h-[85vh] bg-white flex items-center justify-center font-sans">
       <div className="relative w-full max-w-7xl md:min-h-[70vh] px-5 py-10 md:px-8 lg:px-12">
         {/* Desktop/Tablet logos positioned around content */}
         {mounted && windowWidth > 768 && (
@@ -259,7 +259,7 @@ export default function PartnersIntegrations() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-xs sm:text-sm font-semibold text-gray-500 tracking-wider mb-4 sm:mb-6"
+            className="text-xs sm:text-sm font-medium text-gray-500 tracking-wider mb-2 heroTitle"
           >
             PARTNERS & INTEGRATIONS
           </motion.div>
@@ -268,7 +268,7 @@ export default function PartnersIntegrations() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8"
+            className="text-3xl sm:text-4xl heroTitle md:text-5xl lg:text-5xl font-semibold text-gray-900 leading-tight md:mb-6 mb-2"
           >
             Built to work with your ecosystem
           </motion.h1>
@@ -291,14 +291,14 @@ export default function PartnersIntegrations() {
           >
             <Link
               href="#"
-              className="group text-blue-500 hover:text-blue-600 font-medium text-sm sm:text-base transition-colors duration-200"
+              className="group primary-text-color hover:text-teal-600 font-medium text-sm sm:text-base transition-colors duration-200"
             >
               Our ecosystem
               <span className="inline-block ml-2 transition-transform duration-200 group-hover:translate-x-1">→</span>
             </Link>
             <Link
               href="#"
-              className="group text-blue-500 hover:text-blue-600 font-medium text-sm sm:text-base transition-colors duration-200"
+              className="group primary-text-color hover:text-teal-600 font-medium text-sm sm:text-base transition-colors duration-200"
             >
               Find integrations
               <span className="inline-block ml-2 transition-transform duration-200 group-hover:translate-x-1">→</span>

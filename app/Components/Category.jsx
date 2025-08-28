@@ -75,7 +75,7 @@ export default function Category() {
   
   return (
    <div>
-    <h2 className="text-4xl mb-10 mt-16 text-center font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl">
+    <h2 className="lg:text-5xl text-4xl title mb-10 mt-16 text-center font-semibold tracking-tight text-gray-900  md:text-4xl">
            E-Commerce Business Suite
           </h2>
      <div className="relative bg-white h-[100vh] text-gray-900 flex flex-col lg:flex-row gap-10 items-start justify-start md:mb-20 w-full max-w-11/12 mx-auto px-4 sm:px-6 overflow-hidden pt-4">
@@ -103,7 +103,7 @@ export default function Category() {
               <div
                 className={`relative overflow-hidden rounded-xl p-4 sm:p-5 transition-all duration-500 ${
                   active === cat.name && cat.description
-                    ? "bg-[linear-gradient(302deg,rgba(165,202,217,1)_51%,rgba(230,236,240,0.71)_100%)] text-white border-gray-50 shadow-2xl"
+                    ? "bg-primary-color text-white border-gray-50 shadow-2xl"
                     : "bg-white border-gray-100 hover:border-gray-200 hover:shadow-xl text-gray-900"
                 }`}
               >
@@ -171,7 +171,7 @@ export default function Category() {
                 {/* Content */}
                 <div className="relative w-full mx-auto text-center z-10">
                   <motion.div 
-                    className="text-3xl sm:text-4xl mb-3 sm:mb-4 filter grayscale"
+                    className="text-3xl sm:text-4xl mb-3 sm:mb-4 filter"
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -290,12 +290,12 @@ export default function Category() {
           <div>
             <div className="flex items-center gap-6 mb-4">
             <div className="text-4xl filter grayscale">{categories.find((cat) => cat.name === active)?.icon}</div>
-            <h2 className="text-3xl font-light text-gray-900 tracking-tight">
-              {active} <span className="font-bold">Solutions</span>
+            <h2 className="text-3xl text-gray-800 tracking-tight">
+              {active} <span className="font-bold text-gray-900">Solutions</span>
             </h2>
           </div>
 
-          <p className="text-gray-600 text-lg leading-relaxed max-w-4xl font-light mb-6">
+          <p className="text-gray-700 max-w-4xl font-normal mb-6">
            {desc}
           </p>
           </div>
