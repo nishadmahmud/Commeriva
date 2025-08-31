@@ -1,26 +1,26 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import Marquee from "react-fast-marquee"
-import CountUp from "react-countup"
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Marquee from "react-fast-marquee";
+import CountUp from "react-countup";
 
 export default function PartnersIntegrations() {
-  const [mounted, setMounted] = useState(false)
-  const [windowWidth, setWindowWidth] = useState(0)
+  const [mounted, setMounted] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
-    setMounted(true)
-    setWindowWidth(window.innerWidth)
+    setMounted(true);
+    setWindowWidth(window.innerWidth);
 
     const handleResize = () => {
-      setWindowWidth(window.innerWidth)
-    }
+      setWindowWidth(window.innerWidth);
+    };
 
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const logos = [
     {
@@ -125,7 +125,7 @@ export default function PartnersIntegrations() {
       id: 15,
       name: "Next.js",
       image: "/nextjs.png",
-       position: { bottom: "100px", right: "280px" },
+      position: { bottom: "100px", right: "280px" },
       size: { width: "70px", height: "70px" },
     },
     {
@@ -149,7 +149,7 @@ export default function PartnersIntegrations() {
       position: { top: "220px", right: "250px" },
       size: { width: "45px", height: "45px" },
     },
-  ]
+  ];
 
   const logoVariants = {
     hidden: { opacity: 0, scale: 0.8, y: 20 },
@@ -171,7 +171,7 @@ export default function PartnersIntegrations() {
         ease: "easeInOut",
       },
     },
-  }
+  };
 
   const floatingAnimation = {
     y: [-10, 10, -10],
@@ -180,16 +180,16 @@ export default function PartnersIntegrations() {
       repeat: Number.POSITIVE_INFINITY,
       ease: "easeInOut",
     },
-  }
+  };
 
-   const stats = [
+  const stats = [
     { number: 100, suffix: "+", label: "Partners" },
     { number: 150, suffix: "+", label: "Integrations" },
     { number: 120, suffix: "+", label: "Project" },
-  ]
+  ];
 
   return (
-    <div className="md:min-h-[85vh] bg-white flex items-center justify-center font-sans">
+    <div className="bg-white flex items-center justify-center font-sans">
       <div className="relative w-full max-w-7xl md:min-h-[70vh] px-5 py-10 md:px-8 lg:px-12">
         {/* Desktop/Tablet logos positioned around content */}
         {mounted && windowWidth > 768 && (
@@ -253,7 +253,11 @@ export default function PartnersIntegrations() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className={`text-center max-w-2xl mx-auto ${windowWidth > 768 ? "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" : ""}`}
+          className={`text-center max-w-2xl mx-auto ${
+            windowWidth > 768
+              ? "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+              : ""
+          }`}
         >
           <motion.div
             initial={{ opacity: 0 }}
@@ -279,8 +283,9 @@ export default function PartnersIntegrations() {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="text-base sm:text-lg text-gray-600 leading-relaxed mb-8 sm:mb-12 px-4 sm:px-0"
           >
-            We understand that success doesn't happen in isolation. That's why Commeriva products integrate with the
-            technologies that power your business.
+            We understand that success doesn't happen in isolation. That's why
+            Commeriva products integrate with the technologies that power your
+            business.
           </motion.p>
 
           <motion.div
@@ -294,46 +299,52 @@ export default function PartnersIntegrations() {
               className="group primary-text-color hover:text-teal-600 font-medium text-sm sm:text-base transition-colors duration-200"
             >
               Our ecosystem
-              <span className="inline-block ml-2 transition-transform duration-200 group-hover:translate-x-1">→</span>
+              <span className="inline-block ml-2 transition-transform duration-200 group-hover:translate-x-1">
+                →
+              </span>
             </Link>
             <Link
               href="#"
               className="group primary-text-color hover:text-teal-600 font-medium text-sm sm:text-base transition-colors duration-200"
             >
               Find integrations
-              <span className="inline-block ml-2 transition-transform duration-200 group-hover:translate-x-1">→</span>
+              <span className="inline-block ml-2 transition-transform duration-200 group-hover:translate-x-1">
+                →
+              </span>
             </Link>
           </motion.div>
 
-           <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.9, duration: 0.6 }}
-      className="grid grid-cols-3 justify-center gap-8 sm:gap-16 lg:gap-20"
-    >
-      {stats.map((stat, index) => (
-        <motion.div
-          key={stat.label}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
-          className="text-center"
-        >
-          <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
-            <CountUp
-              start={0}
-              end={stat.number}
-              duration={2.5}
-              separator=","
-              suffix={stat.suffix}
-            />
-          </div>
-          <div className="text-sm sm:text-base text-gray-600 font-medium">{stat.label}</div>
-        </motion.div>
-      ))}
-    </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="grid grid-cols-3 justify-center gap-8 sm:gap-16 lg:gap-20"
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
+                className="text-center"
+              >
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
+                  <CountUp
+                    start={0}
+                    end={stat.number}
+                    duration={2.5}
+                    separator=","
+                    suffix={stat.suffix}
+                  />
+                </div>
+                <div className="text-sm sm:text-base text-gray-600 font-medium">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </div>
-  )
+  );
 }

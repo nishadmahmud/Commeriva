@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -12,20 +12,31 @@ export default function BlogsPage() {
   );
 
   if (isLoading) return <p className="text-center py-10">Loading blogs...</p>;
-  if (error) return <p className="text-center py-10 text-red-500">Failed to load blogs.</p>;
+  if (error)
+    return (
+      <p className="text-center py-10 text-red-500">Failed to load blogs.</p>
+    );
 
   const blogs = data?.data || [];
 
   return (
     <section className="bg-white pb-20 pt-8 px-6">
-      <div className="mx-auto max-w-4xl pb-10 text-center">
-        <h1 className="md:text-5xl text-3xl font-semibold tracking-tight text-gray-900">Commeriva Blogs</h1>
-        <p className="text-gray-600 text-lg mt-2 w-lg mx-auto text-center">Guides, announcements and articles about Prisma, databases and the data access layer.</p>
+      <div className="mx-auto max-w-4xl pb-8 text-center">
+        <h1 className="md:text-5xl text-3xl font-semibold tracking-tight text-gray-900 title">
+          Commeriva Blogs
+        </h1>
+        <p className="text-gray-600 text-lg mt-2 w-lg mx-auto text-center">
+          Guides, announcements and articles about Prisma, databases and the
+          data access layer.
+        </p>
       </div>
 
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
         {blogs.map((blog) => (
-          <div key={blog.id} className="bg-white overflow-hidden transition-all duration-300">
+          <div
+            key={blog.id}
+            className="bg-white overflow-hidden transition-all duration-300"
+          >
             <Image
               unoptimized
               width={500}

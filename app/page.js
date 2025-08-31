@@ -9,14 +9,13 @@ import SupplyChain from "./Components/SupplyChain";
 import ClientReview from "./Components/ClientReview";
 import Blog from "./Components/Blog";
 import FAQSection from "./Components/FAQSection";
-import Footer from "./Components/Footer";
 import TestSection from "./Components/TestSection";
 import OurServices from "./Components/OurService";
+import Navbar from "./Components/Navbar";
 export const userId = 217;
-export const fetcher = (url) => fetch(url).then(res => res.json());
+export const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function Home() {
-
   return (
     <div>
       <HeroPage></HeroPage>
@@ -31,7 +30,6 @@ export default function Home() {
       <ClientReview></ClientReview>
       <Blog></Blog>
       <FAQSection></FAQSection>
-      <Footer></Footer>
     </div>
   );
 }
