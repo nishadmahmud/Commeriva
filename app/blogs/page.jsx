@@ -25,7 +25,7 @@ export default function BlogsPage() {
         <h1 className="md:text-5xl text-3xl font-semibold tracking-tight text-gray-900 title">
           Commeriva Blogs
         </h1>
-        <p className="text-gray-600 text-lg mt-2 w-lg mx-auto text-center">
+        <p className="text-gray-600 inline md:text-lg text-sm mt-2 w-lg mx-auto text-center">
           Guides, announcements and articles about Prisma, databases and the
           data access layer.
         </p>

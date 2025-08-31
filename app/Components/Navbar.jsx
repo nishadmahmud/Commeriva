@@ -39,17 +39,17 @@ const Navbar = () => {
     Integration: [
       {
         name: "Payment Gateway Integration",
-        href: "/payment-gateway",
+        href: "/integration#payment",
         icon: "/payment-service.png",
       },
       {
         name: "Courier & Shipping Integration",
-        href: "/coourier-shipping",
+        href: "/integration#courier",
         icon: "/delivery.png",
       },
       {
         name: "Order & Inventory Management",
-        href: "/order-inventory",
+        href: "/integration",
         icon: "/inventory-management.png",
       },
     ],
@@ -70,7 +70,7 @@ const Navbar = () => {
   return (
     <div className="pb-12">
       <nav className="bg-white/70 backdrop-blur-md fixed top-0 w-full z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between sticky top-2">
           {/* Left logo */}
           <Link
             href="/"
@@ -97,6 +97,8 @@ const Navbar = () => {
                         ? "/blogs"
                         : menu === "Pricing"
                         ? "/pricing"
+                        : menu === "Integration"
+                        ? "/integration"
                         : "/"
                     }
                     className="hover:text-gray-700 poppins flex text-sm items-center"
@@ -211,7 +213,7 @@ const Navbar = () => {
                     <div key={menu}>
                       <button
                         onClick={() => toggleMobileSubmenu(menu)}
-                        className="w-full flex items-center justify-between px-3 py-3 text-left text-gray-700 hover:text-teal-600 poppins"
+                        className="w-full flex items-center justify-between px-3 py-3 text-left text-gray-700 hover:text-teal-600 poppins text-sm cursor-pointer"
                       >
                         <span>{menu}</span>
                         {!(

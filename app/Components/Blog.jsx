@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -13,24 +13,31 @@ export default function BlogSection() {
   );
 
   if (isLoading) return <p className="text-center py-10">Loading blogs...</p>;
-  if (error) return <p className="text-center py-10 text-red-500">Failed to load blogs.</p>;
+  if (error)
+    return (
+      <p className="text-center py-10 text-red-500">Failed to load blogs.</p>
+    );
 
-  const blogs = data?.data?.slice(0, 6) || []; // ✅ Only show 6
+  const blogs = data?.data?.slice(0, 6) || [];
 
   return (
     <section id="blog" className="bg-white py-10 md:pt-28 pt-10 px-6">
       <div className="mx-auto max-w-4xl pb-10 text-center">
-        <h2 className="text-3xl font-semibold title tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
+        <h2 className="lg:text-5xl md:text-4xl text-3xl font-semibold title tracking-tight text-gray-900 sm:text-4xl">
           Insights on Building Your Perfect Store
         </h2>
         <p className="mt-4 text-lg text-gray-600 poppins">
-          Discover expert tips, success stories, and the latest trends in custom e-commerce solutions.
+          Discover expert tips, success stories, and the latest trends in custom
+          e-commerce solutions.
         </p>
       </div>
 
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
         {blogs.map((blog) => (
-          <div key={blog.id} className="bg-white overflow-hidden transition-all duration-300">
+          <div
+            key={blog.id}
+            className="bg-white overflow-hidden transition-all duration-300"
+          >
             <Image
               unoptimized
               width={500}

@@ -1,0 +1,306 @@
+import Image from "next/image";
+import React from "react";
+
+const IntegrationsPage = () => {
+  return (
+    <div className="min-h-screen bg-white py-16 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center h-[75vh] flex justify-center items-center flex-col mb-16">
+          <h1 className="text-4xl md:text-5xl font-semibold heroTitle text-gray-900 mb-6">
+            Powerful <span className="text-teal-600">Integrations</span>
+          </h1>
+          <p className="text-lg poppins text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Connect your favorite e-commerce platforms and courier services to
+            streamline your operations with seamless automation.
+          </p>
+        </div>
+
+        {/* Payment Gateway Integrations */}
+        <section id="payment" className="mb-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl title font-semibold text-gray-900 mb-2">
+              Payment Gateway Integrations
+            </h2>
+            <p className="text-gray-600 poppins">
+              Secure and reliable payment processing with leading payment
+              gateways
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 poppins">
+            {/* PayPal */}
+            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <Image
+                    width={100}
+                    height={100}
+                    alt="paypal"
+                    src="/paypal.png"
+                  ></Image>
+                </div>
+                <span className="bg-green-100 text-green-500 px-3 py-1 rounded-full text-xs poppins font-medium">
+                  Available
+                </span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                PayPal
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Global payment solution with buyer protection and seamless
+                checkout.
+              </p>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  Key Features:
+                </h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• One-click Payments</li>
+                  <li>• Buyer Protection</li>
+                  <li>• Multi-currency Support</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Stripe */}
+            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <Image
+                    width={100}
+                    height={100}
+                    alt="stripe"
+                    src="/stripe.png"
+                  ></Image>
+                </div>
+                <span className="bg-green-100 text-green-500 px-3 py-1 rounded-full text-xs poppins font-medium">
+                  Available
+                </span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Stripe
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Advanced payment infrastructure for businesses of all sizes.
+              </p>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  Key Features:
+                </h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Advanced APIs</li>
+                  <li>• Fraud Detection</li>
+                  <li>• Subscription Billing</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* SSL Commerz */}
+            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <Image
+                    width={100}
+                    height={100}
+                    alt="ssl"
+                    src="/ssl.png"
+                  ></Image>
+                </div>
+                <span className="bg-green-100 text-green-500 px-3 py-1 rounded-full text-xs poppins font-medium">
+                  Available
+                </span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                SSL Commerz
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Leading payment gateway in Bangladesh with local banking
+                support.
+              </p>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  Key Features:
+                </h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Local Bank Cards</li>
+                  <li>• Mobile Banking</li>
+                  <li>• Instant Settlement</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Razorpay */}
+            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <Image
+                    width={100}
+                    height={100}
+                    alt="stripe"
+                    src="/razorpay.png"
+                  ></Image>
+                </div>
+
+                <span className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full poppins font-medium text-xs">
+                  Coming Soon
+                </span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Razorpay
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Complete payment solution with smart routing and analytics.
+              </p>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  Key Features:
+                </h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Smart Routing</li>
+                  <li>• Payment Analytics</li>
+                  <li>• Auto Reconciliation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Courier Service Integrations */}
+        <section id="courier" className="my-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-semibold title text-gray-900 mb-2">
+              Courier Service Integrations
+            </h2>
+            <p className="text-gray-600 poppins">
+              Ship with Bangladesh's top courier companies for reliable
+              nationwide delivery
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Pathao */}
+            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <Image
+                    width={100}
+                    height={100}
+                    alt="pathao"
+                    src="/pathao-removebg-preview.png"
+                  ></Image>
+                </div>
+                <div className="text-right">
+                  <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs font-medium block mb-1">
+                    Available
+                  </span>
+                  <span className="text-xs text-gray-500">Nationwide</span>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Pathao
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Fast and reliable delivery across Bangladesh with real-time
+                tracking.
+              </p>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">Services:</h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Same-day Delivery</li>
+                  <li>• Cash on Delivery</li>
+                  <li>• Live Tracking</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* dhl */}
+            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <Image
+                    width={100}
+                    height={100}
+                    alt="dhl"
+                    src="/dhl.png"
+                  ></Image>
+                </div>
+                <div className="text-right">
+                  <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs font-medium block mb-1">
+                    Available
+                  </span>
+                  <span className="text-xs text-gray-500">Worldwide</span>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">DHL</h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Technology-driven courier service with advanced tracking
+                capabilities.
+              </p>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">Services:</h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Smart Routing</li>
+                  <li>• Digital Receipts</li>
+                  <li>• Customer Portal</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* fedex */}
+            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <Image
+                    width={100}
+                    height={100}
+                    alt="fedex"
+                    src="/fedex.png"
+                  ></Image>
+                </div>
+                <div className="text-right">
+                  <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs font-medium block mb-1">
+                    Available
+                  </span>
+                  <span className="text-xs text-gray-500">Worldwide</span>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">FedEx</h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Comprehensive logistics solutions with nationwide coverage.
+              </p>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">Services:</h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Warehouse Solutions</li>
+                  <li>• Custom Delivery</li>
+                  <li>• Nationwide Network</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Call to Action */}
+        <div className="text-center">
+          <h2 className="text-3xl title font-semibold text-gray-900 mb-2">
+            Ready to Get Started?
+          </h2>
+          <p className="text-gray-600 mb-8 poppins">
+            Connect your platforms and grow your online store today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-2 rounded-sm poppins font-medium text-sm cursor-pointer transition-colors duration-200">
+              Sign Up Today
+            </button>
+            <button className="border border-teal-600 text-teal-600 hover:bg-teal-50 px-8 py-2 rounded-sm poppins font-medium text-sm cursor-pointer transition-colors duration-200">
+              View Documentation
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default IntegrationsPage;

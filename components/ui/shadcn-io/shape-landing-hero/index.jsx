@@ -10,7 +10,7 @@ function ElegantShape({
   width = 400,
   height = 100,
   rotate = 0,
-  gradient = ""
+  gradient = "",
 }) {
   return (
     <motion.div
@@ -122,7 +122,7 @@ export function HeroGeometric({
           height={40}
           rotate={-25}
           gradient="bg-shape"
-          className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
+          className="left-[20%] hidden md:block md:left-[25%] top-[5%] md:top-[10%]"
         />
       </div>
 
@@ -138,36 +138,46 @@ export function HeroGeometric({
             className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100 border border-gray-300 mb-4 md:mb-5"
           >
             <Circle className="h-2 w-2 text-gray-600" />
-            <span className="md:text-sm text-gray-700 tracking-wide poppins text-xs">{badge}</span>
+            <span className="md:text-sm text-gray-700 tracking-wide poppins text-xs">
+              {badge}
+            </span>
           </motion.div>
 
           {/* Title */}
-          <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
+          <motion.div
+            custom={1}
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
+          >
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-semibold mb-3 md:mb-5">
-              <span className="text-gray-800 heroTitle">
-                {title1}
-              </span>
+              <span className="text-gray-800 heroTitle">{title1}</span>
               <br />
               <span className="text-gray-700 heroTitle">
-               Websites for your
+                Websites for your
                 <RotatingText
-  texts={['Business','Company','Portfolio']}
-  mainClassName="overflow-hidden justify-center mt-3"
-  staggerFrom={"last"}
-  initial={{ y: "100%" }}
-  animate={{ y: 0 }}
-  exit={{ y: "-120%" }}
-  staggerDuration={0.025}
-  splitLevelClassName="overflow-hidden pb-0.5 text-teal-600 sm:pb-1 md:pb-1"
-  transition={{ type: "spring", damping: 30, stiffness: 400 }}
-  rotationInterval={2500}
-/>
+                  texts={["Business", "Company", "Portfolio"]}
+                  mainClassName="overflow-hidden justify-center mt-3"
+                  staggerFrom={"last"}
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  exit={{ y: "-120%" }}
+                  staggerDuration={0.025}
+                  splitLevelClassName="overflow-hidden pb-0.5 text-teal-600 sm:pb-1 md:pb-1"
+                  transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                  rotationInterval={2500}
+                />
               </span>
             </h1>
           </motion.div>
 
           {/* Description */}
-          <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
+          <motion.div
+            custom={2}
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
+          >
             <p className="text-sm sm:text-lg md:text-xl text-gray-600 mb-8 leading-relaxed font-medium tracking-wide md:max-w-2xl poppins mx-auto px-4">
               {description}
             </p>

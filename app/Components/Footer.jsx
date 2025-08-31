@@ -24,7 +24,7 @@ const Footer = () => {
 
             {/* Subscription Part */}
             <div className="w-sm">
-              <h3 className="font-medium md:text-xl text-lg mb-2 text-gray-700 poppins">
+              <h3 className="font-medium inline md:text-xl text-lg mb-2 text-gray-700 poppins">
                 Get our email for info on new items.
               </h3>
 
@@ -41,7 +41,7 @@ const Footer = () => {
                   </button>
                 </div>
 
-                <p className="font-semibold text-xs mt-2 text-gray-800">
+                <p className="font-semibold inline text-xs mt-2 text-gray-800">
                   By subscribing you agree to our Tearms & Condition and Privacy
                 </p>
               </div>

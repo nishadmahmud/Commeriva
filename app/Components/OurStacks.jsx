@@ -190,7 +190,7 @@ export default function PartnersIntegrations() {
 
   return (
     <div className="bg-white flex items-center justify-center font-sans">
-      <div className="relative w-full max-w-7xl md:min-h-[70vh] px-5 py-10 md:px-8 lg:px-12">
+      <div className="relative w-full max-w-7xl md:min-h-[70vh] px-5 md:py-10 md:px-8 lg:px-12">
         {/* Desktop/Tablet logos positioned around content */}
         {mounted && windowWidth > 768 && (
           <div className="absolute inset-0">

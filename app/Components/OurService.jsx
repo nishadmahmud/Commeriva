@@ -10,7 +10,7 @@ import {
   FaCogs,
 } from "react-icons/fa";
 // import ElectricBorder from "./ElectricBorder"; // Uncomment if you want to use later
-import { BsShop, BsBuilding  } from "react-icons/bs";
+import { BsShop, BsBuilding } from "react-icons/bs";
 import { Globe } from "lucide-react";
 // ====== Services Data ======
 const services = [
@@ -40,13 +40,13 @@ const services = [
   },
   {
     title: "Funnel Websites",
-    icon: <TbWorld  className="text-5xl mb-2" />,
+    icon: <TbWorld className="text-5xl mb-2" />,
     description:
       "Turn your online store into a sales powerhouse. We build eCommerce platforms that showcase your products, convert visitors, and grow your brand.",
   },
   {
     title: "Corporate & Company Websites",
-    icon: <BsBuilding  className="text-5xl mb-2" />,
+    icon: <BsBuilding className="text-5xl mb-2" />,
     description:
       "Scalable corporate websites that streamline operations, enhance credibility, and expand your business reach.",
   },
@@ -60,7 +60,7 @@ export default function OurServices() {
       className="min-h-screen montserrat bg-white pt-12 px-4 sm:px-6 lg:px-8 mb-4 lg:mb-0"
     >
       {/* Section Title */}
-      <h1 className="lg:text-5xl text-4xl font-semibold text-center title pb-10">
+      <h1 className="lg:text-5xl md:text-4xl text-3xl font-semibold text-center title pb-10">
         Our Services
       </h1>
 
