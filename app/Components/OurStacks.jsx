@@ -27,14 +27,14 @@ export default function PartnersIntegrations() {
       id: 1,
       name: "HTML",
       image: "/html.png",
-      position: { top: "20px", left: "180px" },
+      position: { top: "10px", left: "160px" },
       size: { width: "60px", height: "60px" },
     },
     {
       id: 2,
       name: "MongoDB",
       image: "/mongodb.png",
-      position: { top: "50px", right: "300px" },
+      position: { top: "55px", right: "280px" },
       size: { width: "60px", height: "60px" },
     },
     {
@@ -42,7 +42,7 @@ export default function PartnersIntegrations() {
       name: "React",
       image: "/react.png",
       position: { top: "120px", right: "150px" },
-      size: { width: "50px", height: "50px" },
+      size: { width: "70px", height: "70px" },
     },
     {
       id: 4,
@@ -63,7 +63,7 @@ export default function PartnersIntegrations() {
       name: "PostgreSQL",
       image: "/postragsql.png",
       position: { top: "200px", right: "20px" },
-      size: { width: "50px", height: "50px" },
+      size: { width: "40px", height: "40px" },
     },
     {
       id: 7,
@@ -105,20 +105,20 @@ export default function PartnersIntegrations() {
       name: "WordPress",
       image: "/wordpress.png",
       position: { bottom: "20px", right: "10px" },
-      size: { width: "70px", height: "70px" },
+      size: { width: "50px", height: "50px" },
     },
     {
       id: 13,
       name: "Canva",
       image: "/canva.png",
-      position: { top: "10px", right: "200px" },
+      position: { top: "5px", right: "180px" },
       size: { width: "50px", height: "50px" },
     },
     {
       id: 14,
       name: "Figma",
       image: "/figma.png",
-      position: { bottom: "40px", left: "300px" },
+      position: { bottom: "30px", left: "280px" },
       size: { width: "60px", height: "60px" },
     },
     {
@@ -132,7 +132,7 @@ export default function PartnersIntegrations() {
       id: 16,
       name: "Python",
       image: "/python.png",
-      position: { top: "60px", left: "300px" },
+      position: { top: "75px", left: "270px" },
       size: { width: "55px", height: "55px" },
     },
     {

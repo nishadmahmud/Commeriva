@@ -57,8 +57,8 @@ const FAQSection = () => {
   ];
 
   return (
-    <div className="min-h-screen md:py-16 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen md:py-16 py-8 sm:px-6 lg:px-8">
+      <div className="md:max-w-6xl max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16 title">
           <motion.h1
@@ -94,15 +94,15 @@ const FAQSection = () => {
                 onClick={() => toggleItem(index)}
                 className="w-full px-8 cursor-pointer py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:bg-gray-50 poppins"
               >
-                <h3 className="md:text-lg font-semibold text-gray-900 pr-8">
+                <h3 className="md:text-lg text-sm font-semibold text-gray-900 pr-8">
                   {item.question}
                 </h3>
                 <motion.div
                   animate={{ rotate: openItems[index] ? 45 : 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="flex-shrink-0 w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center"
+                  className="flex-shrink-0 md:w-8 md:h-8 w-6 h-6 bg-gray-800 rounded-full flex items-center justify-center"
                 >
-                  <Plus className="w-5 h-5 text-white" />
+                  <Plus className="md:w-5 md:h-5 w-3 h-3 text-white" />
                 </motion.div>
               </button>
 

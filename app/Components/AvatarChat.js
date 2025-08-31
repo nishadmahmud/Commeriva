@@ -9,7 +9,7 @@ export default function Component() {
 
   return (
 
-    <div className="fixed cursor-pointer lg:bottom-16 bottom-10 md:right-8 right-4 z-[10000]">
+    <div className="fixed cursor-pointer lg:bottom-16 bottom-10 md:right-8 right-4 z-[10000] hidden md:block">
       <div className={`transition-all duration-300 ease-in-out ${isMinimized ? 'w-14' : 'max-w-sm'}`}>
       <FloatingActionMenu />
       </div>

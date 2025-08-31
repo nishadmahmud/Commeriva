@@ -55,7 +55,7 @@ const Navbar = () => {
 
         {/* Middle Nav - Desktop */}
         <nav className="relative">
-          <div className="hidden md:flex space-x-8 font-medium text-gray-700">
+          <div className="hidden md:flex space-x-10 font-medium text-gray-700">
             {Object.keys(menus).map((menu) => (
               <div
                 key={menu}
@@ -71,12 +71,12 @@ const Navbar = () => {
       ? "#blog" 
       : "/"
   }
-  className="hover:text-gray-700 poppins flex items-center gap-1"
+  className="hover:text-gray-700 poppins flex text-sm items-center"
 >
   {menu}
   {/* Show arrow only if not Pricing, Blog, Portfolio */}
   {!(menu === "Pricing" || menu === "Blog" || menu === "Portfolio") && (
-    <IoIosArrowDown className="mt-1" size={15} />
+    <IoIosArrowDown size={15} />
   )}
 </Link>
 
@@ -131,7 +131,7 @@ const Navbar = () => {
 
         {/* Mobile menu button */}
         <div className="md:hidden flex items-center gap-3">
-<Link href='https://wa.me/+8801677182084' className='px-6 py-1 rounded-full border border-gray-300 shadow-xs flex items-center gap-1.5'>
+<Link href='https://wa.me/+8801677182084' className='px-4 py-1 rounded-full border border-gray-300 shadow-xs flex items-center gap-1.5'>
   <ShinyText
   baseColor="#000000"   // gray
   shineColor="#7c7dcf"  // black
@@ -141,13 +141,13 @@ Let's Talk
 </ShinyText>
 
 <div>
-          <FaWhatsapp size={19} color='#25D366'></FaWhatsapp>
+          <FaWhatsapp size={17} color='#25D366'></FaWhatsapp>
   
   </div>  
   </Link>        
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-gray-700"
+            className="text-gray-700 cursor-pointer"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

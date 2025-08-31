@@ -16,11 +16,11 @@ const Footer = () => {
 
             {/* Subscription Part */}
             <div className='w-sm'>
-             <h3 className='font-semibold text-xl mb-2 text-gray-700'>Get our email for info on new items.</h3>
+             <h3 className='font-medium md:text-xl text-lg mb-2 text-gray-700 poppins'>Get our email for info on new items.</h3>
              
               <div>
                 
-                <div className="flex md:gap-3 gap-2">
+                <div className="flex md:gap-3 gap-2 poppins">
                   <input
                     type="email"
                     
@@ -39,7 +39,7 @@ const Footer = () => {
           </div>
 
           {/* Company Links */}
-          <div>
+          <div className='poppins'>
             <h3 className="font-bold text-gray-900 mb-6">COMPANY</h3>
             <ul className="space-y-4">
               <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">About us</a></li>
@@ -49,7 +49,7 @@ const Footer = () => {
           </div>
 
           {/* Solution Links */}
-          <div>
+          <div className='poppins'>
             <h3 className="font-bold text-gray-900 mb-6">SOLUTION</h3>
             <ul className="space-y-4">
               <li><a href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">Roles</a></li>
@@ -59,7 +59,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Us */}
-          <div>
+          <div className='poppins'>
             <h3 className="font-bold text-gray-900 mb-6">CONTACT US</h3>
             <div className="mb-6 flex items-center gap-1 text-gray-600">
               <Phone size={17}></Phone>
@@ -83,8 +83,8 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="mt-10 pt-8 border-t border-gray-200">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-            <p className="text-gray-800 text-sm font-semibold">Copyright 2025 © Commeriva Automation Inc.</p>
-            <div className="flex space-x-8">
+            <p className="text-gray-800 text-sm font-semibold poppins">Copyright 2025 © Commeriva Automation Inc.</p>
+            <div className="flex space-x-8 poppins">
               <a href="#" className="text-gray-800 font-semibold hover:text-gray-900 transition-colors duration-200 text-sm hover:underline">Terms of Use</a>
               <a href="#" className="text-gray-800 hover:text-gray-900 transition-colors duration-200 text-sm font-semibold hover:underline">Privacy Policy</a>
             </div>

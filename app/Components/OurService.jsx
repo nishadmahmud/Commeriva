@@ -81,7 +81,7 @@ export default function OurServices() {
             className="rounded-2xl border border-primary hover:border-gray-200 p-6 shadow-xs hover:shadow-lg transition-all duration-300"
           >
             <div className="primary-text-color">{service.icon}</div>
-            <h3 className="text-2xl font-semibold text-gray-900 mt-5 mb-2">
+            <h3 className="md:text-xl text-lg font-semibold text-gray-900 mt-5 mb-1 poppins">
               {service.title}
             </h3>
             <p className="text-gray-600">{service.description}</p>

@@ -138,7 +138,7 @@ export function ShinyText({
   return (
     <motion.span
       className={cn(
-        "bg-clip-text text-transparent inline-block",
+        "bg-clip-text text-transparent inline-block text-xs",
         sizeClasses[size],
         weightClasses[weight],
         className

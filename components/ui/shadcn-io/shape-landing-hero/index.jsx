@@ -138,12 +138,12 @@ export function HeroGeometric({
             className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100 border border-gray-300 mb-4 md:mb-5"
           >
             <Circle className="h-2 w-2 text-gray-600" />
-            <span className="text-sm text-gray-700 tracking-wide poppins">{badge}</span>
+            <span className="md:text-sm text-gray-700 tracking-wide poppins text-xs">{badge}</span>
           </motion.div>
 
           {/* Title */}
           <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <h1 className="text-5xl md:text-7xl font-semibold mb-3 md:mb-5">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-semibold mb-3 md:mb-5">
               <span className="text-gray-800 heroTitle">
                 {title1}
               </span>
@@ -168,7 +168,7 @@ export function HeroGeometric({
 
           {/* Description */}
           <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 leading-relaxed font-medium tracking-wide max-w-2xl poppins mx-auto px-4">
+            <p className="text-sm sm:text-lg md:text-xl text-gray-600 mb-8 leading-relaxed font-medium tracking-wide md:max-w-2xl poppins mx-auto px-4">
               {description}
             </p>
           </motion.div>
