@@ -1,93 +1,130 @@
 // ServicesPage.jsx
 "use client";
-import { TbWorld } from "react-icons/tb";
-import {
-  FaMobileAlt,
-  FaLaptopCode,
-  FaPaintBrush,
-  FaShoppingCart,
-  FaCloud,
-  FaCogs,
-} from "react-icons/fa";
-// import ElectricBorder from "./ElectricBorder"; // Uncomment if you want to use later
-import { BsShop, BsBuilding } from "react-icons/bs";
-import { Globe } from "lucide-react";
+import Image from "next/image";
+
 // ====== Services Data ======
 const services = [
   {
-    title: "Custom Web Solution",
-    icon: <FaCogs className="text-5xl mb-2" />,
-    description:
-      "Your software, always improving. Our DevOps team ensures your software is reliable, high-quality, and evolves with your needs.",
+    title: "MVP Development",
+    description: `Launch a tight first version quickly. Bring your idea to reality, perfectly.`,
+    points: [
+      "Discovery → scope that fits goals and runway",
+      "Lean build in 8–12 weeks",
+      "Architected to scale, not throw away",
+    ],
+    buttonText: "Book MVP consult",
+    buttonLink: "#",
+    image: "/mvp.jpg",
   },
   {
-    title: "E-Commerce Website (Next.js)",
-    icon: <BsShop className="text-5xl mb-2" />,
-    description:
-      "We create digital experiences that users love. Intuitive, engaging designs that turn first-time visitors into loyal customers.",
+    title: "End-to-End Product Development",
+    description: `From concept to launch with post-launch iteration built in.`,
+    points: [
+      "Discovery, UX, build, QA, deployment, support",
+      "Weekly looms + async updates (no dark sprints)",
+      "Production-grade from Day 1 (security, performance, observability)",
+    ],
+    buttonText: "Plan a build",
+    buttonLink: "#",
+    image: "/11.30.23-oleg.jpg",
   },
   {
-    title: "Portfolio Websites",
-    icon: <FaMobileAlt className="text-5xl mb-2" />,
-    description:
-      "High-performance portfolio websites that showcase your skills, attract clients, and grow your personal brand.",
+    title: "Dedicated Development Teams",
+    description: `Your plug-and-play product squad.`,
+    points: [
+      "Retainer or on-demand scaling",
+      "Engineers, DevOps, PM, QA embedded into workflow",
+      "Stable velocity and fewer context resets",
+    ],
+    buttonText: "Talk resourcing",
+    buttonLink: "#",
+    image: "/dedicated-team.jpg",
   },
   {
-    title: "Landing Pages",
-    icon: <FaLaptopCode className="text-5xl mb-2" />,
-    description:
-      "Custom-built landing pages designed to capture leads, drive conversions, and support your campaigns effectively.",
+    title: "Mobile App Development",
+    description: `Native quality, shipping speed, and real growth levers.`,
+    points: [
+      "iOS, Android, Flutter, React Native",
+      "AI-powered personalization & automation",
+      "Voice/vision multimodal features via Gen-AI",
+      "Secure payments, auth, offline, ASO foundations",
+    ],
+    buttonText: "Book a call",
+    buttonLink: "#",
+    image: "/benefits-of-mobile-app-for-busin.jpg",
   },
   {
-    title: "Funnel Websites",
-    icon: <TbWorld className="text-5xl mb-2" />,
-    description:
-      "Turn your online store into a sales powerhouse. We build eCommerce platforms that showcase your products, convert visitors, and grow your brand.",
-  },
-  {
-    title: "Corporate & Company Websites",
-    icon: <BsBuilding className="text-5xl mb-2" />,
-    description:
-      "Scalable corporate websites that streamline operations, enhance credibility, and expand your business reach.",
+    title: "Custom Software Development",
+    description: `Modern, scalable software for your business needs.`,
+    points: [
+      "Custom builds using React, Node.js, Laravel & more",
+      "AI-driven personalization, automation, insights",
+      "Gen-AI integrations for content, analytics, decision support",
+      "Secure architectures for long-term growth",
+      "Continuous optimization for UX, performance, maintainability",
+    ],
+    buttonText: "Talk to us",
+    buttonLink: "#",
+    image: "/successful-software-solutions.jpg",
   },
 ];
 
 // ====== Component ======
 export default function OurServices() {
   return (
-    <section
-      id="service"
-      className="min-h-screen montserrat bg-white pt-12 px-4 sm:px-6 lg:px-8 mb-4 lg:mb-0"
-    >
-      {/* Section Title */}
-      <h1 className="lg:text-5xl md:text-4xl text-3xl font-semibold text-center title pb-10">
-        Our Services
-      </h1>
+    <section id="services" className="md:py-16 pb-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="lg:text-5xl md:text-4xl text-3xl font-semibold text-center pb-12 title">
+          Our Services
+        </h1>
 
-      {/* Services Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services.map((service, index) => (
-          // Uncomment ElectricBorder if needed
-          // <ElectricBorder
-          //   key={index}
-          //   color="#e6e6e6"
-          //   speed={1}
-          //   chaos={0.5}
-          //   thickness={2}
-          //   style={{ borderRadius: 16 }}
-          // >
-          <div
-            key={index}
-            className="rounded-2xl border border-primary hover:border-gray-200 p-6 shadow-xs hover:shadow-lg transition-all duration-300"
-          >
-            <div className="primary-text-color">{service.icon}</div>
-            <h3 className="md:text-xl text-lg font-semibold text-gray-900 mt-5 mb-1 poppins">
-              {service.title}
-            </h3>
-            <p className="text-gray-600">{service.description}</p>
-          </div>
-          // </ElectricBorder>
-        ))}
+        <div className="space-y-20 poppins">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center`}
+            >
+              {/* Left Side (conditionally text or image) */}
+              <div
+                className={`${
+                  index % 2 === 0 ? "order-1" : "order-2"
+                }`}
+              >
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
+                  {service.title}
+                </h2>
+                <p className="text-gray-800 mb-4">{service.description}</p>
+                <ul className="list-disc list-inside space-y-2 text-gray-600">
+                  {service.points.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
+                <a
+                  href={service.buttonLink}
+                  className="inline-block mt-6 px-6 py-1.5 bg-gray-950 text-white rounded-sm hover:bg-gray-800 transition"
+                >
+                  {service.buttonText}
+                </a>
+              </div>
+
+              {/* Right Side (conditionally image or text) */}
+              <div
+                className={`${
+                  index % 2 === 0 ? "order-2" : "order-1"
+                }`}
+              >
+                <Image
+                unoptimized
+                  src={service.image}
+                  alt={service.title}
+                  width={600}
+                  height={400}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

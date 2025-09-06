@@ -37,21 +37,7 @@ const Navbar = () => {
       },
     ],
     Integration: [
-      {
-        name: "Payment Gateway Integration",
-        href: "/integration#payment",
-        icon: "/payment-service.png",
-      },
-      {
-        name: "Courier & Shipping Integration",
-        href: "/integration#courier",
-        icon: "/delivery.png",
-      },
-      {
-        name: "Order & Inventory Management",
-        href: "/integration",
-        icon: "/inventory-management.png",
-      },
+      
     ],
     Pricing: [],
     Portfolio: [],
@@ -69,19 +55,19 @@ const Navbar = () => {
 
   return (
     <div className="pb-12">
-      <nav className="bg-white/70 backdrop-blur-md fixed top-0 w-full z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between sticky top-2">
+      <nav className="bg-white/70  backdrop-blur-md fixed top-0 w-full z-50">
+        <div className="max-w-7xl  mx-auto px-4 py-4 flex items-center justify-between sticky top-2">
           {/* Left logo */}
           <Link
             href="/"
-            className="font-medium text-gray-800 md:text-3xl text-2xl logoFont cursor-pointer"
+            className="font-semibold text-gray-800 md:text-3xl text-2xl logoFont cursor-pointer tracking-wider"
           >
             Commeriva
           </Link>
 
           {/* Middle Nav - Desktop */}
           <nav className="relative">
-            <div className="hidden md:flex space-x-10 font-medium text-gray-700">
+            <div className="hidden md:flex space-x-10 font-medium text-gray-800 bg-transparent py-3 rounded-3xl px-10">
               {Object.keys(menus).map((menu) => (
                 <div
                   key={menu}
@@ -101,13 +87,14 @@ const Navbar = () => {
                         ? "/integration"
                         : "/"
                     }
-                    className="hover:text-gray-700 poppins flex text-sm items-center"
+                    className="hover:text-gray-500 poppins gap-1 flex text-sm items-center"
                   >
                     {menu}
                     {/* Show arrow only if not Pricing, Blog, Portfolio */}
                     {!(
                       menu === "Pricing" ||
                       menu === "Blog" ||
+                      menu === "Integration" ||
                       menu === "Portfolio"
                     ) && <IoIosArrowDown size={15} />}
                   </Link>
@@ -118,6 +105,7 @@ const Navbar = () => {
                       !(
                         menu === "Pricing" ||
                         menu === "Blog" ||
+                        menu === "Integration" ||
                         menu === "Portfolio"
                       ) && (
                         <div className="absolute left-0 top-full z-[9999999999]">
@@ -163,10 +151,14 @@ const Navbar = () => {
           </nav>
 
           {/* Right buttons - Desktop */}
-          <div className="hidden md:flex items-center space-x-4">
-            <button className="bg-button border border-teal-100 px-5 p-2 rounded-full text-slate-700 text-sm font-semibold flex poppins justify-center items-center gap-1.5">
-              <Calendar color="gray" size={18} />
-              Let's Discuss
+          <div className="hidden md:flex items-center space-x-2">
+
+           
+            <button 
+  
+  className=" text-[#ffffff] bg-gray-900 px-5 py-2 rounded-sm text-xs font-semibold flex poppins justify-center items-center gap-1">
+            <FaWhatsapp color="#ffffff" size={18} />
+             Chat with us
             </button>
           </div>
 

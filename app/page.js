@@ -20,7 +20,6 @@ export default function Home() {
     <div>
       <HeroPage></HeroPage>
       {/* <TestSection></TestSection> */}
-      {/* <TrustedBy></TrustedBy> */}
       <OurServices></OurServices>
       {/* <OurProducts></OurProducts> */}
       <Category></Category>

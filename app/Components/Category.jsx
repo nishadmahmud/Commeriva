@@ -1,80 +1,106 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { GiClothes } from "react-icons/gi";
+import { FaHouseUser, FaRegBuilding, FaScrewdriverWrench } from "react-icons/fa6";
+import { RiShoppingBag3Fill } from "react-icons/ri";
+import { MdHealthAndSafety } from "react-icons/md";
+import { GiBabyBottle } from "react-icons/gi";
+import { HiWrenchScrewdriver } from "react-icons/hi2";
+import { IoMdFootball } from "react-icons/io";
+import { useMediaQuery } from "react-responsive";
 
 const categories = [
   {
-    name: "Clothing & Fashion",
-    icon: "👖",
+    name: "Clothing",
+    icon: <GiClothes></GiClothes> ,
     description:
-      "Clothing and fashion is consistently the largest and fastest-growing e-commerce category worldwide. It covers men's wear, women's and children's clothing. Customers in this segment often look for variety, seasonal collections, and affordable pricing. For men, shirts, and ethnic wear remain popular, while women's categories include dresses, abayas, hijab. Children's fashion ranges from baby clothing to school uniforms and seasonal outfits. Footwear and fashion accessories. Successful e-commerce platforms in fashion focus heavily on high-quality product images, clear size charts, virtual try-on features, and style recommendations to drive higher conversions.",
+      "Clothing and fashion is consistently the largest and fastest-growing e-commerce category worldwide. It covers men's wear, women's and children's clothing. Customers in this segment often look for variety, seasonal collections, and affordable pricing. For men, shirts, and ethnic wear remain popular, while women's categories include dresses, abayas, hijab. Children's fashion ranges from baby clothing to school uniforms and seasonal outfits.",
     pattern: "dots",
   },
   {
-    name: "Electronics & Gadgets",
-    icon: "🪛",
+    name: "Electronics",
+    icon: <HiWrenchScrewdriver ></HiWrenchScrewdriver  >,
     description:
-      "Electronics and gadgets represent a high-value category with strong demand across all age groups. This segment includes smartphones, tablets, laptops, desktops, and their accessories. Increasingly popular are wearables such as smartwatches and fitness trackers, along with portable audio devices like headphones, earbuds, and Bluetooth speakers. The gaming subcategory has also gained momentum, with consoles, VR devices, and gaming accessories seeing strong sales. Smart home technology, such as IoT devices, home security cameras, and smart lighting, adds to this category's potential.",
+      "Electronics and gadgets represent a high-value category with strong demand across all age groups. This segment includes smartphones, tablets, laptops, desktops, and their accessories. Increasingly popular are wearables such as smartwatches and fitness trackers, along with portable audio devices like headphones, earbuds, and Bluetooth speakers.",
     pattern: "lines",
   },
   {
-    name: "Home & Living",
-    icon: "🏠",
+    name: "Home",
+    icon: <FaHouseUser ></FaHouseUser >,
     description:
-      "The home and living category is centered around lifestyle improvement and includes furniture, kitchen appliances, décor, and home essentials. Furniture ranges from beds, sofas, and dining tables to compact storage solutions designed for urban homes. Kitchen and dining products include cookware, appliances like blenders and microwaves, and small essentials such as storage jars and cutlery. Home décor has become a rising trend with customers seeking wall art, lamps, rugs, and lighting that can personalize their living spaces. Platforms offering this category often integrate room-wise shopping features and, in advanced cases, AR tools that allow buyers to visualize furniture placement in their homes.",
+      "The home and living category is centered around lifestyle improvement and includes furniture, kitchen appliances, décor, and home essentials. Furniture ranges from beds, sofas, and dining tables to compact storage solutions designed for urban homes. Kitchen and dining products include cookware, appliances like blenders and microwaves, and small essentials such as storage jars and cutlery. Home décor has become a rising trend with customers seeking wall art, lamps, rugs, and lighting that can personalize their living spaces.",
     pattern: "grid",
   },
   {
-    name: "Health & Wellness",
-    icon: "🩺",
+    name: "Health",
+    icon: <MdHealthAndSafety></MdHealthAndSafety>,
     description:
-      "The health and wellness segment is a fast-expanding category driven by lifestyle changes and growing health awareness. It covers dietary supplements, vitamins, protein powders, and functional foods, alongside medical devices like digital thermometers, blood pressure monitors, and glucometers. Home fitness equipment, including treadmills, yoga mats, and dumbbells, is also in high demand. Buyers prioritize safety, authenticity, and expert endorsements in this category. Features such as subscription delivery for supplements, integration with fitness apps, and professional health advice help e-commerce platforms build trust and long-term customer loyalty.",
+      "The health and wellness segment is a fast-expanding category driven by lifestyle changes and growing health awareness. It covers dietary supplements, vitamins, protein powders, and functional foods, alongside medical devices like digital thermometers, blood pressure monitors, and glucometers. Home fitness equipment, including treadmills, yoga mats, and dumbbells, is also in high demand.",
     pattern: "waves",
   },
   {
     name: "Baby & Kids",
-    icon: "👶",
+    icon: <GiBabyBottle></GiBabyBottle>,
     description:
-      "The baby and kids category is a high-engagement area for parents and families. It spans clothing, baby care products, toys, games, strollers, car seats, and educational supplies. Safety and quality are critical purchase drivers here, with parents seeking certified, non-toxic, and durable products. Age-based product filtering, gift registry options, and curated collections for birthdays or baby showers are effective e-commerce features in this segment. Since these products are often replaced or upgraded quickly as children grow, repeat sales potential is very high.",
+      "The baby and kids category is a high-engagement area for parents and families. It spans clothing, baby care products, toys, games, strollers, car seats, and educational supplies. Safety and quality are critical purchase drivers here, with parents seeking certified, non-toxic, and durable products.",
     pattern: "circles",
   },
   {
-    name: "Groceries & Essentials",
-    icon: "🛍️",
+    name: "Groceries",
+    icon: <RiShoppingBag3Fill ></RiShoppingBag3Fill >,
     description:
-      "Groceries and everyday essentials form the backbone of daily commerce, and their shift online has grown rapidly due to customer demand for convenience. This category includes fresh produce like fruits and vegetables, packaged goods such as snacks, rice, and cooking oil, beverages including tea, coffee, and juices, and household cleaning products. Customers expect speed, freshness, and reliability in delivery. Same-day or next-day delivery, quick reorder options, and subscription models for staple items are critical features. Loyalty programs and wallet systems further encourage repeat purchases in this category.",
+      "Groceries and everyday essentials form the backbone of daily commerce, and their shift online has grown rapidly due to customer demand for convenience. This category includes fresh produce like fruits and vegetables, packaged goods such as snacks, rice, and cooking oil, beverages including tea, coffee, and juices, and household cleaning products. Customers expect speed, freshness, and reliability in delivery.",
     pattern: "triangles",
   },
   {
-    name: "Sports & Outdoor",
-    icon: "⚽",
+    name: "Sports",
+    icon: <IoMdFootball></IoMdFootball>,
     description:
-      "The sports and outdoor category caters to athletes, fitness enthusiasts, and adventurers. It includes sportswear, athletic footwear, gym equipment such as treadmills and weights, and outdoor gear like tents, hiking kits, and camping accessories. Customers here often look for brand authenticity, performance specifications, and bundled starter kits. Platforms can boost engagement by offering guides ('what you need to start hiking') and curated packages for specific sports. This category benefits from seasonal promotions and influencer tie-ups with fitness communities.",
+      "The sports and outdoor category caters to athletes, fitness enthusiasts, and adventurers. It includes sportswear, athletic footwear, gym equipment such as treadmills and weights, and outdoor gear like tents, hiking kits, and camping accessories. Customers here often look for brand authenticity, performance specifications, and bundled starter kits.",
     pattern: "dots",
   },
   {
-    name: "Automotive & Accessories",
-    icon: "🛠️",
+    name: "Automotive",
+    icon: <FaScrewdriverWrench size={25}></FaScrewdriverWrench>,
     description:
-      "The automotive category focuses on products for car and motorcycle owners. It includes car accessories such as seat covers, floor mats, cameras, and GPS devices; motorcycle gear like helmets and riding jackets; and spare parts and repair tools. Vehicle-specific filtering is essential, allowing users to select their car or bike model and instantly see compatible products. Additional features like installation services, warranty tracking, and service center locators help create trust in this category.",
+      "The automotive category focuses on products for car and motorcycle owners. It includes car accessories such as seat covers, floor mats, cameras, and GPS devices; motorcycle gear like helmets and riding jackets; and spare parts and repair tools. Vehicle-specific filtering is essential, allowing users to select their car or bike model and instantly see compatible products.",
     pattern: "waves",
+  },
+  {
+    name: "Corporate",
+    icon: <FaRegBuilding ></FaRegBuilding >,
+    description:
+      "A corporate website is more than just an online presence — it is the digital face of your brand. It represents your professionalism, communicates your services, and builds trust with your clients. Our Corporate Website Solutions are designed to give your business a strong online identity with a professional look, smooth functionality, and high performance.",
+    pattern: "lines",
   },
 ];
 
 export default function Category() {
-  const [active, setActive] = useState("Clothing & Fashion");
+  const [active, setActive] = useState("Clothing");
   const [desc, setDesc] = useState(
-    "Clothing and fashion is consistently the largest and fastest-growing e-commerce category worldwide. It covers men's wear, women's and children's clothing. Customers in this segment often look for variety, seasonal collections, and affordable pricing. For men, shirts, and ethnic wear remain popular, while women's categories include dresses, abayas, hijab. Children's fashion ranges from baby clothing to school uniforms and seasonal outfits. Footwear and fashion accessories. Successful e-commerce platforms in fashion focus heavily on high-quality product images, clear size charts, virtual try-on features, and style recommendations to drive higher conversions."
+    "Clothing and fashion is consistently the largest and fastest-growing e-commerce category worldwide. It covers men's wear, women's and children's clothing. Customers in this segment often look for variety, seasonal collections, and affordable pricing. For men, shirts, and ethnic wear remain popular, while women's categories include dresses, abayas, hijab. Children's fashion ranges from baby clothing to school uniforms and seasonal outfits."
   );
   const [mobileAccordionOpen, setMobileAccordionOpen] = useState(false);
 
+  const isLargeDevice = useMediaQuery({ minWidth: 1024 }); // lg breakpoint in Tailwind
+  const [visibleCategories, setVisibleCategories] = useState([]);
+
+  useEffect(() => {
+    if (isLargeDevice) {
+      setVisibleCategories(categories.slice(0, 9)); 
+    } else {
+      setVisibleCategories(categories.slice(0, 8)); 
+    }
+  }, [isLargeDevice, categories]);
+
   const handleCategoryClick = (cat) => {
-    // If clicking the same category that's already active, toggle accordion
+   
     if (active === cat.name) {
       setMobileAccordionOpen(!mobileAccordionOpen);
     } else {
-      // If clicking a different category, set new active and open accordion
+      
       setActive(cat.name);
       setDesc(cat.description);
       setMobileAccordionOpen(true);
@@ -88,7 +114,7 @@ export default function Category() {
       <h2 className="lg:text-5xl md:text-4xl text-3xl title mb-10 mt-16 text-center font-semibold px-4 tracking-tight text-gray-900">
         E-Commerce Business Suite
       </h2>
-      <div className="relative bg-white md:h-[100vh] text-gray-900 flex flex-col lg:flex-row gap-10 items-start justify-start md:mb-20 w-full max-w-11/12 mx-auto px-4 sm:px-6 overflow-hidden pt-4">
+      <div className="relative bg-white text-gray-900 flex flex-col lg:flex-row gap-10 items-start justify-start md:mb-20 w-full max-w-11/12 mx-auto px-4 sm:px-6 overflow-hidden pt-4">
         <div className="absolute inset-0 opacity-[0.02]">
           <div className="absolute top-20 left-10 w-32 h-32 border border-gray-900 rounded-full animate-float"></div>
           <div className="absolute top-40 right-20 w-24 h-24 border border-gray-900 rotate-45 animate-float-delay"></div>
@@ -96,9 +122,9 @@ export default function Category() {
         </div>
 
         {/* Category Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-10 w-full lg:max-w-none">
-          {categories.map((cat, index) => (
-            <div key={cat.name}>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-10 w-full lg:max-w-none">
+          {visibleCategories.map((cat, index) => (
+        <div key={cat.name}>
               <motion.div
                 onClick={() => handleCategoryClick(cat)}
                 className={`group relative cursor-pointer border border-gray-300 rounded-2xl transition-all duration-500 animate-slide-up ${
@@ -113,7 +139,7 @@ export default function Category() {
                 <div
                   className={`relative overflow-hidden rounded-xl p-4 sm:p-5 transition-all duration-500 ${
                     active === cat.name && cat.description
-                      ? "bg-primary-color text-white border-gray-50"
+                      ? "border-teal-600 border text-teal-600"
                       : "bg-white border-gray-100 hover:border-gray-200 hover:shadow-xl text-gray-900"
                   }`}
                 >
@@ -184,7 +210,7 @@ export default function Category() {
                   </div>
 
                   {/* Content */}
-                  <div className="relative w-full mx-auto text-center z-10">
+                  <div className="relative w-full mx-auto text-center z-10 flex items-center justify-center flex-col">
                     <motion.div
                       className="text-3xl sm:text-4xl mb-3 sm:mb-4 filter"
                       whileHover={{ scale: 1.1 }}
@@ -193,7 +219,7 @@ export default function Category() {
                       {cat.icon}
                     </motion.div>
 
-                    <h3 className="font-semibold text-sm sm:text-base mb-4 tracking-wide text-center px-2">
+                    <h3 className="font-normal text-sm mb-4 tracking-wide text-center px-2 poppins">
                       {cat.name}
                     </h3>
 
@@ -289,9 +315,8 @@ export default function Category() {
                             "AI",
                             "Machine Learning",
                             "Smart/Advanced Features",
-                            "Notifications & Communication",
+                            "Notifications",
                             "Order & Delivery",
-                            "Customer Engagement",
                             "Security",
                             "CMS",
                           ].map((feature, index) => (
@@ -316,11 +341,12 @@ export default function Category() {
                 </AnimatePresence>
               </div>
             </div>
-          ))}
+      ))}
+          
         </div>
 
         {/* Desktop Active Category Details - Hidden on mobile */}
-        <div className="hidden lg:block sticky top-0 z-10 w-full">
+        <div className="hidden lg:block sticky top-0 z-10 w-full poppins">
           <motion.div
             className="bg-gray-50 border border-gray-200 flex flex-col justify-between rounded-xl p-7 h-fit"
             key={active}
@@ -346,15 +372,14 @@ export default function Category() {
             <div className="flex flex-wrap justify-self-auto items-center gap-4">
               {[
                 "User & Authentication",
-                "Product & Catalog",
-                "AI",
-                "Machine Learning",
-                "Smart/Advanced Features",
-                "Notifications & Communication",
-                "Order & Delivery",
-                "Customer Engagement",
-                "Security",
-                "CMS",
+                            "Product & Catalog",
+                            "AI",
+                            "Machine Learning",
+                            "Smart/Advanced Features",
+                            "Notifications",
+                            "Order & Delivery",
+                            "Security",
+                            "CMS",
               ].map((feature, index) => (
                 <motion.span
                   key={feature}
