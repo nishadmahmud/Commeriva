@@ -2,14 +2,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Globe from "./Globe";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import Image from "next/image";
 import { Code } from "lucide-react";
-import { MdOutlineDocumentScanner, MdScanner } from "react-icons/md";
-import { Truck } from "lucide-react";
+import { MdOutlineDocumentScanner } from "react-icons/md";
 import { TbTruckDelivery } from "react-icons/tb";
 
 const features = [
@@ -71,7 +67,7 @@ export default function SupplyChain() {
           <div className="max-w-xl w-full">
             {features.map((feature, index) => (
               <motion.div
-                key={feature.number}
+                key={index}
                 ref={featureRefs[index]}
                 initial={{ opacity: 0, x: -50, scale: 0.9 }}
                 animate={

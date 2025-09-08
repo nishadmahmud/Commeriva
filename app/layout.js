@@ -48,21 +48,15 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Commeriva",
   description: "Your Custom E-commerce Solution",
+   icons: {
+    icon: '/fav.png'
+  }
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <link rel="icon" sizes="180x180" href="/fav.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/fav.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/fav.png" />
-        <link rel="shortcut icon" href="/fav.png" />
-        <title>Commeriva</title>
-      </head>
+    
       <Component />
       <body
         className={`${geistMono.variable} ${title.variable} ${heroTitle.variable} ${logoFont.variable} ${poppins.variable} antialiased`}

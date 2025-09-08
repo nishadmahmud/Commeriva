@@ -1,5 +1,5 @@
 "use client";
-import { Calendar, ChevronRight, Mail, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
@@ -12,6 +12,7 @@ const Navbar = () => {
   const [active, setActive] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileActiveMenu, setMobileActiveMenu] = useState(null);
+  const [isPricingOpen, setIsPricingOpen] = useState(false)
 
   const menus = {
     Product: [
@@ -53,6 +54,14 @@ const Navbar = () => {
     setMobileActiveMenu(mobileActiveMenu === menu ? null : menu);
   };
 
+  const handlePricingModal = () => {
+    setIsPricingOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsPricingOpen(false);
+  };
+
   return (
     <div className="pb-12">
       <nav className="bg-white/70  backdrop-blur-md fixed top-0 w-full z-50">
@@ -75,21 +84,26 @@ const Navbar = () => {
                   onMouseEnter={() => setActive(menu)}
                   onMouseLeave={() => setActive(null)}
                 >
+
+                  {menu === "Pricing" ? (
+                    <button onClick={handlePricingModal} className="hover:text-gray-500 poppins gap-1 flex text-sm items-center cursor-pointer">
+                      Pricing
+                    </button>
+                  ): ""}
+
                   <Link
                     href={
                       menu === "Portfolio"
                         ? "/portfolio"
                         : menu === "Blog"
                         ? "/blogs"
-                        : menu === "Pricing"
-                        ? "/pricing"
                         : menu === "Integration"
                         ? "/integration"
                         : "/"
                     }
                     className="hover:text-gray-500 poppins gap-1 flex text-sm items-center"
                   >
-                    {menu}
+                    {menu !== "Pricing" ? (menu): ""}
                     {/* Show arrow only if not Pricing, Blog, Portfolio */}
                     {!(
                       menu === "Pricing" ||
@@ -98,6 +112,50 @@ const Navbar = () => {
                       menu === "Portfolio"
                     ) && <IoIosArrowDown size={15} />}
                   </Link>
+
+                   {/* Modal */}
+      {isPricingOpen && (
+        <div className="fixed inset-0 flex items-center h-screen justify-center bg-black/20 backdrop-blur-xs z-[999999999999999]">
+          <div className="bg-white rounded-2xl shadow-lg w-11/12 max-w-md p-6 relative">
+            
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 cursor-pointer"
+            >
+              ✕
+            </button>
+
+          
+            <h2 className="text-xl font-semibold mb-4">💎 Pricing Plans</h2>
+            <p className="text-gray-600 mb-6">
+              Choose the plan that best fits your needs.
+            </p>
+
+            <div className="space-y-4">
+              <div className="p-4 border rounded-lg hover:border-blue-500">
+                <h3 className="font-medium">Basic - $10/mo</h3>
+                <p className="text-sm text-gray-500">Landing Page</p>
+              </div>
+              <div className="p-4 border rounded-lg hover:border-blue-500">
+                <h3 className="font-medium">Pro - $25/mo</h3>
+                <p className="text-sm text-gray-500">Business Page</p>
+              </div>
+              <div className="p-4 border rounded-lg hover:border-blue-500">
+                <h3 className="font-medium">Enterprise - $50/mo</h3>
+                <p className="text-sm text-gray-500">Portfolio</p>
+              </div>
+              <div className="p-4 border rounded-lg hover:border-blue-500">
+                <h3 className="font-medium">Enterprise - $50/mo</h3>
+                <p className="text-sm text-gray-500">Corporate Website</p>
+              </div>
+            </div>
+
+            
+          </div>
+        </div>
+      )}
+   
 
                   {/* Dropdown with animation */}
                   <AnimatePresence>
@@ -108,16 +166,16 @@ const Navbar = () => {
                         menu === "Integration" ||
                         menu === "Portfolio"
                       ) && (
-                        <div className="absolute left-0 top-full z-[9999999999]">
+                        <div className="absolute left-0 top-full z-[9999]">
                           <div className="mt-5">
                             <motion.div
-                              className="z-[9999999999]"
+                              className="z-[99999]"
                               initial={{ opacity: 0, y: -10 }}
                               animate={{ opacity: 1, y: 0 }}
                               exit={{ opacity: 0, y: -10 }}
                               transition={{ duration: 0.25, ease: "easeInOut" }}
                             >
-                              <div className="bg-white border w-md shadow-lg rounded-lg p-3 z-[9999999999]">
+                              <div className="bg-white border w-md shadow-lg rounded-lg p-3 z-[9999]">
                                 <ul className="space-y-1">
                                   {menus[menu].map((item, i) => (
                                     <li key={i}>
@@ -127,6 +185,7 @@ const Navbar = () => {
                                       >
                                         <div className="p-2 border border-gray-200 shadow-sm rounded-full">
                                           <Image
+                                          alt="icon"
                                             unoptimized
                                             width={200}
                                             height={200}
@@ -145,6 +204,10 @@ const Navbar = () => {
                         </div>
                       )}
                   </AnimatePresence>
+
+                  
+
+     
                 </div>
               ))}
             </div>
@@ -189,110 +252,114 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="md:hidden bg-white border-t border-gray-200 overflow-hidden"
-            >
-              <div className="max-w-7xl mx-auto px-4 py-4">
-                <div className="space-y-2">
-                  {Object.keys(menus).map((menu) => (
-                    <div key={menu}>
-                      <button
-                        onClick={() => toggleMobileSubmenu(menu)}
-                        className="w-full flex items-center justify-between px-3 py-3 text-left text-gray-700 hover:text-teal-600 poppins text-sm cursor-pointer"
+        
+{/* Mobile Navigation - Sidebar with Overlay */} 
+<AnimatePresence>
+  {mobileMenuOpen && (
+    <>
+      {/* Overlay */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        onClick={() => setMobileMenuOpen(false)} // close on click
+        className="fixed inset-0 h-screen bg-black/40 z-[9999]"
+      />
+
+      {/* Sidebar */}
+      <motion.div
+        initial={{ x: "-100%" }}
+        animate={{ x: 0 }}
+        exit={{ x: "-100%" }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        className="fixed top-0 left-0 h-screen w-72 bg-white shadow-lg z-[10000]"
+      >
+        <div className="p-5 flex flex-col h-full">
+          {/* Close Button */}
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="self-end mb-6 text-gray-700"
+          >
+            <X size={24} />
+          </button>
+
+          {/* Menu Items */}
+          <div className="space-y-3">
+            {Object.keys(menus).map((menu) => (
+              <div key={menu}>
+                <button
+                  onClick={() => toggleMobileSubmenu(menu)}
+                  className="w-full flex items-center justify-between px-2 py-2 text-left text-gray-700 hover:text-teal-600 poppins text-sm"
+                >
+                  <span>{menu}</span>
+                  {!(
+                    menu === "Pricing" ||
+                    menu === "Blog" ||
+                    menu === "Portfolio"
+                  ) && (
+                    <motion.div
+                      animate={{
+                        rotate: mobileActiveMenu === menu ? 180 : 0,
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <IoIosArrowDown size={15} />
+                    </motion.div>
+                  )}
+                </button>
+
+                {/* Mobile Submenu */}
+                <AnimatePresence>
+                  {mobileActiveMenu === menu &&
+                    !(
+                      menu === "Pricing" ||
+                      menu === "Blog" ||
+                      menu === "Portfolio"
+                    ) && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.25, ease: "easeInOut" }}
+                        className="overflow-hidden"
                       >
-                        <span>{menu}</span>
-                        {!(
-                          menu === "Pricing" ||
-                          menu === "Blog" ||
-                          menu === "Portfolio"
-                        ) && (
-                          <motion.div
-                            animate={{
-                              rotate: mobileActiveMenu === menu ? 180 : 0,
-                            }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            <IoIosArrowDown size={15} />
-                          </motion.div>
-                        )}
-                      </button>
-
-                      {/* Mobile Submenu */}
-                      <AnimatePresence>
-                        {mobileActiveMenu === menu &&
-                          !(
-                            menu === "Pricing" ||
-                            menu === "Blog" ||
-                            menu === "Portfolio"
-                          ) && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: "auto" }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.25, ease: "easeInOut" }}
-                              className="overflow-hidden"
-                            >
-                              <div className="ml-4 space-y-1 pb-2">
-                                {menus[menu].map((item, i) => (
-                                  <Link
-                                    key={i}
-                                    href={item.href}
-                                    className="flex items-center space-x-2 poppins px-3 py-1.5 rounded hover:bg-gray-100 text-start hover:text-gray-700"
-                                  >
-                                    <div className="p-2 border border-gray-200 shadow-sm rounded-full">
-                                      <Image
-                                        unoptimized
-                                        width={200}
-                                        height={200}
-                                        className="w-8 p-1"
-                                        src={item.icon}
-                                      ></Image>
-                                    </div>
-                                    <span className="text-sm">{item.name}</span>
-                                  </Link>
-                                ))}
-                              </div>
-                            </motion.div>
-                          )}
-                      </AnimatePresence>
-
-                      {(menu === "Pricing" ||
-                        menu === "Blog" ||
-                        menu === "Portfolio") && (
                         <div className="ml-4 space-y-1 pb-2">
                           {menus[menu].map((item, i) => (
                             <Link
                               key={i}
                               href={item.href}
-                              className="block px-3 py-1.5 text-sm text-gray-600 hover:text-teal-600 "
+                              className="flex items-center space-x-2 poppins px-3 py-1.5 rounded hover:bg-gray-100 text-start hover:text-gray-700"
                             >
-                              {item.name}
+                              <div className="p-2 border border-gray-200 shadow-sm rounded-full">
+                                <Image
+                                alt="icon"
+                                  unoptimized
+                                  width={200}
+                                  height={200}
+                                  className="w-8 p-1"
+                                  src={item.icon}
+                                />
+                              </div>
+                              <span className="text-sm">{item.name}</span>
                             </Link>
                           ))}
                         </div>
-                      )}
-                    </div>
-                  ))}
-
-                  {/* Mobile CTA Button */}
-                  <div className="pt-4 hidden md:block border-t border-gray-200 mt-4">
-                    <button className="w-full bg-gray-50 border border-gray-200 px-5 py-3 rounded-full text-gray-700 text-sm font-semibold flex justify-center items-center gap-1.5">
-                      <FaWhatsapp color="#25D366" size={18} />
-                      Let's Talk
-                    </button>
-                  </div>
-                </div>
+                      </motion.div>
+                    )}
+                </AnimatePresence>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            ))}
+          </div>
+
+         
+        </div>
+      </motion.div>
+    </>
+  )}
+</AnimatePresence>
+
+
       </nav>
     </div>
   );

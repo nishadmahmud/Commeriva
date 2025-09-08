@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Check, X, Star, Zap, Crown } from "lucide-react";
+import { CircleDot } from "lucide-react";
 
 export default function PrismaPricing() {
   const categories = ["E-commerce", "Landing Page", "Portfolio"];
@@ -10,15 +11,15 @@ export default function PrismaPricing() {
   const pricingPlans = {
     "E-commerce": [
       {
-        name: "Basic",
+        name: "Starter",
         description: "Perfect for small shops just starting their journey",
         price: "$19",
         period: "/month",
         features: [
-          "Up to 100 products",
-          "5 basic templates",
-          "Email support",
-          "SSL certificate",
+          "Up to 500 products",
+          "Best for new online shops",
+          "Online store fronts",
+          "1 Staff Account",
           "Mobile responsive",
         ],
         buttonText: "Start Basic",
@@ -28,17 +29,17 @@ export default function PrismaPricing() {
         borderColor: "border-slate-200",
       },
       {
-        name: "Standard",
+        name: "Growth",
         description: "Ideal for growing online stores with more needs",
-        price: "$49",
-        period: "/month",
+        price: "$799",
+        period: "/one time",
         features: [
           "Up to 1,000 products",
-          "15 premium themes",
-          "Abandoned cart recovery",
-          "Priority email support",
+          "Permium Online Stores",
+          "3 Staff Account",
+          "Discount Coupon & Campaigns",
           "Advanced analytics",
-          "SEO optimization",
+          "Admin Dashboard (CMS Advanced)",
         ],
         buttonText: "Choose Standard",
         popular: true,
@@ -47,17 +48,36 @@ export default function PrismaPricing() {
         borderColor: "border-blue-200",
       },
       {
-        name: "Premium",
+        name: "Professional",
         description: "Everything you need for established businesses",
         price: "$99",
         period: "/month",
         features: [
           "Unlimited products",
-          "Custom theme builder",
+          "Advance Custom theme (UI/UX)",
           "Advanced analytics dashboard",
-          "Dedicated account manager",
-          "24/7 phone support",
-          "API access",
+          "10 Staff Account",
+          "Marketing Tools (Email & SMS Marketing)",
+          "Admin Dashboard (CMS Pro)",
+        ],
+        buttonText: "Go Premium",
+        popular: false,
+        icon: Crown,
+        color: "from-purple-50 to-pink-50",
+        borderColor: "border-purple-200",
+      },
+      {
+        name: "Enterprise",
+        description: "Everything you need for established businesses",
+        price: "$99",
+        period: "/month",
+        features: [
+          "Unlimited products",
+          "Multi-store ",
+          "AI Product recommendation & smart search",
+          "CMS Enterprise",
+          "Unlimited Staff Accounts",
+          "Custom Integration & Feature Per Buisness",
         ],
         buttonText: "Go Premium",
         popular: false,
@@ -188,8 +208,12 @@ export default function PrismaPricing() {
     {
       category: "Core Features",
       items: [
-        { name: "Custom Domain", basic: false, standard: true, premium: true },
+        { name: "Custom Domain", basic: true, standard: true, premium: true },
         { name: "SSL Certificate", basic: true, standard: true, premium: true },
+        { name: "Payment Gateway", basic: true, standard: true, premium: true },
+        { name: "Courier Integration", basic: false, standard: true, premium: true },
+        { name: "Email & SMS Invoice", basic: false, standard: true, premium: true },
+        { name: "Employee Management", basic: false, standard: true, premium: true },
         {
           name: "Mobile Responsive",
           basic: true,
@@ -209,7 +233,43 @@ export default function PrismaPricing() {
           premium: true,
         },
         {
+          name: "Inventory forecasting & Stock optimization",
+          basic: false,
+          standard: true,
+          premium: true,
+        },
+        {
           name: "Custom Reports",
+          basic: false,
+          standard: false,
+          premium: true,
+        },
+      ],
+    },
+    {
+      category: "Admin Dashboad & CMS",
+      items: [
+        { name: "Landing Page", basic: false, standard: false, premium: true },
+        {
+          name: "Blogs",
+          basic: false,
+          standard: true,
+          premium: true,
+        },
+        {
+          name: "Advance POS",
+          basic: false,
+          standard: true,
+          premium: true,
+        },
+        {
+          name: "Multi language",
+          basic: false,
+          standard: false,
+          premium: true,
+        },
+        {
+          name: "CMS Premium",
           basic: false,
           standard: false,
           premium: true,
@@ -285,7 +345,7 @@ export default function PrismaPricing() {
       {/* Pricing Cards */}
       <div className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {pricingPlans[selectedCategory].map((plan) => {
               const IconComponent = plan.icon;
               return (
@@ -326,13 +386,13 @@ export default function PrismaPricing() {
                     </div>
                   </div>
 
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                  <p className="text-gray-600 mb-6 text-sm leading-relaxed">
                     {plan.description}
                   </p>
 
                   <div className="mb-8">
                     <div className="flex items-baseline">
-                      <span className="text-5xl font-semibold text-gray-900">
+                      <span className="md:text-4xl text-2xl font-semibold text-gray-900">
                         {plan.price}
                       </span>
                       <span className="text-gray-500 ml-2 text-lg">
@@ -341,11 +401,11 @@ export default function PrismaPricing() {
                     </div>
                   </div>
 
-                  <ul className="space-y-4 mb-8">
+                  <ul className="space-y-4 mb-8 text-sm">
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
                         <div className="flex-shrink-0 mt-1">
-                          <Check className="w-5 h-5 text-green-500" />
+                          <CircleDot className="w-4 h-4 text-gray-800" />
                         </div>
                         <span className="ml-3 text-gray-700 leading-relaxed">
                           {feature}
