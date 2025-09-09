@@ -31,7 +31,6 @@
     "react-responsive": "^10.0.1",
     "react-tiny-fab": "^4.0.4",
     "react-vertical-timeline-component": "^3.5.3",
-    "swiper": "^11.2.10",
     "swr": "^2.3.6",
     "tailwind-merge": "^3.3.1",
     "three": "^0.179.1"

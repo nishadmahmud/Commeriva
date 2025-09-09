@@ -1,7 +1,7 @@
+"use client";
 import {
   ArrowRight,
   Zap,
-  Globe,
   Layers,
   Database,
   Shield,
@@ -16,7 +16,11 @@ import {
   Award,
   Lightbulb,
 } from "lucide-react";
-
+import Globe from "../Components/Globe";
+import { useRef } from "react";
+import { useInView, motion } from "framer-motion";
+import { TbTruckDelivery, TbWorld } from "react-icons/tb";
+import { MdOutlineDocumentScanner } from "react-icons/md";
 export default function WhyNextJS() {
   const features = [
     {
@@ -27,7 +31,7 @@ export default function WhyNextJS() {
       highlight: "Up to 10x faster",
     },
     {
-      icon: <Globe className="w-8 h-8" />,
+      icon: <TbWorld className="w-8 h-8" />,
       title: "Dynamic HTML Streaming",
       description:
         "Stream HTML as it's generated for faster perceived performance and superior user experience.",
@@ -83,6 +87,48 @@ export default function WhyNextJS() {
       highlight: "Intuitive structure",
     },
   ];
+
+  const features2 = [
+    {
+      icon: <Code size={60}></Code>,
+      title: "Web Order Management",
+      description:
+        "Simplify order management with Web Order Monitoring. Track sales orders and KPIs effortlessly.",
+    },
+    {
+      icon: <MdOutlineDocumentScanner size={60}></MdOutlineDocumentScanner>,
+      title: "Scan & Trace Technology",
+      description:
+        "Elevate your warehouse experience with Scan & Trace Technology. Enjoy superior inventory control.",
+    },
+    {
+      icon: <TbTruckDelivery size={60}></TbTruckDelivery>,
+      title: "Delivery Management",
+      description:
+        "Elevate your delivery operations with Dispatch & Delivery Management and save your valuable time.",
+    },
+  ];
+
+  const feature1Ref = useRef(null);
+    const feature2Ref = useRef(null);
+    const feature3Ref = useRef(null);
+  
+    const feature1InView = useInView(feature1Ref, {
+      once: true,
+      margin: "-100px 0px -100px 0px",
+    });
+    const feature2InView = useInView(feature2Ref, {
+      once: true,
+      margin: "-100px 0px -100px 0px",
+    });
+    const feature3InView = useInView(feature3Ref, {
+      once: true,
+      margin: "-100px 0px -100px 0px",
+    });
+  
+    const featureRefs = [feature1Ref, feature2Ref, feature3Ref];
+    const featureInView = [feature1InView, feature2InView, feature3InView];
+  
 
   const benefits = [
     {
@@ -153,7 +199,7 @@ export default function WhyNextJS() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center h-[80vh] flex flex-col justify-center items-center mb-20">
+        <div className="text-center h-[90vh] flex flex-col justify-center items-center mb-10">
           <div className="inline-flex items-center gap-2 border border-gray-200 rounded-full px-4 py-2 mb-8">
             <Star className="w-4 h-4 text-yellow-500 fill-current" />
             <span className="text-sm font-medium text-gray-700">
@@ -186,6 +232,69 @@ export default function WhyNextJS() {
             </button>
           </div>
         </div>
+
+         <div className="md:mb-20 mb-10">
+      <div className="mx-auto max-w-4xl text-center">
+        <h2 className="text-4xl title font-semibold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
+           Boost your supply chain efficiency
+        </h2>
+        <p className="mt-4 md:text-lg poppins text-gray-600">
+         Comprehensive android app for distribution management: orders, SKU scanning, tracking, metrics, and vehicle monitoring in one solution
+        </p>
+      </div>
+      <div className="flex mt-10 justify-between md:flex-row-reverse items-center flex-col-reverse">
+        {/* Left Side - Scrollable Content */}
+        <div className="overflow-y-auto">
+          <div className="max-w-xl w-full">
+             {features2.map((feature, index) => (
+              <div
+                key={index}
+                
+                className="group md:p-6 p-4 border-b last:border-b-0"
+              >
+                <div className="md:flex md:items-center justify-start space-x-6">
+                  {/* Image */}
+                  <div className="flex-shrink-0">
+                    <div
+                      
+                      className="rounded-full flex items-center md:justify-center transition-shadow duration-300 primary-text-color"
+                    >
+                      {feature.icon}
+                    </div>
+                  </div>
+
+                  {/* Text */}
+                  <div className="flex-1">
+                    <h3
+                      
+                      className="text-xl md:text-2xl font-semibold text-gray-900 my-2 text-start transition-colors duration-300 poppins"
+                    >
+                      {feature.title}
+                    </h3>
+                    <p
+                      
+                      className="text-gray-600 leading-relaxed text-base mb-3 text-start max-w-lg"
+                    >
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Right Side - Sticky Image */}
+        <div className="md:w-1/2 md:sticky top-0">
+          <div className="md:flex items-center justify-center md:overflow-hidden">
+            {/* Background Pattern */}
+            <div>
+              <Globe></Globe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
         {/* Features Grid */}
         <div className="mb-24">

@@ -3,12 +3,14 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
+import { ExternalLink } from "lucide-react"
 
 const projects = [
   {
     id: 1,
     title: "Gadget Bodda",
-    image: "/gb.png",
+    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757409080.png",
     description:
       "A full-stack e-commerce solution with payment integration, user authentication, and admin dashboard.",
     liveLink: "https://www.gadgetboddaa.com/",
@@ -17,7 +19,7 @@ const projects = [
   {
     id: 2,
     title: "Mobile Club",
-    image: "/mobile-club.png",
+    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757409274.png",
     description:
       "Mobile Club is a famous shop in Jamuna Future park in Bangladesh. They are sale used iPhone and Gadgets Accessories.",
     liveLink: "https://www.mobileclub.co/",
@@ -26,7 +28,7 @@ const projects = [
   {
     id: 3,
     title: "Satsuna Corporation",
-    image: "/satsuna.jpeg",
+    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757409303.jpg",
     description:
       "Satsuna is a Japanese blog website. They publish famous blogs on Japan.",
     liveLink: "https://www.satsuna.co.jp",
@@ -35,7 +37,7 @@ const projects = [
   {
     id: 4,
     title: "CeL TeL",
-    image: "/ceLtelProject.png",
+    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757409240.png",
     description:
       "A full-stack e-commerce solution with payment integration, user authentication, and admin dashboard.",
     liveLink: "https://www.celtelbd.com/",
@@ -44,7 +46,7 @@ const projects = [
   {
     id: 5,
     title: "Morshed Mart",
-    image: "/morshedmart.png",
+    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757409124.png",
     description:
       "Morshed Mart is a fashion e-commerce store. They sell T-shirts and branded shirts.",
     liveLink: "https://www.morshedmart.com/",
@@ -53,7 +55,7 @@ const projects = [
   {
     id: 6,
     title: "Elite",
-    image: "/eliteBd.png",
+    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757409329.png",
     description:
       "Elite is a quality laptop seller. They sell many 2nd hand and new laptops.",
     liveLink: "https://www.eliteebd.com/",
@@ -62,7 +64,7 @@ const projects = [
   {
     id: 7,
     title: "Apple Newton Bd",
-    image: "/appleNewton.png",
+    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757409124.png",
     description:
       "A full-stack e-commerce solution with payment integration, user authentication, and admin dashboard.",
     liveLink: "https://applenewtonbd.com/",
@@ -143,14 +145,15 @@ export default function Portfolio() {
                 <p className="text-sm text-gray-600 mb-4 line-clamp-2">
                   {project.description}
                 </p>
-                <a
+                <Link
                   href={project.liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block text-sm font-medium text-gray-900 border border-gray-900 px-4 py-2 rounded-lg hover:bg-gray-900 hover:text-white transition"
+                  className="flex justify-center items-center gap-2 w-full text-sm font-medium text-gray-900 border border-gray-900 px-4 py-2 rounded-sm hover:bg-gray-900 hover:text-white transition"
                 >
                   View Project
-                </a>
+                  <ExternalLink size={18}></ExternalLink>
+                </Link>
               </div>
             </motion.div>
           ))}

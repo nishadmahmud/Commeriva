@@ -37,7 +37,7 @@ const IntegrationsPage = () => {
                     width={100}
                     height={100}
                     alt="paypal"
-                    src="/paypal.png"
+                    src="https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408583.png"
                   ></Image>
                 </div>
                 <span className="bg-green-100 text-green-500 px-3 py-1 rounded-full text-xs poppins font-medium">
@@ -71,7 +71,7 @@ const IntegrationsPage = () => {
                     width={100}
                     height={100}
                     alt="stripe"
-                    src="/stripe.png"
+                    src="https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408506.png"
                   ></Image>
                 </div>
                 <span className="bg-green-100 text-green-500 px-3 py-1 rounded-full text-xs poppins font-medium">
@@ -104,7 +104,7 @@ const IntegrationsPage = () => {
                     width={100}
                     height={100}
                     alt="ssl"
-                    src="/ssl.png"
+                    src="https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408529.png"
                   ></Image>
                 </div>
                 <span className="bg-green-100 text-green-500 px-3 py-1 rounded-full text-xs poppins font-medium">
@@ -138,7 +138,7 @@ const IntegrationsPage = () => {
                     width={100}
                     height={100}
                     alt="stripe"
-                    src="/razorpay.png"
+                    src="https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408554.png"
                   ></Image>
                 </div>
 
@@ -178,7 +178,7 @@ const IntegrationsPage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Pathao */}
             <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
               <div className="flex items-center justify-between mb-4">
@@ -187,14 +187,13 @@ const IntegrationsPage = () => {
                     width={100}
                     height={100}
                     alt="pathao"
-                    src="/pathao-removebg-preview.png"
+                    src="https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408642.png"
                   ></Image>
                 </div>
                 <div className="text-right">
                   <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs font-medium block mb-1">
                     Available
                   </span>
-                  <span className="text-xs text-gray-500">Nationwide</span>
                 </div>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
@@ -222,14 +221,13 @@ const IntegrationsPage = () => {
                     width={100}
                     height={100}
                     alt="dhl"
-                    src="/dhl.png"
+                    src="https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408610.png"
                   ></Image>
                 </div>
                 <div className="text-right">
                   <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs font-medium block mb-1">
                     Available
                   </span>
-                  <span className="text-xs text-gray-500">Worldwide</span>
                 </div>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">DHL</h3>
@@ -255,14 +253,13 @@ const IntegrationsPage = () => {
                     width={100}
                     height={100}
                     alt="fedex"
-                    src="/fedex.png"
+                    src="https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408675.png"
                   ></Image>
                 </div>
                 <div className="text-right">
                   <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs font-medium block mb-1">
                     Available
                   </span>
-                  <span className="text-xs text-gray-500">Worldwide</span>
                 </div>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">FedEx</h3>
@@ -275,6 +272,40 @@ const IntegrationsPage = () => {
                   <li>• Warehouse Solutions</li>
                   <li>• Custom Delivery</li>
                   <li>• Nationwide Network</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* steadfast */}
+            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <Image
+                    width={100}
+                    height={100}
+                    alt="pathao"
+                    src="https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408952.png"
+                  ></Image>
+                </div>
+                <div className="text-right">
+                  <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs font-medium block mb-1">
+                    Available
+                  </span>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Steadfast
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Fast and reliable delivery across Bangladesh with real-time
+                tracking.
+              </p>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">Services:</h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Same-day Delivery</li>
+                  <li>• Cash on Delivery</li>
+                  <li>• Live Tracking</li>
                 </ul>
               </div>
             </div>

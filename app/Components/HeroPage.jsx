@@ -10,7 +10,8 @@ const HeroPage = () => {
 
 
       {/* PixelBlast Background */}
-      <div className="absolute inset-0 -z-10 -right-52 bottom-10">
+
+      <div className="absolute hidden inset-0 -z-10 -right-52 bottom-20">
         <PixelBlast
           variant="circle"
           pixelSize={6}
@@ -33,7 +34,7 @@ const HeroPage = () => {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 flex items-center text-center justify-center justify-items-center md:min-h-[65vh] px-6 md:mt-0 mt-20">
+      <div className="relative z-10 flex items-center text-center justify-center justify-items-center md:min-h-[70vh] px-6 md:mt-10 mt-20">
         <div className="mt-10">
           <h1 className="text-3xl md:text-5xl font-semibold md:leading-14 text-gray-900 max-w-3xl heroTitle">
             <span>Smart, Secure, & Scalable Websites for Your </span>

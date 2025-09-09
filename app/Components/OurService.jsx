@@ -5,74 +5,87 @@ import Image from "next/image";
 // ====== Services Data ======
 const services = [
   {
-    title: "MVP Development",
-    description: `Launch a tight first version quickly. Bring your idea to reality, perfectly.`,
+    title: "Corporate & Business Websites",
+    description: `Professional websites that strengthen your brand identity and build trust with clients.`,
     points: [
-      "Discovery → scope that fits goals and runway",
-      "Lean build in 8–12 weeks",
-      "Architected to scale, not throw away",
+      "Modern, responsive design",
+      "Optimized for SEO & speed",
+      "Secure and scalable architecture",
     ],
-    buttonText: "Book MVP consult",
+    buttonText: "Book Now",
     buttonLink: "#",
-    image: "/mvp.jpg",
+    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392227.jpg",
   },
   {
-    title: "End-to-End Product Development",
-    description: `From concept to launch with post-launch iteration built in.`,
+    title: "E-Commerce Solutions",
+    description: `Custom online stores designed to sell smarter and grow faster.
+`,
     points: [
-      "Discovery, UX, build, QA, deployment, support",
-      "Weekly looms + async updates (no dark sprints)",
-      "Production-grade from Day 1 (security, performance, observability)",
+      "Product catalog & inventory management",
+      "Secure payment gateway integration",
+      "Smooth checkout experience",
     ],
     buttonText: "Plan a build",
     buttonLink: "#",
-    image: "/11.30.23-oleg.jpg",
+    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392289.jpg",
   },
   {
-    title: "Dedicated Development Teams",
-    description: `Your plug-and-play product squad.`,
+    title: "Portfolio & Personal Branding Sites",
+    description: `Showcase your talent, achievements, and personal brand with style.`,
     points: [
-      "Retainer or on-demand scaling",
-      "Engineers, DevOps, PM, QA embedded into workflow",
-      "Stable velocity and fewer context resets",
+      "Sleek, creative layouts",
+      "Easy content updates",
+      "Optimized for recruiters and clients",
     ],
     buttonText: "Talk resourcing",
     buttonLink: "#",
-    image: "/dedicated-team.jpg",
+    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392467.jpg",
   },
   {
-    title: "Mobile App Development",
-    description: `Native quality, shipping speed, and real growth levers.`,
+    title: "Landing Pages & Marketing Sites",
+    description: `High-conversion landing pages for campaigns, ads, and product launches.`,
     points: [
-      "iOS, Android, Flutter, React Native",
-      "AI-powered personalization & automation",
-      "Voice/vision multimodal features via Gen-AI",
-      "Secure payments, auth, offline, ASO foundations",
+      "Conversion-focused design",
+      "Integrated analytics & tracking",
+      "Fast-loading, mobile-ready",
+     
     ],
     buttonText: "Book a call",
     buttonLink: "#",
-    image: "/benefits-of-mobile-app-for-busin.jpg",
+    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392582.jpg",
   },
   {
-    title: "Custom Software Development",
-    description: `Modern, scalable software for your business needs.`,
+    title: "Blog & Content Platforms",
+    description: `Powerful publishing platforms to grow your audience and authority.`,
     points: [
-      "Custom builds using React, Node.js, Laravel & more",
-      "AI-driven personalization, automation, insights",
-      "Gen-AI integrations for content, analytics, decision support",
-      "Secure architectures for long-term growth",
-      "Continuous optimization for UX, performance, maintainability",
+      "SEO-friendly structure",
+      "Easy content management",
+      "Customizable categories & layouts",
+      
     ],
     buttonText: "Talk to us",
     buttonLink: "#",
-    image: "/successful-software-solutions.jpg",
+    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392697.jpg",
+  },
+  {
+    title: "Custom Web Applications",
+    description: `Advanced web solutions built to solve unique business challenges.`,
+    points: [
+      "Tailored features & integrations",
+      "Secure backend with APIs",
+      "Scalable for enterprise growth",
+      
+    ],
+    buttonText: "Talk to us",
+    buttonLink: "#",
+    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392891.jpg",
   },
 ];
 
 // ====== Component ======
 export default function OurServices() {
   return (
-    <section id="services" className="md:py-16 pb-16 bg-white">
+    <section id="services" className="md:py-16 pt-5 md:pt-16 pb-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="lg:text-5xl md:text-4xl text-3xl font-semibold text-center pb-12 title">
           Our Services

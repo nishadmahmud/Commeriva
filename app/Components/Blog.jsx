@@ -52,10 +52,10 @@ export default function BlogSection() {
                   {blog.title}
                 </h3>
               </Link>
-              <div
-                className="mt-2 text-gray-600 text-sm leading-relaxed text-ellipsis line-clamp-3"
+              {/* <div
+                className="mt-2 text-gray-600 text-sm leading-relaxed text-ellipsis hidden line-clamp-3"
                 dangerouslySetInnerHTML={{ __html: blog.description }}
-              />
+              /> */}
             </div>
           </div>
         ))}
