@@ -223,7 +223,7 @@ export default function WhyNextJS() {
           </p>
 
           <div className="flex flex-col sm:flex-row md:gap-6 gap-3 justify-center items-center">
-            <Link href='/pricing' className="group relative overflow-hidden border-2 border-gray-300 text-teal-500 md:px-10 px-12 md:py-3 py-2 rounded-full hover:text-white transition-colors duration-300 flex items-center gap-2 text-lg font-semibold cursor-pointer">
+            <Link target="_blank" href='https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform' className="group relative overflow-hidden border-2 border-gray-300 text-teal-500 md:px-10 px-12 md:py-3 py-2 rounded-full hover:text-white transition-colors duration-300 flex items-center gap-2 text-lg font-semibold cursor-pointer">
               <span className="absolute inset-0 bg-primary-color transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
               <span className="relative md:text-base text-sm">Get Started</span>
               <ArrowRight className="w-5 h-5 relative group-hover:translate-x-1 transition-transform" />

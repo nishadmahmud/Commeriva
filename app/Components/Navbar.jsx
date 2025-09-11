@@ -222,7 +222,7 @@ const Navbar = () => {
    <div className="flex justify-between items-center mb-6">
      <h3><Link
             href="/"
-            className="font-medium text-gray-800 md:text-3xl text-2xl logoFont cursor-pointer tracking-wider"
+            className="font-semibold text-gray-800 md:text-3xl text-2xl logoFont cursor-pointer tracking-wider"
           >
             Commeriva
           </Link></h3>
@@ -260,13 +260,18 @@ const Navbar = () => {
                         ? "/integration"
                         : "/"
                     }
-              onClick={() => 
-              {
-                // setMobileMenuOpen(false)
+              onClick={() => {
+  const closeMenus = ["Portfolio", "Integration", "Blog"];
 
-                toggleMobileSubmenu(menu)
-              }
-              }
+  if (closeMenus.includes(menu)) {
+    setMobileMenuOpen(false);
+  } else {
+    setMobileMenuOpen(true);
+  }
+
+  toggleMobileSubmenu(menu);
+}}
+
               className="w-full flex items-center justify-between px-2 py-2 text-left text-gray-700 hover:text-teal-600 poppins text-xs"
             >
               <span>{menu}</span>

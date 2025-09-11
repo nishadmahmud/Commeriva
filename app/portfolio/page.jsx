@@ -86,26 +86,27 @@ export default function Portfolio() {
     <div className="min-h-screen bg-white py-12 px-4 md:px-12 lg:px-24">
       {/* Header */}
       <div className="text-center mb-10">
-        <h1 className="text-3xl md:text-5xl font-bold text-gray-900">Our Portfolio</h1>
-        <p className="text-gray-600 mt-2">Select a project to explore</p>
+        <h1 className="text-3xl md:text-5xl font-semibold text-gray-900 title">Our Portfolio</h1>
+        <p className="text-gray-600 poppins">Select a project to explore</p>
       </div>
 
       {/* Category Filter */}
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => setActiveCategory(category)}
-            className={`px-4 py-2 text-sm rounded-full border transition-all ${
-              activeCategory === category
-                ? "bg-gray-900 text-white border-gray-900"
-                : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-            }`}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
+     <div className="flex gap-3 mb-12 w-full overflow-x-auto no-scrollbar scrollbar-hide">
+  {categories.map((category) => (
+    <button
+      key={category}
+      onClick={() => setActiveCategory(category)}
+      className={`px-4 py-2 text-sm whitespace-nowrap rounded-full border transition-all ${
+        activeCategory === category
+          ? "bg-gray-900 text-white border-gray-900"
+          : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+      }`}
+    >
+      {category}
+    </button>
+  ))}
+</div>
+
 
       {/* Projects Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

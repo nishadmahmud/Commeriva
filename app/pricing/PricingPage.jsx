@@ -533,7 +533,7 @@ export default function Pricing() {
 
   {/* button pinned to bottom */}
   <div className="mt-auto">
-    <Link href="mailto:info@commeriva.com" className="cursor-pointer block">
+    <Link target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform" className="cursor-pointer block">
       <button
         className={`w-full py-2 rounded-full font-semibold text-base transition-all duration-200 ${
           plan.popular
