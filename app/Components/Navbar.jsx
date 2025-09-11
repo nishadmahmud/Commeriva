@@ -195,7 +195,6 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Nav */}
-       
         <AnimatePresence>
   {mobileMenuOpen && (
     <>
@@ -210,99 +209,129 @@ const Navbar = () => {
       />
 
       {/* Sidebar */}
-      <motion.div
-        initial={{ x: "-100%" }}
-        animate={{ x: 0 }}
-        exit={{ x: "-100%" }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="fixed top-0 left-0 h-screen w-72 bg-white shadow-lg z-[9999]" // 👈 Higher z-index
-      >
-        <div className="p-5 flex flex-col h-full">
-          <button
-            onClick={() => setMobileMenuOpen(false)}
-            className="self-end mb-6 text-gray-700"
+      
+<motion.div
+  initial={{ x: "-100%" }}
+  animate={{ x: 0 }}
+  exit={{ x: "-100%" }}
+  transition={{ duration: 0.4, ease: "easeInOut" }}
+  className="fixed top-0 left-0 h-screen w-72 bg-white shadow-lg z-[9999]"
+>
+  <div className="p-5 flex flex-col h-full">
+
+   <div className="flex justify-between items-center mb-6">
+     <h3><Link
+            href="/"
+            className="font-medium text-gray-800 md:text-3xl text-2xl logoFont cursor-pointer tracking-wider"
           >
-            <X size={24} />
-          </button>
+            Commeriva
+          </Link></h3>
+    <button
+      onClick={() => setMobileMenuOpen(false)}
+      className="self-end text-red-600"
+    >
+      <X size={24} />
+    </button>
+   </div>
 
-          {/* Menu items here */}
-          <div className="space-y-3">
-                    {Object.keys(menus).map((menu) => (
-                      <div key={menu}>
-                        {menu === "Pricing" ? (
-                          <button
-                            onClick={handlePricingModal}
-                            className="w-full text-left px-2 py-2 text-gray-700 hover:text-teal-600 poppins text-xs"
-                          >
-                            Pricing
-                          </button>
-                        ) : (
-                          <button
-                            onClick={() => toggleMobileSubmenu(menu)}
-                            className="w-full flex items-center justify-between px-2 py-2 text-left text-gray-700 hover:text-teal-600 poppins text-xs"
-                          >
-                            <span>{menu}</span>
-                            {!(
-                              menu === "Blog" ||
-                              menu === "Portfolio" ||
-                              menu === "Integration"
-                            ) && (
-                              <motion.div
-                                animate={{
-                                  rotate: mobileActiveMenu === menu ? 180 : 0,
-                                }}
-                                transition={{ duration: 0.2 }}
-                              >
-                                <IoIosArrowDown size={15} />
-                              </motion.div>
-                            )}
-                          </button>
-                        )}
+    {/* Menu items here */}
+    <div className="space-y-3">
+      {Object.keys(menus).map((menu) => (
+        <div key={menu}>
+          {/* Special cases (don’t auto-close) */}
+          {menu === "Pricing" ? (
+            <button
+              onClick={() => {
+                handlePricingModal();
+                // ❌ no setMobileMenuOpen(false) here
+              }}
+              className="w-full text-left px-2 py-2 text-gray-700 hover:text-teal-600 poppins text-xs"
+            >
+              Pricing
+            </button>
+          ) : (
+            <Link
+            href={
+                      menu === "Portfolio"
+                        ? "/portfolio"
+                        : menu === "Blog"
+                        ? "/blogs"
+                        : menu === "Integration"
+                        ? "/integration"
+                        : "/"
+                    }
+              onClick={() => 
+              {
+                setMobileMenuOpen(false)
 
-                        {/* Mobile Submenu */}
-                        <AnimatePresence>
-                          {mobileActiveMenu === menu &&
-                            !(
-                              menu === "Pricing" ||
-                              menu === "Blog" ||
-                              menu === "Portfolio"
-                            ) && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.25, ease: "easeInOut" }}
-                                className="overflow-hidden"
-                              >
-                                <div className="ml-4 space-y-1 pb-2">
-                                  {menus[menu].map((item, i) => (
-                                    <Link
-                                      key={i}
-                                      href={item.href}
-                                      className="flex items-center space-x-2 poppins px-2 py-1.5 rounded hover:bg-gray-100 text-start hover:text-gray-700"
-                                    >
-                                      <div className="p-2 border border-gray-200 shadow-sm rounded-full">
-                                        <Image
-                                          alt="icon"
-                                          unoptimized
-                                          width={200}
-                                          height={200}
-                                          className="w-8 p-1"
-                                          src={item.icon}
-                                        />
-                                      </div>
-                                      <span className="text-xs">{item.name}</span>
-                                    </Link>
-                                  ))}
-                                </div>
-                              </motion.div>
-                            )}
-                        </AnimatePresence>
-                      </div>
+                toggleMobileSubmenu(menu)
+              }
+              }
+              className="w-full flex items-center justify-between px-2 py-2 text-left text-gray-700 hover:text-teal-600 poppins text-xs"
+            >
+              <span>{menu}</span>
+              {!(
+                menu === "Blog" ||
+                menu === "Portfolio" ||
+                menu === "Integration"
+              ) && (
+                <motion.div
+                  animate={{ rotate: mobileActiveMenu === menu ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <IoIosArrowDown size={15} />
+                </motion.div>
+              )}
+            </Link>
+          )}
+
+          {/* Mobile Submenu */}
+          <AnimatePresence>
+            {mobileActiveMenu === menu &&
+              !(
+                menu === "Pricing" ||
+                menu === "Blog" ||
+                menu === "Portfolio" ||
+                menu === "Integration"
+              ) && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  <div className="ml-4 space-y-1 pb-2">
+                    {menus[menu].map((item, i) => (
+                      <Link
+                        key={i}
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)} 
+                        className="flex items-center space-x-2 poppins px-2 py-1.5 rounded hover:bg-gray-100 text-start hover:text-gray-700"
+                      >
+                        <div className="p-2 border border-gray-200 shadow-sm rounded-full">
+                          <Image
+                            alt="icon"
+                            unoptimized
+                            width={200}
+                            height={200}
+                            className="w-8 p-1"
+                            src={item.icon}
+                          />
+                        </div>
+                        <span className="text-xs">{item.name}</span>
+                      </Link>
                     ))}
                   </div>
+                </motion.div>
+              )}
+          </AnimatePresence>
         </div>
-      </motion.div>
+      ))}
+    </div>
+  </div>
+</motion.div>
+
     </>
   )}
 </AnimatePresence>
@@ -340,7 +369,12 @@ const Navbar = () => {
 
               <div className="space-y-4 poppins">
                 <div
-                  onClick={() => handleSelectPlan("Corporate Website")}
+                  onClick={() => {
+                    setMobileMenuOpen(false)
+                    handleSelectPlan("Corporate-Website")
+                  } 
+
+                  }
                   className="p-4 border rounded-lg hover:border-blue-500 cursor-pointer"
                 >
                   
@@ -349,7 +383,12 @@ const Navbar = () => {
                     Corporate Website</p>
                 </div>
                 <div
-                  onClick={() => handleSelectPlan("Portfolio")}
+                  onClick={() => 
+                  {
+                    setMobileMenuOpen(false)
+                    handleSelectPlan("Portfolio")
+                  }
+                  }
                   className="p-4 border rounded-lg hover:border-blue-500 cursor-pointer"
                 > 
                   <p className="flex items-center gap-1 text-gray-800 font-medium">
@@ -357,7 +396,12 @@ const Navbar = () => {
                     Portfolio & Personal Branding</p>
                 </div>
                 <div
-                  onClick={() => handleSelectPlan("E-Commerce")}
+                  onClick={() => 
+                  {
+                    setMobileMenuOpen(false)
+                    handleSelectPlan("E-Commerce")
+                  }
+                  }
                   className="p-4 border rounded-lg hover:border-blue-500 cursor-pointer"
                 >
                   

@@ -6,9 +6,9 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 export default function Pricing() {
-  const categories = ["Corporate Website", "E-commerce", "Portfolio"];
+  const categories = ["Corporate-Website", "E-Commerce", "Portfolio"];
   const searchParams = useSearchParams();
-  const initialCategory = searchParams.get("category") || "E-commerce";
+  const initialCategory = searchParams.get("category") || "E-Commerce";
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
 
   useEffect(() => {
@@ -19,7 +19,8 @@ export default function Pricing() {
   }, [searchParams]);
 
    const pricingPlans = {
-    "Corporate Website": [
+
+    "Corporate-Website": [
       {
         name: "Starter",
         description: "Perfect for small shops just starting their journey",
@@ -33,6 +34,10 @@ export default function Pricing() {
           "Standard Speed Optimization",
           "Basic SEO Setup",
         ],
+        serviceCharge: [
+        {priceBDT: '৳300'},
+        {priceUSD: '$5'}
+        ],
         buttonText: "Choose Plan",
         popular: false,
         icon: Star,
@@ -44,6 +49,10 @@ export default function Pricing() {
         description: "For growing businesses & agencies",
         priceUSD: "$499",
       priceBDT: "৳49999",
+      serviceCharge: [
+        {priceBDT: '৳800'},
+        {priceUSD: '$15'}
+        ],
         period: "/one time",
         features: [
           "10+ Custom Pages",
@@ -64,6 +73,10 @@ export default function Pricing() {
         description: "Everything you need for established businesses",
         priceUSD: "$2499",
       priceBDT: "৳108,999",
+     serviceCharge: [
+        {priceBDT: '৳1200'},
+        {priceUSD: '$25'}
+        ],
         period: "/one time",
         features: [
           "Tailored for large businesses & corporations",
@@ -83,76 +96,16 @@ export default function Pricing() {
       
     ],
 
-    "Portfolio": [
+    "E-Commerce": [
       {
         name: "Starter",
         description: "Perfect for small shops just starting their journey",
-        priceUSD: "$199",
-      priceBDT: "৳18,999",
-        period: "/one time",
-        features: [
-          "5 Pages (Home, About, Services, Contact, Portfolio)",
-          "All Static Pages",
-          "Mobile Responsive Design",
-          "Standard Speed Optimization",
-          "Basic SEO Setup",
-        ],
-        buttonText: "Choose Plan",
-        popular: false,
-        icon: Star,
-        color: "from-slate-50 to-slate-100",
-        borderColor: "border-slate-200",
-      },
-      {
-        name: "Professional",
-        description: "For growing businesses & agencies",
         priceUSD: "$499",
-      priceBDT: "৳28,999",
-        period: "/one time",
-        features: [
-          "10+ Custom Pages",
-          "Advanced Responsive UI/UX Design",
-          "SEO Optimization + Sitemap",
-          "Fast Loading & Security Setup",
-          "Blog Module",
-          
+      priceBDT: "৳49,999",
+      serviceCharge: [
+        {priceBDT: '৳200'},
+        {priceUSD: '$2'}
         ],
-        buttonText: "Choose Plan",
-        popular: true,
-        icon: Zap,
-        color: "from-blue-50 to-indigo-50",
-        borderColor: "border-blue-200",
-      },
-      {
-        name: "Enterprise",
-        description: "Everything you need for established businesses",
-        priceUSD: "$2499",
-      priceBDT: "৳108,999",
-        period: "/one time",
-        features: [
-          "Tailored for large businesses & corporations",
-          "Unlimited Pages & Features",
-          "Custom Design & Functionality",
-          "Advanced SEO & Analytics Integration",
-          "API & Third-Party Integrations",
-          "Ongoing Maintenance & Support",
-          "Dedicated Project Manager"
-        ],
-        buttonText: "Choose Plan",
-        popular: false,
-        icon: Crown,
-        color: "from-purple-50 to-pink-50",
-        borderColor: "border-purple-200",
-      },
-      
-    ],
-
-    "E-commerce": [
-      {
-        name: "Starter",
-        description: "Perfect for small shops just starting their journey",
-        priceUSD: "$799",
-      priceBDT: "৳20,999",
         period: "/one time",
         features: [
           "Up to 500 products",
@@ -170,8 +123,12 @@ export default function Pricing() {
       {
         name: "Growth",
         description: "Ideal for growing online stores with more needs",
-        priceUSD: "$1499",
-      priceBDT: "৳20,999",
+        priceUSD: "$999",
+      priceBDT: "৳99,999",
+      serviceCharge: [
+        {priceBDT: '৳200'},
+        {priceUSD: '$2'}
+        ],
         period: "/one time",
         features: [
           "Up to 1,000 products",
@@ -191,7 +148,11 @@ export default function Pricing() {
         name: "Professional",
         description: "Everything you need for established businesses",
         priceUSD: "$2499",
-      priceBDT: "৳58,999",
+      priceBDT: "৳2,50000",
+      serviceCharge: [
+        {priceBDT: '৳200'},
+        {priceUSD: '$2'}
+        ],
         period: "/one time",
         features: [
           "Unlimited products",
@@ -220,6 +181,7 @@ export default function Pricing() {
           "CMS Enterprise",
           "Unlimited Staff Accounts",
           "Custom Integration & Feature Per Buisness",
+          "Custom Mobile App (Android & IOS)",
         ],
         buttonText: "Choose Plan",
         popular: false,
@@ -228,6 +190,84 @@ export default function Pricing() {
         borderColor: "border-purple-200",
       },
     ],
+
+    "Portfolio": [
+      {
+        name: "Starter",
+        description: "Perfect for small shops just starting their journey",
+        priceUSD: "$199",
+      priceBDT: "৳18,999",
+      serviceCharge: [
+        {priceBDT: '৳300'},
+        {priceUSD: '$5'}
+        ],
+        period: "/one time",
+        features: [
+          "5 Pages (Home, About, Services, Contact, Portfolio)",
+          "All Static Pages",
+          "Mobile Responsive Design",
+          "Standard Speed Optimization",
+          "Basic SEO Setup",
+        ],
+        buttonText: "Choose Plan",
+        popular: false,
+        icon: Star,
+        color: "from-slate-50 to-slate-100",
+        borderColor: "border-slate-200",
+      },
+      {
+        name: "Professional",
+        description: "For growing businesses & agencies",
+        priceUSD: "$499",
+      priceBDT: "৳28,999",
+      serviceCharge: [
+        {priceBDT: '৳800'},
+        {priceUSD: '$15'}
+        ],
+        period: "/one time",
+        features: [
+          "10+ Custom Pages",
+          "Advanced Responsive UI/UX Design",
+          "SEO Optimization + Sitemap",
+          "Fast Loading & Security Setup",
+          "Blog Module",
+          
+        ],
+        buttonText: "Choose Plan",
+        popular: true,
+        icon: Zap,
+        color: "from-blue-50 to-indigo-50",
+        borderColor: "border-blue-200",
+      },
+      {
+        name: "Enterprise",
+        description: "Everything you need for established businesses",
+        priceUSD: "$2499",
+      priceBDT: "৳108,999",
+      serviceCharge: [
+        {priceBDT: '৳1200'},
+        {priceUSD: '$25'}
+        ],
+        period: "/one time",
+        features: [
+          "Tailored for large businesses & corporations",
+          "Unlimited Pages & Features",
+          "Custom Design & Functionality",
+          "Advanced SEO & Analytics Integration",
+          "API & Third-Party Integrations",
+          "Ongoing Maintenance & Support",
+          "Dedicated Project Manager"
+        ],
+        buttonText: "Choose Plan",
+        popular: false,
+        icon: Crown,
+        color: "from-purple-50 to-pink-50",
+        borderColor: "border-purple-200",
+      },
+      
+    ],
+
+    
    
     
   };
@@ -265,6 +305,7 @@ export default function Pricing() {
   }, [ip]);
 
 
+// console.log(pricingPlans);
  
 
   // Comparison Table Features
@@ -272,50 +313,41 @@ export default function Pricing() {
     {
       category: "Core Features",
       items: [
-        { name: "Custom Domain", basic: true, standard: true, premium: true },
-        { name: "SSL Certificate", basic: true, standard: true, premium: true },
-        { name: "Payment Gateway", basic: true, standard: true, premium: true },
-        { name: "Courier Integration", basic: false, standard: true, premium: true },
-        { name: "Email & SMS Invoice", basic: false, standard: true, premium: true },
-        { name: "Employee Management", basic: false, standard: true, premium: true },
-        {
-          name: "Mobile Responsive",
-          basic: true,
-          standard: true,
-          premium: true,
-        },
+        { name: "Responsive design (mobile + tablet + desktop)", basic: true, standard: true, premium: true },
+        { name: "Contact form + social links", basic: true, standard: true, premium: true },
+        { name: "Advanced performance optimization", basic: false, standard: false, premium: true },
+        { name: "Google Analytics", basic: false, standard: true, premium: true },
+        { name: "Speed & security baseline setup (SSL guidance)", basic: true, standard: true, premium: true },
+        { name: "Performance (CDN, caching) & security hardening", basic: false, standard: false, premium: true },
+        { name: "Mobile App", basic: false, standard: false, premium: true },
       ],
     },
     {
-      category: "Analytics & Insights",
+      category: "SEO",
       items: [
-        { name: "Basic Analytics", basic: true, standard: true, premium: true },
+        { name: "Basic on-page SEO", basic: true, standard: true, premium: true },
         {
-          name: "Advanced Analytics",
+          name: "Advanced SEO setup (structured data + sitemap)",
           basic: false,
           standard: true,
           premium: true,
         },
         {
-          name: "Inventory forecasting & Stock optimization",
-          basic: false,
-          standard: true,
-          premium: true,
-        },
-        {
-          name: "Custom Reports",
+          name: "SEO strategy + content recommendations",
           basic: false,
           standard: false,
           premium: true,
         },
+        
+       
       ],
     },
     {
-      category: "Admin Dashboad & CMS",
+      category: "CMS",
       items: [
-        { name: "Landing Page", basic: false, standard: false, premium: true },
+        
         {
-          name: "Blogs",
+          name: "Blog / News CMS integration",
           basic: false,
           standard: true,
           premium: true,
@@ -334,6 +366,12 @@ export default function Pricing() {
         },
         {
           name: "CMS Premium",
+          basic: false,
+          standard: false,
+          premium: true,
+        },
+        {
+          name: "Basic AI Chatbot  integration",
           basic: false,
           standard: false,
           premium: true,
@@ -363,7 +401,7 @@ export default function Pricing() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Section */}
-      <div className="py-16 px-4 sm:px-6 lg:px-8">
+      <div className="md:py-16 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <div className="text-center mb-12 sm:mb-16">
             <div className="inline-flex items-center bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs sm:text-sm mb-6">
@@ -393,7 +431,7 @@ export default function Pricing() {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-6 py-2 rounded-3xl font-medium transition-all cursor-pointer duration-300 ${
+                className={`md:px-6 px-4 py-2 rounded-3xl font-medium transition-all cursor-pointer duration-300 md:text-base text-xs ${
                   selectedCategory === cat
                     ? "bg-white text-gray-900 shadow-sm"
                     : "text-gray-600 hover:text-gray-900"
@@ -407,9 +445,9 @@ export default function Pricing() {
       </div>
 
       {/* Pricing Cards */}
-      <div className="py-16 px-4 sm:px-6 lg:px-8">
+      <div className="md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className={`grid grid-cols-1 md:grid-cols-2 ${selectedCategory !== 'E-Commerce' ? 'lg:grid-cols-3' : 'lg:grid-cols-4'} gap-8 justify-center justify-items-center`}>
             {pricingPlans[selectedCategory].map((plan) => {
               const IconComponent = plan.icon;
               return (
@@ -466,15 +504,32 @@ export default function Pricing() {
 
   {/* features */}
   <ul className="space-y-4 mb-8 text-sm">
-    {plan.features.map((feature, i) => (
-      <li key={i} className="flex items-start">
-        <div className="flex-shrink-0 mt-1">
-          <CircleDot className="w-4 h-4 text-gray-800" />
-        </div>
-        <span className="ml-3 text-gray-700 leading-relaxed">{feature}</span>
-      </li>
-    ))}
-  </ul>
+  {plan.features.map((feature, i) => (
+    <li key={i} className="flex items-start">
+      <div className="flex-shrink-0 mt-1">
+        <CircleDot className="w-4 h-4 text-gray-800" />
+      </div>
+      <span className="ml-3 text-gray-700 leading-relaxed">{feature}</span>
+    </li>
+  ))}
+
+  {plan?.serviceCharge && (
+    <li className="flex items-start">
+      <div className="flex-shrink-0 mt-1">
+        <CircleDot className="w-4 h-4 text-gray-800" />
+      </div>
+      <span className="ml-3 text-gray-700 leading-relaxed">
+        Monthly Charge:{" "}
+        {userCountry === "BD"
+          ? plan.serviceCharge.find(c => c.priceBDT)?.priceBDT
+          : plan.serviceCharge.find(c => c.priceUSD)?.priceUSD}
+        {" "}
+       
+      </span>
+    </li>
+  )}
+</ul>
+
 
   {/* button pinned to bottom */}
   <div className="mt-auto">
