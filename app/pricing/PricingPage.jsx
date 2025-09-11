@@ -71,8 +71,8 @@ export default function Pricing() {
       {
         name: "Enterprise",
         description: "Everything you need for established businesses",
-        priceUSD: "$2499",
-      priceBDT: "৳108,999",
+        priceUSD: "$1049",
+      priceBDT: "৳1,49,999",
      serviceCharge: [
         {priceBDT: '৳1200'},
         {priceUSD: '$25'}
@@ -242,8 +242,8 @@ export default function Pricing() {
       {
         name: "Enterprise",
         description: "Everything you need for established businesses",
-        priceUSD: "$2499",
-      priceBDT: "৳108,999",
+        priceUSD: "$1049",
+      priceBDT: "৳1,49,999",
       serviceCharge: [
         {priceBDT: '৳1200'},
         {priceUSD: '$25'}
