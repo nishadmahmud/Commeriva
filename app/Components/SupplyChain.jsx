@@ -32,7 +32,7 @@ export default function SupplyChain() {
     <div className="md:w-10/12 w-11/12 mx-auto min-h-screen bg-white md:mt-24 mt-16">
       <div className="mx-auto max-w-4xl text-center">
         <h2 className="text-4xl title font-semibold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
-          Boost your supply chain efficiency
+          Boost Your Efficiency with Commeriva
         </h2>
         <p className="mt-4 md:text-lg poppins text-gray-600">
           Comprehensive android app for distribution management: orders, SKU

@@ -8,6 +8,9 @@ import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
 import ShinyText from "./shiny-text";
 import { useRouter } from "next/navigation";
+import { Building } from "lucide-react";
+import { UserStar } from "lucide-react";
+import { Store } from "lucide-react";
 
 const Navbar = () => {
   const [active, setActive] = useState(null);
@@ -192,46 +195,51 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Nav */}
+       
         <AnimatePresence>
-          {mobileMenuOpen && (
-            <>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => setMobileMenuOpen(false)}
-                className="fixed inset-0 h-screen bg-black/40 z-[9999]"
-              />
-              <motion.div
-                initial={{ x: "-100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "-100%" }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="fixed top-0 left-0 h-screen w-72 bg-white shadow-lg z-[10000]"
-              >
-                <div className="p-5 flex flex-col h-full">
-                  <button
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="self-end mb-6 text-gray-700"
-                  >
-                    <X size={24} />
-                  </button>
+  {mobileMenuOpen && (
+    <>
+      {/* Background overlay */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        onClick={() => setMobileMenuOpen(false)}
+        className="fixed inset-0 h-screen bg-black/40 z-[9998]" // 👈 Lower z-index
+      />
 
-                  <div className="space-y-3">
+      {/* Sidebar */}
+      <motion.div
+        initial={{ x: "-100%" }}
+        animate={{ x: 0 }}
+        exit={{ x: "-100%" }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        className="fixed top-0 left-0 h-screen w-72 bg-white shadow-lg z-[9999]" // 👈 Higher z-index
+      >
+        <div className="p-5 flex flex-col h-full">
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="self-end mb-6 text-gray-700"
+          >
+            <X size={24} />
+          </button>
+
+          {/* Menu items here */}
+          <div className="space-y-3">
                     {Object.keys(menus).map((menu) => (
                       <div key={menu}>
                         {menu === "Pricing" ? (
                           <button
                             onClick={handlePricingModal}
-                            className="w-full text-left px-2 py-2 text-gray-700 hover:text-teal-600 poppins text-sm"
+                            className="w-full text-left px-2 py-2 text-gray-700 hover:text-teal-600 poppins text-xs"
                           >
                             Pricing
                           </button>
                         ) : (
                           <button
                             onClick={() => toggleMobileSubmenu(menu)}
-                            className="w-full flex items-center justify-between px-2 py-2 text-left text-gray-700 hover:text-teal-600 poppins text-sm"
+                            className="w-full flex items-center justify-between px-2 py-2 text-left text-gray-700 hover:text-teal-600 poppins text-xs"
                           >
                             <span>{menu}</span>
                             {!(
@@ -283,7 +291,7 @@ const Navbar = () => {
                                           src={item.icon}
                                         />
                                       </div>
-                                      <span className="text-sm">{item.name}</span>
+                                      <span className="text-xs">{item.name}</span>
                                     </Link>
                                   ))}
                                 </div>
@@ -293,11 +301,12 @@ const Navbar = () => {
                       </div>
                     ))}
                   </div>
-                </div>
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
+        </div>
+      </motion.div>
+    </>
+  )}
+</AnimatePresence>
+
       </nav>
 
       {/* Pricing Modal (Global) */}
@@ -319,38 +328,44 @@ const Navbar = () => {
             >
               <button
                 onClick={closeModal}
-                className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
+                className="absolute top-3 cursor-pointer right-4 text-gray-500 hover:text-gray-800"
               >
                 ✕
               </button>
 
-              <h2 className="text-xl font-semibold mb-4">💎 Pricing Plans</h2>
-              <p className="text-gray-600 mb-6">
+              <h2 className="text-xl font-semibold mb-2 heroTitle">💎 Pricing Plans</h2>
+              <p className="text-gray-600 mb-6 poppins">
                 Choose the plan that best fits your needs.
               </p>
 
-              <div className="space-y-4">
+              <div className="space-y-4 poppins">
                 <div
-                  onClick={() => handleSelectPlan("Landing Page")}
+                  onClick={() => handleSelectPlan("Corporate Website")}
                   className="p-4 border rounded-lg hover:border-blue-500 cursor-pointer"
                 >
                   
-                  <p className=" text-gray-800 text-lg font-semibold">Landing Page</p>
-                </div>
-                <div
-                  onClick={() => handleSelectPlan("E-commerce")}
-                  className="p-4 border rounded-lg hover:border-blue-500 cursor-pointer"
-                >
-                  
-                  <p className="text-gray-800 text-lg font-semibold">E-commerce</p>
+                  <p className="flex items-center gap-1 text-gray-800 font-medium">
+                    <Building size={18}></Building>
+                    Corporate Website</p>
                 </div>
                 <div
                   onClick={() => handleSelectPlan("Portfolio")}
                   className="p-4 border rounded-lg hover:border-blue-500 cursor-pointer"
+                > 
+                  <p className="flex items-center gap-1 text-gray-800 font-medium">
+                    <UserStar size={20}></UserStar>
+                    Portfolio & Personal Branding</p>
+                </div>
+                <div
+                  onClick={() => handleSelectPlan("E-Commerce")}
+                  className="p-4 border rounded-lg hover:border-blue-500 cursor-pointer"
                 >
                   
-                  <p className="text-gray-800 text-lg font-semibold">Portfolio</p>
+                  <p className="flex items-center gap-1 text-gray-800 font-medium">
+                    <Store size={20}></Store>
+                    E-Commerce Solutions</p>
                 </div>
+                
               </div>
             </motion.div>
           </motion.div>

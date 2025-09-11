@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import { Check, X, Star, Zap, Crown } from "lucide-react";
 import { CircleDot } from "lucide-react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 export default function Pricing() {
-  const categories = ["E-commerce", "Landing Page", "Portfolio"];
+  const categories = ["Corporate Website", "E-commerce", "Portfolio"];
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get("category") || "E-commerce";
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
@@ -17,14 +18,142 @@ export default function Pricing() {
     }
   }, [searchParams]);
 
+   const pricingPlans = {
+    "Corporate Website": [
+      {
+        name: "Starter",
+        description: "Perfect for small shops just starting their journey",
+      priceUSD: "$199",
+      priceBDT: "৳19999",
+        period: "/one time",
+        features: [
+          "5 Pages (Home, About, Services, Contact, Portfolio)",
+          "All Static Pages",
+          "Mobile Responsive Design",
+          "Standard Speed Optimization",
+          "Basic SEO Setup",
+        ],
+        buttonText: "Choose Plan",
+        popular: false,
+        icon: Star,
+        color: "from-slate-50 to-slate-100",
+        borderColor: "border-slate-200",
+      },
+      {
+        name: "Professional",
+        description: "For growing businesses & agencies",
+        priceUSD: "$499",
+      priceBDT: "৳49999",
+        period: "/one time",
+        features: [
+          "10+ Custom Pages",
+          "Advanced Responsive UI/UX Design",
+          "SEO Optimization + Sitemap",
+          "Fast Loading & Security Setup",
+          "Blog Module",
+          
+        ],
+        buttonText: "Choose Plan",
+        popular: true,
+        icon: Zap,
+        color: "from-blue-50 to-indigo-50",
+        borderColor: "border-blue-200",
+      },
+      {
+        name: "Enterprise",
+        description: "Everything you need for established businesses",
+        priceUSD: "$2499",
+      priceBDT: "৳108,999",
+        period: "/one time",
+        features: [
+          "Tailored for large businesses & corporations",
+          "Unlimited Pages & Features",
+          "Custom Design & Functionality",
+          "Advanced SEO & Analytics Integration",
+          "API & Third-Party Integrations",
+          "Ongoing Maintenance & Support",
+          "Dedicated Project Manager"
+        ],
+        buttonText: "Choose Plan",
+        popular: false,
+        icon: Crown,
+        color: "from-purple-50 to-pink-50",
+        borderColor: "border-purple-200",
+      },
+      
+    ],
 
-  const pricingPlans = {
+    "Portfolio": [
+      {
+        name: "Starter",
+        description: "Perfect for small shops just starting their journey",
+        priceUSD: "$199",
+      priceBDT: "৳18,999",
+        period: "/one time",
+        features: [
+          "5 Pages (Home, About, Services, Contact, Portfolio)",
+          "All Static Pages",
+          "Mobile Responsive Design",
+          "Standard Speed Optimization",
+          "Basic SEO Setup",
+        ],
+        buttonText: "Choose Plan",
+        popular: false,
+        icon: Star,
+        color: "from-slate-50 to-slate-100",
+        borderColor: "border-slate-200",
+      },
+      {
+        name: "Professional",
+        description: "For growing businesses & agencies",
+        priceUSD: "$499",
+      priceBDT: "৳28,999",
+        period: "/one time",
+        features: [
+          "10+ Custom Pages",
+          "Advanced Responsive UI/UX Design",
+          "SEO Optimization + Sitemap",
+          "Fast Loading & Security Setup",
+          "Blog Module",
+          
+        ],
+        buttonText: "Choose Plan",
+        popular: true,
+        icon: Zap,
+        color: "from-blue-50 to-indigo-50",
+        borderColor: "border-blue-200",
+      },
+      {
+        name: "Enterprise",
+        description: "Everything you need for established businesses",
+        priceUSD: "$2499",
+      priceBDT: "৳108,999",
+        period: "/one time",
+        features: [
+          "Tailored for large businesses & corporations",
+          "Unlimited Pages & Features",
+          "Custom Design & Functionality",
+          "Advanced SEO & Analytics Integration",
+          "API & Third-Party Integrations",
+          "Ongoing Maintenance & Support",
+          "Dedicated Project Manager"
+        ],
+        buttonText: "Choose Plan",
+        popular: false,
+        icon: Crown,
+        color: "from-purple-50 to-pink-50",
+        borderColor: "border-purple-200",
+      },
+      
+    ],
+
     "E-commerce": [
       {
         name: "Starter",
         description: "Perfect for small shops just starting their journey",
-        price: "$19",
-        period: "/month",
+        priceUSD: "$799",
+      priceBDT: "৳20,999",
+        period: "/one time",
         features: [
           "Up to 500 products",
           "Best for new online shops",
@@ -32,7 +161,7 @@ export default function Pricing() {
           "1 Staff Account",
           "Mobile responsive",
         ],
-        buttonText: "Start Basic",
+        buttonText: "Choose Plan",
         popular: false,
         icon: Star,
         color: "from-slate-50 to-slate-100",
@@ -41,7 +170,8 @@ export default function Pricing() {
       {
         name: "Growth",
         description: "Ideal for growing online stores with more needs",
-        price: "$799",
+        priceUSD: "$1499",
+      priceBDT: "৳20,999",
         period: "/one time",
         features: [
           "Up to 1,000 products",
@@ -51,7 +181,7 @@ export default function Pricing() {
           "Advanced analytics",
           "Admin Dashboard (CMS Advanced)",
         ],
-        buttonText: "Choose Standard",
+        buttonText: "Choose Plan",
         popular: true,
         icon: Zap,
         color: "from-blue-50 to-indigo-50",
@@ -60,8 +190,9 @@ export default function Pricing() {
       {
         name: "Professional",
         description: "Everything you need for established businesses",
-        price: "$99",
-        period: "/month",
+        priceUSD: "$2499",
+      priceBDT: "৳58,999",
+        period: "/one time",
         features: [
           "Unlimited products",
           "Advance Custom theme (UI/UX)",
@@ -70,7 +201,7 @@ export default function Pricing() {
           "Marketing Tools (Email & SMS Marketing)",
           "Admin Dashboard (CMS Pro)",
         ],
-        buttonText: "Go Premium",
+        buttonText: "Choose Plan",
         popular: false,
         icon: Crown,
         color: "from-purple-50 to-pink-50",
@@ -79,8 +210,9 @@ export default function Pricing() {
       {
         name: "Enterprise",
         description: "Everything you need for established businesses",
-        price: "$99",
-        period: "/month",
+       priceUSD: "Lets Discuss",
+      priceBDT: "Lets Discuss",
+        period: "",
         features: [
           "Unlimited products",
           "Multi-store ",
@@ -89,129 +221,51 @@ export default function Pricing() {
           "Unlimited Staff Accounts",
           "Custom Integration & Feature Per Buisness",
         ],
-        buttonText: "Go Premium",
+        buttonText: "Choose Plan",
         popular: false,
         icon: Crown,
         color: "from-purple-50 to-pink-50",
         borderColor: "border-purple-200",
       },
     ],
-    "Landing Page": [
-      {
-        name: "Basic",
-        description: "Simple landing pages for personal projects",
-        price: "$9",
-        period: "/month",
-        features: [
-          "1 custom domain",
-          "5 basic templates",
-          "Community support",
-          "Basic analytics",
-          "Contact forms",
-        ],
-        buttonText: "Start Basic",
-        popular: false,
-        icon: Star,
-        color: "from-slate-50 to-slate-100",
-        borderColor: "border-slate-200",
-      },
-      {
-        name: "Standard",
-        description: "Perfect for startups and marketing campaigns",
-        price: "$29",
-        period: "/month",
-        features: [
-          "5 custom domains",
-          "20 premium templates",
-          "SEO optimization tools",
-          "A/B testing",
-          "Email integration",
-        ],
-        buttonText: "Choose Standard",
-        popular: true,
-        icon: Zap,
-        color: "from-blue-50 to-indigo-50",
-        borderColor: "border-blue-200",
-      },
-      {
-        name: "Premium",
-        description: "Advanced features for marketing teams",
-        price: "$59",
-        period: "/month",
-        features: [
-          "Unlimited domains",
-          "Advanced A/B testing",
-          "CRM integrations",
-          "Priority support",
-          "Custom analytics",
-          "Team collaboration",
-        ],
-        buttonText: "Go Premium",
-        popular: false,
-        icon: Crown,
-        color: "from-purple-50 to-pink-50",
-        borderColor: "border-purple-200",
-      },
-    ],
-    Portfolio: [
-      {
-        name: "Basic",
-        description: "Essential tools for freelancers",
-        price: "$5",
-        period: "/month",
-        features: [
-          "5 portfolio projects",
-          "3 basic templates",
-          "Community support",
-          "Basic gallery",
-          "Contact page",
-        ],
-        buttonText: "Start Basic",
-        popular: false,
-        icon: Star,
-        color: "from-slate-50 to-slate-100",
-        borderColor: "border-slate-200",
-      },
-      {
-        name: "Standard",
-        description: "Professional features for creatives",
-        price: "$15",
-        period: "/month",
-        features: [
-          "20 portfolio projects",
-          "Custom domain included",
-          "10 premium templates",
-          "Client proofing tools",
-          "Email support",
-          "Password protection",
-        ],
-        buttonText: "Choose Standard",
-        popular: true,
-        icon: Zap,
-        color: "from-blue-50 to-indigo-50",
-        borderColor: "border-blue-200",
-      },
-      {
-        name: "Premium",
-        description: "Complete solution for agencies and studios",
-        price: "$30",
-        period: "/month",
-        features: [
-          "Unlimited projects",
-          "Team collaboration tools",
-          "Advanced analytics",
-          "Priority support",
-          "White-label options",
-          "API access",
-        ],
-        buttonText: "Go Premium",
-        popular: false,
-        icon: Crown,
-        color: "from-purple-50 to-pink-50",
-        borderColor: "border-purple-200",
-      },
-    ],
+   
+    
   };
+
+   const [userCountry, setUserCountry] = useState(null);
+
+     const [ip, setIp] = useState("");
+
+  useEffect(() => {
+   
+    fetch("https://api.ipify.org?format=json")
+      .then(res => res.json())
+      .then(data => setIp(data.ip))
+      .catch(() => setIp("Could not fetch IP"));
+  }, []);
+
+  // console.log(ip);
+
+  useEffect(() => {
+    const fetchLocation = async () => {
+      try {
+        const res = await fetch( `https://ipapi.co/${ip}/json`);
+        const data = await res.json();
+        setUserCountry(data?.country); 
+        console.log(data);
+      } catch (err) {
+        console.error("Error fetching location:", err);
+        setUserCountry("US"); // fallback to USD
+      }
+    };
+    
+    if(ip){
+      fetchLocation();
+    }
+  }, [ip]);
+
+
+ 
 
   // Comparison Table Features
   const comparisonFeatures = [
@@ -359,81 +413,85 @@ export default function Pricing() {
             {pricingPlans[selectedCategory].map((plan) => {
               const IconComponent = plan.icon;
               return (
-                <div
-                  key={plan.name}
-                  className={`relative rounded-xl p-8 transition-all duration-300 hover:scale-105 hover:shadow-2xl bg-gradient-to-br poppins ${
-                    plan.color
-                  } border-2 ${plan.borderColor} ${
-                    plan.popular
-                      ? "ring-2 ring-teal-100 shadow-md"
-                      : "shadow-lg"
-                  }`}
-                >
-                  {plan.popular && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <span className="bg-primary-color text-white text-sm font-semibold px-4 py-2 rounded-full shadow-lg">
-                        Most Popular
-                      </span>
-                    </div>
-                  )}
+               <div
+  key={plan.name}
+  className={`relative flex flex-col rounded-xl p-8 transition-all duration-300 hover:scale-105 hover:shadow-2xl bg-gradient-to-br poppins ${
+    plan.color
+  } border-2 ${plan.borderColor} ${
+    plan.popular ? "ring-2 ring-teal-100 shadow-md" : "shadow-lg"
+  }`}
+>
+  {plan.popular && (
+    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+      <span className="bg-primary-color text-white text-sm font-semibold px-4 py-2 rounded-full shadow-lg">
+        Most Popular
+      </span>
+    </div>
+  )}
 
-                  <div className="flex items-center mb-4">
-                    <div
-                      className={`p-3 rounded-2xl ${
-                        plan.popular ? "bg-blue-100" : "bg-white"
-                      } shadow-sm`}
-                    >
-                      <IconComponent
-                        className={`w-6 h-6 ${
-                          plan.popular ? "text-teal-500" : "text-gray-700"
-                        }`}
-                      />
-                    </div>
-                    <div className="ml-4">
-                      <h3 className="text-2xl font-semibold text-gray-900">
-                        {plan.name}
-                      </h3>
-                    </div>
-                  </div>
+  {/* header */}
+  <div className="flex items-center mb-4">
+    <div
+      className={`p-3 rounded-2xl ${
+        plan.popular ? "bg-blue-100" : "bg-white"
+      } shadow-sm`}
+    >
+      <IconComponent
+        className={`w-6 h-6 ${
+          plan.popular ? "text-teal-500" : "text-gray-700"
+        }`}
+      />
+    </div>
+    <div className="ml-4">
+      <h3 className="text-2xl font-semibold text-gray-900">
+        {plan.name}
+      </h3>
+    </div>
+  </div>
 
-                  <p className="text-gray-600 mb-6 text-sm leading-relaxed">
-                    {plan.description}
-                  </p>
+  {/* description */}
+  <p className="text-gray-600 mb-6 text-sm leading-relaxed">
+    {plan.description}
+  </p>
 
-                  <div className="mb-8">
-                    <div className="flex items-baseline">
-                      <span className="md:text-4xl text-2xl font-semibold text-gray-900">
-                        {plan.price}
-                      </span>
-                      <span className="text-gray-500 ml-2 text-lg">
-                        {plan.period}
-                      </span>
-                    </div>
-                  </div>
+  {/* price */}
+  <div className="mb-8">
+    <div className="flex items-baseline">
+      <span className="md:text-3xl text-2xl font-semibold text-gray-900">
+        {userCountry === "BD" ? plan.priceBDT : plan.priceUSD}
+      </span>
+      <span className="text-gray-500 ml-2 text-sm">{plan.period}</span>
+    </div>
+  </div>
 
-                  <ul className="space-y-4 mb-8 text-sm">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start">
-                        <div className="flex-shrink-0 mt-1">
-                          <CircleDot className="w-4 h-4 text-gray-800" />
-                        </div>
-                        <span className="ml-3 text-gray-700 leading-relaxed">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+  {/* features */}
+  <ul className="space-y-4 mb-8 text-sm">
+    {plan.features.map((feature, i) => (
+      <li key={i} className="flex items-start">
+        <div className="flex-shrink-0 mt-1">
+          <CircleDot className="w-4 h-4 text-gray-800" />
+        </div>
+        <span className="ml-3 text-gray-700 leading-relaxed">{feature}</span>
+      </li>
+    ))}
+  </ul>
 
-                  <button
-                    className={`w-full py-3 rounded-full font-semibold text-lg transition-all duration-200 mt-auto ${
-                      plan.popular
-                        ? "bg-primary-color text-white shadow-lg hover:shadow-xl"
-                        : "bg-white text-gray-900 border-2 border-gray-200 hover:border-gray-300 hover:shadow-md"
-                    }`}
-                  >
-                    {plan.buttonText}
-                  </button>
-                </div>
+  {/* button pinned to bottom */}
+  <div className="mt-auto">
+    <Link href="mailto:info@commeriva.com" className="cursor-pointer block">
+      <button
+        className={`w-full py-2 rounded-full font-semibold text-base transition-all duration-200 ${
+          plan.popular
+            ? "bg-primary-color text-white shadow-lg hover:shadow-xl"
+            : "bg-white text-gray-900 border-2 border-gray-200 hover:border-gray-300 hover:shadow-md"
+        }`}
+      >
+        {plan.buttonText}
+      </button>
+    </Link>
+  </div>
+</div>
+
               );
             })}
           </div>

@@ -29,10 +29,10 @@ export default function ContactPage() {
       <div className="text-center py-16 px-6 bg-gradient-to-r from-gray-100 to-teal-100">
         <p className="text-teal-600 font-semibold poppins">Contact</p>
         <h1 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-4 heroTitle">
-          Get In Touch With Our FullStro Sales Team
+          Get In Touch With Our Commeriva Sales Team
         </h1>
         <p className="text-gray-600 max-w-2xl poppins mx-auto">
-          FullStro offers a complete business automation fulfillment system,
+          Commeriva offers a complete business automation fulfillment system,
           designed for businesses like yours — so you can manage your inventory easily and efficiently.
         </p>
       </div>
@@ -42,10 +42,10 @@ export default function ContactPage() {
         {/* Left Side */}
         <div>
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 title my-4 mt-6">
-            Contact Sales Team About FullStro
+            Contact Sales Team About Commeriva
           </h2>
           <p className="text-gray-600 mb-8 poppins">
-            Transform Your Sales Game! Curious about how FullStro can elevate
+            Transform Your Sales Game! Curious about how Commeriva can elevate
             your team’s performance? Our sales gurus are eager to show you the
             magic! Reach out to us by filling in the form on the right, and one
             of our experts will get in touch with you shortly.
@@ -139,3 +139,6 @@ export default function ContactPage() {
     </div>
   );
 }
+
+
+
