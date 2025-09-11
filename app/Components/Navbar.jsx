@@ -243,7 +243,7 @@ const Navbar = () => {
             <button
               onClick={() => {
                 handlePricingModal();
-                // ❌ no setMobileMenuOpen(false) here
+                 setMobileMenuOpen(false) 
               }}
               className="w-full text-left px-2 py-2 text-gray-700 hover:text-teal-600 poppins text-xs"
             >
@@ -262,7 +262,7 @@ const Navbar = () => {
                     }
               onClick={() => 
               {
-                setMobileMenuOpen(false)
+                // setMobileMenuOpen(false)
 
                 toggleMobileSubmenu(menu)
               }

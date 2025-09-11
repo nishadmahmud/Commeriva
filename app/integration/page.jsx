@@ -6,14 +6,19 @@ const IntegrationsPage = () => {
     <div className="min-h-screen bg-white py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center h-[75vh] flex justify-center items-center flex-col mb-16">
-          <h1 className="text-4xl md:text-5xl font-semibold heroTitle text-gray-900 mb-6">
+        <div className="text-center h-[75vh] flex md:flex-row flex-col gap-20 md:gap-0 md:justify-between  items-center md:mb-16 mb-10">
+          <div>
+            <h1 className="text-3xl md:text-5xl md:text-start font-semibold heroTitle text-gray-900 mb-4 text-center">
             Powerful <span className="text-teal-600">Integrations</span>
           </h1>
-          <p className="text-lg poppins text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="md:text-lg text-sm poppins text-gray-600 max-w-2xl md:text-start leading-relaxed">
             Connect your favorite e-commerce platforms and courier services to
             streamline your operations with seamless automation.
           </p>
+          </div>
+          <div>
+            <iframe className="w-56 md:w-96 h-56 md:h-96" width={500} height={500} src="https://lottie.host/embed/1e716273-b67b-4cc3-9841-6510f60100b2/b1O7t0j6TH.lottie"></iframe>
+          </div>
         </div>
 
         {/* Payment Gateway Integrations */}

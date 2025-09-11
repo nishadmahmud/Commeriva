@@ -21,6 +21,7 @@ import { useRef } from "react";
 import { useInView, motion } from "framer-motion";
 import { TbTruckDelivery, TbWorld } from "react-icons/tb";
 import { MdOutlineDocumentScanner } from "react-icons/md";
+import Link from "next/link";
 export default function WhyNextJS() {
   const features = [
     {
@@ -221,13 +222,13 @@ export default function WhyNextJS() {
             server rendering, smart bundling, route pre-fetching, and more.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button className="group relative overflow-hidden border-2 border-gray-300 text-teal-500 px-10 py-4 rounded-full hover:text-white transition-colors duration-300 flex items-center gap-3 text-lg font-semibold cursor-pointer">
+          <div className="flex flex-col sm:flex-row md:gap-6 gap-3 justify-center items-center">
+            <Link href='/pricing' className="group relative overflow-hidden border-2 border-gray-300 text-teal-500 md:px-10 px-12 md:py-3 py-2 rounded-full hover:text-white transition-colors duration-300 flex items-center gap-2 text-lg font-semibold cursor-pointer">
               <span className="absolute inset-0 bg-primary-color transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-              <span className="relative">Get Started</span>
+              <span className="relative md:text-base text-sm">Get Started</span>
               <ArrowRight className="w-5 h-5 relative group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="border-2 border-gray-300 text-teal-500 px-10 py-4 rounded-full hover:border-gray-200 transition-colors text-lg font-semibold cursor-pointer">
+            </Link>
+            <button className="border-2 border-gray-300 text-teal-500 px-8 md:py-3 py-2 rounded-full hover:border-gray-200 transition-colors font-semibold cursor-pointer md:text-base text-sm">
               View Documentation
             </button>
           </div>
