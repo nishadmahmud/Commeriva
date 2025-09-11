@@ -103,8 +103,8 @@ export default function Pricing() {
         priceUSD: "$499",
       priceBDT: "৳49,999",
       serviceCharge: [
-        {priceBDT: '৳200'},
-        {priceUSD: '$2'}
+        {priceBDT: '৳300'},
+        {priceUSD: '$5'}
         ],
         period: "/one time",
         features: [
@@ -126,8 +126,8 @@ export default function Pricing() {
         priceUSD: "$999",
       priceBDT: "৳99,999",
       serviceCharge: [
-        {priceBDT: '৳200'},
-        {priceUSD: '$2'}
+        {priceBDT: '৳800'},
+        {priceUSD: '$15'}
         ],
         period: "/one time",
         features: [
@@ -148,10 +148,10 @@ export default function Pricing() {
         name: "Professional",
         description: "Everything you need for established businesses",
         priceUSD: "$2499",
-      priceBDT: "৳2,50000",
+      priceBDT: "৳2,50,000",
       serviceCharge: [
-        {priceBDT: '৳200'},
-        {priceUSD: '$2'}
+        {priceBDT: '৳1200'},
+        {priceUSD: '$25'}
         ],
         period: "/one time",
         features: [
