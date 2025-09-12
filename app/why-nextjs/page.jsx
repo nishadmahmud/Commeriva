@@ -441,11 +441,15 @@ export default function WhyNextJS() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button className="group relative overflow-hidden border-2 border-gray-200 text-gray-600 px-12 py-5 rounded-full hover:text-white transition-colors duration-300 flex items-center gap-3 text-lg font-semibold">
+
+            <Link target="_blank" href='https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform'>
+            
+            <button className="group relative overflow-hidden border-2 border-gray-200 text-gray-600 px-12 py-4 cursor-pointer rounded-full hover:text-white transition-colors duration-300 flex items-center gap-3 text-lg font-semibold">
               <span className="absolute inset-0 bg-primary-color transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
               <span className="relative">Start Building Today</span>
               <ArrowRight className="w-5 h-5 relative group-hover:translate-x-1 transition-transform" />
             </button>
+            </Link>
 
             <div className="flex items-center gap-4 text-gray-600">
               <div className="flex -space-x-2">
@@ -453,7 +457,7 @@ export default function WhyNextJS() {
                 <div className="w-8 h-8 bg-gray-400 rounded-full border-2 border-white"></div>
                 <div className="w-8 h-8 bg-gray-500 rounded-full border-2 border-white"></div>
               </div>
-              <span className="text-sm">Join 2M+ developers</span>
+              <span className="text-sm">Join 1M+ developers</span>
             </div>
           </div>
         </div>

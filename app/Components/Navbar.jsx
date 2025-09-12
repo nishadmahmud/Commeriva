@@ -167,12 +167,12 @@ const Navbar = () => {
           </div>
 
           {/* Right buttons - Desktop */}
-          <div className="hidden md:flex items-center space-x-2">
-            <button className="text-white bg-gray-900 px-5 py-2 rounded-sm text-xs font-semibold flex poppins justify-center items-center gap-1">
+          <Link href="https://wa.me/+8801677182084" target="_blank" className="hidden md:flex items-center space-x-2">
+            <button className="text-white cursor-pointer bg-gray-900 px-5 py-2 rounded-sm text-xs font-semibold flex poppins justify-center items-center gap-1">
               <FaWhatsapp color="#ffffff" size={18} />
               Chat with us
             </button>
-          </div>
+          </Link>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-3">

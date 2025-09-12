@@ -31,15 +31,12 @@ export default function ClientReview() {
           <Image
             width={200}
             height={200}
-            src="/bonzer.png"
-            alt="Vercel"
+            src="https://www.outletexpense.xyz/uploads/168-Khan-Sahadat/1757702171.jpg"
+            alt="satsuna"
             className="h-10 w-16 mb-4"
           />
           <p className="mb-4">
-            “The best practices built-in to their &lt;SignIn/&gt; and
-            &lt;UserProfile/&gt; components would take months to implement
-            in-house, yet no sacrifice is made in terms of Enterprise
-            extensibility or customization to your brand.”
+         “Our new corporate website gives a strong impression to clients. It feels modern, professional, and perfectly represents our brand.”
           </p>
           <div className="flex items-center gap-3">
             <img
@@ -48,8 +45,9 @@ export default function ClientReview() {
               alt=""
             />
             <div>
-              <p className="font-semibold text-sm">Guillermo Rauch</p>
-              <p className="text-xs opacity-70">CEO / Vercel</p>
+              <p className="font-semibold text-sm">
+Atsushi Shimoikura</p>
+              <p className="text-xs opacity-70">Managing Director / CEO</p>
             </div>
           </div>
         </motion.div>
@@ -63,18 +61,17 @@ export default function ClientReview() {
           className="bg-white border border-primary rounded-xl p-6 shadow-sm flex flex-col justify-between"
         >
           <p className="mb-4">
-            Clerk feels like the first time I booted my computer with an SSD.
-            It’s so much faster and simpler that it changed how I do things.
+            Since launching my e-commerce site, I’ve seen a big boost in sales. The product pages look professional and are very easy to manage
           </p>
           <div className="flex items-center gap-3">
             <img
-              src="https://i.pravatar.cc/100?img=2"
+              src="https://www.outletexpense.xyz/uploads/168-Khan-Sahadat/1757701872.jpg"
               className="w-8 h-8 rounded-full"
               alt=""
             />
             <div>
-              <p className="font-semibold text-sm">Theo Browne</p>
-              <p className="text-xs opacity-70">CEO / Ping Labs</p>
+              <p className="font-semibold text-sm">MD. Mizanur Rahman</p>
+              <p className="text-xs opacity-70">Owner, Mobile Club</p>
             </div>
           </div>
         </motion.div>
@@ -88,19 +85,17 @@ export default function ClientReview() {
           className="bg-white border border-primary rounded-xl p-6 shadow-sm flex flex-col justify-between"
         >
           <p className="mb-4">
-            After spending many hours on auth issues that seemed simple (but
-            were not), we moved to Clerk and all that burden was lifted. We kind
-            of wish we’d made that decision earlier.
+           Updating my projects and achievements is super easy. I don’t need technical skills to keep my portfolio up to date
           </p>
           <div className="flex items-center gap-3">
             <img
-              src="https://i.pravatar.cc/100?img=3"
+              src="https://www.outletexpense.xyz/uploads/168-Khan-Sahadat/1757701980.png"
               className="w-8 h-8 rounded-full"
               alt=""
             />
             <div>
-              <p className="font-semibold text-sm">Julian Benegas</p>
-              <p className="text-xs opacity-70">CEO / BaseHub</p>
+              <p className="font-semibold text-sm">Mehedi Emu</p>
+              <p className="text-xs opacity-70">CEO</p>
             </div>
           </div>
         </motion.div>
@@ -113,20 +108,21 @@ export default function ClientReview() {
           viewport={{ once: true }}
           className="bg-gray-900 text-white border-primary rounded-xl p-6 shadow-sm md:row-span-2 flex flex-col justify-between"
         >
-          <h2 className="font-bold text-lg mb-4">stripe</h2>
+          <h2 className="font-bold text-lg mb-4">MKS Outfit</h2>
           <p className="mb-4">
-            We’re big admirers of what the @ClerkDev team are building and
-            looking forward to working more closely with them.
+           
+
+           Since launching our fashion e-commerce store, we’ve seen a huge jump in sales. Customers really like the clean design.
           </p>
           <div className="flex items-center gap-3">
             <img
-              src="https://i.pravatar.cc/100?img=7"
+              src="https://www.outletexpense.xyz/uploads/168-Khan-Sahadat/1757701779.jpg"
               className="w-8 h-8 rounded-full"
               alt=""
             />
             <div>
-              <p className="font-semibold text-sm">Patrick Collison</p>
-              <p className="text-xs opacity-80">CEO / Stripe</p>
+              <p className="font-semibold text-sm">Motiur Rahman</p>
+              <p className="text-xs opacity-80">Founder</p>
             </div>
           </div>
         </motion.div>
@@ -140,19 +136,17 @@ export default function ClientReview() {
           className="bg-white border rounded-xl p-6 border-primary shadow-sm flex flex-col justify-between"
         >
           <p className="mb-4">
-            Clerk’s integration gives Supabase developers another incredible
-            option for handling authentication. And the Clerk team are a
-            pleasure to work with.
+           I really like the way the site is structured. Visitors can find information quickly, and it helps us look more credible in the market.
           </p>
           <div className="flex items-center gap-3">
             <img
-              src="https://i.pravatar.cc/100?img=4"
+              src="https://www.outletexpense.xyz/uploads/168-Khan-Sahadat/1757702087.png"
               className="w-8 h-8 rounded-full"
               alt=""
             />
             <div>
-              <p className="font-semibold text-sm">Paul Copplestone</p>
-              <p className="text-xs opacity-70">CEO / Supabase</p>
+              <p className="font-semibold text-sm">M.A Matin</p>
+              <p className="text-xs opacity-70">Managing Director</p>
             </div>
           </div>
         </motion.div>
@@ -166,19 +160,18 @@ export default function ClientReview() {
           className="bg-white border rounded-xl p-6 border-primary shadow-sm flex flex-col justify-between"
         >
           <p className="mb-4">
-            Clerk let us spin up a new product in hours instead of weeks. As a
-            company that deeply values developer velocity— Clerk is exactly what
-            we needed.
+          The online store runs smoothly, and the checkout process is super easy. My customers love the clean design and fast loading speed.
+
           </p>
           <div className="flex items-center gap-3">
             <img
-              src="https://i.pravatar.cc/100?img=5"
+              src="https://www.outletexpense.xyz/uploads/168-Khan-Sahadat/1757702013.jpg"
               className="w-8 h-8 rounded-full"
               alt=""
             />
             <div>
-              <p className="font-semibold text-sm">Kevin Van Gundy</p>
-              <p className="text-xs opacity-70">CEO / Hypermode</p>
+              <p className="font-semibold text-sm">SAMI</p>
+              <p className="text-xs opacity-70">Owner & CEO</p>
             </div>
           </div>
         </motion.div>

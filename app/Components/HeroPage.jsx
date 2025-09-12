@@ -3,6 +3,7 @@ import { Calendar, Play } from "lucide-react";
 import RotatingText from "./RotatingText";
 import PixelBlast from "./PixelBlast";
 import TrustedBy from "./TrustedBy";
+import Link from "next/link";
 
 const HeroPage = () => {
   return (
@@ -60,9 +61,15 @@ const HeroPage = () => {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4 justify-center items-center">
+            <Link href='https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform?usp=sharing&ouid=101793279606112585174'>
+            
             <button className="bg-gray-900 hover:bg-gray-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition cursor-pointer poppins flex items-center gap-1">
              <Calendar size={20}></Calendar> Book a appointment
             </button>
+            </Link>
+
+            <Link target="_blank" href='https://wa.me/+8801677182084'>
+            
             <button className="flex items-center gap-2 text-gray-800 hover:text-black font-medium transition cursor-pointer border border-gray-300 px-6 py-3 rounded-lg bg-transparent inset-0 backdrop-blur-sm poppins">
               <Play
                 color="black"
@@ -71,6 +78,7 @@ const HeroPage = () => {
               />
               Watch demo <span className="text-gray-500 text-sm">2 min</span>
             </button>
+            </Link>
           </div>
         </div>
       </div>

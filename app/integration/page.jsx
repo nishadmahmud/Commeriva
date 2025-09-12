@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const IntegrationsPage = () => {
@@ -17,7 +18,9 @@ const IntegrationsPage = () => {
           </p>
           </div>
           <div>
-            <iframe className="w-56 md:w-96 h-56 md:h-96" width={500} height={500} src="https://lottie.host/embed/1e716273-b67b-4cc3-9841-6510f60100b2/b1O7t0j6TH.lottie"></iframe>
+
+            <Image src="https://www.outletexpense.xyz/uploads/168-Khan-Sahadat/1757703023.png" alt="integration" width={1000} height={1000} className="w-56 md:w-96 h-56 md:h-96"></Image>
+        
           </div>
         </div>
 
@@ -326,12 +329,20 @@ const IntegrationsPage = () => {
             Connect your platforms and grow your online store today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+            <Link href="https://wa.me/+8801677182084">
+            
             <button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-2 rounded-sm poppins font-medium text-sm cursor-pointer transition-colors duration-200">
               Sign Up Today
             </button>
+            </Link>
+
+            <Link target="_blank" href='https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform'>
+            
             <button className="border border-teal-600 text-teal-600 hover:bg-teal-50 px-8 py-2 rounded-sm poppins font-medium text-sm cursor-pointer transition-colors duration-200">
               View Documentation
             </button>
+            </Link>
           </div>
         </div>
       </div>
