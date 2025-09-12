@@ -177,7 +177,7 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-3">
             <Link
-              href="https://wa.me/+8801677182084"
+              href="https://wa.me/+8801886182084"
               className="px-4 py-1 rounded-full border border-gray-300 shadow-xs flex items-center gap-1.5"
             >
               <ShinyText baseColor="#000000" shineColor="#7c7dcf" speed={5}>
