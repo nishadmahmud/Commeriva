@@ -115,7 +115,7 @@ const Footer = () => {
             <h3 className="font-semibold text-gray-900 mb-6">CONTACT US</h3>
             <div className="mb-6 flex items-center gap-1 text-gray-600">
               <Phone size={17}></Phone>
-              <p className="text-gray-600">+8801677182084</p>
+              <p className="text-gray-600">+8801886182084</p>
             </div>
             <div className="mb-6 flex items-center gap-1 text-gray-600">
               <Mail size={16}></Mail>
