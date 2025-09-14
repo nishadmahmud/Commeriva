@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
+import Link from "next/link";
 
 export default function CorporatePage() {
   const features = [
@@ -98,9 +99,9 @@ export default function CorporatePage() {
         <p className="text-gray-600 mb-8 poppins max-w-2xl mx-auto">
           Let Commeriva help you create a powerful, scalable, and modern corporate presence that grows with your business.
         </p>
-        <button className="bg-gray-900 text-white px-20 py-2 rounded-sm text-base font-semibold hover:bg-gray-700 transition">
+        <Link href='https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform' target="_blank" className="bg-gray-900 text-white px-20 py-2 rounded-sm text-base font-semibold hover:bg-gray-700 transition">
           Get Started
-        </button>
+        </Link>
       </section>
     </div>
   );

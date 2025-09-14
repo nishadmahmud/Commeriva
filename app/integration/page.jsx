@@ -7,7 +7,7 @@ const IntegrationsPage = () => {
     <div className="min-h-screen bg-white py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center h-[75vh] flex md:flex-row flex-col gap-20 md:gap-0 md:justify-between  items-center md:mb-16 mb-10">
+        {/* <div className="text-center h-[75vh] flex md:flex-row flex-col gap-20 md:gap-0 md:justify-between  items-center md:mb-16 mb-10">
           <div>
             <h1 className="text-3xl md:text-5xl md:text-start font-semibold heroTitle text-gray-900 mb-4 text-center">
             Powerful <span className="text-teal-600">Integrations</span>
@@ -22,7 +22,7 @@ const IntegrationsPage = () => {
             <Image src="https://www.outletexpense.xyz/uploads/168-Khan-Sahadat/1757703023.png" alt="integration" width={1000} height={1000} className="w-56 md:w-96 h-56 md:h-96"></Image>
         
           </div>
-        </div>
+        </div> */}
 
         {/* Payment Gateway Integrations */}
         <section id="payment" className="mb-10">
@@ -330,7 +330,7 @@ const IntegrationsPage = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
 
-            <Link href="https://wa.me/+8801677182084">
+            <Link target="_blank" href="https://wa.me/+8801677182084">
             
             <button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-2 rounded-sm poppins font-medium text-sm cursor-pointer transition-colors duration-200">
               Sign Up Today

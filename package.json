@@ -23,6 +23,7 @@
     "postprocessing": "^6.37.7",
     "react": "19.1.0",
     "react-bits": "^1.0.5",
+    "react-calendly": "^4.4.0",
     "react-countup": "^6.5.3",
     "react-dom": "19.1.0",
     "react-fast-marquee": "^1.6.5",

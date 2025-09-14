@@ -35,7 +35,7 @@ const HeroPage = () => {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 flex items-center text-center justify-center justify-items-center md:min-h-[70vh] px-6 md:mt-10 mt-20">
+      <div className="relative z-10 flex items-center text-center justify-center justify-items-center md:min-h-[60vh] px-6 md:mt-10 mt-20">
         <div className="mt-10">
           <h1 className="text-3xl md:text-5xl font-semibold md:leading-14 text-gray-900 max-w-3xl heroTitle">
             <span>Smart, Secure, & Scalable Websites for Your </span>
@@ -61,7 +61,7 @@ const HeroPage = () => {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4 justify-center items-center">
-            <Link href='https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform?usp=sharing&ouid=101793279606112585174'>
+            <Link target="_blank" href='https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform?usp=sharing&ouid=101793279606112585174'>
             
             <button className="bg-gray-900 hover:bg-gray-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition cursor-pointer poppins flex items-center gap-1">
              <Calendar size={20}></Calendar> Book a appointment

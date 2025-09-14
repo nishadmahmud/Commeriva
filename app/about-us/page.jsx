@@ -79,7 +79,7 @@ export default function AboutUs() {
           website designed for impact.
         </p>
         <Link
-          href="/contact"
+         target="_blank" href="https://wa.me/+8801677182084"
           className="inline-block border border-gray-800 text-gray-100 bg-gray-900 hover:text-white font-medium px-8 py-2 rounded-sm transition"
         >
           Get in Touch

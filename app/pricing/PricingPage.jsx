@@ -405,8 +405,8 @@ export default function Pricing() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="text-center mb-12 sm:mb-16">
             <div className="inline-flex items-center bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs sm:text-sm mb-6">
-              <span className="w-2 h-2 bg-gray-500 rounded-full mr-2"></span>
-              Scaling APIs and phoenix in 2024
+              <span className="w-2 h-2 bg-gray-500 rounded-full mr-1.5 mt-0.5"></span>
+              Building Websites That Grow With You
             </div>
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 mb-6 leading-snug heroTitle">
               Start for Free, Scale as You <br className="hidden sm:block" />

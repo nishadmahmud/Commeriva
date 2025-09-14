@@ -81,31 +81,31 @@ const Footer = () => {
 
           {/* Solution Links */}
           <div className="poppins">
-            <h3 className="font-semibold text-gray-900 mb-6">SOLUTION</h3>
+            <h3 className="font-semibold text-gray-900 mb-6">PRODUCTS</h3>
             <ul className="space-y-4">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="why-nextjs"
                   className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
                 >
-                  Roles
-                </a>
+                  E-commarce Website
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="corporate-website"
                   className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
                 >
-                  Industries
-                </a>
+                  Corporate Website
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="portfolio-website"
                   className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
                 >
-                  Use Cases
-                </a>
+                  Portfolio Website
+                </Link>
               </li>
             </ul>
           </div>

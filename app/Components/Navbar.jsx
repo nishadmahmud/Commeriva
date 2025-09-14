@@ -48,8 +48,8 @@ const Navbar = () => {
     Company: [
       { name: "About Us", href: "/about-us", icon: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408211.png" },
       { name: "Contact Us", href: "/contact-us", icon: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757409588.png" },
-      { name: "Documentation", href: "/documentation", icon: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408274.png" },
-      { name: "Career", href: "/career", icon: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408239.png" },
+      // { name: "Documentation", href: "/documentation", icon: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408274.png" },
+      // { name: "Career", href: "/career", icon: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408239.png" },
     ],
   };
 

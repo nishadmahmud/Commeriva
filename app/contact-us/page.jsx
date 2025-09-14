@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
 import { AiOutlineMessage } from "react-icons/ai";
 import { IoMdSend } from "react-icons/io";
+import Link from "next/link";
 export default function ContactPage() {
   const [form, setForm] = useState({
     name: "",
@@ -125,14 +126,15 @@ export default function ContactPage() {
             />
 
 
-            <button
-              type="submit"
+            <Link
+            href='mailto: info@commeriva.com'
+              
               className="w-full bg-gradient-to-r from-gray-800 to-gray-900 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition poppins cursor-pointer flex items-center gap-2 justify-center"
             >
               Send Message 
               <IoMdSend />
 
-            </button>
+            </Link>
           </form>
         </div>
       </div>

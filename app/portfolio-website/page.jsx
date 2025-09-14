@@ -12,6 +12,7 @@ import {
   Zap,
   Search,
 } from "lucide-react";
+import Link from "next/link";
 
 const PortfolioLandingPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -135,9 +136,9 @@ const PortfolioLandingPage = () => {
           Your portfolio becomes more than a website—it becomes your personal
           growth engine.
         </p>
-        <button className="bg-white text-black px-8 py-2 rounded-sm font-semibold poppins hover:bg-gray-100 transition">
+        <Link href='https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform' target="_blank" className="bg-white text-black px-8 py-2 rounded-sm font-semibold poppins hover:bg-gray-100 transition">
           Get Started Today <ChevronRight className="inline w-5 h-5" />
-        </button>
+        </Link>
       </section>
     </div>
   );

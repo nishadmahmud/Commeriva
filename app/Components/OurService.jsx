@@ -13,7 +13,7 @@ const services = [
       "Secure and scalable architecture",
     ],
     buttonText: "Book Now",
-    buttonLink: "#",
+    buttonLink: "https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform",
     image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392227.jpg",
   },
   {
@@ -26,7 +26,7 @@ const services = [
       "Smooth checkout experience",
     ],
     buttonText: "Plan a build",
-    buttonLink: "#",
+    buttonLink: "https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform",
     image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392289.jpg",
   },
   {
@@ -38,7 +38,7 @@ const services = [
       "Optimized for recruiters and clients",
     ],
     buttonText: "Talk resourcing",
-    buttonLink: "#",
+    buttonLink: "https://wa.me/+8801677182084",
     image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392467.jpg",
   },
   {
@@ -51,7 +51,7 @@ const services = [
      
     ],
     buttonText: "Book a call",
-    buttonLink: "#",
+    buttonLink: "https://wa.me/+8801677182084",
     image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392582.jpg",
   },
   {
@@ -64,7 +64,7 @@ const services = [
       
     ],
     buttonText: "Talk to us",
-    buttonLink: "#",
+    buttonLink: "https://wa.me/+8801677182084",
     image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392697.jpg",
   },
   {
@@ -77,7 +77,7 @@ const services = [
       
     ],
     buttonText: "Talk to us",
-    buttonLink: "#",
+    buttonLink: "https://wa.me/+8801677182084",
     image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392891.jpg",
   },
 ];
@@ -85,7 +85,7 @@ const services = [
 // ====== Component ======
 export default function OurServices() {
   return (
-    <section id="services" className="md:py-16 pt-5 md:pt-16 pb-16 bg-white">
+    <section id="services" className="md:pb-16 pt-5 md:pt-0 pb-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="lg:text-5xl md:text-4xl text-3xl font-semibold text-center pb-12 title">
           Our Services
