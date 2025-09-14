@@ -68,7 +68,7 @@ const HeroPage = () => {
             </button>
             </Link>
 
-            <Link target="_blank" href='https://wa.me/+8801677182084'>
+            <Link target="_blank" href='https://wa.me/+8801886182084'>
             
             <button className="flex items-center gap-2 text-gray-800 hover:text-black font-medium transition cursor-pointer border border-gray-300 px-6 py-3 rounded-lg bg-transparent inset-0 backdrop-blur-sm poppins">
               <Play
