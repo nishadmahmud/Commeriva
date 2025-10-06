@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 // ====== Services Data ======
 const services = [
@@ -157,6 +157,51 @@ export default function OurServices() {
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
+  // Active/previous for image transition
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [previousIndex, setPreviousIndex] = useState(0);
+
+  // Sync right image height with left content
+  const leftRef = useRef(null);
+  const [leftHeight, setLeftHeight] = useState(0);
+  const [containerHeight, setContainerHeight] = useState(0);
+  const [lockHeight, setLockHeight] = useState(false);
+
+  useEffect(() => {
+    if (!leftRef.current) return;
+    const el = leftRef.current;
+    const update = () => setLeftHeight(el.getBoundingClientRect().height);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    window.addEventListener("resize", update);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
+  // Stabilize container height to avoid jumps
+  useEffect(() => {
+    if (lockHeight) {
+      setContainerHeight((prev) => Math.max(prev, leftHeight));
+    } else {
+      setContainerHeight(leftHeight);
+    }
+  }, [leftHeight, lockHeight]);
+
+  useEffect(() => {
+    setPreviousIndex((prev) => (prev === activeIndex ? prev : prev));
+  }, [activeIndex]);
+
+  const handleSelect = (idx) => {
+    setPreviousIndex(activeIndex);
+    setLockHeight(true);
+    setActiveIndex(idx);
+    // release height lock after animations finish
+    window.setTimeout(() => setLockHeight(false), 800);
+  };
+
   return (
     <section ref={ref} id="services" className="md:pb-16 pt-5 md:pt-0 pb-16 bg-white relative overflow-hidden">
       {/* Background Elements */}
@@ -196,125 +241,107 @@ export default function OurServices() {
           ></motion.div>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="space-y-20 poppins"
-        >
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center group`}
-            >
-              {/* Left Side (conditionally text or image) */}
-              <motion.div
-                variants={textVariants}
-                className={`${
-                  index % 2 === 0 ? "order-1" : "order-2"
-                }`}
-              >
-                <motion.h2 
-                  className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+          {/* Left: Titles and expanding content */}
+          <motion.div
+            className="relative md:col-span-2 space-y-2 pl-6 z-10 text-gray-900"
+            ref={leftRef}
+          >
+            {/* vertical guideline */}
+            <div className="hidden md:block absolute left-2 top-0 bottom-0 w-px bg-gradient-to-b from-gray-200 via-gray-200/60 to-transparent"></div>
+            {services.map((service, idx) => (
+              <motion.div key={service.title} className="relative">
+                <button
+                  onClick={() => handleSelect(idx)}
+                  className="w-full text-left pr-3 py-2 focus:outline-none text-gray-900 hover:text-gray-950 cursor-pointer"
                 >
-                  {service.title}
-                </motion.h2>
+                  <div className="flex items-start gap-3">
+                    {/* bullet */}
+                    <span className={`mt-2 shrink-0 w-3 h-3 rounded-full border transition-all duration-300 ${activeIndex === idx ? "bg-gray-900 border-gray-900 ring-2 ring-gray-900/20 shadow-sm" : "border-gray-400 bg-white"}`}></span>
+                    <h3 className={`text-base md:text-lg font-semibold tracking-tight ${activeIndex === idx ? "text-gray-900" : "text-gray-700"}`}>
+                      {service.title}
+                    </h3>
+                  </div>
+                </button>
 
-                <motion.p 
-                  className="text-gray-800 mb-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                >
-                  {service.description}
-                </motion.p>
-
-                <motion.ul 
-                  className="space-y-2 text-gray-600 mb-6"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                >
-                  {service.points.map((point, i) => (
-                    <motion.li 
-                      key={i} 
-                      variants={pointVariants}
-                      custom={i}
-                      className="flex items-center"
-                    >
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.3, delay: 0.4 + i * 0.1 }}
-                        className="w-2 h-2 bg-gray-400 rounded-full mr-3 flex-shrink-0"
-                      ></motion.div>
-                      {point}
-                    </motion.li>
-                  ))}
-                </motion.ul>
-
-                <motion.a
-                  href={service.buttonLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-6 px-6 py-3 bg-gray-950 text-white rounded-lg shadow-lg hover:bg-gray-800 transition-all duration-300 cursor-pointer poppins relative overflow-hidden group/btn"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                {/* Reveal content when active */}
+                {activeIndex === idx && (
                   <motion.div
-                    className="absolute inset-0 bg-white opacity-0 group-hover/btn:opacity-10 transition-opacity duration-300"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "100%" }}
-                    transition={{ duration: 0.6 }}
-                  ></motion.div>
-                  <span className="relative z-10">{service.buttonText}</span>
-                </motion.a>
-              </motion.div>
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="pl-6 pr-3 pb-3 text-gray-900"
+                  >
+                    <motion.p
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="text-gray-700 mb-3 poppins text-sm leading-relaxed"
+                    >
+                      {service.description}
+                    </motion.p>
 
-              {/* Right Side (conditionally image or text) */}
-              <motion.div
-                variants={imageVariants}
-                className={`${
-                  index % 2 === 0 ? "order-2" : "order-1"
-                }`}
-              >
-                <motion.div 
-                  className="relative overflow-hidden rounded-xl shadow-lg group/image"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Image
-                    unoptimized
-                    src={service.image}
-                    alt={service.title}
-                    width={600}
-                    height={400}
-                    className="object-cover w-full h-full group-hover/image:scale-110 transition-transform duration-700"
-                  />
-                  
-                   {/* Overlay on hover */}
-                   <motion.div
-                     className="absolute inset-0 bg-black opacity-0 group-hover/image:opacity-20 transition-opacity duration-300"
-                     initial={{ opacity: 0 }}
-                     whileHover={{ opacity: 0.2 }}
-                   ></motion.div>
-                </motion.div>
+                    <ul className="space-y-1.5 text-gray-600 mb-4">
+                      {service.points.map((p, i) => (
+                        <motion.li
+                          key={i}
+                          initial={{ opacity: 0, x: -8 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.2, delay: 0.04 * i }}
+                          className="flex items-center text-sm"
+                        >
+                          <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2"></span>
+                          {p}
+                        </motion.li>
+                      ))}
+                    </ul>
+
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={service.buttonLink}
+                      className="inline-flex items-center justify-center px-4 py-2 bg-gray-950 text-white rounded-md hover:bg-gray-800 transition-colors duration-200 text-sm shadow-sm ring-1 ring-black/5"
+                    >
+                      {service.buttonText}
+                    </a>
+                  </motion.div>
+                )}
               </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Right: Image with right-to-left cover transition */}
+          <div className="relative w-full md:col-span-3 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5 bg-gray-100 z-0" style={{ height: (containerHeight || leftHeight) || undefined }}>
+            {/* Base (previous) image */}
+            <Image
+              unoptimized
+              src={services[previousIndex]?.image || services[activeIndex].image}
+              alt={services[previousIndex]?.title || services[activeIndex].title}
+              width={1200}
+              height={800}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+
+            {/* Revealing layer for active image */}
+            <motion.div
+              key={activeIndex}
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1.15, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute inset-0 bg-transparent overflow-hidden"
+            >
+              <Image
+                unoptimized
+                src={services[activeIndex].image}
+                alt={services[activeIndex].title}
+                width={1200}
+                height={800}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
             </motion.div>
-          ))}
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

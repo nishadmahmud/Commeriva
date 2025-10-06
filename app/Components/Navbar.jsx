@@ -87,20 +87,22 @@ const Navbar = () => {
                 onMouseEnter={() => setActive(menu)}
                 onMouseLeave={() => setActive(null)}
               >
-                {menu === "Pricing" ? (
+                {/* {menu === "Pricing" ? (
                   <button
                     onClick={handlePricingModal}
                     className="hover:text-gray-500 poppins gap-1 flex text-sm items-center cursor-pointer"
                   >
                     Pricing
                   </button>
-                ) : (
-                  <Link
+                ) : ( */}
+                  {<Link
                     href={
                       menu === "Portfolio"
                         ? "/portfolio"
                         : menu === "Blog"
                         ? "/blogs"
+                        : menu === "Pricing"
+                        ? "/pricing"
                         : menu === "Integration"
                         ? "/integration"
                         : "/"
@@ -114,7 +116,7 @@ const Navbar = () => {
                       menu === "Portfolio"
                     ) && <IoIosArrowDown size={15} />}
                   </Link>
-                )}
+                }
 
                 {/* Dropdown */}
                 <AnimatePresence>
