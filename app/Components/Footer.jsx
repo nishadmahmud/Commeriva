@@ -34,9 +34,9 @@ const Footer = () => {
                     type="email"
                     id="email"
                     placeholder="Enter your email"
-                    className="md:flex-1 px-3 py-3 text-sm border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 md:w-full w-[60vw]"
+                    className="md:flex-1 px-3 py-3 text-sm border rounded-sm border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 md:w-full w-[60vw]"
                   />
-                  <button className="bg-slate-800 text-gray-100 border border-gray-300 md:px-4 px-2 py-2 hover:bg-gray-900 cursor-pointer text-sm md:text-base transition">
+                  <button className="bg-slate-800 rounded-sm text-gray-100 border border-gray-300 md:px-4 px-2 py-2 hover:bg-gray-900 cursor-pointer text-sm md:text-base transition">
                     Subscribe
                   </button>
                 </div>
@@ -53,20 +53,20 @@ const Footer = () => {
             <h3 className="font-semibold text-gray-900 mb-6">COMPANY</h3>
             <ul className="space-y-4">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/about-us"
                   className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
                 >
                   About us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/contact-us"
                   className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
                 >
-                  Videos
-                </a>
+                  Contact us
+                </Link>
               </li>
               <li>
                 <Link
@@ -155,7 +155,7 @@ const Footer = () => {
             <p className="text-gray-800 text-sm font-semibold poppins">
               Copyright 2025 © Commeriva Automation Inc.
             </p>
-            <div className="flex space-x-8 poppins">
+            {/* <div className="flex space-x-8 poppins">
               <a
                 href="#"
                 className="text-gray-800 font-semibold hover:text-gray-900 transition-colors duration-200 text-sm hover:underline"
@@ -168,7 +168,7 @@ const Footer = () => {
               >
                 Privacy Policy
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -79,13 +79,13 @@ const categories = [
 const features = [
   "User & Authentication",
   "Product & Catalog",
-  "AI",
+  "CMS",
   "Machine Learning",
   "Smart/Advanced Features",
+  "AI",
   "Notifications",
   "Order & Delivery",
   "Security",
-  "CMS",
 ];
 
 export default function Category() {
@@ -128,7 +128,7 @@ export default function Category() {
               className={`group relative cursor-pointer border border-gray-300 rounded-2xl transition-all duration-500 animate-slide-up ${
                 active === cat.name ? "transform scale-105" : "hover:scale-102"
               }`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              style={{ animationDelay: `${index * 50}ms` }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -143,7 +143,7 @@ export default function Category() {
                   <motion.div
                     className="text-3xl sm:text-4xl mb-3 sm:mb-4"
                     whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.2 }}
                   >
                     {cat.icon}
                   </motion.div>
@@ -163,7 +163,7 @@ export default function Category() {
             key={active}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.2 }}
           >
             <div>
               <div className="flex items-center gap-6 mb-4">
@@ -176,14 +176,14 @@ export default function Category() {
               </div>
               <p className="text-gray-700 max-w-4xl font-normal mb-6">{desc}</p>
             </div>
-            <div className="flex flex-wrap justify-self-auto items-center gap-4">
+            <div className="flex flex-wrap justify-self-auto items-center gap-3">
               {features.map((feature, index) => (
                 <motion.span
                   key={feature}
-                  className="px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-900 hover:text-white transition-all duration-300 cursor-pointer"
+                  className="px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-full text-xs font-medium hover:bg-gray-900 hover:text-white transition-all duration-300 cursor-pointer"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.3 }}
+                  transition={{ delay: index * 0.1, duration: 0.2 }}
                   whileHover={{ scale: 1.05 }}
                 >
                   {feature}
@@ -208,7 +208,7 @@ export default function Category() {
               initial={{ scale: 0.9, opacity: 0, y: 50 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 50 }}
-              transition={{ duration: 0.4, ease: 'easeInOut' }}
+              transition={{ duration: 0.2, ease: 'easeInOut' }}
             >
               {/* Close Button */}
               <button
