@@ -29,7 +29,7 @@ export default function SupplyChain() {
 
 
   return (
-    <div className="md:w-10/12 w-11/12 mx-auto min-h-screen bg-white md:mt-24 mt-16">
+    <div className="md:w-10/12 w-11/12 mx-auto bg-white md:mt-24 mt-16">
       <div className="mx-auto max-w-4xl text-center">
         <h2 className="text-4xl title font-semibold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
           Boost Your Efficiency with Commeriva
@@ -40,8 +40,8 @@ export default function SupplyChain() {
         </p>
       </div>
       <div className="flex mt-10 justify-between md:flex-row-reverse items-center flex-col-reverse">
-        {/* Left Side - Scrollable Content */}
-        <div className="overflow-y-auto">
+        {/* Left Side - Content */}
+        <div className="">
           <div className="max-w-xl w-full">
             {features.map((feature, index) => (
               <div
