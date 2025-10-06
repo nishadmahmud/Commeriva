@@ -29,12 +29,12 @@ export default function SupplyChain() {
 
 
   return (
-    <div className="md:w-10/12 w-11/12 mx-auto bg-white md:mt-24 mt-16">
+    <div className="md:w-10/12 w-11/12 mx-auto bg-white dark:bg-neutral-950 md:mt-24 mt-16">
       <div className="mx-auto max-w-4xl text-center">
-        <h2 className="text-4xl title font-semibold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
+        <h2 className="text-4xl title font-semibold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl md:text-5xl">
           Boost Your Efficiency with Commeriva
         </h2>
-        <p className="mt-4 md:text-lg poppins text-gray-600">
+        <p className="mt-4 md:text-lg poppins text-gray-600 dark:text-gray-300">
           Comprehensive android app for distribution management: orders, SKU
           scanning, tracking, metrics, and vehicle monitoring in one solution
         </p>
@@ -47,7 +47,7 @@ export default function SupplyChain() {
               <div
                 key={index}
                 
-                className="group md:p-6 p-4 border-b last:border-b-0"
+                className="group md:p-6 p-4 border-b dark:border-white/10 last:border-b-0"
               >
                 <div className="md:flex md:items-center justify-start space-x-6">
                   {/* Image */}
@@ -64,13 +64,13 @@ export default function SupplyChain() {
                   <div className="flex-1">
                     <h3
                       
-                      className="text-xl md:text-2xl font-semibold text-gray-900 my-2 text-start transition-colors duration-300 poppins"
+                      className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-gray-100 my-2 text-start transition-colors duration-300 poppins"
                     >
                       {feature.title}
                     </h3>
                     <p
                       
-                      className="text-gray-600 leading-relaxed text-base mb-3 text-start max-w-lg"
+                      className="text-gray-600 dark:text-gray-300 leading-relaxed text-base mb-3 text-start max-w-lg"
                     >
                       {feature.description}
                     </p>

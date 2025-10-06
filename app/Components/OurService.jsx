@@ -203,15 +203,15 @@ export default function OurServices() {
   };
 
   return (
-    <section ref={ref} id="services" className="md:pb-16 pt-5 md:pt-0 pb-16 bg-white relative overflow-hidden">
+    <section ref={ref} id="services" className="md:pt-12 pt-10 md:pb-16 pb-16 bg-white dark:bg-neutral-950 relative overflow-hidden">
       {/* Background Elements */}
       <motion.div
         style={{ y, opacity }}
         className="absolute inset-0 pointer-events-none"
       >
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gray-100 rounded-full opacity-20 blur-xl"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gray-100 rounded-full opacity-20 blur-xl"></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-gray-100 rounded-full opacity-15 blur-xl"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gray-100 dark:bg-white/5 rounded-full opacity-20 blur-xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gray-100 dark:bg-white/5 rounded-full opacity-20 blur-xl"></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-gray-100 dark:bg-white/5 rounded-full opacity-15 blur-xl"></div>
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -224,7 +224,7 @@ export default function OurServices() {
           className="text-center pb-12"
         >
           <motion.h1 
-            className="lg:text-5xl md:text-4xl text-3xl font-semibold title"
+            className="lg:text-5xl md:text-4xl text-3xl font-semibold title text-gray-900 dark:text-gray-100"
             initial={{ scale: 0.9 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
@@ -237,28 +237,28 @@ export default function OurServices() {
             whileInView={{ width: "100px" }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="h-1 bg-gray-300 mx-auto mt-4 rounded-full"
+            className="h-1 bg-gray-300 dark:bg-white/10 mx-auto mt-4 rounded-full"
           ></motion.div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
           {/* Left: Titles and expanding content */}
           <motion.div
-            className="relative md:col-span-2 space-y-2 pl-6 z-10 text-gray-900"
+            className="relative md:col-span-2 space-y-2 pl-6 z-10 text-gray-900 dark:text-gray-100"
             ref={leftRef}
           >
             {/* vertical guideline */}
-            <div className="hidden md:block absolute left-2 top-0 bottom-0 w-px bg-gradient-to-b from-gray-200 via-gray-200/60 to-transparent"></div>
+            <div className="hidden md:block absolute left-2 top-0 bottom-0 w-px bg-gradient-to-b from-gray-200 via-gray-200/60 to-transparent dark:from-white/15 dark:via-white/10 dark:to-transparent"></div>
             {services.map((service, idx) => (
               <motion.div key={service.title} className="relative">
                 <button
                   onClick={() => handleSelect(idx)}
-                  className="w-full text-left pr-3 py-2 focus:outline-none text-gray-900 hover:text-gray-950 cursor-pointer"
+                  className="w-full text-left pr-3 py-2 focus:outline-none text-gray-900 dark:text-gray-100 hover:text-gray-950 dark:hover:text-white cursor-pointer"
                 >
                   <div className="flex items-start gap-3">
                     {/* bullet */}
-                    <span className={`mt-2 shrink-0 w-3 h-3 rounded-full border transition-all duration-300 ${activeIndex === idx ? "bg-gray-900 border-gray-900 ring-2 ring-gray-900/20 shadow-sm" : "border-gray-400 bg-white"}`}></span>
-                    <h3 className={`text-base md:text-lg font-semibold tracking-tight ${activeIndex === idx ? "text-gray-900" : "text-gray-700"}`}>
+                    <span className={`mt-2 shrink-0 w-3 h-3 rounded-full border transition-all duration-300 ${activeIndex === idx ? "bg-gray-900 dark:bg-white border-gray-900 dark:border-white ring-2 ring-gray-900/20 dark:ring-white/20 shadow-sm" : "border-gray-400 dark:border-white/30 bg-white dark:bg-white/10"}`}></span>
+                    <h3 className={`text-base md:text-lg font-semibold tracking-tight ${activeIndex === idx ? "text-gray-900 dark:text-white" : "text-gray-700 dark:text-gray-300"}`}>
                       {service.title}
                     </h3>
                   </div>
@@ -271,18 +271,18 @@ export default function OurServices() {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="pl-6 pr-3 pb-3 text-gray-900"
+                    className="pl-6 pr-3 pb-3 text-gray-900 dark:text-gray-100"
                   >
                     <motion.p
                       initial={{ opacity: 0, y: 6 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.25 }}
-                      className="text-gray-700 mb-3 poppins text-sm leading-relaxed"
+                      className="text-gray-700 dark:text-gray-300 mb-3 poppins text-sm leading-relaxed"
                     >
                       {service.description}
                     </motion.p>
 
-                    <ul className="space-y-1.5 text-gray-600 mb-4">
+                    <ul className="space-y-1.5 text-gray-600 dark:text-gray-400 mb-4">
                       {service.points.map((p, i) => (
                         <motion.li
                           key={i}
@@ -291,7 +291,7 @@ export default function OurServices() {
                           transition={{ duration: 0.2, delay: 0.04 * i }}
                           className="flex items-center text-sm"
                         >
-                          <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2"></span>
+                          <span className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-500 rounded-full mr-2"></span>
                           {p}
                         </motion.li>
                       ))}
@@ -301,7 +301,7 @@ export default function OurServices() {
                       target="_blank"
                       rel="noopener noreferrer"
                       href={service.buttonLink}
-                      className="inline-flex items-center justify-center px-4 py-2 bg-gray-950 text-white rounded-md hover:bg-gray-800 transition-colors duration-200 text-sm shadow-sm ring-1 ring-black/5"
+                      className="inline-flex items-center justify-center px-4 py-2 bg-gray-950 dark:bg-white text-white dark:text-black rounded-md hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors duration-200 text-sm shadow-sm ring-1 ring-black/5 dark:ring-white/10"
                     >
                       {service.buttonText}
                     </a>
@@ -312,7 +312,7 @@ export default function OurServices() {
           </motion.div>
 
           {/* Right: Image with right-to-left cover transition */}
-          <div className="relative w-full md:col-span-3 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5 bg-gray-100 z-0" style={{ height: (containerHeight || leftHeight) || undefined }}>
+          <div className="relative w-full md:col-span-3 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5 dark:ring-white/10 bg-gray-100 dark:bg-neutral-900 z-0" style={{ height: (containerHeight || leftHeight) || undefined }}>
             {/* Base (previous) image */}
             <Image
               unoptimized

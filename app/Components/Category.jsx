@@ -115,15 +115,15 @@ export default function Category() {
   return (
     <div className="relative">
       {/* soft background glows */}
-      <div className="pointer-events-none absolute -top-20 -left-24 h-72 w-72 rounded-full bg-gradient-to-br from-slate-200 via-white to-slate-100 blur-2xl opacity-60" />
-      <div className="pointer-events-none absolute -bottom-20 -right-24 h-80 w-80 rounded-full bg-gradient-to-br from-slate-200 via-white to-slate-100 blur-2xl opacity-60" />
+      <div className="pointer-events-none absolute -top-20 -left-24 h-72 w-72 rounded-full bg-gradient-to-br from-slate-200 via-white to-slate-100 blur-2xl opacity-60 dark:hidden" />
+      <div className="pointer-events-none absolute -bottom-20 -right-24 h-80 w-80 rounded-full bg-gradient-to-br from-slate-200 via-white to-slate-100 blur-2xl opacity-60 dark:hidden" />
 
-      <h2 className="lg:text-5xl md:text-4xl text-3xl title mb-3 mt-16 text-center font-semibold px-4 tracking-tight text-gray-900">
+      <h2 className="lg:text-5xl md:text-4xl text-3xl title mb-3 mt-16 text-center font-semibold px-4 tracking-tight text-gray-900 dark:text-gray-100">
         E-Commerce Business Suite
       </h2>
-      <p className="text-center text-sm md:text-base text-gray-600 mb-10 px-4 poppins">Choose a domain and explore a tailored feature set for your business.</p>
+      <p className="text-center text-sm md:text-base text-gray-600 dark:text-gray-300 mb-10 px-4 poppins">Choose a domain and explore a tailored feature set for your business.</p>
 
-      <div className="relative bg-white text-gray-900 flex flex-col lg:flex-row gap-8 items-start justify-start md:mb-20 w-full max-w-11/12 mx-auto px-4 sm:px-6 overflow-hidden pt-4">
+      <div className="relative bg-white dark:bg-neutral-950 text-gray-900 dark:text-gray-100 flex flex-col lg:flex-row gap-8 items-start justify-start md:mb-20 w-full max-w-11/12 mx-auto px-4 sm:px-6 overflow-hidden pt-4">
         {/* Category Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 mb-10 w-full lg:max-w-none">
           {visibleCategories.map((cat, index) => (
@@ -131,7 +131,7 @@ export default function Category() {
               key={cat.name}
               onClick={() => handleCategoryClick(cat)}
               className={`group relative cursor-pointer rounded-2xl transition-all duration-300 animate-slide-up ${
-                active === cat.name ? "ring-1 ring-slate-300 shadow-lg" : "hover:shadow-xl"
+                active === cat.name ? "ring-1 ring-slate-300 dark:ring-white/30 shadow-lg" : "hover:shadow-xl"
               }`}
               style={{ animationDelay: `${index * 50}ms` }}
               whileHover={{ scale: 1.03, y: -2 }}
@@ -142,25 +142,25 @@ export default function Category() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: active === cat.name ? 1 : 0 }}
                 transition={{ duration: 0.25 }}
-                className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-slate-100/70 to-transparent"
+                className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-slate-100/70 dark:from-white/5 to-transparent"
               />
 
               <div
                 className={`relative overflow-hidden rounded-2xl p-4 sm:p-5 border transition-all duration-300 ${
                   active === cat.name
-                    ? "border-slate-300 bg-white"
-                    : "border-gray-100 bg-white hover:border-gray-200"
+                    ? "border-slate-300 dark:border-white/30 bg-white dark:bg-neutral-900"
+                    : "border-gray-100 dark:border-white/10 bg-white dark:bg-neutral-900 hover:border-gray-200 dark:hover:border-white/20"
                 }`}
               >
                 <div className="relative w-full mx-auto text-center z-10 flex items-center justify-center flex-col">
                   <motion.div
-                    className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-gray-800"
+                    className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-gray-800 dark:text-gray-100"
                     whileHover={{ scale: 1.1, rotate: 1.5 }}
                     transition={{ duration: 0.2 }}
                   >
                     {cat.icon}
                   </motion.div>
-                  <h3 className="font-medium text-xs sm:text-sm mb-2 tracking-wide text-center px-2 poppins text-gray-800">
+                  <h3 className="font-medium text-xs sm:text-sm mb-2 tracking-wide text-center px-2 poppins text-gray-800 dark:text-gray-200">
                     {cat.name}
                   </h3>
                 </div>
@@ -172,7 +172,7 @@ export default function Category() {
         {/* Desktop Active Category Details */}
         <div className="hidden lg:block sticky top-0 z-10 w-full poppins">
           <motion.div
-            className="bg-white border border-gray-200 shadow-xl rounded-2xl p-7 h-fit"
+            className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-white/10 shadow-xl rounded-2xl p-7 h-fit"
             key={active}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -180,20 +180,20 @@ export default function Category() {
           >
             <div>
               <div className="flex items-center gap-5 mb-4">
-                <div className="text-4xl text-gray-800">
+                <div className="text-4xl text-gray-800 dark:text-gray-100">
                   {categories.find((cat) => cat.name === active)?.icon}
                 </div>
-                <h2 className="text-2xl md:text-3xl text-gray-900 tracking-tight">
+                <h2 className="text-2xl md:text-3xl text-gray-900 dark:text-gray-100 tracking-tight">
                   {active} <span className="font-bold">Solutions</span>
                 </h2>
               </div>
-              <p className="text-gray-700 max-w-4xl font-normal mb-6 leading-relaxed">{desc}</p>
+              <p className="text-gray-700 dark:text-gray-300 max-w-4xl font-normal mb-6 leading-relaxed">{desc}</p>
             </div>
             <div className="flex flex-wrap items-center gap-3">
               {features.map((feature, index) => (
                 <motion.span
                   key={feature}
-                  className="px-5 py-2 bg-white border border-gray-200 text-gray-800 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-900 hover:text-white transition-all duration-200 cursor-pointer shadow-sm"
+                  className="px-5 py-2 bg-white dark:bg-neutral-900 border border-gray-200 dark:border-white/10 text-gray-800 dark:text-gray-200 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-200 cursor-pointer shadow-sm"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05, duration: 0.2 }}

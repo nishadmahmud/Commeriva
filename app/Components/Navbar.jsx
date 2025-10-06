@@ -11,6 +11,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { Building } from "lucide-react";
 import { UserStar } from "lucide-react";
 import { Store } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [active, setActive] = useState(null);
@@ -86,7 +87,6 @@ const Navbar = () => {
   };
 
   const isActiveTop = (menu) => {
-    // If menu has children, active when pathname matches any child
     if (menus[menu] && menus[menu].length > 0) {
       return menus[menu].some((item) => pathname?.startsWith(item.href.split("?")[0]));
     }
@@ -97,18 +97,18 @@ const Navbar = () => {
 
   return (
     <div className="pb-12">
-      <nav className="bg-white/70 backdrop-blur-md fixed top-0 w-full z-50">
+      <nav className="bg-white/70 dark:bg-black/40 backdrop-blur-md fixed top-0 w-full z-50">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           {/* Left logo */}
           <Link
             href="/"
-            className="font-semibold text-gray-800 md:text-3xl text-2xl logoFont cursor-pointer tracking-wider"
+            className="font-semibold text-gray-800 dark:text-gray-100 md:text-3xl text-2xl logoFont cursor-pointer tracking-wider"
           >
             Commeriva
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-10 font-medium text-gray-800 bg-transparent py-3 rounded-3xl px-10">
+          <div className="hidden md:flex space-x-10 font-medium text-gray-800 dark:text-gray-100 bg-transparent py-3 rounded-3xl px-10">
             {Object.keys(menus).map((menu) => (
               <div
                 key={menu}
@@ -128,8 +128,8 @@ const Navbar = () => {
                       ? "/integration"
                       : "/"
                   }
-                  className={`relative hover:text-gray-600 poppins gap-1 flex text-sm items-center ${
-                    isActiveTop(menu) ? "text-gray-900" : "text-gray-800"
+                  className={`relative hover:text-gray-600 dark:hover:text-gray-300 poppins gap-1 flex text-sm items-center ${
+                    isActiveTop(menu) ? "text-gray-900 dark:text-white" : ""
                   }`}
                 >
                   {menu}
@@ -141,7 +141,7 @@ const Navbar = () => {
                   {isActiveTop(menu) && (
                     <motion.div
                       layoutId="nav-underline"
-                      className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 rounded-full shadow-[0_0_8px_rgba(2,6,23,0.35)]"
+                      className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 rounded-full shadow-[0_0_8px_rgba(2,6,23,0.35)] dark:from-white dark:via-white/85 dark:to-white dark:h-[2px] dark:shadow-[0_0_12px_rgba(255,255,255,0.6)]"
                     />
                   )}
                 </Link>
@@ -163,15 +163,15 @@ const Navbar = () => {
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.25, ease: "easeInOut" }}
                           >
-                            <div className="bg-white border shadow-lg rounded-lg p-3">
+                            <div className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-white/10 shadow-lg rounded-lg p-3">
                               <ul className="space-y-1">
                                 {menus[menu].map((item, i) => (
                                   <li key={i}>
                                     <Link
                                       href={item.href}
-                                      className="flex items-center space-x-2 px-3 py-1.5 rounded hover:bg-gray-100 text-start poppins  md:w-[25rem] hover:text-gray-700"
+                                      className="flex items-center space-x-2 px-3 py-1.5 rounded hover:bg-gray-100 dark:hover:bg-white/10 text-start poppins  md:w-[25rem] hover:text-gray-700 dark:text-gray-100"
                                     >
-                                      <div className="p-2 border border-gray-200 shadow-sm rounded-full">
+                                      <div className="p-2 border border-gray-200 dark:border-white/10 shadow-sm rounded-full">
                                         <Image
                                           alt="icon"
                                           unoptimized
@@ -197,27 +197,29 @@ const Navbar = () => {
           </div>
 
           {/* Right buttons - Desktop */}
-          <Link href="https://wa.me/+8801677182084" target="_blank" className="hidden md:flex items-center space-x-2">
-            <button className="text-white cursor-pointer bg-gray-900 px-5 py-2 rounded-sm text-xs font-semibold flex poppins justify-center items-center gap-1">
-              <FaWhatsapp color="#ffffff" size={18} />
-              Chat with us
-            </button>
-          </Link>
+          <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
+            <Link href="https://wa.me/+8801677182084" target="_blank" className="flex items-center space-x-2">
+              <button className="text-white cursor-pointer bg-gray-900 px-5 py-2 rounded-sm text-xs font-semibold flex poppins justify-center items-center gap-1">
+                Chat with us
+              </button>
+            </Link>
+          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-3">
+            <ThemeToggle />
             <Link
               href="https://wa.me/+8801886182084"
-              className="px-4 py-1 rounded-full border border-gray-300 shadow-xs flex items-center gap-1.5"
+              className="px-4 py-1 rounded-full border border-gray-300 dark:border-white/10 shadow-xs flex items-center gap-1.5"
             >
               <ShinyText baseColor="#000000" shineColor="#7c7dcf" speed={5}>
                 Let's Talk
               </ShinyText>
-              <FaWhatsapp size={17} color="#25D366" />
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-700 cursor-pointer"
+              className="text-gray-700 dark:text-gray-100 cursor-pointer"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -245,14 +247,14 @@ const Navbar = () => {
   animate={{ x: 0 }}
   exit={{ x: "-100%" }}
   transition={{ duration: 0.4, ease: "easeInOut" }}
-  className="fixed top-0 left-0 h-screen w-72 bg-white shadow-lg z-[9999]"
+  className="fixed top-0 left-0 h-screen w-72 bg-white dark:bg-neutral-900 shadow-lg z-[9999]"
 >
   <div className="p-5 flex flex-col h-full">
 
    <div className="flex justify-between items-center mb-6">
      <h3><Link
             href="/"
-            className="font-semibold text-gray-800 md:text-3xl text-2xl logoFont cursor-pointer tracking-wider"
+            className="font-semibold text-gray-800 dark:text-gray-100 md:text-3xl text-2xl logoFont cursor-pointer tracking-wider"
           >
             Commeriva
           </Link></h3>
@@ -293,7 +295,7 @@ const Navbar = () => {
 }}
 
               className={`w-full flex items-center justify-between px-2 py-2 text-left poppins text-xs border-b-2 ${
-                isActiveTop(menu) ? "border-slate-800 text-gray-900" : "border-transparent text-gray-700 hover:text-teal-600"
+                isActiveTop(menu) ? "border-slate-800 text-gray-900 dark:text-gray-100" : "border-transparent text-gray-700 dark:text-gray-100/80 hover:text-teal-600"
               }`}
             >
               <span>{menu}</span>
@@ -332,9 +334,9 @@ const Navbar = () => {
                         key={i}
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)} 
-                        className="flex items-center space-x-2 poppins px-2 py-1.5 rounded hover:bg-gray-100 text-start hover:text-gray-700"
+                        className="flex items-center space-x-2 poppins px-2 py-1.5 rounded hover:bg-gray-100 dark:hover:bg-white/10 text-start hover:text-gray-700 dark:text-gray-100"
                       >
-                        <div className="p-2 border border-gray-200 shadow-sm rounded-full">
+                        <div className="p-2 border border-gray-200 dark:border-white/10 shadow-sm rounded-full">
                           <Image
                             alt="icon"
                             unoptimized
@@ -378,17 +380,17 @@ const Navbar = () => {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
               transition={{ duration: 0.3 }}
-              className="bg-white rounded-2xl shadow-lg w-11/12 max-w-md p-6 relative"
+              className="bg-white dark:bg-neutral-900 rounded-2xl shadow-lg w-11/12 max-w-md p-6 relative"
             >
               <button
                 onClick={closeModal}
-                className="absolute top-3 cursor-pointer right-4 text-gray-500 hover:text-gray-800"
+                className="absolute top-3 cursor-pointer right-4 text-gray-500 hover:text-gray-800 dark:text-gray-300"
               >
                 ✕
               </button>
 
               <h2 className="text-xl font-semibold mb-2 heroTitle">💎 Pricing Plans</h2>
-              <p className="text-gray-600 mb-6 poppins">
+              <p className="text-gray-600 dark:text-gray-300 mb-6 poppins">
                 Choose the plan that best fits your needs.
               </p>
 
@@ -403,8 +405,7 @@ const Navbar = () => {
                   className="p-4 border rounded-lg hover:border-blue-500 cursor-pointer"
                 >
                   
-                  <p className="flex items-center gap-1 text-gray-800 font-medium">
-                    <Building size={18}></Building>
+                  <p className="flex items-center gap-1 text-gray-800 dark:text-gray-100 font-medium">
                     Corporate Website</p>
                 </div>
                 <div
@@ -416,8 +417,7 @@ const Navbar = () => {
                   }
                   className="p-4 border rounded-lg hover:border-blue-500 cursor-pointer"
                 > 
-                  <p className="flex items-center gap-1 text-gray-800 font-medium">
-                    <UserStar size={20}></UserStar>
+                  <p className="flex items-center gap-1 text-gray-800 dark:text-gray-100 font-medium">
                     Portfolio & Personal Branding</p>
                 </div>
                 <div
@@ -430,8 +430,7 @@ const Navbar = () => {
                   className="p-4 border rounded-lg hover:border-blue-500 cursor-pointer"
                 >
                   
-                  <p className="flex items-center gap-1 text-gray-800 font-medium">
-                    <Store size={20}></Store>
+                  <p className="flex items-center gap-1 text-gray-800 dark:text-gray-100 font-medium">
                     E-Commerce Solutions</p>
                 </div>
                 

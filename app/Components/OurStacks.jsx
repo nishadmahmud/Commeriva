@@ -47,9 +47,9 @@ export default function PartnersIntegrations() {
     {
       id: 4,
       name: "Firebase",
-      image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757407750.jpg",
+      image: "https://upload.wikimedia.org/wikipedia/commons/3/37/Firebase_Logo.svg",
       position: { top: "50px", right: "10px" },
-      size: { width: "60px", height: "60px" },
+      size: { width: "100px", height: "100px" },
     },
     {
       id: 5,
@@ -68,8 +68,8 @@ export default function PartnersIntegrations() {
     {
       id: 7,
       name: "Tailwind",
-      image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757407616.jpg",
-      position: { top: "380px", left: "20px" },
+      image: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
+      position: { top: "350px", left: "80px" },
       size: { width: "60px", height: "60px" },
     },
     {
@@ -145,9 +145,9 @@ export default function PartnersIntegrations() {
     {
       id: 18,
       name: "Flutter",
-      image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757407961.jpg",
-      position: { top: "220px", right: "250px" },
-      size: { width: "45px", height: "45px" },
+      image: "https://upload.wikimedia.org/wikipedia/commons/4/44/Google-flutter-logo.svg",
+      position: { top: "200px", right: "170px" },
+      size: { width: "100px", height: "100px" },
     },
   ];
 
@@ -189,7 +189,7 @@ export default function PartnersIntegrations() {
   ];
 
   return (
-    <div className="bg-white flex items-center justify-center font-sans">
+    <div className="bg-white dark:bg-neutral-950 flex items-center justify-center font-sans">
       <div className="relative w-full max-w-7xl md:min-h-[70vh] px-5 md:py-10 md:px-8 lg:px-12">
         {/* Desktop/Tablet logos positioned around content */}
         {mounted && windowWidth > 768 && (
@@ -263,7 +263,7 @@ export default function PartnersIntegrations() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-xs sm:text-sm font-medium text-gray-500 tracking-wider mb-2 heroTitle"
+            className="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400 tracking-wider mb-2 heroTitle"
           >
             PARTNERS & INTEGRATIONS
           </motion.div>
@@ -272,7 +272,7 @@ export default function PartnersIntegrations() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="text-3xl sm:text-4xl heroTitle md:text-5xl lg:text-5xl font-semibold text-gray-900 leading-tight md:mb-6 mb-2"
+            className="text-3xl sm:text-4xl heroTitle md:text-5xl lg:text-5xl font-semibold text-gray-900 dark:text-gray-100 leading-tight md:mb-6 mb-2"
           >
             Built to work with your ecosystem
           </motion.h1>
@@ -281,7 +281,7 @@ export default function PartnersIntegrations() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
-            className="text-base sm:text-lg text-gray-600 leading-relaxed mb-8 sm:mb-12 px-4 sm:px-0"
+            className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8 sm:mb-12 px-4 sm:px-0"
           >
             We understand that success doesn't happen in isolation. That's why
             Commeriva products integrate with the technologies that power your
@@ -296,7 +296,7 @@ export default function PartnersIntegrations() {
           >
             <Link
               href="#"
-              className="group primary-text-color hover:text-teal-600 font-medium text-sm sm:text-base transition-colors duration-200"
+              className="group primary-text-color hover:text-teal-600 dark:hover:text-teal-400 font-medium text-sm sm:text-base transition-colors duration-200"
             >
               Our ecosystem
               <span className="inline-block ml-2 transition-transform duration-200 group-hover:translate-x-1">
@@ -305,7 +305,7 @@ export default function PartnersIntegrations() {
             </Link>
             <Link
               href="#"
-              className="group primary-text-color hover:text-teal-600 font-medium text-sm sm:text-base transition-colors duration-200"
+              className="group primary-text-color hover:text-teal-600 dark:hover:text-teal-400 font-medium text-sm sm:text-base transition-colors duration-200"
             >
               Find integrations
               <span className="inline-block ml-2 transition-transform duration-200 group-hover:translate-x-1">
@@ -328,7 +328,7 @@ export default function PartnersIntegrations() {
                 transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
                 className="text-center"
               >
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">
                   <CountUp
                     start={0}
                     end={stat.number}
@@ -337,7 +337,7 @@ export default function PartnersIntegrations() {
                     suffix={stat.suffix}
                   />
                 </div>
-                <div className="text-sm sm:text-base text-gray-600 font-medium">
+                <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-medium">
                   {stat.label}
                 </div>
               </motion.div>
