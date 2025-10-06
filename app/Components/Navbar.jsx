@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
 import ShinyText from "./shiny-text";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { Building } from "lucide-react";
 import { UserStar } from "lucide-react";
 import { Store } from "lucide-react";
@@ -42,14 +42,28 @@ const Navbar = () => {
       },
     ],
     Integration: [],
-    Pricing: [],
+    Pricing: [
+      {
+        name: "Corporate Website",
+        href: "/pricing?category=Corporate-Website",
+        icon: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408148.png",
+      },
+      {
+        name: "Portfolio & Personal Branding",
+        href: "/pricing?category=Portfolio",
+        icon: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408169.png",
+      },
+      {
+        name: "E-Commerce Solutions",
+        href: "/pricing?category=E-Commerce",
+        icon: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408131.png",
+      },
+    ],
     Portfolio: [],
     Blog: [],
     Company: [
       { name: "About Us", href: "/about-us", icon: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408211.png" },
       { name: "Contact Us", href: "/contact-us", icon: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757409588.png" },
-      // { name: "Documentation", href: "/documentation", icon: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408274.png" },
-      // { name: "Career", href: "/career", icon: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757408239.png" },
     ],
   };
 
@@ -61,9 +75,24 @@ const Navbar = () => {
   const closeModal = () => setIsPricingOpen(false);
 
   const router = useRouter();
-  const handleSelectPlan = (category) => {
-    closeModal();
-    router.push(`/pricing?category=${encodeURIComponent(category)}`);
+  const pathname = usePathname();
+
+  const baseHref = (menu) => {
+    if (menu === "Portfolio") return "/portfolio";
+    if (menu === "Blog") return "/blogs";
+    if (menu === "Pricing") return "/pricing";
+    if (menu === "Integration") return "/integration";
+    return "/";
+  };
+
+  const isActiveTop = (menu) => {
+    // If menu has children, active when pathname matches any child
+    if (menus[menu] && menus[menu].length > 0) {
+      return menus[menu].some((item) => pathname?.startsWith(item.href.split("?")[0]));
+    }
+    const href = baseHref(menu);
+    if (!href || href === "/") return pathname === "/";
+    return pathname?.startsWith(href);
   };
 
   return (
@@ -87,42 +116,41 @@ const Navbar = () => {
                 onMouseEnter={() => setActive(menu)}
                 onMouseLeave={() => setActive(null)}
               >
-                {/* {menu === "Pricing" ? (
-                  <button
-                    onClick={handlePricingModal}
-                    className="hover:text-gray-500 poppins gap-1 flex text-sm items-center cursor-pointer"
-                  >
-                    Pricing
-                  </button>
-                ) : ( */}
-                  {<Link
-                    href={
-                      menu === "Portfolio"
-                        ? "/portfolio"
-                        : menu === "Blog"
-                        ? "/blogs"
-                        : menu === "Pricing"
-                        ? "/pricing"
-                        : menu === "Integration"
-                        ? "/integration"
-                        : "/"
-                    }
-                    className="hover:text-gray-500 poppins gap-1 flex text-sm items-center"
-                  >
-                    {menu}
-                    {!(
-                      menu === "Blog" ||
-                      menu === "Integration" ||
-                      menu === "Portfolio"
-                    ) && <IoIosArrowDown size={15} />}
-                  </Link>
+                {<Link
+                  href={
+                    menu === "Portfolio"
+                      ? "/portfolio"
+                      : menu === "Blog"
+                      ? "/blogs"
+                      : menu === "Pricing"
+                      ? "/pricing"
+                      : menu === "Integration"
+                      ? "/integration"
+                      : "/"
+                  }
+                  className={`relative hover:text-gray-600 poppins gap-1 flex text-sm items-center ${
+                    isActiveTop(menu) ? "text-gray-900" : "text-gray-800"
+                  }`}
+                >
+                  {menu}
+                  {!(
+                    menu === "Blog" ||
+                    menu === "Integration" ||
+                    menu === "Portfolio"
+                  ) && <IoIosArrowDown size={15} />}
+                  {isActiveTop(menu) && (
+                    <motion.div
+                      layoutId="nav-underline"
+                      className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 rounded-full shadow-[0_0_8px_rgba(2,6,23,0.35)]"
+                    />
+                  )}
+                </Link>
                 }
 
                 {/* Dropdown */}
                 <AnimatePresence>
                   {active === menu &&
                     !(
-                      menu === "Pricing" ||
                       menu === "Blog" ||
                       menu === "Integration" ||
                       menu === "Portfolio"
@@ -207,7 +235,7 @@ const Navbar = () => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
         onClick={() => setMobileMenuOpen(false)}
-        className="fixed inset-0 h-screen bg-black/40 z-[9998]" // 👈 Lower z-index
+        className="fixed inset-0 h-screen bg-black/40 z-[9998]"
       />
 
       {/* Sidebar */}
@@ -240,24 +268,14 @@ const Navbar = () => {
     <div className="space-y-3">
       {Object.keys(menus).map((menu) => (
         <div key={menu}>
-          {/* Special cases (don’t auto-close) */}
-          {menu === "Pricing" ? (
-            <button
-              onClick={() => {
-                handlePricingModal();
-                 setMobileMenuOpen(false) 
-              }}
-              className="w-full text-left px-2 py-2 text-gray-700 hover:text-teal-600 poppins text-xs"
-            >
-              Pricing
-            </button>
-          ) : (
-            <Link
+          <Link
             href={
                       menu === "Portfolio"
                         ? "/portfolio"
                         : menu === "Blog"
                         ? "/blogs"
+                        : menu === "Pricing"
+                        ? "/pricing"
                         : menu === "Integration"
                         ? "/integration"
                         : "/"
@@ -274,7 +292,9 @@ const Navbar = () => {
   toggleMobileSubmenu(menu);
 }}
 
-              className="w-full flex items-center justify-between px-2 py-2 text-left text-gray-700 hover:text-teal-600 poppins text-xs"
+              className={`w-full flex items-center justify-between px-2 py-2 text-left poppins text-xs border-b-2 ${
+                isActiveTop(menu) ? "border-slate-800 text-gray-900" : "border-transparent text-gray-700 hover:text-teal-600"
+              }`}
             >
               <span>{menu}</span>
               {!(
@@ -290,13 +310,11 @@ const Navbar = () => {
                 </motion.div>
               )}
             </Link>
-          )}
 
           {/* Mobile Submenu */}
           <AnimatePresence>
             {mobileActiveMenu === menu &&
               !(
-                menu === "Pricing" ||
                 menu === "Blog" ||
                 menu === "Portfolio" ||
                 menu === "Integration"
@@ -378,7 +396,7 @@ const Navbar = () => {
                 <div
                   onClick={() => {
                     setMobileMenuOpen(false)
-                    handleSelectPlan("Corporate-Website")
+                    router.push("/pricing?category=Corporate-Website")
                   } 
 
                   }
@@ -393,7 +411,7 @@ const Navbar = () => {
                   onClick={() => 
                   {
                     setMobileMenuOpen(false)
-                    handleSelectPlan("Portfolio")
+                    router.push("/pricing?category=Portfolio")
                   }
                   }
                   className="p-4 border rounded-lg hover:border-blue-500 cursor-pointer"
@@ -406,7 +424,7 @@ const Navbar = () => {
                   onClick={() => 
                   {
                     setMobileMenuOpen(false)
-                    handleSelectPlan("E-Commerce")
+                    router.push("/pricing?category=E-Commerce")
                   }
                   }
                   className="p-4 border rounded-lg hover:border-blue-500 cursor-pointer"
