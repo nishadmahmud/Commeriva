@@ -82,7 +82,7 @@ const HeroPage = () => {
           </div>
         </div>
       </div>
-            <TrustedBy></TrustedBy>
+            {/* <TrustedBy></TrustedBy> */}
       
     </div>
   );
