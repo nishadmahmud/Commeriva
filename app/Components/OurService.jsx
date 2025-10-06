@@ -1,6 +1,7 @@
-// ServicesPage.jsx
 "use client";
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 // ====== Services Data ======
 const services = [
@@ -18,8 +19,7 @@ const services = [
   },
   {
     title: "E-Commerce Solutions",
-    description: `Custom online stores designed to sell smarter and grow faster.
-`,
+    description: `Custom online stores designed to sell smarter and grow faster.`,
     points: [
       "Product catalog & inventory management",
       "Secure payment gateway integration",
@@ -48,7 +48,6 @@ const services = [
       "Conversion-focused design",
       "Integrated analytics & tracking",
       "Fast-loading, mobile-ready",
-     
     ],
     buttonText: "Book a call",
     buttonLink: "https://wa.me/+8801677182084",
@@ -61,7 +60,6 @@ const services = [
       "SEO-friendly structure",
       "Easy content management",
       "Customizable categories & layouts",
-      
     ],
     buttonText: "Talk to us",
     buttonLink: "https://wa.me/+8801677182084",
@@ -74,7 +72,6 @@ const services = [
       "Tailored features & integrations",
       "Secure backend with APIs",
       "Scalable for enterprise growth",
-      
     ],
     buttonText: "Talk to us",
     buttonLink: "https://wa.me/+8801677182084",
@@ -82,62 +79,242 @@ const services = [
   },
 ];
 
+// ====== Animation Variants ======
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 80,
+    scale: 0.95,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  },
+};
+
+const textVariants = {
+  hidden: { opacity: 0, x: -30 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, x: 30, scale: 1.1 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
+const pointVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: (i) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  }),
+};
+
 // ====== Component ======
 export default function OurServices() {
-  return (
-    <section id="services" className="md:pb-16 pt-5 md:pt-0 pb-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="lg:text-5xl md:text-4xl text-3xl font-semibold text-center pb-12 title">
-          Our Services
-        </h1>
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
 
-        <div className="space-y-20 poppins">
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+
+  return (
+    <section ref={ref} id="services" className="md:pb-16 pt-5 md:pt-0 pb-16 bg-white relative overflow-hidden">
+      {/* Background Elements */}
+      <motion.div
+        style={{ y, opacity }}
+        className="absolute inset-0 pointer-events-none"
+      >
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gray-100 rounded-full opacity-20 blur-xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gray-100 rounded-full opacity-20 blur-xl"></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-gray-100 rounded-full opacity-15 blur-xl"></div>
+      </motion.div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Animated Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center pb-12"
+        >
+          <motion.h1 
+            className="lg:text-5xl md:text-4xl text-3xl font-semibold title"
+            initial={{ scale: 0.9 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            Our Services
+          </motion.h1>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: "100px" }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="h-1 bg-gray-300 mx-auto mt-4 rounded-full"
+          ></motion.div>
+        </motion.div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="space-y-20 poppins"
+        >
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center`}
+              variants={itemVariants}
+              className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center group`}
             >
               {/* Left Side (conditionally text or image) */}
-              <div
+              <motion.div
+                variants={textVariants}
                 className={`${
                   index % 2 === 0 ? "order-1" : "order-2"
                 }`}
               >
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-                  {service.title}
-                </h2>
-                <p className="text-gray-800 mb-4">{service.description}</p>
-                <ul className="list-disc list-inside space-y-2 text-gray-600">
-                  {service.points.map((point, i) => (
-                    <li key={i}>{point}</li>
-                  ))}
-                </ul>
-                <a
-                  href={service.buttonLink}
-                  className="inline-block mt-6 px-6 py-1.5 bg-gray-950 text-white rounded-sm hover:bg-gray-800 transition"
+                <motion.h2 
+                  className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                  {service.buttonText}
-                </a>
-              </div>
+                  {service.title}
+                </motion.h2>
+
+                <motion.p 
+                  className="text-gray-800 mb-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  {service.description}
+                </motion.p>
+
+                <motion.ul 
+                  className="space-y-2 text-gray-600 mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                >
+                  {service.points.map((point, i) => (
+                    <motion.li 
+                      key={i} 
+                      variants={pointVariants}
+                      custom={i}
+                      className="flex items-center"
+                    >
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: 0.4 + i * 0.1 }}
+                        className="w-2 h-2 bg-gray-400 rounded-full mr-3 flex-shrink-0"
+                      ></motion.div>
+                      {point}
+                    </motion.li>
+                  ))}
+                </motion.ul>
+
+                <motion.a
+                  href={service.buttonLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-6 px-6 py-3 bg-gray-950 text-white rounded-lg shadow-lg hover:bg-gray-800 transition-all duration-300 cursor-pointer poppins relative overflow-hidden group/btn"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-white opacity-0 group-hover/btn:opacity-10 transition-opacity duration-300"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
+                    transition={{ duration: 0.6 }}
+                  ></motion.div>
+                  <span className="relative z-10">{service.buttonText}</span>
+                </motion.a>
+              </motion.div>
 
               {/* Right Side (conditionally image or text) */}
-              <div
+              <motion.div
+                variants={imageVariants}
                 className={`${
                   index % 2 === 0 ? "order-2" : "order-1"
                 }`}
               >
-                <Image
-                unoptimized
-                  src={service.image}
-                  alt={service.title}
-                  width={600}
-                  height={400}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-            </div>
+                <motion.div 
+                  className="relative overflow-hidden rounded-xl shadow-lg group/image"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    unoptimized
+                    src={service.image}
+                    alt={service.title}
+                    width={600}
+                    height={400}
+                    className="object-cover w-full h-full group-hover/image:scale-110 transition-transform duration-700"
+                  />
+                  
+                   {/* Overlay on hover */}
+                   <motion.div
+                     className="absolute inset-0 bg-black opacity-0 group-hover/image:opacity-20 transition-opacity duration-300"
+                     initial={{ opacity: 0 }}
+                     whileHover={{ opacity: 0.2 }}
+                   ></motion.div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
