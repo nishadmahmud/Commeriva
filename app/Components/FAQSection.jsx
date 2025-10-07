@@ -67,22 +67,25 @@ const FAQSection = () => {
   ];
 
   return (
-    <div className="min-h-screen md:py-16 py-8 sm:px-6 lg:px-8">
-      <div className="md:max-w-6xl max-w-7xl mx-auto">
+    <div className="min-h-screen md:py-16 py-8 sm:px-6 lg:px-8 bg-white dark:bg-neutral-950 relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 via-transparent to-blue-50/30 dark:from-gray-900/50 dark:via-transparent dark:to-blue-950/20"></div>
+      
+      <div className="relative z-10 md:max-w-6xl max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center md:mb-16 mb-5 title">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:text-5xl md:text-4xl text-3xl md:flex items-center gap-2 justify-center font-semibold text-gray-900"
+            className="lg:text-5xl md:text-4xl text-3xl md:flex items-center gap-2 justify-center font-semibold text-gray-900 dark:text-gray-100"
           >
             Frequently asked
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className=" text-gray-500"
+              className="text-gray-500 dark:text-gray-400"
             >
               questions
             </motion.h1>
@@ -90,29 +93,34 @@ const FAQSection = () => {
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-4">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="space-y-3"
+        >
           {faqData.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white border-b border-gray-200 overflow-hidden"
+              transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+              className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg dark:hover:shadow-xl transition-all duration-300"
             >
               {/* Question Header */}
               <button
                 onClick={() => toggleItem(index)}
-                className="w-full px-8 cursor-pointer md:py-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:bg-gray-50 poppins"
+                className="w-full px-8 cursor-pointer md:py-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-white/5 transition-colors duration-200 focus:outline-none focus:bg-gray-50 dark:focus:bg-white/5 poppins group"
               >
-                <h3 className="md:text-lg text-sm font-medium text-gray-900 pr-8">
+                <h3 className="md:text-lg text-sm font-medium text-gray-900 dark:text-gray-100 pr-8 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
                   {item.question}
                 </h3>
                 <motion.div
                   animate={{ rotate: openItems[index] ? 45 : 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="flex-shrink-0 md:w-8 md:h-8 w-6 h-6 bg-gray-800 rounded-full flex items-center justify-center"
+                  className="flex-shrink-0 md:w-8 md:h-8 w-6 h-6 bg-gray-800 dark:bg-white rounded-full flex items-center justify-center group-hover:bg-blue-600 dark:group-hover:bg-blue-500 transition-colors duration-200"
                 >
-                  <Plus className="md:w-5 md:h-5 w-3 h-3 text-white" />
+                  <Plus className="md:w-5 md:h-5 w-3 h-3 text-white dark:text-gray-900" />
                 </motion.div>
               </button>
 
@@ -128,15 +136,15 @@ const FAQSection = () => {
                       ease: "easeInOut",
                       opacity: { duration: 0.3 },
                     }}
-                    className="overflow-hidden"
+                    className="overflow-hidden border-t border-gray-200 dark:border-white/10"
                   >
-                    <div className="px-8 pb-6">
+                    <div className="px-8 pb-6 pt-2">
                       <motion.p
                         initial={{ y: -10, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -10, opacity: 0 }}
                         transition={{ duration: 0.3, delay: 0.1 }}
-                        className="text-gray-600 leading-relaxed"
+                        className="text-gray-600 dark:text-gray-300 leading-relaxed"
                       >
                         {item.answer}
                       </motion.p>
@@ -146,7 +154,7 @@ const FAQSection = () => {
               </AnimatePresence>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

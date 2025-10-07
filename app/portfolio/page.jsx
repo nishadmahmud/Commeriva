@@ -105,8 +105,52 @@
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
+import { Eye, ExternalLink } from "lucide-react"
 
-import { Eye } from "lucide-react"
+const cardVariants = {
+  hidden: { opacity: 0, y: 60, scale: 0.95 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      delay: i * 0.1,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  }),
+  hover: {
+    y: -8,
+    scale: 1.02,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut",
+    },
+  },
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const titleVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
 
 const projects = [
   {
@@ -205,71 +249,101 @@ const projects = [
 export default function Portfolio() {
  
   return (
-    <div className="min-h-screen bg-white py-12 w-11/12 md:w-10/12 mx-auto">
-      {/* Header */}
-      <div className="text-center mb-10">
-        <h1 className="text-3xl md:text-5xl font-semibold heroTitle text-gray-900">Our Portfolio</h1>
-        <p className="text-gray-600">Select a project to explore</p>
-      </div>
-
+    <div className="min-h-screen bg-white dark:bg-neutral-950 py-12 px-4 relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 dark:from-blue-950/20 dark:via-transparent dark:to-purple-950/20"></div>
       
+      {/* Header */}
+      <motion.div 
+        variants={titleVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="relative z-10 text-center mb-12"
+      >
+        <h1 className="text-3xl md:text-5xl font-semibold heroTitle text-gray-900 dark:text-gray-100">Our Portfolio</h1>
+        <p className="text-gray-600 dark:text-gray-300 mt-2">Select a project to explore</p>
+      </motion.div>
 
       {/* Projects Grid */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 gap-x-10">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="relative z-10 max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
         <AnimatePresence>
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -50 }}
-              transition={{ duration: 0.4 }}
-             
+              variants={cardVariants}
+              custom={index}
+              whileHover="hover"
+              className="group"
             >
-              <div className="bg-gray-200 p-4 border rounded-md shadow-sm hover:shadow-lg transition-all overflow-hidden flex flex-col">
+              <div className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-2xl shadow-sm hover:shadow-xl dark:hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col h-full">
                 {/* Project Image */}
-              <div className="relative h-52">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover rounded-lg"
-                />
-              </div>
+                <div className="relative h-52 overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  {/* Technology badges */}
+                  <div className="absolute top-3 left-3 flex flex-wrap gap-1">
+                    {project.technologies.slice(0, 2).map((tech, i) => (
+                      <span
+                        key={i}
+                        className="text-xs px-2 py-1 bg-white/90 dark:bg-neutral-800/90 text-gray-700 dark:text-gray-300 rounded-full backdrop-blur-sm"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
 
-              </div>
-              {/* Content */}
-              <div className="py-5 flex flex-col flex-grow">
-                
-
-                {/* Footer Section (logo + title + button) */}
-                <div className="mt-auto flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2">
-                    <Image
-                      src={project.logo}
-                      alt={project.title}
-                      width={32}
-                      height={32}
-                      className="rounded-full border object-cover"
-                    />
-                    <h3 className="text-base font-medium text-gray-900 poppins">{project.title}</h3>
+                {/* Content */}
+                <div className="p-6 flex flex-col flex-grow">
+                  <div className="mb-4">
+                    <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2 leading-relaxed">
+                      {project.description}
+                    </p>
                   </div>
 
-                  <Link
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-gray-800 transition"
-                  >
-                    <Eye size={20} />
-                    View Project
-                  </Link>
+                  {/* Footer Section (logo + title + button) */}
+                  <div className="mt-auto flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <Image
+                        src={project.logo}
+                        alt={project.title}
+                        width={40}
+                        height={40}
+                        className="rounded-full border-2 border-gray-200 dark:border-white/10 object-cover"
+                      />
+                      <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 poppins">{project.title}</h3>
+                    </div>
+
+                    <Link
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 group/link"
+                    >
+                      <Eye size={18} />
+                      <span className="hidden sm:inline">View</span>
+                      <ExternalLink size={14} className="opacity-0 group-hover/link:opacity-100 transition-opacity duration-200" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </motion.div>
           ))}
         </AnimatePresence>
-      </div>
+      </motion.div>
     </div>
   )
 }
