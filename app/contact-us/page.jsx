@@ -62,6 +62,7 @@ export default function ContactPage() {
     details: "",
     captcha: "",
   });
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -72,8 +73,16 @@ export default function ContactPage() {
     console.log("Form Submitted:", form);
   };
 
+  const handleMouse = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950 relative overflow-hidden">
+    <div className="min-h-screen bg-white dark:bg-neutral-950 relative overflow-hidden" onMouseMove={handleMouse} style={{ ["--x"]: `${mousePos.x}px`, ["--y"]: `${mousePos.y}px` }}>
+      {/* subtle mouse-follow glow */}
+      <div className="pointer-events-none absolute inset-0 z-0" style={{ background: `radial-gradient(650px circle at var(--x) var(--y), rgba(59,130,246,0.08), transparent 70%)` }} />
+      <div className="pointer-events-none absolute inset-0 z-0 hidden dark:block" style={{ background: `radial-gradient(700px circle at var(--x) var(--y), rgba(255,255,255,0.06), transparent 75%)` }} />
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 dark:from-blue-950/20 dark:via-transparent dark:to-purple-950/20"></div>
       
