@@ -177,7 +177,7 @@ const Navbar = () => {
                                           unoptimized
                                           width={200}
                                           height={200}
-                                          className="w-8 p-1"
+                                          className="w-8 p-1 dark:invert"
                                           src={item.icon}
                                         />
                                       </div>
@@ -402,7 +402,7 @@ const Navbar = () => {
                   } 
 
                   }
-                  className="p-4 border rounded-lg hover:border-blue-500 cursor-pointer"
+                  className="p-4 border border-gray-200 dark:border-white/10 rounded-lg hover:border-blue-500 dark:hover:border-blue-400 cursor-pointer"
                 >
                   
                   <p className="flex items-center gap-1 text-gray-800 dark:text-gray-100 font-medium">
@@ -415,7 +415,7 @@ const Navbar = () => {
                     router.push("/pricing?category=Portfolio")
                   }
                   }
-                  className="p-4 border rounded-lg hover:border-blue-500 cursor-pointer"
+                  className="p-4 border border-gray-200 dark:border-white/10 rounded-lg hover:border-blue-500 dark:hover:border-blue-400 cursor-pointer"
                 > 
                   <p className="flex items-center gap-1 text-gray-800 dark:text-gray-100 font-medium">
                     Portfolio & Personal Branding</p>
@@ -427,7 +427,7 @@ const Navbar = () => {
                     router.push("/pricing?category=E-Commerce")
                   }
                   }
-                  className="p-4 border rounded-lg hover:border-blue-500 cursor-pointer"
+                  className="p-4 border border-gray-200 dark:border-white/10 rounded-lg hover:border-blue-500 dark:hover:border-blue-400 cursor-pointer"
                 >
                   
                   <p className="flex items-center gap-1 text-gray-800 dark:text-gray-100 font-medium">
