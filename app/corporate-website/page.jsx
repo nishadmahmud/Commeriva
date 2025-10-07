@@ -87,21 +87,36 @@ export default function CorporatePage() {
 
       {/* Features */}
       <section className="relative z-10 py-16 bg-gray-50 dark:bg-neutral-900/50 px-6">
+        {/* abstract accents */}
+        <div className="pointer-events-none absolute -top-24 left-10 w-64 h-64 rounded-full bg-gradient-to-br from-blue-400/10 to-purple-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 right-10 w-72 h-72 rounded-full bg-gradient-to-tr from-teal-400/10 to-indigo-500/10 blur-3xl" />
         <div className="max-w-7xl mx-auto">
           <motion.h2 variants={titleVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="text-2xl md:text-3xl title font-semibold text-center mb-10 text-gray-900 dark:text-gray-100">Features</motion.h2>
-          <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((f, i) => (
-              <motion.div
+            {/* strict 3 cards per row on large screens */}
+            <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {features.map((f, i) => {
+              return (
+                <motion.div
                 key={i}
-                variants={cardVariants}
-                custom={i}
-                whileHover="hover"
-                className="flex items-start gap-3 bg-white dark:bg-neutral-900 p-5 rounded-2xl shadow-sm border border-gray-200 dark:border-white/10 hover:shadow-xl transition poppins text-sm font-medium"
-              >
-                <CheckCircle className="text-gray-700 dark:text-gray-300 w-5 h-5 mt-1" />
-                <span className="text-gray-800 dark:text-gray-300">{f}</span>
-              </motion.div>
-            ))}
+                  variants={cardVariants}
+                  custom={i}
+                    whileHover={{ y: -4, scale: 1.01 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    className={`group relative overflow-hidden bg-white dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-sm hover:shadow-2xl transition`}
+                >
+                  {/* soft edge gradient */}
+                  <div className="pointer-events-none absolute -top-16 -left-10 w-44 h-44 rounded-full bg-gradient-to-br from-blue-500/15 to-purple-500/10 blur-2xl" />
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-100 dark:bg-neutral-800 border border-gray-200 dark:border-white/10">
+                      <CheckCircle className="w-3.5 h-3.5 text-gray-700 dark:text-gray-300" />
+              </div>
+                    <p className="text-gray-800 dark:text-gray-300 text-sm md:text-base leading-relaxed">{f}</p>
+          </div>
+                  {/* underline accent */}
+                  <div className="absolute left-4 right-4 bottom-3 h-px bg-gradient-to-r from-transparent via-gray-300/50 to-transparent dark:via-white/10" />
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </section>
@@ -144,7 +159,7 @@ export default function CorporatePage() {
       <section className="relative z-10 py-16">
         <div className="max-w-7xl mx-auto">
           <motion.h2 variants={titleVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="md:text-3xl text-2xl font-semibold mb-8 title text-center text-gray-900 dark:text-gray-100">Benefits for Your Business</motion.h2>
-          <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="grid md:grid-cols-3 gap-6">
+          <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((b, i) => (
               <motion.div 
                 key={i} 
@@ -153,13 +168,8 @@ export default function CorporatePage() {
                 whileHover="hover" 
                 className="relative overflow-hidden bg-white dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-sm hover:shadow-2xl transition"
               >
-                {/* top gradient accent */}
-                <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-56 h-56 rounded-full bg-gradient-to-r from-teal-400/20 via-blue-500/10 to-purple-500/10 blur-2xl" />
-                {/* number badge */}
-                <div className="flex items-center justify-between mb-3">
-                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-teal-100 text-teal-700 dark:bg-teal-900/30 dark:text-teal-300 text-sm font-semibold">{i + 1}</span>
-                  <span className="text-xs text-gray-500 dark:text-gray-400">Impact area</span>
-                </div>
+                {/* subtle corner glow */}
+                <div className="pointer-events-none absolute -top-20 -right-10 w-40 h-40 rounded-full bg-gradient-to-br from-teal-400/15 via-blue-500/10 to-purple-500/10 blur-2xl" />
                 <div className="flex items-start gap-3">
                   <CheckCircle className="text-green-600 dark:text-green-400 w-5 h-5 mt-1" />
                   <p className="text-gray-800 dark:text-gray-300 md:text-base text-sm leading-relaxed">{b}</p>
