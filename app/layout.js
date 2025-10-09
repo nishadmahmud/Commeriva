@@ -62,7 +62,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistMono.variable} ${title.variable} ${heroTitle.variable} ${logoFont.variable} ${poppins.variable} antialiased`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <div className="relative">
             <Navbar />
           </div>

@@ -96,9 +96,9 @@ const Navbar = () => {
   };
 
   return (
-    <div className="pb-12">
-      <nav className="bg-white/70 dark:bg-black/40 backdrop-blur-md fixed top-0 w-full z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+    <div className="pb-14">
+      <nav className="bg-white/70 dark:bg-neutral-950/60 backdrop-blur-lg fixed top-0 w-full z-50 border-b border-gray-200/60 dark:border-white/10">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           {/* Left logo */}
           <Link
             href="/"
@@ -108,7 +108,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-10 font-medium text-gray-800 dark:text-gray-100 bg-transparent py-3 rounded-3xl px-10">
+          <div className="hidden md:flex space-x-10 font-medium text-gray-800 dark:text-gray-100 bg-transparent py-2 rounded-3xl px-8">
             {Object.keys(menus).map((menu) => (
               <div
                 key={menu}
@@ -139,10 +139,7 @@ const Navbar = () => {
                     menu === "Portfolio"
                   ) && <IoIosArrowDown size={15} />}
                   {isActiveTop(menu) && (
-                    <motion.div
-                      layoutId="nav-underline"
-                      className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 rounded-full shadow-[0_0_8px_rgba(2,6,23,0.35)] dark:from-white dark:via-white/85 dark:to-white dark:h-[2px] dark:shadow-[0_0_12px_rgba(255,255,255,0.6)]"
-                    />
+                    <motion.div layoutId="nav-underline" className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-white/60 via-white/90 to-white/60 dark:from-white/60 dark:via-white dark:to-white/60" />
                   )}
                 </Link>
                 }
@@ -157,21 +154,16 @@ const Navbar = () => {
                     ) && (
                       <div className="absolute left-0 top-full z-[9999]">
                         <div className="mt-5">
-                          <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.25, ease: "easeInOut" }}
-                          >
-                            <div className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-white/10 shadow-lg rounded-lg p-3">
+                          <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2, ease: "easeInOut" }}>
+                            <div className="bg-white/95 dark:bg-neutral-950/90 backdrop-blur-md border border-gray-200/70 dark:border-white/10 shadow-lg rounded-xl p-3">
                               <ul className="space-y-1">
                                 {menus[menu].map((item, i) => (
                                   <li key={i}>
                                     <Link
                                       href={item.href}
-                                      className="flex items-center space-x-2 px-3 py-1.5 rounded hover:bg-gray-100 dark:hover:bg-white/10 text-start poppins  md:w-[25rem] hover:text-gray-700 dark:text-gray-100"
+                                      className="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-100/80 dark:hover:bg-white/10 text-start poppins md:w-[25rem] hover:text-gray-800 dark:text-gray-100"
                                     >
-                                      <div className="p-2 border border-gray-200 dark:border-white/10 shadow-sm rounded-full">
+                                      <div className="p-2 border border-gray-200 dark:border-white/10 shadow-sm rounded-full bg-white/70 dark:bg-neutral-900/50">
                                         <Image
                                           alt="icon"
                                           unoptimized
@@ -200,7 +192,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
             <Link href="https://wa.me/+8801677182084" target="_blank" className="flex items-center space-x-2">
-              <button className="text-white cursor-pointer bg-gray-900 px-5 py-2 rounded-sm text-xs font-semibold flex poppins justify-center items-center gap-1">
+              <button className="text-white cursor-pointer bg-gray-900/90 dark:bg-white/10 hover:dark:bg-white/20 backdrop-blur px-5 py-2 rounded-full text-xs font-semibold flex poppins justify-center items-center gap-1 border border-white/10">
                 Chat with us
               </button>
             </Link>
@@ -211,7 +203,7 @@ const Navbar = () => {
             <ThemeToggle />
             <Link
               href="https://wa.me/+8801886182084"
-              className="px-4 py-1 rounded-full border border-gray-300 dark:border-white/10 shadow-xs flex items-center gap-1.5"
+              className="px-4 py-1 rounded-full border border-gray-300 dark:border-white/10 shadow-xs flex items-center gap-1.5 bg-white/70 dark:bg-neutral-900/40 backdrop-blur"
             >
               <ShinyText baseColor="#000000" shineColor="#7c7dcf" speed={5}>
                 Let's Talk
@@ -247,7 +239,7 @@ const Navbar = () => {
   animate={{ x: 0 }}
   exit={{ x: "-100%" }}
   transition={{ duration: 0.4, ease: "easeInOut" }}
-  className="fixed top-0 left-0 h-screen w-72 bg-white dark:bg-neutral-900 shadow-lg z-[9999]"
+  className="fixed top-0 left-0 h-screen w-72 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-md border-r border-gray-200/70 dark:border-white/10 shadow-lg z-[9999]"
 >
   <div className="p-5 flex flex-col h-full">
 
@@ -294,8 +286,8 @@ const Navbar = () => {
   toggleMobileSubmenu(menu);
 }}
 
-              className={`w-full flex items-center justify-between px-2 py-2 text-left poppins text-xs border-b-2 ${
-                isActiveTop(menu) ? "border-slate-800 text-gray-900 dark:text-gray-100" : "border-transparent text-gray-700 dark:text-gray-100/80 hover:text-teal-600"
+                  className={`w-full flex items-center justify-between px-2 py-2 text-left poppins text-xs border-b ${
+                isActiveTop(menu) ? "border-slate-800 text-gray-900 dark:text-gray-100" : "border-transparent text-gray-700 dark:text-gray-100/80 hover:text-teal-400"
               }`}
             >
               <span>{menu}</span>
@@ -334,7 +326,7 @@ const Navbar = () => {
                         key={i}
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)} 
-                        className="flex items-center space-x-2 poppins px-2 py-1.5 rounded hover:bg-gray-100 dark:hover:bg-white/10 text-start hover:text-gray-700 dark:text-gray-100"
+                        className="flex items-center space-x-2 poppins px-2 py-1.5 rounded-lg hover:bg-gray-100/80 dark:hover:bg-white/10 text-start hover:text-gray-800 dark:text-gray-100"
                       >
                         <div className="p-2 border border-gray-200 dark:border-white/10 shadow-sm rounded-full">
                           <Image
