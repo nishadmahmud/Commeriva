@@ -97,18 +97,18 @@ const Navbar = () => {
 
   return (
     <div className="pb-14">
-      <nav className="bg-white/70 dark:bg-neutral-950/60 backdrop-blur-lg fixed top-0 w-full z-50 border-b border-gray-200/60 dark:border-white/10">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <nav className="bg-white/80 dark:bg-neutral-950/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-gray-200/50 dark:border-white/5 shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Left logo */}
           <Link
             href="/"
-            className="font-semibold text-gray-800 dark:text-gray-100 md:text-3xl text-2xl logoFont cursor-pointer tracking-wider"
+            className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-cyan-100 dark:to-white md:text-3xl text-2xl logoFont cursor-pointer tracking-wider hover:from-cyan-600 hover:via-blue-600 hover:to-teal-600 transition-all duration-300"
           >
             Commeriva
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-10 font-medium text-gray-800 dark:text-gray-100 bg-transparent py-2 rounded-3xl px-8">
+          <div className="hidden md:flex space-x-8 font-medium text-gray-700 dark:text-gray-300">
             {Object.keys(menus).map((menu) => (
               <div
                 key={menu}
@@ -128,8 +128,8 @@ const Navbar = () => {
                       ? "/integration"
                       : "/"
                   }
-                  className={`relative hover:text-gray-600 dark:hover:text-gray-300 poppins gap-1 flex text-sm items-center ${
-                    isActiveTop(menu) ? "text-gray-900 dark:text-white" : ""
+                  className={`relative hover:text-gray-900 dark:hover:text-white poppins gap-1 flex text-sm items-center transition-colors duration-200 ${
+                    isActiveTop(menu) ? "text-gray-900 dark:text-white font-semibold" : ""
                   }`}
                 >
                   {menu}
@@ -137,9 +137,9 @@ const Navbar = () => {
                     menu === "Blog" ||
                     menu === "Integration" ||
                     menu === "Portfolio"
-                  ) && <IoIosArrowDown size={15} />}
+                  ) && <IoIosArrowDown size={14} className="transition-transform group-hover:rotate-180" />}
                   {isActiveTop(menu) && (
-                    <motion.div layoutId="nav-underline" className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-white/60 via-white/90 to-white/60 dark:from-white/60 dark:via-white dark:to-white/60" />
+                    <motion.div layoutId="nav-underline" className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-400 via-blue-400 to-teal-400 rounded-full" />
                   )}
                 </Link>
                 }
@@ -153,27 +153,27 @@ const Navbar = () => {
                       menu === "Portfolio"
                     ) && (
                       <div className="absolute left-0 top-full z-[9999]">
-                        <div className="mt-5">
+                        <div className="mt-6">
                           <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2, ease: "easeInOut" }}>
-                            <div className="bg-white/95 dark:bg-neutral-950/90 backdrop-blur-md border border-gray-200/70 dark:border-white/10 shadow-lg rounded-xl p-3">
+                            <div className="bg-white/90 dark:bg-neutral-950/90 backdrop-blur-xl border border-gray-200/50 dark:border-white/5 shadow-xl rounded-2xl p-4">
                               <ul className="space-y-1">
                                 {menus[menu].map((item, i) => (
                                   <li key={i}>
                                     <Link
                                       href={item.href}
-                                      className="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-100/80 dark:hover:bg-white/10 text-start poppins md:w-[25rem] hover:text-gray-800 dark:text-gray-100"
+                                      className="group flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-gray-100/80 dark:hover:bg-white/5 text-start poppins md:w-[26rem] text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-200"
                                     >
-                                      <div className="p-2 border border-gray-200 dark:border-white/10 shadow-sm rounded-full bg-white/70 dark:bg-neutral-900/50">
+                                      <div className="p-2.5 border border-gray-200/50 dark:border-white/5 shadow-sm rounded-xl bg-white/80 dark:bg-neutral-900/60 backdrop-blur group-hover:border-cyan-400/30 dark:group-hover:border-cyan-400/20 transition-colors">
                                         <Image
                                           alt="icon"
                                           unoptimized
                                           width={200}
                                           height={200}
-                                          className="w-8 p-1 dark:invert"
+                                          className="w-7 p-0.5 dark:invert"
                                           src={item.icon}
                                         />
                                       </div>
-                                      <span>{item.name}</span>
+                                      <span className="text-sm font-medium">{item.name}</span>
                                     </Link>
                                   </li>
                                 ))}
@@ -189,11 +189,12 @@ const Navbar = () => {
           </div>
 
           {/* Right buttons - Desktop */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-4">
             <ThemeToggle />
-            <Link href="https://wa.me/+8801677182084" target="_blank" className="flex items-center space-x-2">
-              <button className="text-white cursor-pointer bg-gray-900/90 dark:bg-white/10 hover:dark:bg-white/20 backdrop-blur px-5 py-2 rounded-full text-xs font-semibold flex poppins justify-center items-center gap-1 border border-white/10">
-                Chat with us
+            <Link href="https://wa.me/+8801677182084" target="_blank">
+              <button className="group relative text-white cursor-pointer bg-gradient-to-r from-gray-900 to-gray-800 dark:from-white/10 dark:to-white/5 hover:from-gray-800 hover:to-gray-900 dark:hover:from-white/15 dark:hover:to-white/10 backdrop-blur-xl px-6 py-2.5 rounded-full text-sm font-semibold poppins border border-white/10 dark:border-white/5 shadow-md hover:shadow-lg transition-all duration-200">
+                <span className="relative z-10">Chat with us</span>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 blur transition-opacity" />
               </button>
             </Link>
           </div>
@@ -239,9 +240,9 @@ const Navbar = () => {
   animate={{ x: 0 }}
   exit={{ x: "-100%" }}
   transition={{ duration: 0.4, ease: "easeInOut" }}
-  className="fixed top-0 left-0 h-screen w-72 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-md border-r border-gray-200/70 dark:border-white/10 shadow-lg z-[9999]"
+  className="fixed top-0 left-0 h-screen w-72 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-xl border-r border-gray-200/50 dark:border-white/5 shadow-2xl z-[9999]"
 >
-  <div className="p-5 flex flex-col h-full">
+  <div className="p-6 flex flex-col h-full">
 
    <div className="flex justify-between items-center mb-6">
      <h3><Link
@@ -326,19 +327,19 @@ const Navbar = () => {
                         key={i}
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)} 
-                        className="flex items-center space-x-2 poppins px-2 py-1.5 rounded-lg hover:bg-gray-100/80 dark:hover:bg-white/10 text-start hover:text-gray-800 dark:text-gray-100"
+                        className="flex items-center space-x-3 poppins px-3 py-2.5 rounded-xl hover:bg-gray-100/80 dark:hover:bg-white/5 text-start text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-200"
                       >
-                        <div className="p-2 border border-gray-200 dark:border-white/10 shadow-sm rounded-full">
+                        <div className="p-2 border border-gray-200/50 dark:border-white/5 shadow-sm rounded-xl bg-white/80 dark:bg-neutral-900/60">
                           <Image
                             alt="icon"
                             unoptimized
                             width={200}
                             height={200}
-                            className="w-8 p-1"
+                            className="w-7 p-0.5 dark:invert"
                             src={item.icon}
                           />
                         </div>
-                        <span className="text-xs">{item.name}</span>
+                        <span className="text-xs font-medium">{item.name}</span>
                       </Link>
                     ))}
                   </div>

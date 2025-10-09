@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { Calendar, Play, MessageCircle } from "lucide-react";
+import { Calendar, MessageCircle } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -47,7 +48,7 @@ const HeroPage = () => {
             </h1>
 
             <p className="mt-5 md:text-lg max-w-2xl text-gray-600 dark:text-gray-300 poppins">
-              Conversion‑focused websites for SaaS, e‑commerce, corporate, and portfolio brands.
+              Conversion‑focused websites for e‑commerce, corporate, and portfolio brands.
               Fast by default, SEO‑ready, and engineered to scale with your roadmap.
             </p>
 
@@ -65,10 +66,12 @@ const HeroPage = () => {
                 </button>
               </Link>
 
-              <button className="inline-flex items-center gap-2 text-gray-800 dark:text-gray-100 hover:text-black dark:hover:text-white font-medium transition px-3 py-2 poppins">
-                <Play size={18} className="text-gray-900 dark:text-white" />
-                See demo
-              </button>
+              <Link href='https://wa.me/8801799634508' target="_blank">
+                <button className="inline-flex items-center gap-2 text-gray-800 dark:text-gray-100 hover:text-black dark:hover:text-white font-medium transition cursor-pointer border border-gray-300 dark:border-white/10 px-6 py-3 rounded-full bg-white/80 dark:bg-white/10 backdrop-blur-sm poppins">
+                  <FaWhatsapp size={22} className="bg-gray-200 dark:bg-white/20 rounded-full p-1.5" />
+                  WhatsApp
+                </button>
+              </Link>
             </div>
           </motion.div>
 
