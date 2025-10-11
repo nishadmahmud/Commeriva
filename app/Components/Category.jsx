@@ -261,47 +261,67 @@ export default function Category() {
       <AnimatePresence>
         {modalOpen && !isLargeDevice && (
           <motion.div
-            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setModalOpen(false)}
           >
             <motion.div
-              className="bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl max-w-lg w-full p-6 relative border border-gray-200 dark:border-white/10"
+              className="backdrop-blur-3xl rounded-2xl shadow-2xl max-w-lg w-full p-6 relative border border-white/10"
+              style={{
+                background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(15, 15, 20, 0.9) 50%, rgba(0, 0, 0, 0.85) 100%)',
+                backdropFilter: 'blur(40px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+              }}
               initial={{ scale: 0.9, opacity: 0, y: 50 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 50 }}
               transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <button
-                onClick={() => setModalOpen(false)}
-                className="absolute top-4 right-4 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-xl"
-              >
-                ✕
-              </button>
+              {/* Frosted glass overlay with subtle noise texture */}
+              <div 
+                className="absolute inset-0 pointer-events-none opacity-10 rounded-2xl"
+                style={{
+                  backgroundImage: `
+                    linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%, rgba(6, 182, 212, 0.06) 100%),
+                    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")
+                  `,
+                  backgroundBlendMode: 'overlay',
+                }}
+              />
+              {/* Additional frosted layer */}
+              <div className="absolute inset-0 bg-gradient-to-b from-white/3 via-white/1 to-transparent pointer-events-none rounded-2xl" />
+              <div className="relative z-10">
+                <button
+                  onClick={() => setModalOpen(false)}
+                  className="absolute top-0 right-0 text-red-500 hover:text-red-400 transition-colors p-1.5 hover:bg-white/5 rounded-lg"
+                >
+                  <span className="text-xl">✕</span>
+                </button>
 
-              <div className="flex items-center gap-4 mb-4">
-                <div className="text-4xl text-gray-800 dark:text-gray-100">{activeCategory?.icon}</div>
-                <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 heroTitle">
-                  {active}
-                </h2>
-              </div>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="text-4xl text-white">{activeCategory?.icon}</div>
+                  <h2 className="text-xl font-semibold text-white heroTitle">
+                    {active}
+                  </h2>
+                </div>
 
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4 poppins">
-                {desc}
-              </p>
+                <p className="text-gray-200 text-sm leading-relaxed mb-5 poppins">
+                  {desc}
+                </p>
 
-              <div className="flex flex-wrap gap-2">
-                {features.map((feature, i) => (
-                  <span
-                    key={feature}
-                    className="px-3 py-1.5 bg-white dark:bg-neutral-800 border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium"
-                  >
-                    {feature}
-                  </span>
-                ))}
+                <div className="flex flex-wrap gap-2">
+                  {features.map((feature, i) => (
+                    <span
+                      key={feature}
+                      className="px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/10 text-gray-200 rounded-full text-xs font-medium hover:bg-white/15 hover:border-cyan-400/30 transition-all cursor-pointer"
+                    >
+                      {feature}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </motion.div>

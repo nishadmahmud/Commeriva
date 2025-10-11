@@ -6,12 +6,10 @@ import { IoIosArrowDown } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
-import ShinyText from "./shiny-text";
 import { useRouter, usePathname } from "next/navigation";
 import { Building } from "lucide-react";
 import { UserStar } from "lucide-react";
 import { Store } from "lucide-react";
-import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [active, setActive] = useState(null);
@@ -190,7 +188,6 @@ const Navbar = () => {
 
           {/* Right buttons - Desktop */}
           <div className="hidden md:flex items-center gap-4">
-            <ThemeToggle />
             <Link href="https://wa.me/+8801677182084" target="_blank">
               <button className="group relative text-white cursor-pointer bg-gradient-to-r from-gray-900 to-gray-800 dark:from-white/10 dark:to-white/5 hover:from-gray-800 hover:to-gray-900 dark:hover:from-white/15 dark:hover:to-white/10 backdrop-blur-xl px-6 py-2.5 rounded-full text-sm font-semibold poppins border border-white/10 dark:border-white/5 shadow-md hover:shadow-lg transition-all duration-200">
                 <span className="relative z-10">Chat with us</span>
@@ -201,14 +198,11 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-3">
-            <ThemeToggle />
             <Link
               href="https://wa.me/+8801886182084"
-              className="px-4 py-1 rounded-full border border-gray-300 dark:border-white/10 shadow-xs flex items-center gap-1.5 bg-white/70 dark:bg-neutral-900/40 backdrop-blur"
+              className="px-4 py-2 rounded-full border border-white/10 shadow-sm flex items-center gap-1.5 bg-white/10 backdrop-blur-xl"
             >
-              <ShinyText baseColor="#000000" shineColor="#7c7dcf" speed={5}>
-                Let's Talk
-              </ShinyText>
+              <span className="text-white text-sm font-semibold poppins">Let's Talk</span>
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -240,27 +234,45 @@ const Navbar = () => {
   animate={{ x: 0 }}
   exit={{ x: "-100%" }}
   transition={{ duration: 0.4, ease: "easeInOut" }}
-  className="fixed top-0 left-0 h-screen w-72 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-xl border-r border-gray-200/50 dark:border-white/5 shadow-2xl z-[9999]"
+  className="fixed top-0 left-0 h-screen w-72 backdrop-blur-3xl border-r border-white/10 shadow-2xl z-[9999]"
+  style={{
+    background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(15, 15, 20, 0.9) 50%, rgba(0, 0, 0, 0.85) 100%)',
+    backdropFilter: 'blur(40px) saturate(180%)',
+    WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+  }}
 >
-  <div className="p-6 flex flex-col h-full">
+  <div className="p-6 flex flex-col h-full relative">
+    {/* Frosted glass overlay with subtle noise texture */}
+    <div 
+      className="absolute inset-0 pointer-events-none opacity-10"
+      style={{
+        backgroundImage: `
+          linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%, rgba(6, 182, 212, 0.06) 100%),
+          url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")
+        `,
+        backgroundBlendMode: 'overlay',
+      }}
+    />
+    {/* Additional frosted layer */}
+    <div className="absolute inset-0 bg-gradient-to-b from-white/3 via-white/1 to-transparent pointer-events-none" />
 
-   <div className="flex justify-between items-center mb-6">
+   <div className="flex justify-between items-center mb-8 relative z-10">
      <h3><Link
             href="/"
-            className="font-semibold text-gray-800 dark:text-gray-100 md:text-3xl text-2xl logoFont cursor-pointer tracking-wider"
+            className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-cyan-100 to-white text-2xl logoFont cursor-pointer tracking-wider"
           >
             Commeriva
           </Link></h3>
     <button
       onClick={() => setMobileMenuOpen(false)}
-      className="self-end text-red-600"
+      className="self-end text-red-500 hover:text-red-400 transition-colors p-1.5 hover:bg-white/5 rounded-lg"
     >
       <X size={24} />
     </button>
    </div>
 
     {/* Menu items here */}
-    <div className="space-y-3">
+    <div className="space-y-3 relative z-10">
       {Object.keys(menus).map((menu) => (
         <div key={menu}>
           <Link
@@ -287,8 +299,10 @@ const Navbar = () => {
   toggleMobileSubmenu(menu);
 }}
 
-                  className={`w-full flex items-center justify-between px-2 py-2 text-left poppins text-xs border-b ${
-                isActiveTop(menu) ? "border-slate-800 text-gray-900 dark:text-gray-100" : "border-transparent text-gray-700 dark:text-gray-100/80 hover:text-teal-400"
+                  className={`w-full flex items-center justify-between px-4 py-3 text-left poppins text-sm rounded-xl transition-all duration-200 ${
+                isActiveTop(menu) 
+                  ? "bg-white/15 text-white font-semibold border border-cyan-400/40 shadow-lg shadow-cyan-500/10 backdrop-blur-sm" 
+                  : "border border-white/5 text-gray-200 hover:text-white hover:bg-white/10 hover:border-cyan-400/20 backdrop-blur-sm"
               }`}
             >
               <span>{menu}</span>
@@ -321,21 +335,21 @@ const Navbar = () => {
                   transition={{ duration: 0.25, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  <div className="ml-4 space-y-1 pb-2">
+                  <div className="ml-2 space-y-2 pb-3 pt-2">
                     {menus[menu].map((item, i) => (
                       <Link
                         key={i}
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)} 
-                        className="flex items-center space-x-3 poppins px-3 py-2.5 rounded-xl hover:bg-gray-100/80 dark:hover:bg-white/5 text-start text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-200"
+                        className="flex items-center space-x-3 poppins px-4 py-3 rounded-xl hover:bg-white/15 text-start text-gray-200 hover:text-white transition-all duration-200 border border-white/5 hover:border-cyan-400/30 backdrop-blur-sm hover:shadow-lg hover:shadow-cyan-500/5"
                       >
-                        <div className="p-2 border border-gray-200/50 dark:border-white/5 shadow-sm rounded-xl bg-white/80 dark:bg-neutral-900/60">
+                        <div className="p-2 border border-white/10 shadow-sm rounded-xl bg-white/10 backdrop-blur">
                           <Image
                             alt="icon"
                             unoptimized
                             width={200}
                             height={200}
-                            className="w-7 p-0.5 dark:invert"
+                            className="w-6 p-0.5 invert opacity-90"
                             src={item.icon}
                           />
                         </div>

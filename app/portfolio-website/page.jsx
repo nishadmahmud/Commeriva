@@ -120,7 +120,7 @@ const PortfolioLandingPage = () => {
                 variants={itemVariants}
                 whileHover={{ y: -4, scale: 1.01 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
-                className="p-6 bg-gray-50 dark:bg-neutral-900/60 rounded-xl border border-gray-300 dark:border-white/10 hover:shadow-xl hover:border-blue-400/60 dark:hover:border-blue-400/40 transition"
+                className="p-6 bg-gray-50 dark:bg-neutral-900/60 rounded-xl border border-gray-300 dark:border-white/10 shadow-md md:shadow-none dark:shadow-lg dark:md:shadow-none hover:shadow-xl active:shadow-xl hover:border-blue-400/60 dark:hover:border-blue-400/40 active:border-blue-400/60 dark:active:border-blue-400/40 transition"
               >
                 <div className="w-14 h-14 bg-gray-200 dark:bg-white/10 text-gray-900 dark:text-gray-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                   {p.icon}
@@ -143,7 +143,7 @@ const PortfolioLandingPage = () => {
                 variants={itemVariants}
                 whileHover={{ y: -4, scale: 1.01 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
-                className="bg-white dark:bg-neutral-900 p-6 rounded-2xl border border-gray-200 dark:border-white/10 hover:shadow-2xl hover:border-blue-400/60 dark:hover:border-blue-400/40 transition text-left"
+                className="bg-white dark:bg-neutral-900 p-6 rounded-2xl border border-gray-200 dark:border-white/10 shadow-md md:shadow-none dark:shadow-lg dark:md:shadow-none hover:shadow-2xl active:shadow-2xl hover:border-blue-400/60 dark:hover:border-blue-400/40 active:border-blue-400/60 dark:active:border-blue-400/40 transition text-left"
               >
                 <div className="w-12 h-12 bg-gray-800 dark:bg-white/10 text-white dark:text-gray-100 rounded-lg flex items-center justify-center mb-4">
                   {f.icon}
