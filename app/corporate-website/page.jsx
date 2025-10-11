@@ -102,7 +102,7 @@ export default function CorporatePage() {
                   custom={i}
                     whileHover={{ y: -4, scale: 1.01 }}
                     transition={{ duration: 0.15, ease: "easeOut" }}
-                    className={`group relative overflow-hidden bg-white dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-md md:shadow-sm dark:shadow-lg dark:md:shadow-sm hover:shadow-2xl active:shadow-2xl transition`}
+                    className={`group relative overflow-hidden bg-gradient-to-br from-white to-gray-50/40 dark:from-neutral-900 dark:to-neutral-950/60 md:bg-white md:dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-md md:shadow-sm dark:shadow-lg dark:md:shadow-sm hover:shadow-2xl active:shadow-2xl transition`}
                 >
                   {/* soft edge gradient */}
                   <div className="pointer-events-none absolute -top-16 -left-10 w-44 h-44 rounded-full bg-gradient-to-br from-blue-500/15 to-purple-500/10 blur-2xl" />
@@ -145,7 +145,7 @@ export default function CorporatePage() {
                 variants={cardVariants}
                 custom={i}
                 whileHover="hover"
-                className={`${card.span} bg-white dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-md md:shadow-sm dark:shadow-lg dark:md:shadow-sm hover:shadow-xl active:shadow-xl transition`}
+                className={`${card.span} bg-gradient-to-br from-white to-gray-50/40 dark:from-neutral-900 dark:to-neutral-950/60 md:bg-white md:dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-md md:shadow-sm dark:shadow-lg dark:md:shadow-sm hover:shadow-xl active:shadow-xl transition`}
               >
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">{card.title}</h3>
                 <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{card.body}</p>
@@ -166,7 +166,7 @@ export default function CorporatePage() {
                 variants={cardVariants} 
                 custom={i} 
                 whileHover="hover" 
-                className="relative overflow-hidden bg-white dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-md md:shadow-sm dark:shadow-lg dark:md:shadow-sm hover:shadow-2xl active:shadow-2xl transition"
+                className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50/40 dark:from-neutral-900 dark:to-neutral-950/60 md:bg-white md:dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-md md:shadow-sm dark:shadow-lg dark:md:shadow-sm hover:shadow-2xl active:shadow-2xl transition"
               >
                 {/* subtle corner glow */}
                 <div className="pointer-events-none absolute -top-20 -right-10 w-40 h-40 rounded-full bg-gradient-to-br from-teal-400/15 via-blue-500/10 to-purple-500/10 blur-2xl" />

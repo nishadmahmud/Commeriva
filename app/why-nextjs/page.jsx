@@ -392,7 +392,7 @@ export default function WhyNextJS() {
                 key={index}
                 variants={cardVariants}
                 custom={index}
-                className="group md:p-6 p-4 border-b last:border-b-0 border-gray-200 dark:border-white/10 bg-gray-50/50 dark:bg-neutral-800/30 md:bg-transparent md:dark:bg-transparent hover:bg-gray-50 dark:hover:bg-neutral-800/50 active:bg-gray-100 dark:active:bg-neutral-800/70 transition-colors duration-200"
+                className="group md:p-6 p-4 border-b last:border-b-0 border-gray-200 dark:border-white/10 bg-gradient-to-br from-gray-50 to-gray-100/50 dark:from-neutral-800/30 dark:to-neutral-900/40 md:bg-transparent md:dark:bg-transparent md:from-transparent md:to-transparent hover:bg-gray-50 dark:hover:bg-neutral-800/50 active:bg-gray-100 dark:active:bg-neutral-800/70 transition-colors duration-200"
               >
                 <div className="md:flex md:items-center justify-start space-x-6">
                   {/* Image */}
@@ -459,7 +459,7 @@ export default function WhyNextJS() {
                 variants={cardVariants}
                 custom={index}
                 whileHover="hover"
-                className="group relative p-8 rounded-2xl border-2 border-gray-100 dark:border-white/10 shadow-md md:shadow-none dark:shadow-lg dark:md:shadow-none hover:border-teal-600 dark:hover:border-teal-400 active:border-teal-600 dark:active:border-teal-400 active:shadow-xl transition-all duration-300 hover:shadow-xl bg-white dark:bg-neutral-900"
+                className="group relative p-8 rounded-2xl border-2 border-gray-100 dark:border-white/10 shadow-md md:shadow-none dark:shadow-lg dark:md:shadow-none hover:border-teal-600 dark:hover:border-teal-400 active:border-teal-600 dark:active:border-teal-400 active:shadow-xl transition-all duration-300 hover:shadow-xl bg-gradient-to-br from-white to-gray-50/50 dark:from-neutral-900 dark:to-neutral-950/80 md:bg-white md:dark:bg-neutral-900"
               >
                 <div className="absolute top-4 right-4 text-xs font-bold text-gray-400 dark:text-gray-500 border border-gray-200 dark:border-white/10 rounded-full px-3 py-1 bg-gray-50 dark:bg-neutral-800">
                   {feature.highlight}
@@ -566,7 +566,7 @@ export default function WhyNextJS() {
                 variants={cardVariants}
                 custom={index}
                 whileHover="hover"
-                className="group text-center p-6 border border-gray-200 dark:border-white/10 rounded-xl shadow-sm md:shadow-none dark:shadow-md dark:md:shadow-none hover:border-gray-400 dark:hover:border-white/20 active:border-gray-400 dark:active:border-white/20 hover:shadow-lg active:shadow-lg transition-all bg-white dark:bg-neutral-900"
+                className="group text-center p-6 border border-gray-200 dark:border-white/10 rounded-xl shadow-sm md:shadow-none dark:shadow-md dark:md:shadow-none hover:border-gray-400 dark:hover:border-white/20 active:border-gray-400 dark:active:border-white/20 hover:shadow-lg active:shadow-lg transition-all bg-gradient-to-br from-white to-gray-50/40 dark:from-neutral-900 dark:to-neutral-950/60 md:bg-white md:dark:bg-neutral-900"
               >
                 <div className="flex justify-center mb-3">{company.logo}</div>
                 <div className="font-bold text-gray-900 dark:text-gray-100 mb-1">
@@ -610,7 +610,7 @@ export default function WhyNextJS() {
                 variants={cardVariants}
                 custom={index}
                 whileHover="hover"
-                className="text-center p-8 border-2 border-gray-200 dark:border-white/10 rounded-2xl shadow-md md:shadow-none dark:shadow-lg dark:md:shadow-none hover:border-gray-400 dark:hover:border-white/20 active:border-gray-400 dark:active:border-white/20 hover:shadow-lg active:shadow-xl transition-all group bg-white dark:bg-neutral-900"
+                className="text-center p-8 border-2 border-gray-200 dark:border-white/10 rounded-2xl shadow-md md:shadow-none dark:shadow-lg dark:md:shadow-none hover:border-gray-400 dark:hover:border-white/20 active:border-gray-400 dark:active:border-white/20 hover:shadow-lg active:shadow-xl transition-all group bg-gradient-to-br from-white to-gray-50/40 dark:from-neutral-900 dark:to-neutral-950/60 md:bg-white md:dark:bg-neutral-900"
               >
                 <div className="inline-flex p-3 border border-gray-300 dark:border-white/10 rounded-full mb-4 group-hover:border-gray-500 dark:group-hover:border-white/20 transition-colors">
                   {stat.icon}
@@ -630,7 +630,7 @@ export default function WhyNextJS() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center border-2 border-gray-200 dark:border-white/10 rounded-3xl p-16 shadow-lg md:shadow-none dark:shadow-xl dark:md:shadow-none hover:border-gray-400 dark:hover:border-white/20 active:border-gray-400 dark:active:border-white/20 transition-colors bg-white dark:bg-neutral-900"
+          className="text-center border-2 border-gray-200 dark:border-white/10 rounded-3xl p-16 shadow-lg md:shadow-none dark:shadow-xl dark:md:shadow-none hover:border-gray-400 dark:hover:border-white/20 active:border-gray-400 dark:active:border-white/20 transition-colors bg-gradient-to-br from-white to-gray-50/30 dark:from-neutral-900 dark:to-neutral-950/50 md:bg-white md:dark:bg-neutral-900"
         >
           <h3 className="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-gray-100 mb-6 heroTitle">
             Ready to get started?
