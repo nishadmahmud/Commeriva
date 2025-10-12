@@ -42,7 +42,7 @@ const HeroPage = () => {
 
             <h1 className="mt-4 md:mt-6 text-4xl md:text-7xl font-semibold leading-[1.05] text-gray-900 dark:text-gray-100 heroTitle">
               Build. Ship. Scale.
-              <span className="block mt-3 bg-clip-text text-transparent bg-gradient-to-r from-cyan-200 via-white to-cyan-100">
+              <span className="block mt-3 bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-teal-600 dark:from-cyan-200 dark:via-white dark:to-cyan-100">
                 Websites that convert and endure
               </span>
             </h1>
@@ -60,15 +60,15 @@ const HeroPage = () => {
               </Link>
 
               <Link href='/pricing'>
-                <button className="inline-flex items-center gap-2 text-gray-800 dark:text-gray-100 hover:text-black dark:hover:text-white font-medium transition cursor-pointer border border-gray-300 dark:border-white/10 px-6 py-3 rounded-full bg-white/80 dark:bg-white/10 backdrop-blur-sm poppins">
-                  <MessageCircle color="black" size={22} className="bg-gray-200 dark:bg-white/20 rounded-full p-1.5" />
+                <button className="inline-flex items-center gap-2 text-gray-700 dark:text-gray-100 hover:text-gray-900 dark:hover:text-white font-medium transition cursor-pointer border border-gray-300 dark:border-white/10 px-6 py-3 rounded-full bg-white/90 dark:bg-white/10 backdrop-blur-sm poppins shadow-sm hover:shadow-md">
+                  <MessageCircle size={22} className="bg-gray-200 dark:bg-white/20 rounded-full p-1.5 text-gray-700 dark:text-white" />
                   View pricing
                 </button>
               </Link>
 
               <Link href='https://wa.me/8801799634508' target="_blank">
-                <button className="inline-flex items-center gap-2 text-gray-800 dark:text-gray-100 hover:text-black dark:hover:text-white font-medium transition cursor-pointer border border-gray-300 dark:border-white/10 px-6 py-3 rounded-full bg-white/80 dark:bg-white/10 backdrop-blur-sm poppins">
-                  <FaWhatsapp size={22} className="bg-gray-200 dark:bg-white/20 rounded-full p-1.5" />
+                <button className="inline-flex items-center gap-2 text-gray-700 dark:text-gray-100 hover:text-gray-900 dark:hover:text-white font-medium transition cursor-pointer border border-gray-300 dark:border-white/10 px-6 py-3 rounded-full bg-white/90 dark:bg-white/10 backdrop-blur-sm poppins shadow-sm hover:shadow-md">
+                  <FaWhatsapp size={22} className="bg-gray-200 dark:bg-white/20 rounded-full p-1.5 text-gray-700 dark:text-white" />
                   WhatsApp
                 </button>
               </Link>
@@ -84,7 +84,7 @@ const HeroPage = () => {
           >
             <div className="relative">
               {/* Neon ring card */}
-              <div className="relative p-[2px] rounded-2xl bg-[conic-gradient(from_180deg_at_50%_50%,_rgba(255,255,255,0.35),_rgba(168,85,247,0.35),_rgba(34,211,238,0.35),_rgba(255,255,255,0.35))]">
+              <div className="relative p-[2px] rounded-2xl bg-gray-200 dark:bg-[conic-gradient(from_180deg_at_50%_50%,_rgba(255,255,255,0.35),_rgba(168,85,247,0.35),_rgba(34,211,238,0.35),_rgba(255,255,255,0.35))]">
                 <div className="relative rounded-2xl bg-white/70 dark:bg-neutral-950/80 backdrop-blur-xl border border-white/10 overflow-hidden">
                   <div className="relative aspect-[4/3] md:aspect-[5/4]">
                     <img 

@@ -48,7 +48,7 @@ export default function SupplyChain() {
           </div>
           <h2 className="text-4xl md:text-6xl font-semibold text-gray-900 dark:text-gray-100 heroTitle mb-4">
             Boost your efficiency with{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-blue-300 to-teal-300">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-teal-600 dark:from-cyan-300 dark:via-blue-300 dark:to-teal-300">
               Commeriva
             </span>
           </h2>
@@ -68,8 +68,8 @@ export default function SupplyChain() {
             className="order-2 lg:order-1"
           >
             <div className="relative">
-              {/* Glow behind globe */}
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 blur-3xl rounded-full" />
+              {/* Glow behind globe - dark mode only */}
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 dark:from-cyan-500/20 dark:to-blue-500/20 blur-3xl rounded-full" />
               <Globe />
             </div>
           </motion.div>
@@ -85,8 +85,8 @@ export default function SupplyChain() {
                 transition={{ duration: 0.5, delay: i * 0.15 }}
                 className="group relative"
               >
-                {/* Glow on hover */}
-                <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-r from-cyan-500/40 to-blue-500/40 opacity-0 group-hover:opacity-100 blur transition-opacity duration-300" />
+                {/* Glow on hover - dark mode only */}
+                <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-r from-cyan-500/40 to-blue-500/40 opacity-0 dark:group-hover:opacity-100 blur transition-opacity duration-300" />
                 
                 {/* Card */}
                 <div className="relative rounded-xl border border-gray-200 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur p-6 hover:border-gray-300 dark:hover:border-white/20 transition-all">

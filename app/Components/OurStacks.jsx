@@ -64,7 +64,7 @@ export default function PartnersIntegrations() {
           </div>
           <h2 className="text-4xl md:text-6xl font-semibold text-gray-900 dark:text-gray-100 heroTitle mb-4">
             Built to work with your{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-teal-300 to-emerald-300">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-teal-600 to-emerald-600 dark:from-cyan-300 dark:via-teal-300 dark:to-emerald-300">
               ecosystem
             </span>
           </h2>
@@ -92,8 +92,8 @@ export default function PartnersIntegrations() {
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 className="group relative w-16 h-16 lg:w-20 lg:h-20"
               >
-                {/* Glow on hover */}
-                <div className="absolute -inset-2 rounded-xl bg-gradient-to-br from-cyan-500/30 to-teal-500/30 opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300" />
+                {/* Glow on hover - dark mode only */}
+                <div className="absolute -inset-2 rounded-xl bg-gradient-to-br from-cyan-500/30 to-teal-500/30 opacity-0 dark:group-hover:opacity-100 blur-lg transition-opacity duration-300" />
                 
                 {/* Logo container */}
                 <div className="relative w-full h-full flex items-center justify-center p-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur hover:border-gray-300 dark:hover:border-white/20 transition-all">

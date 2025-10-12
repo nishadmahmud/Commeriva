@@ -89,7 +89,7 @@ const FAQSection = () => {
           </div>
           <h2 className="text-4xl md:text-6xl font-semibold text-gray-900 dark:text-gray-100 heroTitle mb-4">
             Frequently asked{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-blue-300 to-teal-300">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-teal-600 dark:from-cyan-300 dark:via-blue-300 dark:to-teal-300">
               questions
             </span>
           </h2>
@@ -109,8 +109,8 @@ const FAQSection = () => {
               transition={{ duration: 0.5, delay: index * 0.05 }}
               className="group relative"
             >
-              {/* Glow on hover */}
-              <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-r from-cyan-500/30 to-blue-500/30 opacity-0 group-hover:opacity-100 blur transition-opacity duration-300" />
+              {/* Glow on hover - dark mode only */}
+              <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-r from-cyan-500/30 to-blue-500/30 opacity-0 dark:group-hover:opacity-100 blur transition-opacity duration-300" />
               
               {/* FAQ Card */}
               <div className="relative bg-white/60 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden backdrop-blur hover:border-gray-300 dark:hover:border-white/20 transition-all">
@@ -125,7 +125,7 @@ const FAQSection = () => {
                   <motion.div
                     animate={{ rotate: openItems[index] ? 45 : 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="flex-shrink-0 w-8 h-8 bg-cyan-500/10 dark:bg-cyan-500/20 rounded-full flex items-center justify-center group-hover/btn:bg-cyan-500 dark:group-hover/btn:bg-cyan-500 transition-colors"
+                    className="flex-shrink-0 w-8 h-8 bg-cyan-500/10 dark:bg-cyan-500/20 rounded-full flex items-center justify-center group-hover/btn:bg-cyan-600 dark:group-hover/btn:bg-cyan-500 transition-colors"
                   >
                     <Plus className="w-5 h-5 text-cyan-600 dark:text-cyan-400 group-hover/btn:text-white transition-colors" />
                   </motion.div>

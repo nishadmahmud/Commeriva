@@ -73,7 +73,7 @@ export default function ClientReview() {
           </div>
           <h2 className="text-4xl md:text-6xl font-semibold text-gray-900 dark:text-gray-100 heroTitle mb-4">
             Loved by{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-blue-300 to-teal-300">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-teal-600 dark:from-cyan-300 dark:via-blue-300 dark:to-teal-300">
               clients worldwide
             </span>
           </h2>
@@ -98,8 +98,8 @@ export default function ClientReview() {
                 whileHover={{ y: -8, scale: 1.02 }}
                 className={`group relative ${isFeatured ? 'md:row-span-2' : ''}`}
               >
-                {/* Glow on hover */}
-                <div className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-br ${isDark ? 'from-cyan-500/40 to-blue-500/40' : 'from-cyan-500/40 to-teal-500/40'} opacity-0 group-hover:opacity-100 blur transition-opacity duration-300`} />
+                {/* Glow on hover - dark mode only */}
+                <div className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-br ${isDark ? 'from-cyan-500/40 to-blue-500/40' : 'from-cyan-500/40 to-teal-500/40'} opacity-0 dark:group-hover:opacity-100 blur transition-opacity duration-300`} />
                 
                 {/* Card */}
                 <div className={`relative h-full rounded-2xl border p-6 backdrop-blur transition-all flex flex-col justify-between ${
@@ -124,7 +124,7 @@ export default function ClientReview() {
                   )}
 
                   {/* Quote icon */}
-                  <Quote className={`mb-3 ${isDark ? 'text-cyan-400' : 'text-cyan-500'}`} size={24} />
+                  <Quote className={`mb-3 ${isDark ? 'text-cyan-400' : 'text-cyan-600 dark:text-cyan-400'}`} size={24} />
 
                   {/* Review */}
                   <p className={`mb-6 leading-relaxed poppins text-sm ${isDark ? 'text-gray-100' : 'text-gray-600 dark:text-gray-300'}`}>

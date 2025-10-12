@@ -54,7 +54,7 @@ export default function BlogSection() {
           </div>
           <h2 className="text-4xl md:text-6xl font-semibold text-gray-900 dark:text-gray-100 heroTitle mb-4">
             Building your{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-blue-300 to-teal-300">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-teal-600 dark:from-cyan-300 dark:via-blue-300 dark:to-teal-300">
               perfect store
             </span>
           </h2>
@@ -75,8 +75,8 @@ export default function BlogSection() {
               whileHover={{ y: -8, scale: 1.02 }}
               className="group relative"
             >
-              {/* Glow on hover */}
-              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-cyan-500/40 to-blue-500/40 opacity-0 group-hover:opacity-100 blur transition-opacity duration-300" />
+              {/* Glow on hover - dark mode only */}
+              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-cyan-500/40 to-blue-500/40 opacity-0 dark:group-hover:opacity-100 blur transition-opacity duration-300" />
               
               {/* Card */}
               <div className="relative h-full rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur hover:border-gray-300 dark:hover:border-white/20 transition-all">

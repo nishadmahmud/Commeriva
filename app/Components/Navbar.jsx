@@ -10,6 +10,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { Building } from "lucide-react";
 import { UserStar } from "lucide-react";
 import { Store } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [active, setActive] = useState(null);
@@ -188,6 +189,7 @@ const Navbar = () => {
 
           {/* Right buttons - Desktop */}
           <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
             <Link href="https://wa.me/+8801677182084" target="_blank">
               <button className="group relative text-white cursor-pointer bg-gradient-to-r from-gray-900 to-gray-800 dark:from-white/10 dark:to-white/5 hover:from-gray-800 hover:to-gray-900 dark:hover:from-white/15 dark:hover:to-white/10 backdrop-blur-xl px-6 py-2.5 rounded-full text-sm font-semibold poppins border border-white/10 dark:border-white/5 shadow-md hover:shadow-lg transition-all duration-200">
                 <span className="relative z-10">Chat with us</span>
@@ -263,12 +265,15 @@ const Navbar = () => {
           >
             Commeriva
           </Link></h3>
-    <button
-      onClick={() => setMobileMenuOpen(false)}
-      className="self-end text-red-500 hover:text-red-400 transition-colors p-1.5 hover:bg-white/5 rounded-lg"
-    >
-      <X size={24} />
-    </button>
+    <div className="flex items-center gap-3">
+      <ThemeToggle />
+      <button
+        onClick={() => setMobileMenuOpen(false)}
+        className="self-end text-red-500 hover:text-red-400 transition-colors p-1.5 hover:bg-white/5 rounded-lg"
+      >
+        <X size={24} />
+      </button>
+    </div>
    </div>
 
     {/* Menu items here */}

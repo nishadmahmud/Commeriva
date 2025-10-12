@@ -109,7 +109,7 @@ export default function OurServices() {
           </div>
           <h2 className="text-4xl md:text-6xl font-semibold text-gray-900 dark:text-gray-100 heroTitle">
             What we build for{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-blue-300 to-teal-300">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-teal-600 dark:from-cyan-300 dark:via-blue-300 dark:to-teal-300">
               ambitious teams
             </span>
           </h2>
@@ -133,8 +133,8 @@ export default function OurServices() {
                 onHoverEnd={() => setHoveredIndex(null)}
                 className="group relative"
               >
-                {/* Animated glow border */}
-                <div className="absolute -inset-[2px] rounded-2xl bg-gradient-to-r from-cyan-500/50 via-blue-500/50 to-teal-500/50 opacity-0 group-hover:opacity-100 blur transition-opacity duration-500" />
+                {/* Animated glow border - dark mode only */}
+                <div className="absolute -inset-[2px] rounded-2xl bg-gradient-to-r from-cyan-500/50 via-blue-500/50 to-teal-500/50 opacity-0 dark:group-hover:opacity-100 blur transition-opacity duration-500" />
                 
                 {/* Card */}
                 <div className="relative h-full rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-neutral-900/80 backdrop-blur-xl">
@@ -158,7 +158,7 @@ export default function OurServices() {
 
                   {/* Content */}
                   <div className="p-6 md:p-8">
-                    <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-3 heroTitle group-hover:text-cyan-500 dark:group-hover:text-cyan-300 transition-colors">
+                    <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-3 heroTitle group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">
                       {service.title}
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300 mb-4 poppins leading-relaxed">
@@ -209,8 +209,8 @@ export default function OurServices() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group relative"
               >
-                {/* Glow on hover */}
-                <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-br from-cyan-500/40 to-blue-500/40 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300" />
+                {/* Glow on hover - dark mode only */}
+                <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-br from-cyan-500/40 to-blue-500/40 opacity-0 dark:group-hover:opacity-100 blur-sm transition-opacity duration-300" />
                 
                 {/* Card */}
                 <div className="relative h-full rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 bg-white/60 dark:bg-neutral-900/60 backdrop-blur-lg hover:border-gray-300 dark:hover:border-white/20 transition-all">
@@ -241,7 +241,7 @@ export default function OurServices() {
                       target="_blank"
                       rel="noopener noreferrer"
                       href={service.buttonLink}
-                      className="inline-flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-cyan-500 dark:hover:text-cyan-300 transition poppins group/link"
+                      className="inline-flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-cyan-600 dark:hover:text-cyan-300 transition poppins group/link"
                     >
                       {service.buttonText}
                       <ArrowUpRight size={14} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />

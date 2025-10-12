@@ -147,7 +147,7 @@ export default function Category() {
           </div>
           <h2 className="text-4xl md:text-6xl font-semibold text-gray-900 dark:text-gray-100 heroTitle mb-4">
             Industry‑tailored{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-blue-300 to-teal-300">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-teal-600 dark:from-cyan-300 dark:via-blue-300 dark:to-teal-300">
               commerce solutions
             </span>
       </h2>
@@ -173,8 +173,8 @@ export default function Category() {
                     transition={{ duration: 0.4, delay: index * 0.05 }}
                     className="group relative cursor-pointer"
                   >
-                    {/* Glow on hover */}
-                    <div className={`absolute -inset-[1px] rounded-xl bg-gradient-to-br ${cat.color} opacity-0 group-hover:opacity-100 blur transition-opacity duration-300 ${isActive ? '!opacity-100' : ''}`} />
+                    {/* Glow on hover - dark mode only */}
+                    <div className={`absolute -inset-[1px] rounded-xl bg-gradient-to-br ${cat.color} opacity-0 dark:group-hover:opacity-100 blur transition-opacity duration-300 ${isActive ? 'dark:!opacity-100' : ''}`} />
                     
                     {/* Card */}
                     <div className={`relative h-full rounded-xl overflow-hidden border transition-all duration-300 ${
