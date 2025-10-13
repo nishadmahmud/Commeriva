@@ -51,20 +51,27 @@ const titleVariants = {
 };
 
 export default function AboutUs() {
-  const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
+  const [mouseGlow, setMouseGlow] = React.useState({ x: 50, y: 50 });
 
-  const handleMouse = (e) => {
+  const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setMouseGlow({ x, y });
   };
 
   return (
-    <div className="bg-white dark:bg-neutral-950 text-gray-800 dark:text-gray-200 min-h-screen relative overflow-hidden" onMouseMove={handleMouse} style={{ ["--x"]: `${mousePos.x}px`, ["--y"]: `${mousePos.y}px` }}>
-      {/* subtle mouse-follow glow */}
-      <div className="pointer-events-none absolute inset-0 z-0" style={{ background: `radial-gradient(650px circle at var(--x) var(--y), rgba(59,130,246,0.08), transparent 70%)` }} />
-      <div className="pointer-events-none absolute inset-0 z-0 hidden dark:block" style={{ background: `radial-gradient(700px circle at var(--x) var(--y), rgba(255,255,255,0.06), transparent 75%)` }} />
+    <div className="bg-white dark:bg-neutral-950 text-gray-800 dark:text-gray-200 min-h-screen relative overflow-hidden" onMouseMove={handleMouseMove}>
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 dark:from-blue-950/20 dark:via-transparent dark:to-purple-950/20"></div>
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 dark:from-blue-950/20 dark:via-transparent dark:to-purple-950/20"></div>
+      
+      {/* Subtle mouse-follow neon glow */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background: `radial-gradient(650px at ${mouseGlow.x}% ${mouseGlow.y}%, rgba(59,130,246,0.10), rgba(147,51,234,0.06) 40%, transparent 70%)`,
+        }}
+      />
       
       {/* Hero Section */}
       <section className="relative z-10 py-20 px-6 md:px-20 text-center border-b border-gray-200 dark:border-white/10">

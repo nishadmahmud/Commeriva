@@ -62,7 +62,7 @@ export default function ContactPage() {
     details: "",
     captcha: "",
   });
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [mouseGlow, setMouseGlow] = useState({ x: 50, y: 50 });
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -73,18 +73,25 @@ export default function ContactPage() {
     console.log("Form Submitted:", form);
   };
 
-  const handleMouse = (e) => {
+  const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setMouseGlow({ x, y });
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950 relative overflow-hidden" onMouseMove={handleMouse} style={{ ["--x"]: `${mousePos.x}px`, ["--y"]: `${mousePos.y}px` }}>
-      {/* subtle mouse-follow glow */}
-      <div className="pointer-events-none absolute inset-0 z-0" style={{ background: `radial-gradient(650px circle at var(--x) var(--y), rgba(59,130,246,0.08), transparent 70%)` }} />
-      <div className="pointer-events-none absolute inset-0 z-0 hidden dark:block" style={{ background: `radial-gradient(700px circle at var(--x) var(--y), rgba(255,255,255,0.06), transparent 75%)` }} />
+    <div className="min-h-screen bg-white dark:bg-neutral-950 relative overflow-hidden" onMouseMove={handleMouseMove}>
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 dark:from-blue-950/20 dark:via-transparent dark:to-purple-950/20"></div>
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 dark:from-blue-950/20 dark:via-transparent dark:to-purple-950/20"></div>
+      
+      {/* Subtle mouse-follow neon glow */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background: `radial-gradient(650px at ${mouseGlow.x}% ${mouseGlow.y}%, rgba(59,130,246,0.10), rgba(147,51,234,0.06) 40%, transparent 70%)`,
+        }}
+      />
       
       {/* Header Section */}
       <div className="relative z-10 text-center py-16 px-6 bg-gradient-to-r from-gray-100 to-teal-100 dark:from-neutral-800 dark:to-teal-900/20">
@@ -195,7 +202,7 @@ export default function ContactPage() {
               <input
                 type="text"
                 name="name"
-                placeholder="Write your name"
+                placeholder="Your name"
                 value={form.name}
                 onChange={handleChange}
                 className="border border-gray-200 dark:border-white/10 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-200"
@@ -203,7 +210,7 @@ export default function ContactPage() {
               <input
                 type="text"
                 name="phone"
-                placeholder="Write your phone number"
+                placeholder="Your phone number"
                 value={form.phone}
                 onChange={handleChange}
                 className="border border-gray-200 dark:border-white/10 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-200"
@@ -214,7 +221,7 @@ export default function ContactPage() {
               <input
                 type="email"
                 name="email"
-                placeholder="Write your email address"
+                placeholder="Your email address"
                 value={form.email}
                 onChange={handleChange}
                 className="border border-gray-200 dark:border-white/10 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-200"
@@ -222,7 +229,7 @@ export default function ContactPage() {
               <input
                 type="text"
                 name="subject"
-                placeholder="Write the subject of your message"
+                placeholder="Subject of your message"
                 value={form.subject}
                 onChange={handleChange}
                 className="border border-gray-200 dark:border-white/10 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-200"

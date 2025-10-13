@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const cardVariants = {
@@ -51,10 +51,27 @@ const titleVariants = {
 };
 
 const IntegrationsPage = () => {
+  const [mouseGlow, setMouseGlow] = useState({ x: 50, y: 50 });
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setMouseGlow({ x, y });
+  };
+
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950 py-16 px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-white dark:bg-neutral-950 py-16 px-4 relative overflow-hidden" onMouseMove={handleMouseMove}>
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 dark:from-blue-950/20 dark:via-transparent dark:to-purple-950/20"></div>
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 dark:from-blue-950/20 dark:via-transparent dark:to-purple-950/20"></div>
+      
+      {/* Subtle mouse-follow neon glow */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background: `radial-gradient(650px at ${mouseGlow.x}% ${mouseGlow.y}%, rgba(59,130,246,0.10), rgba(147,51,234,0.06) 40%, transparent 70%)`,
+        }}
+      />
       
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header Section */}

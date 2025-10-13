@@ -17,15 +17,17 @@ import Link from "next/link";
 
 const PortfolioLandingPage = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [mouseGlow, setMouseGlow] = useState({ x: 50, y: 50 });
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  const handleMouse = (e) => {
-    const target = e.currentTarget.getBoundingClientRect();
-    setMousePos({ x: e.clientX - target.left, y: e.clientY - target.top });
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setMouseGlow({ x, y });
   };
 
   const containerVariants = {
@@ -67,24 +69,16 @@ const PortfolioLandingPage = () => {
   return (
     <div
       className="relative min-h-screen bg-white dark:bg-neutral-950 text-black dark:text-gray-100 overflow-hidden"
-      onMouseMove={handleMouse}
-      style={{
-        // CSS vars used by the glow overlay
-        ["--x"]: `${mousePos.x}px`,
-        ["--y"]: `${mousePos.y}px`,
-      }}
+      onMouseMove={handleMouseMove}
     >
-      {/* subtle mouse-follow glow */}
+      {/* Background gradient */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 dark:from-blue-950/20 dark:via-transparent dark:to-purple-950/20"></div>
+      
+      {/* Subtle mouse-follow neon glow */}
       <div
         className="pointer-events-none absolute inset-0 z-0"
         style={{
-          background: `radial-gradient(600px circle at var(--x) var(--y), rgba(59,130,246,0.08), transparent 65%)`,
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0 z-0 hidden dark:block"
-        style={{
-          background: `radial-gradient(700px circle at var(--x) var(--y), rgba(255,255,255,0.06), transparent 70%)`,
+          background: `radial-gradient(650px at ${mouseGlow.x}% ${mouseGlow.y}%, rgba(59,130,246,0.10), rgba(147,51,234,0.06) 40%, transparent 70%)`,
         }}
       />
       {/* Hero */}
@@ -108,7 +102,7 @@ const PortfolioLandingPage = () => {
       </section>
 
       {/* Professions */}
-      <section className="py-16">
+      <section className="py-16 bg-white dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
           <h2 className="md:text-3xl text-2xl title font-semibold mb-10 text-gray-900 dark:text-gray-100">
             Perfect for Every Professional
@@ -133,7 +127,7 @@ const PortfolioLandingPage = () => {
       </section>
 
       {/* Features */}
-      <section id="features" className="py-20 bg-gray-50 dark:bg-transparent">
+      <section id="features" className="py-20 bg-white dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
           <h2 className="md:text-3xl text-2xl title font-semibold mb-12 text-gray-900 dark:text-gray-100">Powerful Features</h2>
           <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -157,7 +151,7 @@ const PortfolioLandingPage = () => {
       </section>
 
       {/* Benefits */}
-      <section id="benefits" className="py-20">
+      <section id="benefits" className="py-20 bg-white dark:bg-neutral-950">
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <h2 className="md:text-3xl text-2xl title font-semibold mb-12 text-gray-900 dark:text-gray-100">Benefits for You</h2>
           <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="space-y-4">
@@ -176,21 +170,18 @@ const PortfolioLandingPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 -mt-px bg-black dark:bg-neutral-950 text-center text-white relative overflow-hidden">
-        <div className="max-w-3xl mx-auto px-4 relative z-10">
+      <section className="py-20  bg-white dark:bg-neutral-950 text-center text-white ">
+        <div className="mx-auto px-4 relative text-gray-900 dark:text-gray-100">
           <h2 className="md:text-3xl text-2xl heroTitle font-semibold mb-4">
             Ready to Build Your Digital Identity?
           </h2>
-          <p className="text-gray-300 mb-8 poppins">
-            Your portfolio becomes more than a website—it becomes your personal growth engine.
+          <p className="dark:text-gray-300 text-gray-900 mb-8 poppins">
+            Your portfolio becomes more than a website - it becomes your personal growth engine.
           </p>
-          <Link href='https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform' target="_blank" className="inline-flex items-center gap-2 bg-white text-black dark:bg-white/90 dark:text-black px-6 py-2 rounded-full font-semibold poppins hover:bg-gray-100 transition">
+          <Link href='https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform' target="_blank" className="inline-flex items-center border border-black dark:border-white gap-2 bg-white text-black dark:bg-white/90 dark:text-black px-6 py-2 rounded-full font-semibold poppins hover:bg-gray-100 transition">
             Get Started Today <ChevronRight className="w-5 h-5" />
           </Link>
         </div>
-        {/* dim gradient corners for depth */}
-        <div className="pointer-events-none absolute -top-24 -left-24 w-72 h-72 rounded-full bg-blue-500/10 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-28 -right-28 w-80 h-80 rounded-full bg-fuchsia-500/10 blur-3xl" />
       </section>
     </div>
   );

@@ -173,8 +173,8 @@ export default function Category() {
                     transition={{ duration: 0.4, delay: index * 0.05 }}
                     className="group relative cursor-pointer"
                   >
-                    {/* Glow on hover - dark mode only */}
-                    <div className={`absolute -inset-[1px] rounded-xl bg-gradient-to-br ${cat.color} opacity-0 dark:group-hover:opacity-100 blur transition-opacity duration-300 ${isActive ? 'dark:!opacity-100' : ''}`} />
+                    {/* Glow on hover */}
+                    <div className={`absolute -inset-[1px] rounded-xl bg-gradient-to-br ${cat.color} opacity-0 group-hover:opacity-100 blur transition-opacity duration-300 ${isActive ? '!opacity-100' : ''}`} />
                     
                     {/* Card */}
                     <div className={`relative h-full rounded-xl overflow-hidden border transition-all duration-300 ${

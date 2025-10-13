@@ -22,11 +22,13 @@ import {
 } from "lucide-react";
 
 export default function LandingPage() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [mouseGlow, setMouseGlow] = useState({ x: 50, y: 50 });
 
-  const handleMouse = (e) => {
+  const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setMouseGlow({ x, y });
   };
 
   const features = [
@@ -59,20 +61,16 @@ export default function LandingPage() {
   return (
     <main
       className="relative min-h-screen bg-white dark:bg-neutral-950 text-black dark:text-gray-100 flex flex-col items-center px-4 md:px-6 py-16 overflow-hidden"
-      onMouseMove={handleMouse}
-      style={{ ["--x"]: `${mousePos.x}px`, ["--y"]: `${mousePos.y}px` }}
+      onMouseMove={handleMouseMove}
     >
-      {/* subtle mouse-follow glow */}
+      {/* Background gradient */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 dark:from-blue-950/20 dark:via-transparent dark:to-purple-950/20"></div>
+      
+      {/* Subtle mouse-follow neon glow */}
       <div
         className="pointer-events-none absolute inset-0 z-0"
         style={{
-          background: `radial-gradient(650px circle at var(--x) var(--y), rgba(59,130,246,0.08), transparent 70%)`,
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0 z-0 hidden dark:block"
-        style={{
-          background: `radial-gradient(700px circle at var(--x) var(--y), rgba(255,255,255,0.06), transparent 75%)`,
+          background: `radial-gradient(650px at ${mouseGlow.x}% ${mouseGlow.y}%, rgba(59,130,246,0.10), rgba(147,51,234,0.06) 40%, transparent 70%)`,
         }}
       />
       {/* Title */}
