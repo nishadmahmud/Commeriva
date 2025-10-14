@@ -16,7 +16,7 @@ const services = [
     ],
     buttonText: "Book Now",
     buttonLink: "https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform",
-    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392227.jpg",
+    image: "https://cdn.pixabay.com/photo/2015/07/17/22/42/startup-849804_1280.jpg",
     featured: true,
   },
   {
@@ -29,7 +29,7 @@ const services = [
     ],
     buttonText: "Plan a build",
     buttonLink: "https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform",
-    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392289.jpg",
+    image: "/e-commerce.jpg",
     featured: true,
   },
   {
@@ -42,7 +42,7 @@ const services = [
     ],
     buttonText: "Talk resourcing",
     buttonLink: "https://wa.me/+8801677182084",
-    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392467.jpg",
+    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&auto=format&fit=crop&q=80",
   },
   {
     title: "Landing Pages & Marketing Sites",
@@ -54,7 +54,7 @@ const services = [
     ],
     buttonText: "Book a call",
     buttonLink: "https://wa.me/+8801677182084",
-    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392582.jpg",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
   },
   {
     title: "Blog & Content Platforms",
@@ -78,7 +78,7 @@ const services = [
     ],
     buttonText: "Talk to us",
     buttonLink: "https://wa.me/+8801677182084",
-    image: "https://www.outletexpense.xyz/uploads/230-Motiur-Rahman/1757392891.jpg",
+    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop&q=80",
   },
 ];
 
@@ -86,7 +86,7 @@ export default function OurServices() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section id="services" className="relative py-20 md:py-32 bg-white dark:bg-neutral-950 overflow-hidden">
+    <section id="services" className="relative py-12 md:py-20 bg-white dark:bg-neutral-950 overflow-hidden">
       {/* Animated background mesh */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute top-0 -left-40 size-[40rem] rounded-full bg-gradient-to-br from-cyan-400/20 via-blue-400/10 to-teal-400/20 blur-3xl animate-pulse" />
@@ -148,7 +148,6 @@ export default function OurServices() {
                       height={450}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
                     
                     {/* Floating badge */}
                     <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur text-white text-xs poppins">
@@ -224,7 +223,6 @@ export default function OurServices() {
                       height={300}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                   </div>
 
                   {/* Content */}

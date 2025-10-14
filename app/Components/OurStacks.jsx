@@ -42,7 +42,7 @@ export default function PartnersIntegrations() {
   ];
 
   return (
-    <section className="relative py-20 md:py-32 bg-white dark:bg-neutral-950 overflow-hidden">
+    <section className="relative py-12 md:py-20 bg-white dark:bg-neutral-950 overflow-hidden">
       {/* Animated background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/4 size-[40rem] rounded-full bg-gradient-to-br from-blue-400/20 via-cyan-400/10 to-teal-400/20 blur-3xl animate-pulse" />

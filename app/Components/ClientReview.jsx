@@ -51,7 +51,7 @@ const testimonials = [
 
 export default function ClientReview() {
   return (
-    <section className="relative py-20 md:py-32 bg-white dark:bg-neutral-950 overflow-hidden">
+    <section className="relative py-12 md:py-20 bg-white dark:bg-neutral-950 overflow-hidden">
       {/* Background glows */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute top-20 -left-40 size-[40rem] rounded-full bg-gradient-to-br from-cyan-400/20 via-blue-400/10 to-teal-400/20 blur-3xl animate-pulse" />
