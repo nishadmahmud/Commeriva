@@ -202,16 +202,18 @@ const Navbar = () => {
           <div className="md:hidden flex items-center gap-3">
             <Link
               href="https://wa.me/+8801886182084"
-              className="px-4 py-2 rounded-full border border-white/10 shadow-sm flex items-center gap-1.5 bg-white/10 backdrop-blur-xl"
+              className="px-4 py-2 rounded-full border shadow-sm flex items-center gap-1.5 bg-white/80 text-gray-900 border-gray-200 hover:bg-white dark:bg-white/10 dark:text-white dark:border-white/10 backdrop-blur-xl"
             >
-              <span className="text-white text-sm font-semibold poppins">Let's Talk</span>
+              <span className="text-sm font-semibold poppins">Let's Talk</span>
             </Link>
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-700 dark:text-gray-100 cursor-pointer"
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {!mobileMenuOpen && (
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-gray-700 dark:text-gray-100 cursor-pointer"
+              >
+                <Menu size={24} />
+              </button>
+            )}
           </div>
         </div>
 
@@ -236,12 +238,7 @@ const Navbar = () => {
   animate={{ x: 0 }}
   exit={{ x: "-100%" }}
   transition={{ duration: 0.4, ease: "easeInOut" }}
-  className="fixed top-0 left-0 h-screen w-72 backdrop-blur-3xl border-r border-white/10 shadow-2xl z-[9999]"
-  style={{
-    background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(15, 15, 20, 0.9) 50%, rgba(0, 0, 0, 0.85) 100%)',
-    backdropFilter: 'blur(40px) saturate(180%)',
-    WebkitBackdropFilter: 'blur(40px) saturate(180%)',
-  }}
+  className="fixed top-0 left-0 h-screen w-72 backdrop-blur-3xl border-r border-gray-200/60 dark:border-white/10 shadow-2xl z-[9999] bg-white/85 dark:bg-neutral-950/90"
 >
   <div className="p-6 flex flex-col h-full relative">
     {/* Frosted glass overlay with subtle noise texture */}
@@ -249,31 +246,33 @@ const Navbar = () => {
       className="absolute inset-0 pointer-events-none opacity-10"
       style={{
         backgroundImage: `
-          linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%, rgba(6, 182, 212, 0.06) 100%),
+          linear-gradient(135deg, rgba(0, 0, 0, 0.06) 0%, transparent 50%, rgba(6, 182, 212, 0.06) 100%),
           url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")
         `,
         backgroundBlendMode: 'overlay',
       }}
     />
     {/* Additional frosted layer */}
-    <div className="absolute inset-0 bg-gradient-to-b from-white/3 via-white/1 to-transparent pointer-events-none" />
+    <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/0 to-black/0 dark:from-white/3 dark:via-white/1 dark:to-transparent pointer-events-none" />
 
    <div className="flex justify-between items-center mb-8 relative z-10">
      <h3><Link
             href="/"
-            className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-cyan-100 to-white text-2xl logoFont cursor-pointer tracking-wider"
+            className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-white dark:via-cyan-100 dark:to-white text-2xl logoFont cursor-pointer tracking-wider"
           >
             Commeriva
           </Link></h3>
-    <div className="flex items-center gap-3">
-      <ThemeToggle />
-      <button
-        onClick={() => setMobileMenuOpen(false)}
-        className="self-end text-red-500 hover:text-red-400 transition-colors p-1.5 hover:bg-white/5 rounded-lg"
-      >
-        <X size={24} />
-      </button>
-    </div>
+    <button
+      onClick={() => setMobileMenuOpen(false)}
+      className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors p-1.5 hover:bg-gray-100 dark:hover:bg-white/5 rounded-lg"
+    >
+      <X size={20} />
+    </button>
+   </div>
+   
+   {/* Theme toggle moved below */}
+   <div className="mb-4 relative z-10">
+     <ThemeToggle />
    </div>
 
     {/* Menu items here */}
@@ -305,9 +304,9 @@ const Navbar = () => {
 }}
 
                   className={`w-full flex items-center justify-between px-4 py-3 text-left poppins text-sm rounded-xl transition-all duration-200 ${
-                isActiveTop(menu) 
-                  ? "bg-white/15 text-white font-semibold border border-cyan-400/40 shadow-lg shadow-cyan-500/10 backdrop-blur-sm" 
-                  : "border border-white/5 text-gray-200 hover:text-white hover:bg-white/10 hover:border-cyan-400/20 backdrop-blur-sm"
+                isActiveTop(menu)
+                  ? "bg-gray-100 text-gray-900 font-semibold border border-gray-300 shadow-sm dark:bg-white/15 dark:text-white dark:border-cyan-400/40 dark:shadow-lg dark:shadow-cyan-500/10 backdrop-blur-sm"
+                  : "border border-gray-200 text-gray-800 hover:text-black hover:bg-gray-100 hover:border-cyan-400/20 dark:border-white/5 dark:text-gray-200 dark:hover:text-white dark:hover:bg-white/10 dark:hover:border-cyan-400/20 backdrop-blur-sm"
               }`}
             >
               <span>{menu}</span>
@@ -346,15 +345,15 @@ const Navbar = () => {
                         key={i}
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)} 
-                        className="flex items-center space-x-3 poppins px-4 py-3 rounded-xl hover:bg-white/15 text-start text-gray-200 hover:text-white transition-all duration-200 border border-white/5 hover:border-cyan-400/30 backdrop-blur-sm hover:shadow-lg hover:shadow-cyan-500/5"
+                        className="flex items-center space-x-3 poppins px-4 py-3 rounded-xl text-start transition-all duration-200 border bg-white/70 border-gray-200 text-gray-800 hover:text-black hover:bg-gray-100 hover:border-cyan-400/30 dark:bg-transparent dark:text-gray-200 dark:hover:text-white dark:hover:bg-white/15 dark:border-white/5 dark:hover:border-cyan-400/30 backdrop-blur-sm hover:shadow-lg dark:hover:shadow-cyan-500/5"
                       >
-                        <div className="p-2 border border-white/10 shadow-sm rounded-xl bg-white/10 backdrop-blur">
+                        <div className="p-2 border border-gray-200 dark:border-white/10 shadow-sm rounded-xl bg-white/70 dark:bg-white/10 backdrop-blur">
                           <Image
                             alt="icon"
                             unoptimized
                             width={200}
                             height={200}
-                            className="w-6 p-0.5 invert opacity-90"
+                            className="w-6 p-0.5 dark:invert opacity-90"
                             src={item.icon}
                           />
                         </div>
