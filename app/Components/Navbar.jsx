@@ -101,13 +101,13 @@ const Navbar = () => {
           {/* Left logo */}
           <Link
             href="/"
-            className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-cyan-100 dark:to-white md:text-3xl text-2xl logoFont cursor-pointer tracking-wider hover:from-cyan-600 hover:via-blue-600 hover:to-teal-600 transition-all duration-300"
+            className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-cyan-100 dark:to-white lg:text-3xl text-2xl logoFont cursor-pointer tracking-wider hover:from-cyan-600 hover:via-blue-600 hover:to-teal-600 transition-all duration-300"
           >
             Commeriva
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-8 font-medium text-gray-700 dark:text-gray-300">
+          <div className="hidden lg:flex space-x-8 font-medium text-gray-700 dark:text-gray-300">
             {Object.keys(menus).map((menu) => (
               <div
                 key={menu}
@@ -188,7 +188,7 @@ const Navbar = () => {
           </div>
 
           {/* Right buttons - Desktop */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <ThemeToggle />
             <Link href="https://wa.me/+8801677182084" target="_blank">
               <button className="group relative text-white cursor-pointer bg-gradient-to-r from-gray-900 to-gray-800 dark:from-white/10 dark:to-white/5 hover:from-gray-800 hover:to-gray-900 dark:hover:from-white/15 dark:hover:to-white/10 backdrop-blur-xl px-6 py-2.5 rounded-full text-sm font-semibold poppins border border-white/10 dark:border-white/5 shadow-md hover:shadow-lg transition-all duration-200">
@@ -198,8 +198,12 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center gap-3">
+          {/* Mobile/Tablet right controls */}
+          <div className="lg:hidden flex items-center gap-3">
+            {/* Show theme toggle on tablet (md), hide on mobile */}
+            <div className="hidden md:block">
+              <ThemeToggle />
+            </div>
             <Link
               href="https://wa.me/+8801886182084"
               className="px-4 py-2 rounded-full border shadow-sm flex items-center gap-1.5 bg-white/80 text-gray-900 border-gray-200 hover:bg-white dark:bg-white/10 dark:text-white dark:border-white/10 backdrop-blur-xl"
@@ -270,8 +274,8 @@ const Navbar = () => {
     </button>
    </div>
    
-   {/* Theme toggle moved below */}
-   <div className="mb-4 relative z-10">
+   {/* Theme toggle moved below; hidden on tablet so it's only in top bar */}
+   <div className="mb-4 relative z-10 md:hidden">
      <ThemeToggle />
    </div>
 

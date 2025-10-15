@@ -27,32 +27,32 @@ const HeroPage = () => {
 
       {/* Layout */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-6 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left: Copy */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="md:col-span-7"
+            className="lg:col-span-7"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 dark:bg-black/40 border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-200 text-xs md:text-sm shadow-sm backdrop-blur">
               <span className="w-2 h-2 rounded-full bg-gray-900 dark:bg-white" />
               Commeriva Studio — Premium builds
             </div>
 
-            <h1 className="mt-4 md:mt-6 text-4xl md:text-7xl font-semibold leading-[1.05] text-gray-900 dark:text-gray-100 heroTitle">
+            <h1 className="mt-4 lg:mt-6 text-4xl lg:text-7xl font-semibold leading-[1.05] text-gray-900 dark:text-gray-100 heroTitle">
               Build. Ship. Scale.
               <span className="block mt-3 bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-teal-600 dark:from-cyan-200 dark:via-white dark:to-cyan-100">
                 Websites that convert and endure
               </span>
             </h1>
 
-            <p className="mt-5 md:text-lg max-w-2xl text-gray-600 dark:text-gray-300 poppins">
+            <p className="mt-5 lg:text-lg max-w-2xl text-gray-600 dark:text-gray-300 poppins">
               Conversion‑focused websites for e‑commerce, corporate, and portfolio brands.
               Fast by default, SEO‑ready, and engineered to scale with your roadmap.
             </p>
 
-            <div className="mt-7 flex flex-wrap gap-3 md:gap-4">
+            <div className="mt-7 flex flex-wrap gap-3 lg:gap-4">
               <Link target="_blank" href='https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform?usp=sharing&ouid=101793279606112585174'>
                 <button className="bg-gray-900/90 dark:bg-white/10 hover:bg-black dark:hover:bg-white/15 text-white font-semibold px-4 py-2 md:px-6 md:py-3 text-sm md:text-base rounded-full shadow-lg transition cursor-pointer poppins inline-flex items-center gap-2 ring-1 ring-black/10 dark:ring-white/10 border border-white/10 backdrop-blur">
                   <Calendar size={18} /> Start a project
@@ -80,13 +80,13 @@ const HeroPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-            className="md:col-span-5"
+            className="lg:col-span-5"
           >
             <div className="relative">
               {/* Neon ring card */}
               <div className="relative p-[2px] rounded-2xl bg-gray-200 dark:bg-[conic-gradient(from_180deg_at_50%_50%,_rgba(255,255,255,0.35),_rgba(168,85,247,0.35),_rgba(34,211,238,0.35),_rgba(255,255,255,0.35))]">
                 <div className="relative rounded-2xl bg-white/70 dark:bg-neutral-950/80 backdrop-blur-xl border border-white/10 overflow-hidden">
-                  <div className="relative aspect-[4/3] md:aspect-[5/4]">
+                  <div className="relative aspect-[4/3] lg:aspect-[5/4]">
                     <img 
                       src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop&q=80" 
                       alt="SaaS dashboard interface" 
