@@ -100,7 +100,7 @@ export default function PartnersIntegrations() {
                   <img
                     src={logo.image}
                     alt={logo.name}
-                    className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                    className="max-w-full max-h-full object-contain filter [filter:grayscale(50%)] group-hover:[filter:grayscale(0%)] transition-all duration-300"
                   />
                 </div>
               </motion.div>
@@ -120,7 +120,7 @@ export default function PartnersIntegrations() {
                   <img
                     src={logo.image}
                     alt={logo.name}
-                    className="max-w-full max-h-full object-contain grayscale"
+                    className="max-w-full max-h-full object-contain filter [filter:grayscale(50%)]"
                   />
                 </div>
               ))}
