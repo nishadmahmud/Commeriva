@@ -52,21 +52,21 @@ const HeroPage = () => {
               Fast by default, SEO‑ready, and engineered to scale with your roadmap.
             </p>
 
-            <div className="mt-7 flex flex-wrap gap-4">
+            <div className="mt-7 flex flex-wrap gap-3 md:gap-4">
               <Link target="_blank" href='https://docs.google.com/forms/d/e/1FAIpQLSebEE9Lz4XluDQ9oLs6dS6CH1NNEBQcEmVQ4ncpg9i3uyuy1w/viewform?usp=sharing&ouid=101793279606112585174'>
-                <button className="bg-gray-900/90 dark:bg-white/10 hover:bg-black dark:hover:bg-white/15 text-white font-semibold px-6 py-3 rounded-full shadow-lg transition cursor-pointer poppins inline-flex items-center gap-2 ring-1 ring-black/10 dark:ring-white/10 border border-white/10 backdrop-blur">
-                  <Calendar size={20} /> Start a project
+                <button className="bg-gray-900/90 dark:bg-white/10 hover:bg-black dark:hover:bg-white/15 text-white font-semibold px-4 py-2 md:px-6 md:py-3 text-sm md:text-base rounded-full shadow-lg transition cursor-pointer poppins inline-flex items-center gap-2 ring-1 ring-black/10 dark:ring-white/10 border border-white/10 backdrop-blur">
+                  <Calendar size={18} /> Start a project
                 </button>
               </Link>
 
               <Link href='/pricing'>
-                <button className="inline-flex items-center gap-2 text-gray-700 dark:text-gray-100 hover:text-gray-900 dark:hover:text-white font-medium transition cursor-pointer border border-gray-300 dark:border-white/10 px-6 py-3 rounded-full bg-white/90 dark:bg-white/10 backdrop-blur-sm poppins shadow-sm hover:shadow-md">
-                  <MessageCircle size={22} className="bg-gray-200 dark:bg-white/20 rounded-full p-1.5 text-gray-700 dark:text-white" />
+                <button className="inline-flex items-center gap-2 text-gray-700 dark:text-gray-100 hover:text-gray-900 dark:hover:text-white font-medium transition cursor-pointer border border-gray-300 dark:border-white/10 px-4 py-2 md:px-6 md:py-3 text-sm md:text-base rounded-full bg-white/90 dark:bg-white/10 backdrop-blur-sm poppins shadow-sm hover:shadow-md">
+                  <MessageCircle size={20} className="bg-gray-200 dark:bg-white/20 rounded-full p-1.5 text-gray-700 dark:text-white" />
                   View pricing
                 </button>
               </Link>
 
-              <Link href='https://wa.me/8801799634508' target="_blank">
+              <Link href='https://wa.me/+8801886182084' target="_blank" className="hidden md:block">
                 <button className="inline-flex items-center gap-2 text-gray-700 dark:text-gray-100 hover:text-gray-900 dark:hover:text-white font-medium transition cursor-pointer border border-gray-300 dark:border-white/10 px-6 py-3 rounded-full bg-white/90 dark:bg-white/10 backdrop-blur-sm poppins shadow-sm hover:shadow-md">
                   <FaWhatsapp size={22} className="bg-gray-200 dark:bg-white/20 rounded-full p-1.5 text-gray-700 dark:text-white" />
                   WhatsApp

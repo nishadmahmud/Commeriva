@@ -244,6 +244,66 @@ const projects = [
     liveLink: "https://www.applemartbd.com",
     technologies: ["React", "Express", "MySQL"],
   },
+  {
+    id: 10,
+    title: "EmusFashion",
+    logo: "https://www.outletexpense.xyz/uploads/238-MD.-Sarawer-Jahan-Evan/1758168402.png",
+    image: "/EmusFashion.png",
+    description:
+      "Modern fashion e‑commerce with curated categories, fast product discovery, and a streamlined checkout designed to increase conversions.",
+    liveLink: "https://emusfashion.com/",
+    technologies: ["Next.js", "Tailwind", "Framer Motion"],
+  },
+  {
+    id: 11,
+    title: "Brothers Mobile & Accessories",
+    logo: "https://www.brothersmobilebd.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdownload__4_-removebg-preview-removebg-preview%20(1).4b6af063.png&w=256&q=75&dpl=dpl_cxXAviRRxxRvewfH55T3iWYJzGet",
+    image: "/Brothers Mobile & Accessories.png",
+    description:
+      "Retail experience for smartphones and accessories with clear product taxonomy, warranty info, and mobile‑first performance.",
+    liveLink: "https://www.brothersmobilebd.com/",
+    technologies: ["Next.js", "Tailwind", "SWR"],
+  },
+  {
+    id: 12,
+    title: "Squad Innovators",
+    logo: "https://squadinnovators.com/_next/static/media/Final-logo.9b8b0c50.png",
+    image: "/Squad Innovators.png",
+    description:
+      "Corporate site for a digital agency showcasing services, process, and case studies with subtle motion and strong CTA strategy.",
+    liveLink: "https://squadinnovators.com/",
+    technologies: ["Next.js", "Tailwind", "Framer Motion"],
+  },
+  {
+    id: 13,
+    title: "Outlet Expense",
+    logo: "https://outletexpense.com/favicon.ico",
+    image: "/Outlet Expense.png",
+    description:
+      "SaaS platform for expense tracking and outlet operations with dashboards, role‑based access, and real‑time insights.",
+    liveLink: "https://outletexpense.com/",
+    technologies: ["Next.js", "API Integration", "Tailwind"],
+  },
+  {
+    id: 14,
+    title: "Apple Daddy",
+    logo: "https://www.appledaddybd.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffavicon.a0e81e1a.png&w=384&q=75&dpl=dpl_imvdJGmx7Rx6G9viBLLycAbU1M3f",
+    image: "/Apple Daddy.png",
+    description:
+      "Apple‑focused retailer site featuring product comparisons, EMI details, and conversion‑optimized PDP and cart flow.",
+    liveLink: "https://www.appledaddybd.com/",
+    technologies: ["Next.js", "Tailwind", "SWR"],
+  },
+  {
+    id: 15,
+    title: "Perfect Gadget BD",
+    logo: "https://www.perfectgadgetbd.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FPerfectGadgetBD-logo%20(1)%201.953d5536.png&w=128&q=75&dpl=dpl_Gnozm5sN5kDuE9hYgX68JMzafQty",
+    image: "/Perfect Gadget BD.png",
+    description:
+      "Electronics and gadget storefront with fast catalog browsing, detailed specs, and secure checkout.",
+    liveLink: "https://perfectgadgetbd.com/",
+    technologies: ["Next.js", "Tailwind", "Framer Motion"],
+  },
 ]
 
 
